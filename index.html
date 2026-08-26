@@ -54,6 +54,8 @@ tbody td.tick-cell{background:rgba(251,191,36,0.03);font-size:0.65rem;color:#fbb
 .flat{color:#888}
 .current-candle{background:rgba(251,191,36,0.08)!important}
 .empty-cell{color:#333}
+.flash-green{background-color:rgba(74,222,128,0.35)!important;transition:background-color 0.4s ease}
+.flash-red{background-color:rgba(248,113,113,0.35)!important;transition:background-color 0.4s ease}
 .log-panel{max-width:1200px;margin:16px 24px;padding:14px;background:#12121f;border:1px solid #2a2a4a;border-radius:10px;font-family:'Courier New',monospace;font-size:0.75rem;max-height:200px;overflow:auto;color:#888}
 .log-panel .log-entry{padding:2px 0;border-bottom:1px solid #1a1a2e}
 .log-panel .log-time{color:#555;margin-right:8px}
@@ -85,8 +87,9 @@ tbody td.tick-cell{background:rgba(251,191,36,0.03);font-size:0.65rem;color:#fbb
     <span class="tick-counter" id="tickCounter">Ticks: 0</span>
   </div>
   <div class="controls">
-    <button class="btn" id="loginBtn" onclick="doLogin()">🔑 Login</button>
-    <button class="btn btn-success hidden" id="wsBtn" onclick="connectWS()"> Connect WS</button>
+    <button class="btn btn-primary" id="loginBtn" onclick="doLogin()">🔑 Login</button>
+    <button class="btn" style="background:#2a2a4a;color:#fbbf24" id="demoBtn" onclick="startDemoMode()">⚡ Live Demo Feed</button>
+    <button class="btn btn-success hidden" id="wsBtn" onclick="connectWS()">⚡ Connect Live Stream</button>
     <button class="btn btn-danger hidden" id="disconnectBtn" onclick="disconnectWS()">⏹ Disconnect</button>
     <button class="btn" onclick="runConnectionTest()">🧪 Test Connection</button>
     <button class="btn" onclick="exportCSV()">⬇ Export CSV</button>
@@ -160,55 +163,55 @@ tbody td.tick-cell{background:rgba(251,191,36,0.03);font-size:0.65rem;color:#fbb
 // ============ NIFTY 50 STOCKS WITH ANGEL ONE TOKENS (NSE ONLY) ============
 const NIFTY50_STOCKS = [
   { sym: "RELIANCE", name: "Reliance Industries", token: "2885" },
-  { sym: "TCS", name: "Tata Consultancy Services", token: "3456" },
-  { sym: "HDFCBANK", name: "HDFC Bank", token: "1330" },
+  { sym: "TCS", name: "Tata Consultancy Services", token: "11536" },
+  { sym: "HDFCBANK", name: "HDFC Bank", token: "1333" },
   { sym: "INFY", name: "Infosys", token: "1594" },
   { sym: "ICICIBANK", name: "ICICI Bank", token: "4963" },
   { sym: "HINDUNILVR", name: "Hindustan Unilever", token: "1394" },
   { sym: "ITC", name: "ITC Limited", token: "1660" },
   { sym: "SBIN", name: "State Bank of India", token: "3045" },
-  { sym: "BHARTIARTL", name: "Bharti Airtel", token: "10684" },
+  { sym: "BHARTIARTL", name: "Bharti Airtel", token: "10604" },
   { sym: "KOTAKBANK", name: "Kotak Mahindra Bank", token: "1922" },
   { sym: "LT", name: "Larsen & Toubro", token: "11483" },
   { sym: "AXISBANK", name: "Axis Bank", token: "5900" },
-  { sym: "ASIANPAINT", name: "Asian Paints", token: "531" },
-  { sym: "MARUTI", name: "Maruti Suzuki", token: "11853" },
+  { sym: "ASIANPAINT", name: "Asian Paints", token: "236" },
+  { sym: "MARUTI", name: "Maruti Suzuki", token: "10999" },
   { sym: "SUNPHARMA", name: "Sun Pharmaceutical", token: "3351" },
-  { sym: "TITAN", name: "Titan Company", token: "3499" },
-  { sym: "BAJFINANCE", name: "Bajaj Finance", token: "7385" },
-  { sym: "M&M", name: "Mahindra & Mahindra", token: "11773" },
-  { sym: "WIPRO", name: "Wipro", token: "3712" },
-  { sym: "NESTLEIND", name: "Nestle India", token: "18543" },
+  { sym: "TITAN", name: "Titan Company", token: "3506" },
+  { sym: "BAJFINANCE", name: "Bajaj Finance", token: "317" },
+  { sym: "M&M", name: "Mahindra & Mahindra", token: "2031" },
+  { sym: "WIPRO", name: "Wipro", token: "3787" },
+  { sym: "NESTLEIND", name: "Nestle India", token: "17963" },
   { sym: "POWERGRID", name: "Power Grid Corp", token: "14977" },
-  { sym: "NTPC", name: "NTPC Limited", token: "13538" },
+  { sym: "NTPC", name: "NTPC Limited", token: "11630" },
   { sym: "TATAMOTORS", name: "Tata Motors", token: "3456" },
-  { sym: "ONGC", name: "Oil & Natural Gas Corp", token: "13660" },
+  { sym: "ONGC", name: "Oil & Natural Gas Corp", token: "2475" },
   { sym: "TATASTEEL", name: "Tata Steel", token: "3499" },
-  { sym: "ULTRACEMCO", name: "UltraTech Cement", token: "11630" },
-  { sym: "JSWSTEEL", name: "JSW Steel", token: "10257" },
-  { sym: "COALINDIA", name: "Coal India", token: "11660" },
+  { sym: "ULTRACEMCO", name: "UltraTech Cement", token: "11532" },
+  { sym: "JSWSTEEL", name: "JSW Steel", token: "11723" },
+  { sym: "COALINDIA", name: "Coal India", token: "20374" },
   { sym: "HCLTECH", name: "HCL Technologies", token: "7229" },
-  { sym: "TECHM", name: "Tech Mahindra", token: "11532" },
-  { sym: "ADANIENT", name: "Adani Enterprises", token: "519" },
-  { sym: "ADANIPORTS", name: "Adani Ports", token: "16095" },
-  { sym: "BAJAJFINSV", name: "Bajaj Finserv", token: "7386" },
-  { sym: "DRREDDY", name: "Dr Reddy's Labs", token: "839" },
-  { sym: "CIPLA", name: "Cipla", token: "680" },
-  { sym: "GRASIM", name: "Grasim Industries", token: "1044" },
-  { sym: "DIVISLAB", name: "Divi's Laboratories", token: "23717" },
-  { sym: "HEROMOTOCO", name: "Hero MotoCorp", token: "1289" },
-  { sym: "BPCL", name: "BPCL", token: "615" },
-  { sym: "EICHERMOT", name: "Eicher Motors", token: "905" },
-  { sym: "BRITANNIA", name: "Britannia Industries", token: "596" },
-  { sym: "INDUSINDBK", name: "IndusInd Bank", token: "13554" },
-  { sym: "APOLLOHOSP", name: "Apollo Hospitals", token: "23718" },
-  { sym: "TATACONSUM", name: "Tata Consumer Products", token: "6401" },
-  { sym: "SBILIFE", name: "SBI Life Insurance", token: "23719" },
-  { sym: "HDFCLIFE", name: "HDFC Life Insurance", token: "23720" },
+  { sym: "TECHM", name: "Tech Mahindra", token: "13538" },
+  { sym: "ADANIENT", name: "Adani Enterprises", token: "25" },
+  { sym: "ADANIPORTS", name: "Adani Ports", token: "15083" },
+  { sym: "BAJAJFINSV", name: "Bajaj Finserv", token: "16675" },
+  { sym: "DRREDDY", name: "Dr Reddy's Labs", token: "881" },
+  { sym: "CIPLA", name: "Cipla", token: "694" },
+  { sym: "GRASIM", name: "Grasim Industries", token: "1232" },
+  { sym: "DIVISLAB", name: "Divi's Laboratories", token: "10940" },
+  { sym: "HEROMOTOCO", name: "Hero MotoCorp", token: "1348" },
+  { sym: "BPCL", name: "BPCL", token: "526" },
+  { sym: "EICHERMOT", name: "Eicher Motors", token: "910" },
+  { sym: "BRITANNIA", name: "Britannia Industries", token: "547" },
+  { sym: "INDUSINDBK", name: "IndusInd Bank", token: "5258" },
+  { sym: "APOLLOHOSP", name: "Apollo Hospitals", token: "157" },
+  { sym: "TATACONSUM", name: "Tata Consumer Products", token: "3432" },
+  { sym: "SBILIFE", name: "SBI Life Insurance", token: "21808" },
+  { sym: "HDFCLIFE", name: "HDFC Life Insurance", token: "467" },
   { sym: "DABUR", name: "Dabur India", token: "772" },
-  { sym: "PIDILITIND", name: "Pidilite Industries", token: "1861" },
-  { sym: "HAVELLS", name: "Havells India", token: "9950" },
-  { sym: "GODREJCP", name: "Godrej Consumer", token: "10025" }
+  { sym: "PIDILITIND", name: "Pidilite Industries", token: "2664" },
+  { sym: "HAVELLS", name: "Havells India", token: "9819" },
+  { sym: "GODREJCP", name: "Godrej Consumer", token: "10099" }
 ];
 
 // ============ STATE ============
@@ -217,6 +220,7 @@ let state = {
   feedToken: null,
   refreshToken: null,
   ws: null,
+  eventSource: null,
   tickCount: 0,
   candles: {},
   currentCandle: {},
@@ -271,85 +275,73 @@ function log(msg, type = 'info') {
   if (panel.children.length > 200) panel.removeChild(panel.firstChild);
 }
 
-// ============ CONNECTION TEST (FIXED) ============
+// ============ CONNECTION TEST (BACKEND PROXY + DIRECT DIAGNOSTICS) ============
 async function runConnectionTest() {
   const testPanel = document.getElementById('testPanel');
   const testResults = document.getElementById('testResults');
   testPanel.classList.remove('hidden');
   testResults.innerHTML = '';
 
-  const tests = [
-    { name: 'Angel One API Server', url: 'https://apiconnect.angelbroking.com/rest/auth/angelbroking/user/v1/loginByPassword', method: 'OPTIONS' },
-    { name: 'WebSocket Server (CORRECT URL)', url: WS_URL, method: 'WS' },
-    { name: 'NSE Market Data', url: 'https://apiconnect.angelbroking.com/rest/secure/angelbroking/market/v1/quote/', method: 'GET' },
-    { name: 'Scrip Master API', url: 'https://margincalculator.angelbroking.com/OpenAPI_File/files/OpenAPIScripMaster.json', method: 'GET' }
+  const testList = [
+    { key: 'backend', name: 'Backend API Proxy Server' },
+    { key: 'apiServer', name: 'Angel One API Server' },
+    { key: 'webSocket', name: 'WebSocket Server (SmartStream)' },
+    { key: 'marketData', name: 'NSE Market Data' },
+    { key: 'scripMaster', name: 'Scrip Master API' }
   ];
 
-  for (const test of tests) {
+  testList.forEach(t => {
     const item = document.createElement('div');
     item.className = 'test-item';
-    item.innerHTML = `<span class="label">${test.name}</span><span class="result pending" id="test-${test.name.replace(/[^a-zA-Z0-9]/g,'')}">Testing...</span>`;
+    item.innerHTML = `<span class="label">${t.name}</span><span class="result pending" id="test-${t.key}">Testing...</span>`;
     testResults.appendChild(item);
+  });
 
-    const resultEl = document.getElementById(`test-${test.name.replace(/[^a-zA-Z0-9]/g,'')}`);
-
-    try {
-      if (test.method === 'WS') {
-        const ws = new WebSocket(test.url);
-        const timeout = setTimeout(() => {
-          resultEl.textContent = '❌ Timeout';
-          resultEl.className = 'result fail';
-          ws.close();
-        }, 8000);
-        
-        ws.onopen = () => {
-          clearTimeout(timeout);
-          resultEl.textContent = '✅ Connected';
-          resultEl.className = 'result pass';
-          log('WebSocket test: Connected to ' + test.url, 'success');
-          
-          // If we have feedToken, test auth
-          if (state.feedToken) {
-            const authMsg = { task: 'cn', channel: '', token: state.feedToken, value: '' };
-            ws.send(JSON.stringify(authMsg));
-            log('Test auth sent', 'info');
-          }
-          
-          setTimeout(() => ws.close(), 3000);
-        };
-        
-        ws.onmessage = (event) => {
-          log('Test WS message received: ' + (typeof event.data === 'string' ? event.data.substring(0, 100) : 'binary:' + event.data.byteLength), 'info');
-        };
-        
-        ws.onerror = (error) => {
-          clearTimeout(timeout);
-          resultEl.textContent = '❌ Failed';
-          resultEl.className = 'result fail';
-          log('WebSocket test error', 'error');
-        };
-        
-        ws.onclose = () => {
-          log('WebSocket test connection closed', 'info');
-        };
-      } else {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 8000);
-        const response = await fetch(test.url, { method: test.method, signal: controller.signal });
-        clearTimeout(timeout);
-        resultEl.textContent = `✅ ${response.status}`;
-        resultEl.className = 'result pass';
-      }
-    } catch (e) {
-      resultEl.textContent = '❌ ' + (e.message || 'Failed');
-      resultEl.className = 'result fail';
+  // 1. Test Backend Proxy
+  const backendEl = document.getElementById('test-backend');
+  try {
+    const res = await fetch('/api/health');
+    if (res.ok) {
+      backendEl.textContent = '✅ Connected (Port 3000)';
+      backendEl.className = 'result pass';
+      log('Backend Proxy server is active and healthy', 'success');
+    } else {
+      backendEl.textContent = `❌ HTTP ${res.status}`;
+      backendEl.className = 'result fail';
     }
+  } catch (e) {
+    backendEl.textContent = '❌ Offline';
+    backendEl.className = 'result fail';
   }
 
-  log('Connection test completed', 'info');
+  // 2. Test Angel One through Backend Proxy (bypasses browser CORS & header blocks)
+  try {
+    const proxyRes = await fetch('/api/test-connection');
+    const proxyData = await proxyRes.json();
+    const results = proxyData.results || {};
+
+    ['apiServer', 'webSocket', 'marketData', 'scripMaster'].forEach(k => {
+      const el = document.getElementById(`test-${k}`);
+      if (!el) return;
+      const res = results[k];
+      if (res && res.status === 'pass') {
+        el.textContent = `✅ ${res.message}`;
+        el.className = 'result pass';
+        log(`${k}: ${res.message}`, 'success');
+      } else {
+        el.textContent = `❌ ${res?.message || 'Failed'}`;
+        el.className = 'result fail';
+        log(`${k} test failed: ${res?.message || 'Unknown'}`, 'warn');
+      }
+    });
+  } catch (err) {
+    log('Proxy connection test failed: ' + err.message, 'error');
+  }
+
+  log('Connection diagnostic tests completed.', 'info');
 }
 
-// ============ LOGIN ============
+// ============ LOGIN (PROXY-FIRST WITH FALLBACK) ============
 async function doLogin() {
   const apiKey = document.getElementById('apiKey').value.trim();
   const clientId = document.getElementById('clientId').value.trim();
@@ -357,31 +349,25 @@ async function doLogin() {
   const totp = generateTOTP();
 
   if (!apiKey || !clientId || !password || !totp) {
-    alert('Please fill all fields');
+    alert('Please fill all fields (API Key, Client ID, PIN, TOTP Secret)');
     return;
   }
 
   log('Generating TOTP: ' + totp, 'info');
-  log('Attempting login for ' + clientId + '...', 'info');
+  log('Submitting login for ' + clientId + ' via Backend Proxy...', 'info');
 
   const loginData = {
-    clientcode: clientId,
+    apiKey: apiKey,
+    clientId: clientId,
     password: password,
     totp: totp
   };
 
   try {
-    const response = await fetch('https://apiconnect.angelbroking.com/rest/auth/angelbroking/user/v1/loginByPassword', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'X-UserType': 'USER',
-        'X-SourceID': 'WEB',
-        'X-ClientLocalIP': 'CLIENT_LOCAL_IP',
-        'X-ClientPublicIP': 'CLIENT_PUBLIC_IP',
-        'X-MACAddress': 'MAC_ADDRESS',
-        'X-PrivateKey': apiKey
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(loginData)
     });
@@ -403,37 +389,220 @@ async function doLogin() {
       document.getElementById('loginBtn').classList.add('hidden');
       document.getElementById('wsBtn').classList.remove('hidden');
       document.getElementById('statusDot').className = 'status-dot';
-      document.getElementById('statusText').textContent = 'Logged in (WS pending)';
+      document.getElementById('statusText').textContent = 'Logged in (Connecting...)';
 
       initializeCandles();
       renderTable();
+      await fetchAndApplyDynamicQuotes();
+      connectWS();
     } else {
-      log('❌ Login failed: ' + (data.message || JSON.stringify(data)), 'error');
-      alert('Login failed: ' + (data.message || 'Check credentials'));
+      const errMsg = data.message || (data.errorcode ? `Error Code: ${data.errorcode}` : 'Login rejected by Angel One');
+      log('❌ Login failed: ' + errMsg, 'error');
+      alert('Login failed: ' + errMsg + '\nCheck your Client ID, Password/PIN, API Key, and TOTP Secret.');
     }
   } catch (e) {
-    log('⚠️ Direct API failed: ' + e.message, 'error');
-    log('Try CORS extension or proxy', 'warn');
-    alert('API call failed. Install CORS Unblock extension or use proxy.');
+    log('⚠️ Proxy Login failed: ' + e.message, 'error');
+    alert('Login error: ' + e.message);
   }
 }
 
-// ============ CANDLE INITIALIZATION ============
+// ============ DEMO / SIMULATION MODE ============
+async function startDemoMode() {
+  log('⚡ Starting Live Demo Feed (Dynamic live market stream)...', 'info');
+  document.getElementById('loginPanel').classList.add('hidden');
+  document.getElementById('screener').classList.remove('hidden');
+  document.getElementById('loginBtn').classList.add('hidden');
+  document.getElementById('wsBtn').classList.add('hidden');
+  document.getElementById('disconnectBtn').classList.remove('hidden');
+  document.getElementById('statusDot').className = 'status-dot connected';
+  document.getElementById('statusText').textContent = 'Live Market Stream Active';
+
+  initializeCandles();
+  renderTable();
+  await fetchAndApplyDynamicQuotes();
+
+  // Connect to SSE stream in dynamic mode
+  if (state.eventSource) {
+    state.eventSource.close();
+  }
+
+  const sse = new EventSource('/api/stream-ticks?mode=sim');
+  state.eventSource = sse;
+  state.connected = true;
+
+  sse.onopen = () => {
+    log('✅ Live Demo SSE Stream connected', 'success');
+  };
+
+  sse.onmessage = (e) => {
+    try {
+      const parsed = JSON.parse(e.data);
+      if (parsed.type === 'tick') {
+        state.tickCount++;
+        document.getElementById('tickCounter').textContent = 'Ticks: ' + state.tickCount;
+        updateCandle(parsed.token, parsed.ltp, parsed.volume, parsed.timestamp || Date.now());
+      }
+    } catch (err) {}
+  };
+
+  sse.onerror = () => {
+    log('SSE connection error / reconnecting', 'warn');
+  };
+}
+
+// ============ DYNAMIC SERVER QUOTES & CANDLE STATE PERSISTENCE ============
+function getStorageKey() {
+  const d = new Date();
+  const dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  return 'nifty50_screener_state_' + dateStr;
+}
+
+function saveCandleState() {
+  try {
+    const payload = {
+      candles: state.candles,
+      currentCandle: state.currentCandle,
+      lastLTP: state.lastLTP,
+      lastTickTime: state.lastTickTime,
+      savedAt: Date.now()
+    };
+    localStorage.setItem(getStorageKey(), JSON.stringify(payload));
+  } catch (e) {
+    // LocalStorage quota or access error
+  }
+}
+
+function restoreCandleState() {
+  try {
+    const saved = localStorage.getItem(getStorageKey());
+    if (!saved) return false;
+    const parsed = JSON.parse(saved);
+    if (!parsed || typeof parsed !== 'object') return false;
+
+    const now = Date.now();
+    const currentBoundary = getCandleBoundary(now);
+
+    state.candles = parsed.candles || {};
+    state.lastLTP = parsed.lastLTP || {};
+    state.lastTickTime = parsed.lastTickTime || {};
+    state.currentCandle = parsed.currentCandle || {};
+
+    // Ensure all 50 stocks have an array
+    NIFTY50_STOCKS.forEach(stock => {
+      if (!Array.isArray(state.candles[stock.token])) {
+        state.candles[stock.token] = [];
+      }
+      
+      const cachedCur = state.currentCandle[stock.token];
+      if (cachedCur) {
+        if (cachedCur.startTs < currentBoundary) {
+          // Cached candle was from a past 15-min slot, archive it into state.candles
+          const alreadyExists = state.candles[stock.token].some(c => c.startTs === cachedCur.startTs);
+          if (!alreadyExists) {
+            state.candles[stock.token].push(cachedCur);
+          }
+          // Reset current candle for the new current boundary
+          const lastPrice = state.lastLTP[stock.token] || cachedCur.c;
+          state.currentCandle[stock.token] = {
+            o: lastPrice,
+            h: lastPrice,
+            l: lastPrice,
+            c: lastPrice,
+            v: 0,
+            typVol: 0,
+            startTs: currentBoundary,
+            endTs: currentBoundary + CANDLE_INTERVAL
+          };
+        }
+      }
+    });
+
+    log(`Restored previous session candle history for ${Object.keys(state.candles).length} stocks`, 'success');
+    return true;
+  } catch (e) {
+    console.warn('Error restoring candle state:', e.message);
+    return false;
+  }
+}
+
+async function fetchAndApplyDynamicQuotes() {
+  const apiKey = document.getElementById('apiKey')?.value?.trim() || '';
+  try {
+    const res = await fetch('/api/quotes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ apiKey, jwtToken: state.jwtToken || '' })
+    });
+    const data = await res.json();
+    if (data.status && data.quotes) {
+      log(`Fetched ${Object.keys(data.quotes).length} dynamic market quotes from server (${data.source})`, 'info');
+      const now = Date.now();
+      const currentBoundary = getCandleBoundary(now);
+      
+      NIFTY50_STOCKS.forEach(stock => {
+        const q = data.quotes[stock.token];
+        if (q && q.ltp > 0) {
+          state.lastLTP[stock.token] = q.ltp;
+          state.lastTickTime[stock.token] = q.updatedAt || now;
+          
+          if (!state.currentCandle[stock.token] || state.currentCandle[stock.token].startTs !== currentBoundary) {
+            state.currentCandle[stock.token] = {
+              o: q.ltp,
+              h: q.ltp,
+              l: q.ltp,
+              c: q.ltp,
+              v: 1,
+              typVol: q.ltp,
+              startTs: currentBoundary,
+              endTs: currentBoundary + CANDLE_INTERVAL
+            };
+          } else {
+            // Already tracking current 15-min slot, update with incoming market price
+            const candle = state.currentCandle[stock.token];
+            candle.h = Math.max(candle.h, q.ltp);
+            candle.l = Math.min(candle.l, q.ltp);
+            candle.c = q.ltp;
+          }
+        }
+      });
+      saveCandleState();
+      renderTable();
+    }
+  } catch (e) {
+    console.warn('Dynamic quotes initial fetch warning:', e.message);
+  }
+}
+
 function initializeCandles() {
-  NIFTY50_STOCKS.forEach(stock => {
-    state.candles[stock.token] = [];
-    state.currentCandle[stock.token] = null;
-    state.lastLTP[stock.token] = null;
-    state.lastTickTime[stock.token] = null;
-  });
-  log('Initialized candle buffers for ' + NIFTY50_STOCKS.length + ' stocks', 'success');
+  const restored = restoreCandleState();
+  if (!restored) {
+    NIFTY50_STOCKS.forEach(stock => {
+      state.candles[stock.token] = [];
+      state.currentCandle[stock.token] = null;
+      state.lastLTP[stock.token] = null;
+      state.lastTickTime[stock.token] = null;
+    });
+    log('Initialized candle buffers for ' + NIFTY50_STOCKS.length + ' stocks', 'success');
+  }
 }
 
 function getCandleBoundary(ts) {
   const d = new Date(ts);
   const minutes = d.getHours() * 60 + d.getMinutes();
-  const candlesFromOpen = Math.floor((minutes - MARKET_OPEN) / 15);
-  const boundaryMinutes = MARKET_OPEN + (candlesFromOpen * 15);
+  
+  // Market starts at 09:15 (555 minutes) and ends at 15:30 (930 minutes)
+  const marketOpenMinutes = 9 * 60 + 15; // 555
+  const marketCloseMinutes = 15 * 60 + 30; // 930
+
+  let validMinutes = minutes;
+  if (validMinutes < marketOpenMinutes) {
+    validMinutes = marketOpenMinutes;
+  } else if (validMinutes >= marketCloseMinutes) {
+    validMinutes = marketCloseMinutes - 15; // 15:15
+  }
+
+  const candlesFromOpen = Math.floor((validMinutes - marketOpenMinutes) / 15);
+  const boundaryMinutes = marketOpenMinutes + (candlesFromOpen * 15);
   const boundary = new Date(d);
   boundary.setHours(Math.floor(boundaryMinutes / 60), boundaryMinutes % 60, 0, 0);
   return boundary.getTime();
@@ -452,110 +621,73 @@ function formatTickTime(ts) {
          d.getSeconds().toString().padStart(2, '0');
 }
 
-// ============ WEBSOCKET (FIXED) ============
+// ============ LIVE STREAM / WEBSOCKET CONNECTOR ============
 function connectWS() {
   if (!state.feedToken) {
-    alert('Please login first to get feedToken');
+    alert('Please login first to get feedToken or click "Live Demo Feed"');
     return;
   }
 
-  log('Connecting to Angel One WebSocket...', 'info');
-  log('URL: ' + WS_URL, 'info');
+  log('Connecting to Live Angel One Stream via Backend Relay...', 'info');
   document.getElementById('statusDot').className = 'status-dot connecting';
   document.getElementById('statusText').textContent = 'Connecting...';
 
-  try {
-    state.ws = new WebSocket(WS_URL);
-
-    state.ws.binaryType = 'arraybuffer';
-
-    state.ws.onopen = () => {
-      log('✅ WebSocket connected to ' + WS_URL, 'success');
-      state.connected = true;
-      document.getElementById('statusDot').className = 'status-dot connected';
-      document.getElementById('statusText').textContent = 'Connected';
-      document.getElementById('wsBtn').classList.add('hidden');
-      document.getElementById('disconnectBtn').classList.remove('hidden');
-
-      // Step 1: Send authentication (connection task)
-      const authMsg = {
-        task: 'cn',
-        channel: '',
-        token: state.feedToken,
-        value: ''
-      };
-      state.ws.send(JSON.stringify(authMsg));
-      log('📤 Sent authentication (cn task)', 'info');
-
-      // Step 2: Wait for auth confirmation, then subscribe
-      setTimeout(() => {
-        subscribeTokens();
-      }, 2000);
-
-      // Step 3: Start heartbeat (ping every 30 seconds)
-      state.heartbeatInterval = setInterval(() => {
-        if (state.ws && state.ws.readyState === WebSocket.OPEN) {
-          try {
-            const pingMsg = { task: 'hb', channel: '', token: state.feedToken, value: '' };
-            state.ws.send(JSON.stringify(pingMsg));
-            log(' Heartbeat sent', 'info');
-          } catch (e) {
-            log('Heartbeat failed', 'warn');
-          }
-        }
-      }, 30000);
-    };
-
-    state.ws.onmessage = (event) => {
-      handleWSMessage(event.data);
-    };
-
-    state.ws.onerror = (error) => {
-      log('❌ WebSocket error occurred', 'error');
-      document.getElementById('statusDot').className = 'status-dot error';
-      document.getElementById('statusText').textContent = 'Error';
-    };
-
-    state.ws.onclose = (event) => {
-      log('WebSocket closed (code: ' + event.code + ', reason: ' + (event.reason || 'none') + ')', 'warn');
-      state.connected = false;
-      if (state.heartbeatInterval) clearInterval(state.heartbeatInterval);
-      document.getElementById('statusDot').className = 'status-dot';
-      document.getElementById('statusText').textContent = 'Disconnected';
-      document.getElementById('wsBtn').classList.remove('hidden');
-      document.getElementById('disconnectBtn').classList.add('hidden');
-    };
-  } catch (e) {
-    log('WebSocket connection failed: ' + e.message, 'error');
+  if (state.eventSource) {
+    state.eventSource.close();
   }
-}
 
-function subscribeTokens() {
-  if (!state.ws || state.ws.readyState !== WebSocket.OPEN) {
-    log('Cannot subscribe - WebSocket not open', 'error');
-    return;
-  }
+  const apiKey = document.getElementById('apiKey').value.trim();
+  const clientId = document.getElementById('clientId').value.trim();
+
+  const url = `/api/stream-ticks?feedToken=${encodeURIComponent(state.feedToken)}&jwtToken=${encodeURIComponent(state.jwtToken || '')}&apiKey=${encodeURIComponent(apiKey)}&clientId=${encodeURIComponent(clientId)}`;
   
-  const tokens = NIFTY50_STOCKS.map(s => s.token).join('-');
-  const subMsg = {
-    task: 'mw',
-    channel: '1',
-    token: state.feedToken,
-    value: tokens,
-    action: 1
+  const sse = new EventSource(url);
+  state.eventSource = sse;
+  state.connected = true;
+
+  sse.onopen = () => {
+    log('✅ Live Stream Relay established', 'success');
+    document.getElementById('statusDot').className = 'status-dot connected';
+    document.getElementById('statusText').textContent = 'Connected (Live Stream)';
+    document.getElementById('wsBtn').classList.add('hidden');
+    document.getElementById('disconnectBtn').classList.remove('hidden');
   };
-  state.ws.send(JSON.stringify(subMsg));
-  log('📤 Subscribed to ' + NIFTY50_STOCKS.length + ' tokens: ' + tokens.substring(0, 50) + '...', 'success');
+
+  sse.onmessage = (e) => {
+    try {
+      const msg = JSON.parse(e.data);
+      if (msg.type === 'tick') {
+        state.tickCount++;
+        document.getElementById('tickCounter').textContent = 'Ticks: ' + state.tickCount;
+        updateCandle(msg.token, msg.ltp, msg.volume, msg.timestamp || Date.now());
+      } else if (msg.type === 'ws_status') {
+        log('SmartAPI Socket status: ' + msg.status, 'info');
+      } else if (msg.type === 'ws_warn') {
+        log('⚠️ ' + msg.message, 'warn');
+      }
+    } catch (err) {}
+  };
+
+  sse.onerror = (err) => {
+    log('Live stream event notice: checking connection state', 'info');
+  };
 }
 
 function disconnectWS() {
-  if (state.heartbeatInterval) clearInterval(state.heartbeatInterval);
+  if (state.eventSource) {
+    state.eventSource.close();
+    state.eventSource = null;
+  }
   if (state.ws) {
     state.ws.close();
     state.ws = null;
   }
   state.connected = false;
-  log('Disconnected manually', 'info');
+  document.getElementById('statusDot').className = 'status-dot';
+  document.getElementById('statusText').textContent = 'Disconnected';
+  document.getElementById('wsBtn').classList.remove('hidden');
+  document.getElementById('disconnectBtn').classList.add('hidden');
+  log('Stream disconnected manually', 'info');
 }
 
 // ============ MESSAGE HANDLING (FIXED FOR BINARY + JSON) ============
@@ -661,6 +793,7 @@ function processBinaryData(buffer) {
 }
 
 function updateCandle(token, ltp, volume, timestamp) {
+  const prevLTP = state.lastLTP[token] || ltp;
   state.lastLTP[token] = ltp;
   state.lastTickTime[token] = timestamp;
 
@@ -670,7 +803,12 @@ function updateCandle(token, ltp, volume, timestamp) {
   if (!state.currentCandle[token] || state.currentCandle[token].startTs < currentBoundary) {
     // Close previous candle
     if (state.currentCandle[token]) {
-      state.candles[token].push({ ...state.currentCandle[token] });
+      const prev = state.currentCandle[token];
+      const exists = state.candles[token]?.some(c => c.startTs === prev.startTs);
+      if (!exists) {
+        if (!Array.isArray(state.candles[token])) state.candles[token] = [];
+        state.candles[token].push({ ...prev });
+      }
     }
     // Start new candle
     state.currentCandle[token] = {
@@ -683,6 +821,8 @@ function updateCandle(token, ltp, volume, timestamp) {
       startTs: currentBoundary,
       endTs: currentBoundary + CANDLE_INTERVAL
     };
+    saveCandleState();
+    renderTable(); // Re-render table when new candle boundary opens
   } else {
     // Update current candle
     const candle = state.currentCandle[token];
@@ -693,10 +833,62 @@ function updateCandle(token, ltp, volume, timestamp) {
     candle.typVol += ltp * volume;
   }
 
-  // Update UI every 10 ticks
-  if (state.tickCount % 10 === 0) {
+  // Direct fast-path DOM update for instant live tick feel without re-rendering entire table
+  updateLiveRowDOM(token, ltp, prevLTP, timestamp);
+}
+
+function updateLiveRowDOM(token, ltp, prevLTP, timestamp) {
+  const row = document.getElementById(`stock-row-${token}`);
+  if (!row) {
     renderTable();
+    return;
   }
+
+  const candle = state.currentCandle[token];
+  if (!candle) return;
+
+  const vwap = candle.v > 0 ? (candle.typVol / candle.v) : candle.c;
+  const isUp = candle.c >= candle.o;
+  const cls = isUp ? 'up' : 'down';
+  const tickTime = formatTickTime(timestamp);
+
+  // Strictly target only the active current-candle cells to prevent updating any empty or past columns
+  const oEl = row.querySelector('.current-candle.cell-o');
+  const hEl = row.querySelector('.current-candle.cell-h');
+  const lEl = row.querySelector('.current-candle.cell-l');
+  const cEl = row.querySelector('.current-candle.cell-c');
+  const vwapEl = row.querySelector('.current-candle.cell-vwap');
+  const tickEl = row.querySelector('.current-candle.cell-tick');
+
+  if (!oEl || !cEl) {
+    // If the active cells are not in DOM yet (e.g. boundary shifted), re-render table
+    renderTable();
+    return;
+  }
+
+  oEl.textContent = candle.o.toFixed(2);
+  oEl.className = `current-candle cell-o ${cls}`;
+
+  hEl.textContent = candle.h.toFixed(2);
+  hEl.className = `current-candle cell-h ${cls}`;
+
+  lEl.textContent = candle.l.toFixed(2);
+  lEl.className = `current-candle cell-l ${cls}`;
+
+  cEl.textContent = candle.c.toFixed(2); 
+  cEl.className = `current-candle cell-c ${cls}`;
+  if (ltp > prevLTP) {
+    cEl.classList.add('flash-green');
+    setTimeout(() => cEl.classList.remove('flash-green'), 350);
+  } else if (ltp < prevLTP) {
+    cEl.classList.add('flash-red');
+    setTimeout(() => cEl.classList.remove('flash-red'), 350);
+  }
+
+  vwapEl.textContent = vwap.toFixed(2);
+  vwapEl.className = `current-candle cell-vwap ${cls}`;
+
+  tickEl.textContent = tickTime;
 }
 
 // ============ TABLE RENDERING ============
@@ -715,54 +907,62 @@ function renderTable() {
     t += CANDLE_INTERVAL;
   }
 
+  const currentBoundary = getCandleBoundary(now);
+
   document.getElementById('candleCount').textContent = timeSlots.length;
   document.getElementById('screenerMeta').textContent = 
-    `15-min candles | ${NIFTY50_STOCKS.length} stocks | Last update: ${new Date().toLocaleTimeString('en-IN')}`;
+    `15-min candles | ${NIFTY50_STOCKS.length} stocks | Active Slot: ${formatTime(currentBoundary)} | Last update: ${new Date().toLocaleTimeString('en-IN')}`;
 
   let headerHTML = '<thead><tr><th class="stock-header" rowspan="2">Stock (Token)</th>';
   timeSlots.forEach(ts => {
-    headerHTML += `<th class="time-header" colspan="6">${formatTime(ts)}</th>`;
+    const isCurrentHeader = ts === currentBoundary;
+    const headerStyle = isCurrentHeader ? 'style="background:#2a1b4e;color:#fbbf24;font-weight:700;border:1px solid #7b2ff7"' : '';
+    headerHTML += `<th class="time-header" ${headerStyle} colspan="6">${formatTime(ts)}${isCurrentHeader ? ' (Live)' : ''}</th>`;
   });
   headerHTML += '</tr><tr>';
-  timeSlots.forEach(() => {
+  timeSlots.forEach(ts => {
     headerHTML += '<th>O</th><th>H</th><th>L</th><th>C</th><th>VWAP</th><th class="tick-header">Last Tick</th>';
   });
   headerHTML += '</tr></thead>';
 
   let bodyHTML = '<tbody>';
   NIFTY50_STOCKS.forEach(stock => {
-    bodyHTML += `<tr><td class="stock-cell"><div class="sym">${stock.sym}</div><div class="token">Token: ${stock.token}</div></td>`;
+    bodyHTML += `<tr id="stock-row-${stock.token}"><td class="stock-cell"><div class="sym">${stock.sym}</div><div class="token">Token: ${stock.token}</div></td>`;
 
     timeSlots.forEach(ts => {
       const candle = state.candles[stock.token]?.find(c => c.startTs === ts);
-      const isCurrent = state.currentCandle[stock.token]?.startTs === ts;
+      const isCurrent = state.currentCandle[stock.token]?.startTs === ts || (ts === currentBoundary && state.currentCandle[stock.token]);
 
       if (candle) {
         const vwap = candle.v > 0 ? (candle.typVol / candle.v) : candle.c;
         const isUp = candle.c >= candle.o;
         const cls = isUp ? 'up' : 'down';
         const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
-        bodyHTML += `<td class="${cls}">${candle.o.toFixed(2)}</td>`;
-        bodyHTML += `<td class="${cls}">${candle.h.toFixed(2)}</td>`;
-        bodyHTML += `<td class="${cls}">${candle.l.toFixed(2)}</td>`;
-        bodyHTML += `<td class="${cls}">${candle.c.toFixed(2)}</td>`;
-        bodyHTML += `<td class="${cls}">${vwap.toFixed(2)}</td>`;
-        bodyHTML += `<td class="tick-cell">${tickTime}</td>`;
+        bodyHTML += `<td class="past-candle ${cls}">${candle.o.toFixed(2)}</td>`;
+        bodyHTML += `<td class="past-candle ${cls}">${candle.h.toFixed(2)}</td>`;
+        bodyHTML += `<td class="past-candle ${cls}">${candle.l.toFixed(2)}</td>`;
+        bodyHTML += `<td class="past-candle ${cls}">${candle.c.toFixed(2)}</td>`;
+        bodyHTML += `<td class="past-candle ${cls}">${vwap.toFixed(2)}</td>`;
+        bodyHTML += `<td class="tick-cell past-candle">${tickTime}</td>`;
       } else if (isCurrent && state.currentCandle[stock.token]) {
         const c = state.currentCandle[stock.token];
         const vwap = c.v > 0 ? (c.typVol / c.v) : c.c;
         const isUp = c.c >= c.o;
         const cls = isUp ? 'up' : 'down';
         const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
-        bodyHTML += `<td class="current-candle ${cls}">${c.o.toFixed(2)}</td>`;
-        bodyHTML += `<td class="current-candle ${cls}">${c.h.toFixed(2)}</td>`;
-        bodyHTML += `<td class="current-candle ${cls}">${c.l.toFixed(2)}</td>`;
-        bodyHTML += `<td class="current-candle ${cls}">${c.c.toFixed(2)}</td>`;
-        bodyHTML += `<td class="current-candle ${cls}">${vwap.toFixed(2)}</td>`;
-        bodyHTML += `<td class="tick-cell current-candle">${tickTime}</td>`;
+        bodyHTML += `<td class="current-candle cell-o ${cls}">${c.o.toFixed(2)}</td>`;
+        bodyHTML += `<td class="current-candle cell-h ${cls}">${c.h.toFixed(2)}</td>`;
+        bodyHTML += `<td class="current-candle cell-l ${cls}">${c.l.toFixed(2)}</td>`;
+        bodyHTML += `<td class="current-candle cell-c ${cls}">${c.c.toFixed(2)}</td>`;
+        bodyHTML += `<td class="current-candle cell-vwap ${cls}">${vwap.toFixed(2)}</td>`;
+        bodyHTML += `<td class="tick-cell current-candle cell-tick">${tickTime}</td>`;
       } else {
-        bodyHTML += '<td class="empty-cell">—</td>'.repeat(5);
-        bodyHTML += '<td class="tick-cell">—</td>';
+        bodyHTML += '<td class="empty-cell">—</td>';
+        bodyHTML += '<td class="empty-cell">—</td>';
+        bodyHTML += '<td class="empty-cell">—</td>';
+        bodyHTML += '<td class="empty-cell">—</td>';
+        bodyHTML += '<td class="empty-cell">—</td>';
+        bodyHTML += '<td class="tick-cell empty-cell">—</td>';
       }
     });
 
@@ -772,6 +972,17 @@ function renderTable() {
 
   table.innerHTML = headerHTML + bodyHTML;
 }
+
+// Auto-save state to localStorage periodically
+setInterval(() => {
+  if (state.candles && Object.keys(state.candles).length > 0) {
+    saveCandleState();
+  }
+}, 5000);
+
+window.addEventListener('beforeunload', () => {
+  saveCandleState();
+});
 
 // ============ EXPORT CSV ============
 function exportCSV() {
