@@ -472,6 +472,46 @@ function saveCandleState() {
   }
 }
 
+function ensureCurrentCandles(currentBoundary) {
+  NIFTY50_STOCKS.forEach(stock => {
+    if (!Array.isArray(state.candles[stock.token])) {
+      state.candles[stock.token] = [];
+    }
+    const cur = state.currentCandle[stock.token];
+    if (cur && cur.startTs < currentBoundary) {
+      // Archive the completed past candle
+      const alreadyExists = state.candles[stock.token].some(c => c.startTs === cur.startTs);
+      if (!alreadyExists) {
+        state.candles[stock.token].push({ ...cur });
+      }
+      // Initialize new current candle for the active slot
+      const lastPrice = state.lastLTP[stock.token] || cur.c;
+      state.currentCandle[stock.token] = {
+        o: lastPrice,
+        h: lastPrice,
+        l: lastPrice,
+        c: lastPrice,
+        v: 0,
+        typVol: 0,
+        startTs: currentBoundary,
+        endTs: currentBoundary + CANDLE_INTERVAL
+      };
+    } else if (!cur && state.lastLTP[stock.token]) {
+      const lastPrice = state.lastLTP[stock.token];
+      state.currentCandle[stock.token] = {
+        o: lastPrice,
+        h: lastPrice,
+        l: lastPrice,
+        c: lastPrice,
+        v: 0,
+        typVol: 0,
+        startTs: currentBoundary,
+        endTs: currentBoundary + CANDLE_INTERVAL
+      };
+    }
+  });
+}
+
 function restoreCandleState() {
   try {
     const saved = localStorage.getItem(getStorageKey());
@@ -487,35 +527,7 @@ function restoreCandleState() {
     state.lastTickTime = parsed.lastTickTime || {};
     state.currentCandle = parsed.currentCandle || {};
 
-    // Ensure all 50 stocks have an array
-    NIFTY50_STOCKS.forEach(stock => {
-      if (!Array.isArray(state.candles[stock.token])) {
-        state.candles[stock.token] = [];
-      }
-      
-      const cachedCur = state.currentCandle[stock.token];
-      if (cachedCur) {
-        if (cachedCur.startTs < currentBoundary) {
-          // Cached candle was from a past 15-min slot, archive it into state.candles
-          const alreadyExists = state.candles[stock.token].some(c => c.startTs === cachedCur.startTs);
-          if (!alreadyExists) {
-            state.candles[stock.token].push(cachedCur);
-          }
-          // Reset current candle for the new current boundary
-          const lastPrice = state.lastLTP[stock.token] || cachedCur.c;
-          state.currentCandle[stock.token] = {
-            o: lastPrice,
-            h: lastPrice,
-            l: lastPrice,
-            c: lastPrice,
-            v: 0,
-            typVol: 0,
-            startTs: currentBoundary,
-            endTs: currentBoundary + CANDLE_INTERVAL
-          };
-        }
-      }
-    });
+    ensureCurrentCandles(currentBoundary);
 
     log(`Restored previous session candle history for ${Object.keys(state.candles).length} stocks`, 'success');
     return true;
@@ -799,45 +811,46 @@ function updateCandle(token, ltp, volume, timestamp) {
 
   const now = Date.now();
   const currentBoundary = getCandleBoundary(now);
+  const cur = state.currentCandle[token];
 
-  if (!state.currentCandle[token] || state.currentCandle[token].startTs < currentBoundary) {
-    // Close previous candle
-    if (state.currentCandle[token]) {
-      const prev = state.currentCandle[token];
-      const exists = state.candles[token]?.some(c => c.startTs === prev.startTs);
+  if (!cur || cur.startTs < currentBoundary) {
+    // If boundary changed, archive old candle
+    if (cur) {
+      if (!Array.isArray(state.candles[token])) state.candles[token] = [];
+      const exists = state.candles[token].some(c => c.startTs === cur.startTs);
       if (!exists) {
-        if (!Array.isArray(state.candles[token])) state.candles[token] = [];
-        state.candles[token].push({ ...prev });
+        state.candles[token].push({ ...cur });
       }
     }
-    // Start new candle
+    // Start new candle for active boundary
     state.currentCandle[token] = {
       o: ltp,
       h: ltp,
       l: ltp,
       c: ltp,
-      v: volume,
-      typVol: ltp * volume,
+      v: volume || 1,
+      typVol: ltp * (volume || 1),
       startTs: currentBoundary,
       endTs: currentBoundary + CANDLE_INTERVAL
     };
+    ensureCurrentCandles(currentBoundary);
     saveCandleState();
     renderTable(); // Re-render table when new candle boundary opens
   } else {
-    // Update current candle
-    const candle = state.currentCandle[token];
-    candle.h = Math.max(candle.h, ltp);
-    candle.l = Math.min(candle.l, ltp);
-    candle.c = ltp;
-    candle.v += volume;
-    candle.typVol += ltp * volume;
+    // Update current active candle
+    cur.h = Math.max(cur.h, ltp);
+    cur.l = Math.min(cur.l, ltp);
+    cur.c = ltp;
+    const vol = volume || 1;
+    cur.v += vol;
+    cur.typVol += ltp * vol;
   }
 
-  // Direct fast-path DOM update for instant live tick feel without re-rendering entire table
-  updateLiveRowDOM(token, ltp, prevLTP, timestamp);
+  // Direct fast-path DOM update for instant live tick feel strictly in the active current boundary
+  updateLiveRowDOM(token, ltp, prevLTP, timestamp, currentBoundary);
 }
 
-function updateLiveRowDOM(token, ltp, prevLTP, timestamp) {
+function updateLiveRowDOM(token, ltp, prevLTP, timestamp, currentBoundary) {
   const row = document.getElementById(`stock-row-${token}`);
   if (!row) {
     renderTable();
@@ -847,18 +860,19 @@ function updateLiveRowDOM(token, ltp, prevLTP, timestamp) {
   const candle = state.currentCandle[token];
   if (!candle) return;
 
+  const boundary = currentBoundary || getCandleBoundary(Date.now());
   const vwap = candle.v > 0 ? (candle.typVol / candle.v) : candle.c;
   const isUp = candle.c >= candle.o;
   const cls = isUp ? 'up' : 'down';
   const tickTime = formatTickTime(timestamp);
 
-  // Strictly target only the active current-candle cells to prevent updating any empty or past columns
-  const oEl = row.querySelector('.current-candle.cell-o');
-  const hEl = row.querySelector('.current-candle.cell-h');
-  const lEl = row.querySelector('.current-candle.cell-l');
-  const cEl = row.querySelector('.current-candle.cell-c');
-  const vwapEl = row.querySelector('.current-candle.cell-vwap');
-  const tickEl = row.querySelector('.current-candle.cell-tick');
+  // Strictly target only the active current-candle cells for the active slot
+  const oEl = row.querySelector(`.current-candle.cell-o[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-o');
+  const hEl = row.querySelector(`.current-candle.cell-h[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-h');
+  const lEl = row.querySelector(`.current-candle.cell-l[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-l');
+  const cEl = row.querySelector(`.current-candle.cell-c[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-c');
+  const vwapEl = row.querySelector(`.current-candle.cell-vwap[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-vwap');
+  const tickEl = row.querySelector(`.current-candle.cell-tick[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-tick');
 
   if (!oEl || !cEl) {
     // If the active cells are not in DOM yet (e.g. boundary shifted), re-render table
@@ -885,15 +899,21 @@ function updateLiveRowDOM(token, ltp, prevLTP, timestamp) {
     setTimeout(() => cEl.classList.remove('flash-red'), 350);
   }
 
-  vwapEl.textContent = vwap.toFixed(2);
-  vwapEl.className = `current-candle cell-vwap ${cls}`;
+  if (vwapEl) {
+    vwapEl.textContent = vwap.toFixed(2);
+    vwapEl.className = `current-candle cell-vwap ${cls}`;
+  }
 
-  tickEl.textContent = tickTime;
+  if (tickEl) {
+    tickEl.textContent = tickTime;
+  }
 }
 
 // ============ TABLE RENDERING ============
 function renderTable() {
   const table = document.getElementById('ohlcTable');
+  if (!table) return;
+
   const now = Date.now();
   const todayStart = new Date(now);
   todayStart.setHours(9, 15, 0, 0);
@@ -908,6 +928,7 @@ function renderTable() {
   }
 
   const currentBoundary = getCandleBoundary(now);
+  ensureCurrentCandles(currentBoundary);
 
   document.getElementById('candleCount').textContent = timeSlots.length;
   document.getElementById('screenerMeta').textContent = 
@@ -930,39 +951,43 @@ function renderTable() {
     bodyHTML += `<tr id="stock-row-${stock.token}"><td class="stock-cell"><div class="sym">${stock.sym}</div><div class="token">Token: ${stock.token}</div></td>`;
 
     timeSlots.forEach(ts => {
-      const candle = state.candles[stock.token]?.find(c => c.startTs === ts);
-      const isCurrent = state.currentCandle[stock.token]?.startTs === ts || (ts === currentBoundary && state.currentCandle[stock.token]);
-
-      if (candle) {
-        const vwap = candle.v > 0 ? (candle.typVol / candle.v) : candle.c;
-        const isUp = candle.c >= candle.o;
-        const cls = isUp ? 'up' : 'down';
-        const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
-        bodyHTML += `<td class="past-candle ${cls}">${candle.o.toFixed(2)}</td>`;
-        bodyHTML += `<td class="past-candle ${cls}">${candle.h.toFixed(2)}</td>`;
-        bodyHTML += `<td class="past-candle ${cls}">${candle.l.toFixed(2)}</td>`;
-        bodyHTML += `<td class="past-candle ${cls}">${candle.c.toFixed(2)}</td>`;
-        bodyHTML += `<td class="past-candle ${cls}">${vwap.toFixed(2)}</td>`;
-        bodyHTML += `<td class="tick-cell past-candle">${tickTime}</td>`;
-      } else if (isCurrent && state.currentCandle[stock.token]) {
+      if (ts < currentBoundary) {
+        // Past 15-min candle: strictly retrieve from archived candles buffer
+        const candle = state.candles[stock.token]?.find(c => c.startTs === ts);
+        if (candle) {
+          const vwap = candle.v > 0 ? (candle.typVol / candle.v) : candle.c;
+          const isUp = candle.c >= candle.o;
+          const cls = isUp ? 'up' : 'down';
+          const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
+          bodyHTML += `<td class="past-candle cell-o ${cls}" data-ts="${ts}">${candle.o.toFixed(2)}</td>`;
+          bodyHTML += `<td class="past-candle cell-h ${cls}" data-ts="${ts}">${candle.h.toFixed(2)}</td>`;
+          bodyHTML += `<td class="past-candle cell-l ${cls}" data-ts="${ts}">${candle.l.toFixed(2)}</td>`;
+          bodyHTML += `<td class="past-candle cell-c ${cls}" data-ts="${ts}">${candle.c.toFixed(2)}</td>`;
+          bodyHTML += `<td class="past-candle cell-vwap ${cls}" data-ts="${ts}">${vwap.toFixed(2)}</td>`;
+          bodyHTML += `<td class="tick-cell past-candle" data-ts="${ts}">${tickTime}</td>`;
+        } else {
+          bodyHTML += '<td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="tick-cell empty-cell">—</td>';
+        }
+      } else if (ts === currentBoundary) {
+        // Active 15-min candle: live streaming slot
         const c = state.currentCandle[stock.token];
-        const vwap = c.v > 0 ? (c.typVol / c.v) : c.c;
-        const isUp = c.c >= c.o;
-        const cls = isUp ? 'up' : 'down';
-        const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
-        bodyHTML += `<td class="current-candle cell-o ${cls}">${c.o.toFixed(2)}</td>`;
-        bodyHTML += `<td class="current-candle cell-h ${cls}">${c.h.toFixed(2)}</td>`;
-        bodyHTML += `<td class="current-candle cell-l ${cls}">${c.l.toFixed(2)}</td>`;
-        bodyHTML += `<td class="current-candle cell-c ${cls}">${c.c.toFixed(2)}</td>`;
-        bodyHTML += `<td class="current-candle cell-vwap ${cls}">${vwap.toFixed(2)}</td>`;
-        bodyHTML += `<td class="tick-cell current-candle cell-tick">${tickTime}</td>`;
+        if (c) {
+          const vwap = c.v > 0 ? (c.typVol / c.v) : c.c;
+          const isUp = c.c >= c.o;
+          const cls = isUp ? 'up' : 'down';
+          const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
+          bodyHTML += `<td class="current-candle cell-o ${cls}" data-ts="${ts}">${c.o.toFixed(2)}</td>`;
+          bodyHTML += `<td class="current-candle cell-h ${cls}" data-ts="${ts}">${c.h.toFixed(2)}</td>`;
+          bodyHTML += `<td class="current-candle cell-l ${cls}" data-ts="${ts}">${c.l.toFixed(2)}</td>`;
+          bodyHTML += `<td class="current-candle cell-c ${cls}" data-ts="${ts}">${c.c.toFixed(2)}</td>`;
+          bodyHTML += `<td class="current-candle cell-vwap ${cls}" data-ts="${ts}">${vwap.toFixed(2)}</td>`;
+          bodyHTML += `<td class="tick-cell current-candle cell-tick" data-ts="${ts}">${tickTime}</td>`;
+        } else {
+          bodyHTML += '<td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="tick-cell empty-cell">—</td>';
+        }
       } else {
-        bodyHTML += '<td class="empty-cell">—</td>';
-        bodyHTML += '<td class="empty-cell">—</td>';
-        bodyHTML += '<td class="empty-cell">—</td>';
-        bodyHTML += '<td class="empty-cell">—</td>';
-        bodyHTML += '<td class="empty-cell">—</td>';
-        bodyHTML += '<td class="tick-cell empty-cell">—</td>';
+        // Future unreached slots
+        bodyHTML += '<td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="tick-cell empty-cell">—</td>';
       }
     });
 
@@ -973,8 +998,23 @@ function renderTable() {
   table.innerHTML = headerHTML + bodyHTML;
 }
 
-// Auto-save state to localStorage periodically
+// Check boundary rollover and auto-save state to localStorage periodically
 setInterval(() => {
+  const now = Date.now();
+  const currentBoundary = getCandleBoundary(now);
+  let boundaryShifted = false;
+  NIFTY50_STOCKS.forEach(stock => {
+    const cur = state.currentCandle[stock.token];
+    if (cur && cur.startTs < currentBoundary) {
+      boundaryShifted = true;
+    }
+  });
+
+  if (boundaryShifted) {
+    ensureCurrentCandles(currentBoundary);
+    renderTable();
+  }
+
   if (state.candles && Object.keys(state.candles).length > 0) {
     saveCandleState();
   }
