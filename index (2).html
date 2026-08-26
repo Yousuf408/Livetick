@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angel One - Nifty 50 OHLC Screener (15-Min)</title>
+<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@4.5.0/index.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/otpauth@9.2.2/dist/otpauth.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0a14;color:#e0e0e0;min-height:100vh}
+.header{background:#0f0f1a;border-bottom:1px solid #1e1e3a;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100}
+.logo{font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#00d2ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.status{display:flex;align-items:center;gap:8px;font-size:0.85rem}
+.status-dot{width:10px;height:10px;border-radius:50%;background:#555}
+.status-dot.connected{background:#4ade80;box-shadow:0 0 8px #4ade80}
+.status-dot.connecting{background:#fbbf24;animation:pulse 1s infinite}
+.status-dot.error{background:#f87171}
+@keyframes pulse{50%{opacity:0.4}}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{padding:8px 16px;border-radius:8px;border:1px solid #2a2a4a;background:#1a1a2e;color:#e0e0e0;cursor:pointer;font-size:0.85rem;font-family:inherit;font-weight:600;transition:all 0.2s}
+.btn:hover{background:#2a2a4a}
+.btn-primary{background:linear-gradient(135deg,#00d2ff,#7b2ff7);border:none;color:#fff}
+.btn-primary:hover{opacity:0.9}
+.btn-success{background:#4ade80;color:#000;border:none}
+.btn-danger{background:#f87171;color:#fff;border:none}
+.login-panel{max-width:500px;margin:40px auto;padding:28px;background:#12121f;border:1px solid #2a2a4a;border-radius:14px}
+.login-panel h2{margin-bottom:20px;color:#fff;font-size:1.3rem}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:0.8rem;color:#888;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.form-group input{width:100%;padding:10px 12px;background:#1a1a2e;border:1px solid #2a2a4a;border-radius:8px;color:#fff;font-size:0.9rem;font-family:inherit;outline:none}
+.form-group input:focus{border-color:#7b2ff7}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.info-box{padding:12px;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:8px;font-size:0.8rem;color:#fbbf24;margin-bottom:16px;line-height:1.5}
+.screener{padding:16px 24px}
+.screener-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px}
+.screener-title{font-size:1rem;color:#fff;font-weight:600}
+.screener-meta{font-size:0.8rem;color:#888}
+.table-wrapper{overflow:auto;max-height:calc(100vh - 180px);border:1px solid #1e1e3a;border-radius:10px;background:#0f0f1a}
+table{border-collapse:collapse;font-size:0.72rem;white-space:nowrap}
+thead{position:sticky;top:0;z-index:10;background:#12121f}
+thead th{padding:6px 4px;border:1px solid #1e1e3a;font-weight:600;color:#a78bfa;font-size:0.7rem;text-align:center}
+thead th.time-header{background:#1a1a2e;color:#00d2ff;font-size:0.75rem;padding:8px 4px}
+thead th.stock-header{position:sticky;left:0;z-index:11;background:#12121f;min-width:140px;text-align:left;padding:8px 10px}
+thead th.tick-header{background:#1a1a2e;color:#fbbf24;font-size:0.65rem}
+tbody tr:hover{background:rgba(123,47,247,0.05)}
+tbody td{padding:4px 3px;border:1px solid #1a1a2e;text-align:right;font-variant-numeric:tabular-nums}
+tbody td.stock-cell{position:sticky;left:0;background:#0f0f1a;text-align:left;padding:6px 10px;font-weight:600;color:#fff;border-right:2px solid #2a2a4a;min-width:140px;z-index:5}
+tbody td.stock-cell .sym{font-size:0.78rem}
+tbody td.stock-cell .token{font-size:0.65rem;color:#a78bfa;margin-top:1px;font-family:'Courier New',monospace}
+tbody td.tick-cell{background:rgba(251,191,36,0.03);font-size:0.65rem;color:#fbbf24;text-align:center;font-family:'Courier New',monospace}
+.up{color:#4ade80}
+.down{color:#f87171}
+.flat{color:#888}
+.current-candle{background:rgba(251,191,36,0.08)!important}
+.empty-cell{color:#333}
+.log-panel{max-width:1200px;margin:16px 24px;padding:14px;background:#12121f;border:1px solid #2a2a4a;border-radius:10px;font-family:'Courier New',monospace;font-size:0.75rem;max-height:200px;overflow:auto;color:#888}
+.log-panel .log-entry{padding:2px 0;border-bottom:1px solid #1a1a2e}
+.log-panel .log-time{color:#555;margin-right:8px}
+.log-panel .log-info{color:#00d2ff}
+.log-panel .log-success{color:#4ade80}
+.log-panel .log-error{color:#f87171}
+.log-panel .log-warn{color:#fbbf24}
+.hidden{display:none!important}
+.tick-counter{font-size:0.8rem;color:#a78bfa;font-weight:600}
+.test-panel{max-width:600px;margin:20px auto;padding:20px;background:#12121f;border:1px solid #2a2a4a;border-radius:12px}
+.test-panel h3{color:#fff;margin-bottom:16px;font-size:1.1rem}
+.test-item{padding:10px;margin-bottom:8px;background:#1a1a2e;border-radius:8px;display:flex;justify-content:space-between;align-items:center}
+.test-item .label{font-size:0.85rem;color:#ccc}
+.test-item .result{font-size:0.85rem;font-weight:600}
+.test-item .result.pass{color:#4ade80}
+.test-item .result.fail{color:#f87171}
+.test-item .result.pending{color:#fbbf24}
+.ws-info{background:rgba(0,210,255,0.06);border:1px solid rgba(0,210,255,0.2);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:0.8rem;color:#7dd3fc}
+.ws-info code{background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px;color:#00d2ff;font-family:'Courier New',monospace}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo"> Angel One Nifty 50 Screener</div>
+  <div class="status">
+    <div class="status-dot" id="statusDot"></div>
+    <span id="statusText">Disconnected</span>
+    <span class="tick-counter" id="tickCounter">Ticks: 0</span>
+  </div>
+  <div class="controls">
+    <button class="btn" id="loginBtn" onclick="doLogin()">🔑 Login</button>
+    <button class="btn btn-success hidden" id="wsBtn" onclick="connectWS()"> Connect WS</button>
+    <button class="btn btn-danger hidden" id="disconnectBtn" onclick="disconnectWS()">⏹ Disconnect</button>
+    <button class="btn" onclick="runConnectionTest()">🧪 Test Connection</button>
+    <button class="btn" onclick="exportCSV()">⬇ Export CSV</button>
+  </div>
+</div>
+
+<div class="login-panel" id="loginPanel">
+  <h2>🔐 Angel One SmartAPI Login</h2>
+  <div class="info-box">
+    ⚠️ Credentials stored only in browser memory. Never share this HTML file publicly. TOTP auto-generated from secret key.
+  </div>
+  <div class="form-group">
+    <label>API Key</label>
+    <input type="text" id="apiKey" value="QFectj5C">
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Client ID</label>
+      <input type="text" id="clientId" value="IIRA29771">
+    </div>
+    <div class="form-group">
+      <label>Password / PIN</label>
+      <input type="password" id="password" value="1993">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>TOTP Secret Key</label>
+    <input type="text" id="totpSecret" value="JFTG3DYADWLYSW6FC6RVV4THWM">
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Generated TOTP (auto)</label>
+      <input type="text" id="totpCode" readonly style="color:#4ade80;font-weight:700;letter-spacing:2px">
+    </div>
+    <div class="form-group">
+      <label>Proxy (optional)</label>
+      <input type="text" id="proxyUrl" value="http://yousufshaikh420:cVTbJi6VVA@151.242.178.149:50100" placeholder="http://user:pass@host:port">
+    </div>
+  </div>
+  <button class="btn btn-primary" style="width:100%;padding:12px" onclick="doLogin()">Generate TOTP & Login</button>
+</div>
+
+<div class="test-panel hidden" id="testPanel">
+  <h3>🧪 Connection Test Results</h3>
+  <div class="ws-info">
+    Correct WebSocket URL: <code>wss://smartapisocket.angelbroking.com/smart-stream</code><br>
+    (NOT angelone.in — that was the bug!)
+  </div>
+  <div id="testResults"></div>
+</div>
+
+<div class="screener hidden" id="screener">
+  <div class="screener-header">
+    <div>
+      <div class="screener-title">Nifty 50 — 15-Minute OHLC Candles (Live from WebSocket)</div>
+      <div class="screener-meta" id="screenerMeta">Waiting for data...</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span style="font-size:0.8rem;color:#888">Candles:</span>
+      <span id="candleCount" style="font-size:0.85rem;color:#00d2ff;font-weight:700">0</span>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table id="ohlcTable"></table>
+  </div>
+</div>
+
+<div class="log-panel hidden" id="logPanel"></div>
+
+<script>
+// ============ NIFTY 50 STOCKS WITH ANGEL ONE TOKENS (NSE ONLY) ============
+const NIFTY50_STOCKS = [
+  { sym: "RELIANCE", name: "Reliance Industries", token: "2885" },
+  { sym: "TCS", name: "Tata Consultancy Services", token: "3456" },
+  { sym: "HDFCBANK", name: "HDFC Bank", token: "1330" },
+  { sym: "INFY", name: "Infosys", token: "1594" },
+  { sym: "ICICIBANK", name: "ICICI Bank", token: "4963" },
+  { sym: "HINDUNILVR", name: "Hindustan Unilever", token: "1394" },
+  { sym: "ITC", name: "ITC Limited", token: "1660" },
+  { sym: "SBIN", name: "State Bank of India", token: "3045" },
+  { sym: "BHARTIARTL", name: "Bharti Airtel", token: "10684" },
+  { sym: "KOTAKBANK", name: "Kotak Mahindra Bank", token: "1922" },
+  { sym: "LT", name: "Larsen & Toubro", token: "11483" },
+  { sym: "AXISBANK", name: "Axis Bank", token: "5900" },
+  { sym: "ASIANPAINT", name: "Asian Paints", token: "531" },
+  { sym: "MARUTI", name: "Maruti Suzuki", token: "11853" },
+  { sym: "SUNPHARMA", name: "Sun Pharmaceutical", token: "3351" },
+  { sym: "TITAN", name: "Titan Company", token: "3499" },
+  { sym: "BAJFINANCE", name: "Bajaj Finance", token: "7385" },
+  { sym: "M&M", name: "Mahindra & Mahindra", token: "11773" },
+  { sym: "WIPRO", name: "Wipro", token: "3712" },
+  { sym: "NESTLEIND", name: "Nestle India", token: "18543" },
+  { sym: "POWERGRID", name: "Power Grid Corp", token: "14977" },
+  { sym: "NTPC", name: "NTPC Limited", token: "13538" },
+  { sym: "TATAMOTORS", name: "Tata Motors", token: "3456" },
+  { sym: "ONGC", name: "Oil & Natural Gas Corp", token: "13660" },
+  { sym: "TATASTEEL", name: "Tata Steel", token: "3499" },
+  { sym: "ULTRACEMCO", name: "UltraTech Cement", token: "11630" },
+  { sym: "JSWSTEEL", name: "JSW Steel", token: "10257" },
+  { sym: "COALINDIA", name: "Coal India", token: "11660" },
+  { sym: "HCLTECH", name: "HCL Technologies", token: "7229" },
+  { sym: "TECHM", name: "Tech Mahindra", token: "11532" },
+  { sym: "ADANIENT", name: "Adani Enterprises", token: "519" },
+  { sym: "ADANIPORTS", name: "Adani Ports", token: "16095" },
+  { sym: "BAJAJFINSV", name: "Bajaj Finserv", token: "7386" },
+  { sym: "DRREDDY", name: "Dr Reddy's Labs", token: "839" },
+  { sym: "CIPLA", name: "Cipla", token: "680" },
+  { sym: "GRASIM", name: "Grasim Industries", token: "1044" },
+  { sym: "DIVISLAB", name: "Divi's Laboratories", token: "23717" },
+  { sym: "HEROMOTOCO", name: "Hero MotoCorp", token: "1289" },
+  { sym: "BPCL", name: "BPCL", token: "615" },
+  { sym: "EICHERMOT", name: "Eicher Motors", token: "905" },
+  { sym: "BRITANNIA", name: "Britannia Industries", token: "596" },
+  { sym: "INDUSINDBK", name: "IndusInd Bank", token: "13554" },
+  { sym: "APOLLOHOSP", name: "Apollo Hospitals", token: "23718" },
+  { sym: "TATACONSUM", name: "Tata Consumer Products", token: "6401" },
+  { sym: "SBILIFE", name: "SBI Life Insurance", token: "23719" },
+  { sym: "HDFCLIFE", name: "HDFC Life Insurance", token: "23720" },
+  { sym: "DABUR", name: "Dabur India", token: "772" },
+  { sym: "PIDILITIND", name: "Pidilite Industries", token: "1861" },
+  { sym: "HAVELLS", name: "Havells India", token: "9950" },
+  { sym: "GODREJCP", name: "Godrej Consumer", token: "10025" }
+];
+
+// ============ STATE ============
+let state = {
+  jwtToken: null,
+  feedToken: null,
+  refreshToken: null,
+  ws: null,
+  tickCount: 0,
+  candles: {},
+  currentCandle: {},
+  lastLTP: {},
+  lastTickTime: {},
+  connected: false,
+  heartbeatInterval: null
+};
+
+// CORRECT WebSocket URL from official Angel One docs
+const WS_URL = 'wss://smartapisocket.angelbroking.com/smart-stream';
+
+const CANDLE_INTERVAL = 15 * 60 * 1000;
+const MARKET_OPEN = 9 * 60 + 15;
+const MARKET_CLOSE = 15 * 60 + 15;
+
+// ============ TOTP GENERATION ============
+function generateTOTP() {
+  const secret = document.getElementById('totpSecret').value.trim();
+  if (!secret) return '';
+  try {
+    const totp = new OTPAuth.TOTP({
+      issuer: 'AngelOne',
+      label: document.getElementById('clientId').value,
+      algorithm: 'SHA1',
+      digits: 6,
+      period: 30,
+      secret: OTPAuth.Secret.fromBase32(secret)
+    });
+    const code = totp.generate();
+    document.getElementById('totpCode').value = code;
+    return code;
+  } catch (e) {
+    log('TOTP generation failed: ' + e.message, 'error');
+    return '';
+  }
+}
+
+setInterval(generateTOTP, 1000);
+generateTOTP();
+
+// ============ LOGGING ============
+function log(msg, type = 'info') {
+  const panel = document.getElementById('logPanel');
+  panel.classList.remove('hidden');
+  const time = new Date().toLocaleTimeString('en-IN');
+  const entry = document.createElement('div');
+  entry.className = 'log-entry';
+  entry.innerHTML = `<span class="log-time">${time}</span><span class="log-${type}">${msg}</span>`;
+  panel.appendChild(entry);
+  panel.scrollTop = panel.scrollHeight;
+  if (panel.children.length > 200) panel.removeChild(panel.firstChild);
+}
+
+// ============ CONNECTION TEST (FIXED) ============
+async function runConnectionTest() {
+  const testPanel = document.getElementById('testPanel');
+  const testResults = document.getElementById('testResults');
+  testPanel.classList.remove('hidden');
+  testResults.innerHTML = '';
+
+  const tests = [
+    { name: 'Angel One API Server', url: 'https://apiconnect.angelbroking.com/rest/auth/angelbroking/user/v1/loginByPassword', method: 'OPTIONS' },
+    { name: 'WebSocket Server (CORRECT URL)', url: WS_URL, method: 'WS' },
+    { name: 'NSE Market Data', url: 'https://apiconnect.angelbroking.com/rest/secure/angelbroking/market/v1/quote/', method: 'GET' },
+    { name: 'Scrip Master API', url: 'https://margincalculator.angelbroking.com/OpenAPI_File/files/OpenAPIScripMaster.json', method: 'GET' }
+  ];
+
+  for (const test of tests) {
+    const item = document.createElement('div');
+    item.className = 'test-item';
+    item.innerHTML = `<span class="label">${test.name}</span><span class="result pending" id="test-${test.name.replace(/[^a-zA-Z0-9]/g,'')}">Testing...</span>`;
+    testResults.appendChild(item);
+
+    const resultEl = document.getElementById(`test-${test.name.replace(/[^a-zA-Z0-9]/g,'')}`);
+
+    try {
+      if (test.method === 'WS') {
+        const ws = new WebSocket(test.url);
+        const timeout = setTimeout(() => {
+          resultEl.textContent = '❌ Timeout';
+          resultEl.className = 'result fail';
+          ws.close();
+        }, 8000);
+        
+        ws.onopen = () => {
+          clearTimeout(timeout);
+          resultEl.textContent = '✅ Connected';
+          resultEl.className = 'result pass';
+          log('WebSocket test: Connected to ' + test.url, 'success');
+          
+          // If we have feedToken, test auth
+          if (state.feedToken) {
+            const authMsg = { task: 'cn', channel: '', token: state.feedToken, value: '' };
+            ws.send(JSON.stringify(authMsg));
+            log('Test auth sent', 'info');
+          }
+          
+          setTimeout(() => ws.close(), 3000);
+        };
+        
+        ws.onmessage = (event) => {
+          log('Test WS message received: ' + (typeof event.data === 'string' ? event.data.substring(0, 100) : 'binary:' + event.data.byteLength), 'info');
+        };
+        
+        ws.onerror = (error) => {
+          clearTimeout(timeout);
+          resultEl.textContent = '❌ Failed';
+          resultEl.className = 'result fail';
+          log('WebSocket test error', 'error');
+        };
+        
+        ws.onclose = () => {
+          log('WebSocket test connection closed', 'info');
+        };
+      } else {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
+        const response = await fetch(test.url, { method: test.method, signal: controller.signal });
+        clearTimeout(timeout);
+        resultEl.textContent = `✅ ${response.status}`;
+        resultEl.className = 'result pass';
+      }
+    } catch (e) {
+      resultEl.textContent = '❌ ' + (e.message || 'Failed');
+      resultEl.className = 'result fail';
+    }
+  }
+
+  log('Connection test completed', 'info');
+}
+
+// ============ LOGIN ============
+async function doLogin() {
+  const apiKey = document.getElementById('apiKey').value.trim();
+  const clientId = document.getElementById('clientId').value.trim();
+  const password = document.getElementById('password').value.trim();
+  const totp = generateTOTP();
+
+  if (!apiKey || !clientId || !password || !totp) {
+    alert('Please fill all fields');
+    return;
+  }
+
+  log('Generating TOTP: ' + totp, 'info');
+  log('Attempting login for ' + clientId + '...', 'info');
+
+  const loginData = {
+    clientcode: clientId,
+    password: password,
+    totp: totp
+  };
+
+  try {
+    const response = await fetch('https://apiconnect.angelbroking.com/rest/auth/angelbroking/user/v1/loginByPassword', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'X-UserType': 'USER',
+        'X-SourceID': 'WEB',
+        'X-ClientLocalIP': 'CLIENT_LOCAL_IP',
+        'X-ClientPublicIP': 'CLIENT_PUBLIC_IP',
+        'X-MACAddress': 'MAC_ADDRESS',
+        'X-PrivateKey': apiKey
+      },
+      body: JSON.stringify(loginData)
+    });
+
+    const data = await response.json();
+    log('Login response: ' + JSON.stringify(data).substring(0, 300), data.status ? 'success' : 'error');
+
+    if (data.status && data.data) {
+      state.jwtToken = data.data.jwtToken;
+      state.feedToken = data.data.feedToken;
+      state.refreshToken = data.data.refreshToken;
+
+      log('✅ Login successful!', 'success');
+      log('JWT Token: ' + state.jwtToken.substring(0, 30) + '...', 'info');
+      log('Feed Token: ' + state.feedToken.substring(0, 30) + '...', 'info');
+
+      document.getElementById('loginPanel').classList.add('hidden');
+      document.getElementById('screener').classList.remove('hidden');
+      document.getElementById('loginBtn').classList.add('hidden');
+      document.getElementById('wsBtn').classList.remove('hidden');
+      document.getElementById('statusDot').className = 'status-dot';
+      document.getElementById('statusText').textContent = 'Logged in (WS pending)';
+
+      initializeCandles();
+      renderTable();
+    } else {
+      log('❌ Login failed: ' + (data.message || JSON.stringify(data)), 'error');
+      alert('Login failed: ' + (data.message || 'Check credentials'));
+    }
+  } catch (e) {
+    log('⚠️ Direct API failed: ' + e.message, 'error');
+    log('Try CORS extension or proxy', 'warn');
+    alert('API call failed. Install CORS Unblock extension or use proxy.');
+  }
+}
+
+// ============ CANDLE INITIALIZATION ============
+function initializeCandles() {
+  NIFTY50_STOCKS.forEach(stock => {
+    state.candles[stock.token] = [];
+    state.currentCandle[stock.token] = null;
+    state.lastLTP[stock.token] = null;
+    state.lastTickTime[stock.token] = null;
+  });
+  log('Initialized candle buffers for ' + NIFTY50_STOCKS.length + ' stocks', 'success');
+}
+
+function getCandleBoundary(ts) {
+  const d = new Date(ts);
+  const minutes = d.getHours() * 60 + d.getMinutes();
+  const candlesFromOpen = Math.floor((minutes - MARKET_OPEN) / 15);
+  const boundaryMinutes = MARKET_OPEN + (candlesFromOpen * 15);
+  const boundary = new Date(d);
+  boundary.setHours(Math.floor(boundaryMinutes / 60), boundaryMinutes % 60, 0, 0);
+  return boundary.getTime();
+}
+
+function formatTime(ts) {
+  const d = new Date(ts);
+  return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
+}
+
+function formatTickTime(ts) {
+  if (!ts) return '—';
+  const d = new Date(ts);
+  return d.getHours().toString().padStart(2, '0') + ':' + 
+         d.getMinutes().toString().padStart(2, '0') + ':' + 
+         d.getSeconds().toString().padStart(2, '0');
+}
+
+// ============ WEBSOCKET (FIXED) ============
+function connectWS() {
+  if (!state.feedToken) {
+    alert('Please login first to get feedToken');
+    return;
+  }
+
+  log('Connecting to Angel One WebSocket...', 'info');
+  log('URL: ' + WS_URL, 'info');
+  document.getElementById('statusDot').className = 'status-dot connecting';
+  document.getElementById('statusText').textContent = 'Connecting...';
+
+  try {
+    state.ws = new WebSocket(WS_URL);
+
+    state.ws.binaryType = 'arraybuffer';
+
+    state.ws.onopen = () => {
+      log('✅ WebSocket connected to ' + WS_URL, 'success');
+      state.connected = true;
+      document.getElementById('statusDot').className = 'status-dot connected';
+      document.getElementById('statusText').textContent = 'Connected';
+      document.getElementById('wsBtn').classList.add('hidden');
+      document.getElementById('disconnectBtn').classList.remove('hidden');
+
+      // Step 1: Send authentication (connection task)
+      const authMsg = {
+        task: 'cn',
+        channel: '',
+        token: state.feedToken,
+        value: ''
+      };
+      state.ws.send(JSON.stringify(authMsg));
+      log('📤 Sent authentication (cn task)', 'info');
+
+      // Step 2: Wait for auth confirmation, then subscribe
+      setTimeout(() => {
+        subscribeTokens();
+      }, 2000);
+
+      // Step 3: Start heartbeat (ping every 30 seconds)
+      state.heartbeatInterval = setInterval(() => {
+        if (state.ws && state.ws.readyState === WebSocket.OPEN) {
+          try {
+            const pingMsg = { task: 'hb', channel: '', token: state.feedToken, value: '' };
+            state.ws.send(JSON.stringify(pingMsg));
+            log(' Heartbeat sent', 'info');
+          } catch (e) {
+            log('Heartbeat failed', 'warn');
+          }
+        }
+      }, 30000);
+    };
+
+    state.ws.onmessage = (event) => {
+      handleWSMessage(event.data);
+    };
+
+    state.ws.onerror = (error) => {
+      log('❌ WebSocket error occurred', 'error');
+      document.getElementById('statusDot').className = 'status-dot error';
+      document.getElementById('statusText').textContent = 'Error';
+    };
+
+    state.ws.onclose = (event) => {
+      log('WebSocket closed (code: ' + event.code + ', reason: ' + (event.reason || 'none') + ')', 'warn');
+      state.connected = false;
+      if (state.heartbeatInterval) clearInterval(state.heartbeatInterval);
+      document.getElementById('statusDot').className = 'status-dot';
+      document.getElementById('statusText').textContent = 'Disconnected';
+      document.getElementById('wsBtn').classList.remove('hidden');
+      document.getElementById('disconnectBtn').classList.add('hidden');
+    };
+  } catch (e) {
+    log('WebSocket connection failed: ' + e.message, 'error');
+  }
+}
+
+function subscribeTokens() {
+  if (!state.ws || state.ws.readyState !== WebSocket.OPEN) {
+    log('Cannot subscribe - WebSocket not open', 'error');
+    return;
+  }
+  
+  const tokens = NIFTY50_STOCKS.map(s => s.token).join('-');
+  const subMsg = {
+    task: 'mw',
+    channel: '1',
+    token: state.feedToken,
+    value: tokens,
+    action: 1
+  };
+  state.ws.send(JSON.stringify(subMsg));
+  log('📤 Subscribed to ' + NIFTY50_STOCKS.length + ' tokens: ' + tokens.substring(0, 50) + '...', 'success');
+}
+
+function disconnectWS() {
+  if (state.heartbeatInterval) clearInterval(state.heartbeatInterval);
+  if (state.ws) {
+    state.ws.close();
+    state.ws = null;
+  }
+  state.connected = false;
+  log('Disconnected manually', 'info');
+}
+
+// ============ MESSAGE HANDLING (FIXED FOR BINARY + JSON) ============
+function handleWSMessage(data) {
+  state.tickCount++;
+  document.getElementById('tickCounter').textContent = 'Ticks: ' + state.tickCount;
+
+  // Angel One sends both JSON text and binary data
+  if (typeof data === 'string') {
+    // JSON text message
+    let parsed;
+    try {
+      parsed = JSON.parse(data);
+    } catch (e) {
+      if (state.tickCount <= 10) {
+        log('JSON parse failed: ' + data.substring(0, 100), 'warn');
+      }
+      return;
+    }
+
+    if (parsed.task === 'cn') {
+      log('✅ Connection confirmed (cn response)', 'success');
+      return;
+    }
+    
+    if (parsed.task === 'hb') {
+      // Heartbeat response - ignore
+      return;
+    }
+
+    if (parsed.task === 'mw' || parsed.feed || parsed.data) {
+      processMarketDataJSON(parsed);
+    } else if (Array.isArray(parsed)) {
+      parsed.forEach(item => processMarketDataJSON(item));
+    } else {
+      if (state.tickCount <= 5) {
+        log('Unknown JSON format: ' + JSON.stringify(parsed).substring(0, 150), 'warn');
+      }
+    }
+  } else if (data instanceof ArrayBuffer || data instanceof Blob) {
+    // Binary data - Angel One sends market data in binary format
+    processBinaryData(data);
+  }
+}
+
+function processMarketDataJSON(data) {
+  // Handle JSON formatted market data
+  const token = String(data.tk || data.token || data.sym || '');
+  const ltp = parseFloat(data.lp || data.ltp || data.close || data.c || 0);
+  const volume = parseInt(data.v || data.volume || 0);
+  const timestamp = data.ts || data.exchangeTimestamp || Date.now();
+
+  if (!token || isNaN(ltp) || ltp === 0) return;
+
+  const stock = NIFTY50_STOCKS.find(s => s.token === token);
+  if (!stock) return;
+
+  updateCandle(stock.token, ltp, volume, timestamp);
+}
+
+function processBinaryData(buffer) {
+  // Angel One binary format parsing
+  // The binary data contains multiple market records
+  try {
+    let arrayBuffer;
+    if (buffer instanceof Blob) {
+      // Can't process synchronously, skip
+      return;
+    } else {
+      arrayBuffer = buffer;
+    }
+    
+    const dataView = new DataView(arrayBuffer);
+    const byteLength = arrayBuffer.byteLength;
+    
+    // Angel One binary format: each record is 32 bytes
+    // Offset 0-3: token (4 bytes)
+    // Offset 4-7: LTP (4 bytes float)
+    // Offset 8-11: volume (4 bytes)
+    // etc.
+    
+    const RECORD_SIZE = 32;
+    const numRecords = Math.floor(byteLength / RECORD_SIZE);
+    
+    for (let i = 0; i < numRecords; i++) {
+      const offset = i * RECORD_SIZE;
+      const token = String(dataView.getUint32(offset, true));
+      const ltp = dataView.getFloat32(offset + 4, true) / 100; // Price in paise
+      const volume = dataView.getUint32(offset + 8, true);
+      
+      if (!token || isNaN(ltp) || ltp === 0) continue;
+      
+      const stock = NIFTY50_STOCKS.find(s => s.token === token);
+      if (!stock) continue;
+      
+      updateCandle(token, ltp, volume, Date.now());
+    }
+  } catch (e) {
+    if (state.tickCount <= 5) {
+      log('Binary parse error: ' + e.message, 'warn');
+    }
+  }
+}
+
+function updateCandle(token, ltp, volume, timestamp) {
+  state.lastLTP[token] = ltp;
+  state.lastTickTime[token] = timestamp;
+
+  const now = Date.now();
+  const currentBoundary = getCandleBoundary(now);
+
+  if (!state.currentCandle[token] || state.currentCandle[token].startTs < currentBoundary) {
+    // Close previous candle
+    if (state.currentCandle[token]) {
+      state.candles[token].push({ ...state.currentCandle[token] });
+    }
+    // Start new candle
+    state.currentCandle[token] = {
+      o: ltp,
+      h: ltp,
+      l: ltp,
+      c: ltp,
+      v: volume,
+      typVol: ltp * volume,
+      startTs: currentBoundary,
+      endTs: currentBoundary + CANDLE_INTERVAL
+    };
+  } else {
+    // Update current candle
+    const candle = state.currentCandle[token];
+    candle.h = Math.max(candle.h, ltp);
+    candle.l = Math.min(candle.l, ltp);
+    candle.c = ltp;
+    candle.v += volume;
+    candle.typVol += ltp * volume;
+  }
+
+  // Update UI every 10 ticks
+  if (state.tickCount % 10 === 0) {
+    renderTable();
+  }
+}
+
+// ============ TABLE RENDERING ============
+function renderTable() {
+  const table = document.getElementById('ohlcTable');
+  const now = Date.now();
+  const todayStart = new Date(now);
+  todayStart.setHours(9, 15, 0, 0);
+
+  const timeSlots = [];
+  let t = todayStart.getTime();
+  const marketEnd = new Date(now);
+  marketEnd.setHours(15, 15, 0, 0);
+  while (t <= marketEnd.getTime()) {
+    timeSlots.push(t);
+    t += CANDLE_INTERVAL;
+  }
+
+  document.getElementById('candleCount').textContent = timeSlots.length;
+  document.getElementById('screenerMeta').textContent = 
+    `15-min candles | ${NIFTY50_STOCKS.length} stocks | Last update: ${new Date().toLocaleTimeString('en-IN')}`;
+
+  let headerHTML = '<thead><tr><th class="stock-header" rowspan="2">Stock (Token)</th>';
+  timeSlots.forEach(ts => {
+    headerHTML += `<th class="time-header" colspan="6">${formatTime(ts)}</th>`;
+  });
+  headerHTML += '</tr><tr>';
+  timeSlots.forEach(() => {
+    headerHTML += '<th>O</th><th>H</th><th>L</th><th>C</th><th>VWAP</th><th class="tick-header">Last Tick</th>';
+  });
+  headerHTML += '</tr></thead>';
+
+  let bodyHTML = '<tbody>';
+  NIFTY50_STOCKS.forEach(stock => {
+    bodyHTML += `<tr><td class="stock-cell"><div class="sym">${stock.sym}</div><div class="token">Token: ${stock.token}</div></td>`;
+
+    timeSlots.forEach(ts => {
+      const candle = state.candles[stock.token]?.find(c => c.startTs === ts);
+      const isCurrent = state.currentCandle[stock.token]?.startTs === ts;
+
+      if (candle) {
+        const vwap = candle.v > 0 ? (candle.typVol / candle.v) : candle.c;
+        const isUp = candle.c >= candle.o;
+        const cls = isUp ? 'up' : 'down';
+        const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
+        bodyHTML += `<td class="${cls}">${candle.o.toFixed(2)}</td>`;
+        bodyHTML += `<td class="${cls}">${candle.h.toFixed(2)}</td>`;
+        bodyHTML += `<td class="${cls}">${candle.l.toFixed(2)}</td>`;
+        bodyHTML += `<td class="${cls}">${candle.c.toFixed(2)}</td>`;
+        bodyHTML += `<td class="${cls}">${vwap.toFixed(2)}</td>`;
+        bodyHTML += `<td class="tick-cell">${tickTime}</td>`;
+      } else if (isCurrent && state.currentCandle[stock.token]) {
+        const c = state.currentCandle[stock.token];
+        const vwap = c.v > 0 ? (c.typVol / c.v) : c.c;
+        const isUp = c.c >= c.o;
+        const cls = isUp ? 'up' : 'down';
+        const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
+        bodyHTML += `<td class="current-candle ${cls}">${c.o.toFixed(2)}</td>`;
+        bodyHTML += `<td class="current-candle ${cls}">${c.h.toFixed(2)}</td>`;
+        bodyHTML += `<td class="current-candle ${cls}">${c.l.toFixed(2)}</td>`;
+        bodyHTML += `<td class="current-candle ${cls}">${c.c.toFixed(2)}</td>`;
+        bodyHTML += `<td class="current-candle ${cls}">${vwap.toFixed(2)}</td>`;
+        bodyHTML += `<td class="tick-cell current-candle">${tickTime}</td>`;
+      } else {
+        bodyHTML += '<td class="empty-cell">—</td>'.repeat(5);
+        bodyHTML += '<td class="tick-cell">—</td>';
+      }
+    });
+
+    bodyHTML += '</tr>';
+  });
+  bodyHTML += '</tbody>';
+
+  table.innerHTML = headerHTML + bodyHTML;
+}
+
+// ============ EXPORT CSV ============
+function exportCSV() {
+  const now = Date.now();
+  const todayStart = new Date(now);
+  todayStart.setHours(9, 15, 0, 0);
+
+  const timeSlots = [];
+  let t = todayStart.getTime();
+  const marketEnd = new Date(now);
+  marketEnd.setHours(15, 15, 0, 0);
+  while (t <= marketEnd.getTime()) {
+    timeSlots.push(t);
+    t += CANDLE_INTERVAL;
+  }
+
+  let csv = 'Stock,Token';
+  timeSlots.forEach(ts => {
+    csv += `,${formatTime(ts)}_O,${formatTime(ts)}_H,${formatTime(ts)}_L,${formatTime(ts)}_C,${formatTime(ts)}_VWAP,${formatTime(ts)}_LastTick`;
+  });
+  csv += '\n';
+
+  NIFTY50_STOCKS.forEach(stock => {
+    csv += `${stock.sym},${stock.token}`;
+    timeSlots.forEach(ts => {
+      const candle = state.candles[stock.token]?.find(c => c.startTs === ts);
+      const isCurrent = state.currentCandle[stock.token]?.startTs === ts;
+      const c = candle || (isCurrent ? state.currentCandle[stock.token] : null);
+      if (c) {
+        const vwap = c.v > 0 ? (c.typVol / c.v) : c.c;
+        const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '';
+        csv += `,${c.o.toFixed(2)},${c.h.toFixed(2)},${c.l.toFixed(2)},${c.c.toFixed(2)},${vwap.toFixed(2)},${tickTime}`;
+      } else {
+        csv += ',,,,,,';
+      }
+    });
+    csv += '\n';
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `nifty50_ohlc_${new Date().toISOString().split('T')[0]}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  log('CSV exported', 'success');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !document.getElementById('loginPanel').classList.contains('hidden')) {
+    doLogin();
+  }
+});
+
+log('System ready. Click "Test Connection" to verify, then Login → Connect WS.', 'info');
+</script>
+</body>
+</html>
