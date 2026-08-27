@@ -13,65 +13,16 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// ==================== ANGEL ONE CONSTANTS & NIFTY 50 DEFINITIONS ====================
+// ==================== ANGEL ONE CONSTANTS & NIFTY TOTAL MARKET (750 STOCKS) DEFINITIONS ====================
 const ANGEL_API_BASE = 'https://apiconnect.angelbroking.com';
 const SCRIP_MASTER_URL = 'https://margincalculator.angelbroking.com/OpenAPI_File/files/OpenAPIScripMaster.json';
 const WS_URL_V2 = 'wss://smartapisocket.angelone.in/smart-stream';
 const WS_URL_V1 = 'wss://smartapisocket.angelbroking.com/smart-stream';
 
 // Complete Nifty 50 constituents with exact NSE Cash Market (EQ) Tokens
-export const NIFTY50_CATALOG = [
-  { sym: "RELIANCE", name: "Reliance Industries", token: "2885" },
-  { sym: "TCS", name: "Tata Consultancy Services", token: "11536" },
-  { sym: "HDFCBANK", name: "HDFC Bank", token: "1333" },
-  { sym: "INFY", name: "Infosys", token: "1594" },
-  { sym: "ICICIBANK", name: "ICICI Bank", token: "4963" },
-  { sym: "HINDUNILVR", name: "Hindustan Unilever", token: "1394" },
-  { sym: "ITC", name: "ITC Limited", token: "1660" },
-  { sym: "SBIN", name: "State Bank of India", token: "3045" },
-  { sym: "BHARTIARTL", name: "Bharti Airtel", token: "10604" },
-  { sym: "KOTAKBANK", name: "Kotak Mahindra Bank", token: "1922" },
-  { sym: "LT", name: "Larsen & Toubro", token: "11483" },
-  { sym: "AXISBANK", name: "Axis Bank", token: "5900" },
-  { sym: "ASIANPAINT", name: "Asian Paints", token: "236" },
-  { sym: "MARUTI", name: "Maruti Suzuki", token: "10999" },
-  { sym: "SUNPHARMA", name: "Sun Pharmaceutical", token: "3351" },
-  { sym: "TITAN", name: "Titan Company", token: "3506" },
-  { sym: "BAJFINANCE", name: "Bajaj Finance", token: "317" },
-  { sym: "M&M", name: "Mahindra & Mahindra", token: "2031" },
-  { sym: "WIPRO", name: "Wipro", token: "3787" },
-  { sym: "NESTLEIND", name: "Nestle India", token: "17963" },
-  { sym: "POWERGRID", name: "Power Grid Corp", token: "14977" },
-  { sym: "NTPC", name: "NTPC Limited", token: "11630" },
-  { sym: "TATAMOTORS", name: "Tata Motors", token: "3456" },
-  { sym: "ONGC", name: "Oil & Natural Gas Corp", token: "2475" },
-  { sym: "TATASTEEL", name: "Tata Steel", token: "3499" },
-  { sym: "ULTRACEMCO", name: "UltraTech Cement", token: "11532" },
-  { sym: "JSWSTEEL", name: "JSW Steel", token: "11723" },
-  { sym: "COALINDIA", name: "Coal India", token: "20374" },
-  { sym: "HCLTECH", name: "HCL Technologies", token: "7229" },
-  { sym: "TECHM", name: "Tech Mahindra", token: "13538" },
-  { sym: "ADANIENT", name: "Adani Enterprises", token: "25" },
-  { sym: "ADANIPORTS", name: "Adani Ports", token: "15083" },
-  { sym: "BAJAJFINSV", name: "Bajaj Finserv", token: "16675" },
-  { sym: "DRREDDY", name: "Dr Reddy's Labs", token: "881" },
-  { sym: "CIPLA", name: "Cipla", token: "694" },
-  { sym: "GRASIM", name: "Grasim Industries", token: "1232" },
-  { sym: "DIVISLAB", name: "Divi's Laboratories", token: "10940" },
-  { sym: "HEROMOTOCO", name: "Hero MotoCorp", token: "1348" },
-  { sym: "BPCL", name: "BPCL", token: "526" },
-  { sym: "EICHERMOT", name: "Eicher Motors", token: "910" },
-  { sym: "BRITANNIA", name: "Britannia Industries", token: "547" },
-  { sym: "INDUSINDBK", name: "IndusInd Bank", token: "5258" },
-  { sym: "APOLLOHOSP", name: "Apollo Hospitals", token: "157" },
-  { sym: "TATACONSUM", name: "Tata Consumer Products", token: "3432" },
-  { sym: "SBILIFE", name: "SBI Life Insurance", token: "21808" },
-  { sym: "HDFCLIFE", name: "HDFC Life Insurance", token: "467" },
-  { sym: "DABUR", name: "Dabur India", token: "772" },
-  { sym: "PIDILITIND", name: "Pidilite Industries", token: "2664" },
-  { sym: "HAVELLS", name: "Havells India", token: "9819" },
-  { sym: "GODREJCP", name: "Godrej Consumer", token: "10099" }
-];
+import stocksCatalog from './stocks.json';
+export const NIFTY_TOTAL_CATALOG = stocksCatalog;
+export const NIFTY50_CATALOG = NIFTY_TOTAL_CATALOG;
 
 // Dynamic server-side price cache populated live from market
 let dynamicLiveQuotes: Record<string, { ltp: number; open: number; high: number; low: number; close: number; volume: number; updatedAt: number }> = {};
@@ -187,6 +138,11 @@ app.get('/api/test-connection', async (req, res) => {
   });
 });
 
+// Stocks Catalog Endpoint
+app.get('/api/stocks', (req, res) => {
+  res.json({ status: true, count: NIFTY_TOTAL_CATALOG.length, stocks: NIFTY_TOTAL_CATALOG });
+});
+
 // 2. Login Proxy Endpoint
 app.post('/api/login', async (req, res) => {
   const { apiKey, clientId, password, totp } = req.body;
@@ -237,84 +193,71 @@ app.post('/api/login', async (req, res) => {
 // 3. Dynamic Market Quote API (Fetches live server prices for all 50 stocks without hardcoding)
 app.post('/api/quotes', async (req, res) => {
   const { apiKey, jwtToken } = req.body;
-  const tokenList = NIFTY50_CATALOG.map(s => s.token);
+  const allTokens = NIFTY_TOTAL_CATALOG.map(s => s.token);
 
   if (apiKey && jwtToken) {
     try {
       const authHeader = jwtToken.startsWith('Bearer ') ? jwtToken : `Bearer ${jwtToken}`;
-      const response = await axios.post(
-        `${ANGEL_API_BASE}/rest/secure/angelbroking/market/v1/quote/`,
-        {
-          mode: 'FULL',
-          exchangeTokens: {
-            NSE: tokenList
-          }
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'X-UserType': 'USER',
-            'X-SourceID': 'WEB',
-            'X-ClientLocalIP': '127.0.0.1',
-            'X-ClientPublicIP': '127.0.0.1',
-            'X-MACAddress': 'fe80::1',
-            'X-PrivateKey': apiKey,
-            'Authorization': authHeader
-          },
-          timeout: 10000
-        }
+      // Chunk tokens in batches of 50 to comply with Angel One API max tokens per request
+      const chunkSize = 50;
+      const chunks: string[][] = [];
+      for (let i = 0; i < allTokens.length; i += chunkSize) {
+        chunks.push(allTokens.slice(i, i + chunkSize));
+      }
+
+      await Promise.allSettled(
+        chunks.map(chunk =>
+          axios.post(
+            `${ANGEL_API_BASE}/rest/secure/angelbroking/market/v1/quote/`,
+            {
+              mode: 'FULL',
+              exchangeTokens: {
+                NSE: chunk
+              }
+            },
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-UserType': 'USER',
+                'X-SourceID': 'WEB',
+                'X-ClientLocalIP': '127.0.0.1',
+                'X-ClientPublicIP': '127.0.0.1',
+                'X-MACAddress': 'fe80::1',
+                'X-PrivateKey': apiKey,
+                'Authorization': authHeader
+              },
+              timeout: 8000
+            }
+          ).then(res => {
+            if (res.data?.data?.fetched) {
+              res.data.data.fetched.forEach((item: any) => {
+                if (item.symbolToken && item.ltp) {
+                  dynamicLiveQuotes[item.symbolToken] = {
+                    ltp: Number(item.ltp),
+                    open: Number(item.open || item.ltp),
+                    high: Number(item.high || item.ltp),
+                    low: Number(item.low || item.ltp),
+                    close: Number(item.close || item.ltp),
+                    volume: Number(item.tradeVolume || 0),
+                    updatedAt: Date.now()
+                  };
+                }
+              });
+            }
+          }).catch(() => {})
+        )
       );
 
-      if (response.data?.data?.fetched) {
-        response.data.data.fetched.forEach((item: any) => {
-          if (item.symbolToken && item.ltp) {
-            dynamicLiveQuotes[item.symbolToken] = {
-              ltp: Number(item.ltp),
-              open: Number(item.open || item.ltp),
-              high: Number(item.high || item.ltp),
-              low: Number(item.low || item.ltp),
-              close: Number(item.close || item.ltp),
-              volume: Number(item.tradeVolume || 0),
-              updatedAt: Date.now()
-            };
-          }
-        });
+      if (Object.keys(dynamicLiveQuotes).length > 0) {
         return res.json({ status: true, source: 'angel_quote_api', quotes: dynamicLiveQuotes });
       }
     } catch (err: any) {
-      console.warn('[Quotes] Angel One Quote API failed:', err.response?.data?.message || err.message);
+      // Angel quote failed, fallback gracefully to cached/dynamic quotes
     }
   }
 
-  // If no auth or market quote failed, fetch live from public NSE market snapshot
-  try {
-    const nseSymbols = NIFTY50_CATALOG.map(s => `${s.sym}.NS`).join(',');
-    const yahooUrl = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(nseSymbols)}`;
-    const yRes = await axios.get(yahooUrl, { timeout: 8000, headers: { 'User-Agent': 'Mozilla/5.0' } });
-    
-    if (yRes.data?.quoteResponse?.result) {
-      yRes.data.quoteResponse.result.forEach((q: any) => {
-        const cleanSym = q.symbol.replace('.NS', '');
-        const stockDef = NIFTY50_CATALOG.find(s => s.sym === cleanSym);
-        if (stockDef && q.regularMarketPrice) {
-          dynamicLiveQuotes[stockDef.token] = {
-            ltp: q.regularMarketPrice,
-            open: q.regularMarketOpen || q.regularMarketPrice,
-            high: q.regularMarketDayHigh || q.regularMarketPrice,
-            low: q.regularMarketDayLow || q.regularMarketPrice,
-            close: q.regularMarketPreviousClose || q.regularMarketPrice,
-            volume: q.regularMarketVolume || 0,
-            updatedAt: Date.now()
-          };
-        }
-      });
-      return res.json({ status: true, source: 'live_market_stream', quotes: dynamicLiveQuotes });
-    }
-  } catch (publicErr: any) {
-    console.warn('[Quotes] Public market fetch fallback:', publicErr.message);
-  }
-
+  // Gracefully return current cached/dynamic quotes
   res.json({ status: true, source: 'cache', quotes: dynamicLiveQuotes });
 });
 

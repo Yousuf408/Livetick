@@ -1,6 +1,6 @@
 {
   "name": "Livetick",
-  "description": "Angel One Nifty 50 OHLC 15-Minute Screener with SmartAPI TOTP authentication, live WebSocket tick stream, dynamic candle matrix, and CSV export.",
+  "description": "Angel One Nifty Total Market (750 Stocks) OHLC 15-Minute Screener with SmartAPI TOTP authentication, live WebSocket tick stream, dynamic candle matrix, and CSV export.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -1,0 +1,3752 @@
+[
+  {
+    "sym": "360ONE",
+    "name": "360 ONE WAM Ltd.",
+    "token": "13061"
+  },
+  {
+    "sym": "3MINDIA",
+    "name": "3M India Ltd.",
+    "token": "474"
+  },
+  {
+    "sym": "ABB",
+    "name": "ABB India Ltd.",
+    "token": "13"
+  },
+  {
+    "sym": "ACC",
+    "name": "ACC Ltd.",
+    "token": "22"
+  },
+  {
+    "sym": "ACMESOLAR",
+    "name": "ACME Solar Holdings Ltd.",
+    "token": "27061"
+  },
+  {
+    "sym": "AIAENG",
+    "name": "AIA Engineering Ltd.",
+    "token": "13086"
+  },
+  {
+    "sym": "APLAPOLLO",
+    "name": "APL Apollo Tubes Ltd.",
+    "token": "25780"
+  },
+  {
+    "sym": "ASKAUTOLTD",
+    "name": "ASK Automotive Ltd.",
+    "token": "20152"
+  },
+  {
+    "sym": "AUBANK",
+    "name": "AU Small Finance Bank Ltd.",
+    "token": "21238"
+  },
+  {
+    "sym": "AWL",
+    "name": "AWL Agri Business Ltd.",
+    "token": "8110"
+  },
+  {
+    "sym": "AXISCADES",
+    "name": "AXISCADES Technologies Ltd.",
+    "token": "9436"
+  },
+  {
+    "sym": "AADHARHFC",
+    "name": "Aadhar Housing Finance Ltd.",
+    "token": "23729"
+  },
+  {
+    "sym": "AARTIDRUGS",
+    "name": "Aarti Drugs Ltd.",
+    "token": "4481"
+  },
+  {
+    "sym": "AARTIIND",
+    "name": "Aarti Industries Ltd.",
+    "token": "7"
+  },
+  {
+    "sym": "AARTIPHARM",
+    "name": "Aarti Pharmalabs Ltd.",
+    "token": "13868"
+  },
+  {
+    "sym": "AAVAS",
+    "name": "Aavas Financiers Ltd.",
+    "token": "5385"
+  },
+  {
+    "sym": "ABBOTINDIA",
+    "name": "Abbott India Ltd.",
+    "token": "17903"
+  },
+  {
+    "sym": "ACE",
+    "name": "Action Construction Equipment Ltd.",
+    "token": "13587"
+  },
+  {
+    "sym": "ACUTAAS",
+    "name": "Acutaas Chemicals Ltd.",
+    "token": "5578"
+  },
+  {
+    "sym": "ADANIENSOL",
+    "name": "Adani Energy Solutions Ltd.",
+    "token": "10217"
+  },
+  {
+    "sym": "ADANIENT",
+    "name": "Adani Enterprises Ltd.",
+    "token": "25"
+  },
+  {
+    "sym": "ADANIGREEN",
+    "name": "Adani Green Energy Ltd.",
+    "token": "3563"
+  },
+  {
+    "sym": "ADANIPORTS",
+    "name": "Adani Ports and Special Economic Zone Ltd.",
+    "token": "15083"
+  },
+  {
+    "sym": "ADANIPOWER",
+    "name": "Adani Power Ltd.",
+    "token": "17388"
+  },
+  {
+    "sym": "ATGL",
+    "name": "Adani Total Gas Ltd.",
+    "token": "6066"
+  },
+  {
+    "sym": "ABCAPITAL",
+    "name": "Aditya Birla Capital Ltd.",
+    "token": "21614"
+  },
+  {
+    "sym": "ABFRL",
+    "name": "Aditya Birla Fashion and Retail Ltd.",
+    "token": "30108"
+  },
+  {
+    "sym": "ABLBL",
+    "name": "Aditya Birla Lifestyle Brands Ltd.",
+    "token": "756843"
+  },
+  {
+    "sym": "ABREL",
+    "name": "Aditya Birla Real Estate Ltd.",
+    "token": "625"
+  },
+  {
+    "sym": "ABSLAMC",
+    "name": "Aditya Birla Sun Life AMC Ltd.",
+    "token": "6018"
+  },
+  {
+    "sym": "CPPLUS",
+    "name": "Aditya Infotech Ltd.",
+    "token": "758858"
+  },
+  {
+    "sym": "AVL",
+    "name": "Aditya Vision Ltd.",
+    "token": "25984"
+  },
+  {
+    "sym": "ADVENZYMES",
+    "name": "Advanced Enzyme Tech Ltd.",
+    "token": "18039"
+  },
+  {
+    "sym": "AEGISLOG",
+    "name": "Aegis Logistics Ltd.",
+    "token": "40"
+  },
+  {
+    "sym": "AEGISVOPAK",
+    "name": "Aegis Vopak Terminals Ltd.",
+    "token": "757336"
+  },
+  {
+    "sym": "AEQUS",
+    "name": "Aequs Ltd.",
+    "token": "760234"
+  },
+  {
+    "sym": "AETHER",
+    "name": "Aether Industries Ltd.",
+    "token": "9810"
+  },
+  {
+    "sym": "AFCONS",
+    "name": "Afcons Infrastructure Ltd.",
+    "token": "25977"
+  },
+  {
+    "sym": "AFFLE",
+    "name": "Affle 3i Ltd.",
+    "token": "11343"
+  },
+  {
+    "sym": "AHLUCONT",
+    "name": "Ahluwalia Contracts (India) Ltd.",
+    "token": "17833"
+  },
+  {
+    "sym": "AJANTPHARM",
+    "name": "Ajanta Pharmaceuticals Ltd.",
+    "token": "8124"
+  },
+  {
+    "sym": "AKUMS",
+    "name": "Akums Drugs and Pharmaceuticals Ltd.",
+    "token": "24715"
+  },
+  {
+    "sym": "APLLTD",
+    "name": "Alembic Pharmaceuticals Ltd.",
+    "token": "25328"
+  },
+  {
+    "sym": "ALIVUS",
+    "name": "Alivus Life Sciences Ltd.",
+    "token": "5265"
+  },
+  {
+    "sym": "ALKEM",
+    "name": "Alkem Laboratories Ltd.",
+    "token": "11703"
+  },
+  {
+    "sym": "ALKYLAMINE",
+    "name": "Alkyl Amines Chemicals Ltd.",
+    "token": "4487"
+  },
+  {
+    "sym": "ABDL",
+    "name": "Allied Blenders and Distillers Ltd.",
+    "token": "24308"
+  },
+  {
+    "sym": "ALOKINDS",
+    "name": "Alok Industries Ltd.",
+    "token": "17675"
+  },
+  {
+    "sym": "ARE&M",
+    "name": "Amara Raja Energy & Mobility Ltd.",
+    "token": "100"
+  },
+  {
+    "sym": "AMBER",
+    "name": "Amber Enterprises India Ltd.",
+    "token": "1185"
+  },
+  {
+    "sym": "AMBUJACEM",
+    "name": "Ambuja Cements Ltd.",
+    "token": "1270"
+  },
+  {
+    "sym": "ANANDRATHI",
+    "name": "Anand Rathi Wealth Ltd.",
+    "token": "7145"
+  },
+  {
+    "sym": "ANANTRAJ",
+    "name": "Anant Raj Ltd.",
+    "token": "13620"
+  },
+  {
+    "sym": "ANGELONE",
+    "name": "Angel One Ltd.",
+    "token": "324"
+  },
+  {
+    "sym": "ANTHEM",
+    "name": "Anthem Biosciences Ltd.",
+    "token": "757885"
+  },
+  {
+    "sym": "ANURAS",
+    "name": "Anupam Rasayan India Ltd.",
+    "token": "2829"
+  },
+  {
+    "sym": "APARINDS",
+    "name": "Apar Industries Ltd.",
+    "token": "11491"
+  },
+  {
+    "sym": "APOLLOHOSP",
+    "name": "Apollo Hospitals Enterprise Ltd.",
+    "token": "157"
+  },
+  {
+    "sym": "APOLLO",
+    "name": "Apollo Micro Systems Ltd.",
+    "token": "1134"
+  },
+  {
+    "sym": "APOLLOTYRE",
+    "name": "Apollo Tyres Ltd.",
+    "token": "163"
+  },
+  {
+    "sym": "APTUS",
+    "name": "Aptus Value Housing Finance India Ltd.",
+    "token": "5435"
+  },
+  {
+    "sym": "ACI",
+    "name": "Archean Chemical Industries Ltd.",
+    "token": "12024"
+  },
+  {
+    "sym": "ARVINDFASN",
+    "name": "Arvind Fashions Ltd.",
+    "token": "9111"
+  },
+  {
+    "sym": "ARVIND",
+    "name": "Arvind Ltd.",
+    "token": "193"
+  },
+  {
+    "sym": "ASAHIINDIA",
+    "name": "Asahi India Glass Ltd.",
+    "token": "5378"
+  },
+  {
+    "sym": "ASHAPURMIN",
+    "name": "Ashapura Minechem Ltd.",
+    "token": "203"
+  },
+  {
+    "sym": "ASHOKLEY",
+    "name": "Ashok Leyland Ltd.",
+    "token": "212"
+  },
+  {
+    "sym": "ASHOKA",
+    "name": "Ashoka Buildcon Ltd.",
+    "token": "20182"
+  },
+  {
+    "sym": "ASIANPAINT",
+    "name": "Asian Paints Ltd.",
+    "token": "236"
+  },
+  {
+    "sym": "ASTERDM",
+    "name": "Aster DM Quality Care Ltd.",
+    "token": "1508"
+  },
+  {
+    "sym": "ASTRAMICRO",
+    "name": "Astra Microwave Products Ltd.",
+    "token": "11618"
+  },
+  {
+    "sym": "ASTRAL",
+    "name": "Astral Ltd.",
+    "token": "14418"
+  },
+  {
+    "sym": "ATHERENERG",
+    "name": "Ather Energy Ltd.",
+    "token": "757645"
+  },
+  {
+    "sym": "ATLANTAELE",
+    "name": "Atlanta Electricals Ltd.",
+    "token": "759007"
+  },
+  {
+    "sym": "ATUL",
+    "name": "Atul Ltd.",
+    "token": "263"
+  },
+  {
+    "sym": "AURIONPRO",
+    "name": "Aurionpro Solution Ltd.",
+    "token": "12022"
+  },
+  {
+    "sym": "AUROPHARMA",
+    "name": "Aurobindo Pharma Ltd.",
+    "token": "275"
+  },
+  {
+    "sym": "AIIL",
+    "name": "Authum Investment & Infrastructure Ltd.",
+    "token": "23553"
+  },
+  {
+    "sym": "AVALON",
+    "name": "Avalon Technologies Ltd.",
+    "token": "15058"
+  },
+  {
+    "sym": "AVANTIFEED",
+    "name": "Avanti Feeds Ltd.",
+    "token": "7936"
+  },
+  {
+    "sym": "DMART",
+    "name": "Avenue Supermarts Ltd.",
+    "token": "19913"
+  },
+  {
+    "sym": "CCAVENUE",
+    "name": "AvenuesAI Ltd.",
+    "token": "16249"
+  },
+  {
+    "sym": "AWFIS",
+    "name": "Awfis Space Solutions Ltd.",
+    "token": "23864"
+  },
+  {
+    "sym": "AXISBANK",
+    "name": "Axis Bank Ltd.",
+    "token": "5900"
+  },
+  {
+    "sym": "AZAD",
+    "name": "Azad Engineering Ltd.",
+    "token": "20905"
+  },
+  {
+    "sym": "BEML",
+    "name": "BEML Ltd.",
+    "token": "395"
+  },
+  {
+    "sym": "BLS",
+    "name": "BLS International Services Ltd.",
+    "token": "17279"
+  },
+  {
+    "sym": "BSE",
+    "name": "BSE Ltd.",
+    "token": "19585"
+  },
+  {
+    "sym": "BAJAJ-AUTO",
+    "name": "Bajaj Auto Ltd.",
+    "token": "16669"
+  },
+  {
+    "sym": "BAJAJELEC",
+    "name": "Bajaj Electricals Ltd",
+    "token": "15034"
+  },
+  {
+    "sym": "BAJFINANCE",
+    "name": "Bajaj Finance Ltd.",
+    "token": "317"
+  },
+  {
+    "sym": "BAJAJFINSV",
+    "name": "Bajaj Finserv Ltd.",
+    "token": "16675"
+  },
+  {
+    "sym": "BAJAJHLDNG",
+    "name": "Bajaj Holdings & Investment Ltd.",
+    "token": "305"
+  },
+  {
+    "sym": "BAJAJHFL",
+    "name": "Bajaj Housing Finance Ltd.",
+    "token": "25270"
+  },
+  {
+    "sym": "BALAMINES",
+    "name": "Balaji Amines Ltd.",
+    "token": "14501"
+  },
+  {
+    "sym": "BALKRISIND",
+    "name": "Balkrishna Industries Ltd.",
+    "token": "335"
+  },
+  {
+    "sym": "BALRAMCHIN",
+    "name": "Balrampur Chini Mills Ltd.",
+    "token": "341"
+  },
+  {
+    "sym": "BALUFORGE",
+    "name": "Balu Forge Industries Ltd.",
+    "token": "23607"
+  },
+  {
+    "sym": "BANCOINDIA",
+    "name": "Banco Products (India) Ltd.",
+    "token": "13880"
+  },
+  {
+    "sym": "BANDHANBNK",
+    "name": "Bandhan Bank Ltd.",
+    "token": "2263"
+  },
+  {
+    "sym": "BANKBARODA",
+    "name": "Bank of Baroda",
+    "token": "4668"
+  },
+  {
+    "sym": "BANKINDIA",
+    "name": "Bank of India",
+    "token": "4745"
+  },
+  {
+    "sym": "MAHABANK",
+    "name": "Bank of Maharashtra",
+    "token": "11377"
+  },
+  {
+    "sym": "BATAINDIA",
+    "name": "Bata India Ltd.",
+    "token": "371"
+  },
+  {
+    "sym": "BAYERCROP",
+    "name": "Bayer Cropscience Ltd.",
+    "token": "17927"
+  },
+  {
+    "sym": "BELRISE",
+    "name": "Belrise Industries Ltd.",
+    "token": "757102"
+  },
+  {
+    "sym": "BERGEPAINT",
+    "name": "Berger Paints India Ltd.",
+    "token": "404"
+  },
+  {
+    "sym": "BDL",
+    "name": "Bharat Dynamics Ltd.",
+    "token": "2144"
+  },
+  {
+    "sym": "BEL",
+    "name": "Bharat Electronics Ltd.",
+    "token": "383"
+  },
+  {
+    "sym": "BHARATFORG",
+    "name": "Bharat Forge Ltd.",
+    "token": "422"
+  },
+  {
+    "sym": "BHEL",
+    "name": "Bharat Heavy Electricals Ltd.",
+    "token": "438"
+  },
+  {
+    "sym": "BPCL",
+    "name": "Bharat Petroleum Corporation Ltd.",
+    "token": "526"
+  },
+  {
+    "sym": "BHARTIARTL",
+    "name": "Bharti Airtel Ltd.",
+    "token": "10604"
+  },
+  {
+    "sym": "BHARTIHEXA",
+    "name": "Bharti Hexacom Ltd.",
+    "token": "23489"
+  },
+  {
+    "sym": "BIKAJI",
+    "name": "Bikaji Foods International Ltd.",
+    "token": "11966"
+  },
+  {
+    "sym": "GROWW",
+    "name": "Billionbrains Garage Ventures Ltd.",
+    "token": "759806"
+  },
+  {
+    "sym": "BIOCON",
+    "name": "Biocon Ltd.",
+    "token": "11373"
+  },
+  {
+    "sym": "BIRLACORPN",
+    "name": "Birla Corporation Ltd.",
+    "token": "480"
+  },
+  {
+    "sym": "BSOFT",
+    "name": "Birlasoft Ltd.",
+    "token": "6994"
+  },
+  {
+    "sym": "BBOX",
+    "name": "Black Box Ltd.",
+    "token": "3435"
+  },
+  {
+    "sym": "BLACKBUCK",
+    "name": "Blackbuck Ltd.",
+    "token": "27144"
+  },
+  {
+    "sym": "BLUEDART",
+    "name": "Blue Dart Express Ltd.",
+    "token": "495"
+  },
+  {
+    "sym": "BLUEJET",
+    "name": "Blue Jet Healthcare Ltd.",
+    "token": "19686"
+  },
+  {
+    "sym": "BLUESTARCO",
+    "name": "Blue Star Ltd.",
+    "token": "8311"
+  },
+  {
+    "sym": "BLUESTONE",
+    "name": "BlueStone Jewellery and Lifestyle Ltd.",
+    "token": "759291"
+  },
+  {
+    "sym": "BBTC",
+    "name": "Bombay Burmah Trading Corporation Ltd.",
+    "token": "380"
+  },
+  {
+    "sym": "BORORENEW",
+    "name": "Borosil Renewables Ltd.",
+    "token": "3149"
+  },
+  {
+    "sym": "BOSCHLTD",
+    "name": "Bosch Ltd.",
+    "token": "2181"
+  },
+  {
+    "sym": "FIRSTCRY",
+    "name": "Brainbees Solutions Ltd.",
+    "token": "24814"
+  },
+  {
+    "sym": "BRIGADE",
+    "name": "Brigade Enterprises Ltd.",
+    "token": "15184"
+  },
+  {
+    "sym": "BRITANNIA",
+    "name": "Britannia Industries Ltd.",
+    "token": "547"
+  },
+  {
+    "sym": "MAPMYINDIA",
+    "name": "C.E. Info Systems Ltd.",
+    "token": "7227"
+  },
+  {
+    "sym": "CCL",
+    "name": "CCL Products (I) Ltd.",
+    "token": "11452"
+  },
+  {
+    "sym": "CESC",
+    "name": "CESC Ltd.",
+    "token": "628"
+  },
+  {
+    "sym": "CGPOWER",
+    "name": "CG Power and Industrial Solutions Ltd.",
+    "token": "760"
+  },
+  {
+    "sym": "CIEINDIA",
+    "name": "CIE Automotive India Ltd.",
+    "token": "14937"
+  },
+  {
+    "sym": "CMSINFO",
+    "name": "CMS Info Systems Ltd.",
+    "token": "7603"
+  },
+  {
+    "sym": "CORONA",
+    "name": "CORONA Remedies Ltd.",
+    "token": "760254"
+  },
+  {
+    "sym": "CRISIL",
+    "name": "CRISIL Ltd.",
+    "token": "757"
+  },
+  {
+    "sym": "CSBBANK",
+    "name": "CSB Bank Ltd.",
+    "token": "14966"
+  },
+  {
+    "sym": "CAMPUS",
+    "name": "Campus Activewear Ltd.",
+    "token": "9362"
+  },
+  {
+    "sym": "CANFINHOME",
+    "name": "Can Fin Homes Ltd.",
+    "token": "583"
+  },
+  {
+    "sym": "CANBK",
+    "name": "Canara Bank",
+    "token": "10794"
+  },
+  {
+    "sym": "CANHLIFE",
+    "name": "Canara HSBC Life Insurance Company Ltd.",
+    "token": "759477"
+  },
+  {
+    "sym": "CRAMC",
+    "name": "Canara Robeco Asset Management Company Ltd.",
+    "token": "759311"
+  },
+  {
+    "sym": "CAPILLARY",
+    "name": "Capillary Technologies India Ltd.",
+    "token": "759867"
+  },
+  {
+    "sym": "CAPLIPOINT",
+    "name": "Caplin Point Laboratories Ltd.",
+    "token": "3906"
+  },
+  {
+    "sym": "CGCL",
+    "name": "Capri Global Capital Ltd.",
+    "token": "20329"
+  },
+  {
+    "sym": "CARBORUNIV",
+    "name": "Carborundum Universal Ltd.",
+    "token": "595"
+  },
+  {
+    "sym": "CARTRADE",
+    "name": "Cartrade Tech Ltd.",
+    "token": "5407"
+  },
+  {
+    "sym": "CASTROLIND",
+    "name": "Castrol India Ltd.",
+    "token": "1250"
+  },
+  {
+    "sym": "CEATLTD",
+    "name": "Ceat Ltd.",
+    "token": "15254"
+  },
+  {
+    "sym": "CELLO",
+    "name": "Cello World Ltd.",
+    "token": "19795"
+  },
+  {
+    "sym": "CEMPRO",
+    "name": "Cemindia Projects Ltd.",
+    "token": "5622"
+  },
+  {
+    "sym": "CENTRALBK",
+    "name": "Central Bank of India",
+    "token": "14894"
+  },
+  {
+    "sym": "CDSL",
+    "name": "Central Depository Services (India) Ltd.",
+    "token": "21174"
+  },
+  {
+    "sym": "CENTURYPLY",
+    "name": "Century Plyboards (India) Ltd.",
+    "token": "13305"
+  },
+  {
+    "sym": "CERA",
+    "name": "Cera Sanitaryware Ltd",
+    "token": "15039"
+  },
+  {
+    "sym": "CHALET",
+    "name": "Chalet Hotels Ltd.",
+    "token": "8546"
+  },
+  {
+    "sym": "CHAMBLFERT",
+    "name": "Chambal Fertilizers & Chemicals Ltd.",
+    "token": "637"
+  },
+  {
+    "sym": "CHENNPETRO",
+    "name": "Chennai Petroleum Corporation Ltd.",
+    "token": "2049"
+  },
+  {
+    "sym": "CHOICEIN",
+    "name": "Choice International Ltd.",
+    "token": "8866"
+  },
+  {
+    "sym": "CHOLAHLDNG",
+    "name": "Cholamandalam Financial Holdings Ltd.",
+    "token": "21740"
+  },
+  {
+    "sym": "CHOLAFIN",
+    "name": "Cholamandalam Investment and Finance Company Ltd.",
+    "token": "685"
+  },
+  {
+    "sym": "CIPLA",
+    "name": "Cipla Ltd.",
+    "token": "694"
+  },
+  {
+    "sym": "CUB",
+    "name": "City Union Bank Ltd.",
+    "token": "5701"
+  },
+  {
+    "sym": "CLEAN",
+    "name": "Clean Science and Technology Ltd.",
+    "token": "5049"
+  },
+  {
+    "sym": "COALINDIA",
+    "name": "Coal India Ltd.",
+    "token": "20374"
+  },
+  {
+    "sym": "COCHINSHIP",
+    "name": "Cochin Shipyard Ltd.",
+    "token": "21508"
+  },
+  {
+    "sym": "COFORGE",
+    "name": "Coforge Ltd.",
+    "token": "11543"
+  },
+  {
+    "sym": "COHANCE",
+    "name": "Cohance Lifesciences Ltd.",
+    "token": "17945"
+  },
+  {
+    "sym": "COLPAL",
+    "name": "Colgate Palmolive (India) Ltd.",
+    "token": "15141"
+  },
+  {
+    "sym": "CAMS",
+    "name": "Computer Age Management Services Ltd.",
+    "token": "342"
+  },
+  {
+    "sym": "CONCORDBIO",
+    "name": "Concord Biotech Ltd.",
+    "token": "18060"
+  },
+  {
+    "sym": "CONCOR",
+    "name": "Container Corporation of India Ltd.",
+    "token": "4749"
+  },
+  {
+    "sym": "COROMANDEL",
+    "name": "Coromandel International Ltd.",
+    "token": "739"
+  },
+  {
+    "sym": "CRAFTSMAN",
+    "name": "Craftsman Automation Ltd.",
+    "token": "2854"
+  },
+  {
+    "sym": "CREDITACC",
+    "name": "CreditAccess Grameen Ltd.",
+    "token": "4421"
+  },
+  {
+    "sym": "CRIZAC",
+    "name": "Crizac Ltd.",
+    "token": "757850"
+  },
+  {
+    "sym": "CROMPTON",
+    "name": "Crompton Greaves Consumer Electricals Ltd.",
+    "token": "17094"
+  },
+  {
+    "sym": "CUMMINSIND",
+    "name": "Cummins India Ltd.",
+    "token": "1901"
+  },
+  {
+    "sym": "CUPID",
+    "name": "Cupid Ltd.",
+    "token": "18520"
+  },
+  {
+    "sym": "CYIENT",
+    "name": "Cyient Ltd.",
+    "token": "5748"
+  },
+  {
+    "sym": "DCBBANK",
+    "name": "DCB Bank Ltd.",
+    "token": "13725"
+  },
+  {
+    "sym": "DCMSHRIRAM",
+    "name": "DCM Shriram Ltd.",
+    "token": "811"
+  },
+  {
+    "sym": "DLF",
+    "name": "DLF Ltd.",
+    "token": "14732"
+  },
+  {
+    "sym": "DOMS",
+    "name": "DOMS Industries Ltd.",
+    "token": "20551"
+  },
+  {
+    "sym": "DABUR",
+    "name": "Dabur India Ltd.",
+    "token": "772"
+  },
+  {
+    "sym": "DALBHARAT",
+    "name": "Dalmia Bharat Ltd.",
+    "token": "8075"
+  },
+  {
+    "sym": "DATAPATTNS",
+    "name": "Data Patterns (India) Ltd.",
+    "token": "7358"
+  },
+  {
+    "sym": "DATAMATICS",
+    "name": "Datamatics Global Services Ltd.",
+    "token": "11423"
+  },
+  {
+    "sym": "DEEPAKFERT",
+    "name": "Deepak Fertilisers & Petrochemicals Corp. Ltd.",
+    "token": "827"
+  },
+  {
+    "sym": "DEEPAKNTR",
+    "name": "Deepak Nitrite Ltd.",
+    "token": "19943"
+  },
+  {
+    "sym": "DELHIVERY",
+    "name": "Delhivery Ltd.",
+    "token": "9599"
+  },
+  {
+    "sym": "DEVYANI",
+    "name": "Devyani International Ltd.",
+    "token": "5373"
+  },
+  {
+    "sym": "DIACABS",
+    "name": "Diamond Power Infrastructure Ltd.",
+    "token": "18545"
+  },
+  {
+    "sym": "DBL",
+    "name": "Dilip Buildcon Ltd.",
+    "token": "18086"
+  },
+  {
+    "sym": "DIVISLAB",
+    "name": "Divi's Laboratories Ltd.",
+    "token": "10940"
+  },
+  {
+    "sym": "DIXON",
+    "name": "Dixon Technologies (India) Ltd.",
+    "token": "21690"
+  },
+  {
+    "sym": "AGARWALEYE",
+    "name": "Dr. Agarwal's Health Care Ltd.",
+    "token": "29452"
+  },
+  {
+    "sym": "LALPATHLAB",
+    "name": "Dr. Lal Path Labs Ltd.",
+    "token": "11654"
+  },
+  {
+    "sym": "DRREDDY",
+    "name": "Dr. Reddy's Laboratories Ltd.",
+    "token": "881"
+  },
+  {
+    "sym": "DYNAMATECH",
+    "name": "Dynamatic Technologies Ltd.",
+    "token": "4525"
+  },
+  {
+    "sym": "EIDPARRY",
+    "name": "E.I.D. Parry (India) Ltd.",
+    "token": "916"
+  },
+  {
+    "sym": "EIHOTEL",
+    "name": "EIH Ltd.",
+    "token": "919"
+  },
+  {
+    "sym": "EPL",
+    "name": "EPL Ltd.",
+    "token": "981"
+  },
+  {
+    "sym": "EDELWEISS",
+    "name": "Edelweiss Financial Services Ltd.",
+    "token": "15119"
+  },
+  {
+    "sym": "EICHERMOT",
+    "name": "Eicher Motors Ltd.",
+    "token": "910"
+  },
+  {
+    "sym": "ELECON",
+    "name": "Elecon Engineering Co. Ltd.",
+    "token": "13643"
+  },
+  {
+    "sym": "EMIL",
+    "name": "Electronics Mart India Ltd.",
+    "token": "11530"
+  },
+  {
+    "sym": "ELECTCAST",
+    "name": "Electrosteel Castings Ltd.",
+    "token": "928"
+  },
+  {
+    "sym": "ELGIEQUIP",
+    "name": "Elgi Equipments Ltd.",
+    "token": "937"
+  },
+  {
+    "sym": "ELLEN",
+    "name": "Ellenbarrie Industrial Gases Ltd.",
+    "token": "758563"
+  },
+  {
+    "sym": "EMAMILTD",
+    "name": "Emami Ltd.",
+    "token": "13517"
+  },
+  {
+    "sym": "EMBDL",
+    "name": "Embassy Developments Ltd.",
+    "token": "14450"
+  },
+  {
+    "sym": "EMCURE",
+    "name": "Emcure Pharmaceuticals Ltd.",
+    "token": "24398"
+  },
+  {
+    "sym": "EMMVEE",
+    "name": "Emmvee Photovoltaic Power Ltd.",
+    "token": "759728"
+  },
+  {
+    "sym": "ENDURANCE",
+    "name": "Endurance Technologies Ltd.",
+    "token": "18822"
+  },
+  {
+    "sym": "ENGINERSIN",
+    "name": "Engineers India Ltd.",
+    "token": "4907"
+  },
+  {
+    "sym": "ENTERO",
+    "name": "Entero Healthcare Solutions Ltd.",
+    "token": "22717"
+  },
+  {
+    "sym": "EIEL",
+    "name": "Enviro Infra Engineers Ltd.",
+    "token": "27213"
+  },
+  {
+    "sym": "EQUITASBNK",
+    "name": "Equitas Small Finance Bank Ltd.",
+    "token": "913"
+  },
+  {
+    "sym": "ERIS",
+    "name": "Eris Lifesciences Ltd.",
+    "token": "21154"
+  },
+  {
+    "sym": "ESCORTS",
+    "name": "Escorts Kubota Ltd.",
+    "token": "958"
+  },
+  {
+    "sym": "ETERNAL",
+    "name": "Eternal Ltd.",
+    "token": "5097"
+  },
+  {
+    "sym": "ETHOSLTD",
+    "name": "Ethos Ltd.",
+    "token": "9750"
+  },
+  {
+    "sym": "EUREKAFORB",
+    "name": "Eureka Forbes Ltd.",
+    "token": "25162"
+  },
+  {
+    "sym": "EXIDEIND",
+    "name": "Exide Industries Ltd.",
+    "token": "676"
+  },
+  {
+    "sym": "NYKAA",
+    "name": "FSN E-Commerce Ventures Ltd.",
+    "token": "6545"
+  },
+  {
+    "sym": "FEDFINA",
+    "name": "Fedbank Financial Services Ltd.",
+    "token": "20322"
+  },
+  {
+    "sym": "FEDERALBNK",
+    "name": "Federal Bank Ltd.",
+    "token": "1023"
+  },
+  {
+    "sym": "FACT",
+    "name": "Fertilisers and Chemicals Travancore Ltd.",
+    "token": "1008"
+  },
+  {
+    "sym": "FIEMIND",
+    "name": "Fiem Industries Ltd",
+    "token": "13710"
+  },
+  {
+    "sym": "FINCABLES",
+    "name": "Finolex Cables Ltd.",
+    "token": "1038"
+  },
+  {
+    "sym": "FINPIPE",
+    "name": "Finolex Industries Ltd.",
+    "token": "1041"
+  },
+  {
+    "sym": "FSL",
+    "name": "Firstsource Solutions Ltd.",
+    "token": "14304"
+  },
+  {
+    "sym": "FIVESTAR",
+    "name": "Five-Star Business Finance Ltd.",
+    "token": "12032"
+  },
+  {
+    "sym": "FORCEMOT",
+    "name": "Force Motors Ltd.",
+    "token": "11573"
+  },
+  {
+    "sym": "FORTIS",
+    "name": "Fortis Healthcare Ltd.",
+    "token": "14592"
+  },
+  {
+    "sym": "UTLSOLAR",
+    "name": "Fujiyama Power Systems Ltd.",
+    "token": "759876"
+  },
+  {
+    "sym": "GAIL",
+    "name": "GAIL (India) Ltd.",
+    "token": "4717"
+  },
+  {
+    "sym": "GVT&D",
+    "name": "GE Vernova T&D India Ltd.",
+    "token": "16783"
+  },
+  {
+    "sym": "GHCL",
+    "name": "GHCL Ltd.",
+    "token": "1127"
+  },
+  {
+    "sym": "GMMPFAUDLR",
+    "name": "GMM Pfaudler Ltd.",
+    "token": "1570"
+  },
+  {
+    "sym": "GMRAIRPORT",
+    "name": "GMR Airports Ltd.",
+    "token": "13528"
+  },
+  {
+    "sym": "GMRP&UI",
+    "name": "GMR Power and Urban Infra Ltd.",
+    "token": "8529"
+  },
+  {
+    "sym": "GABRIEL",
+    "name": "Gabriel India Ltd.",
+    "token": "1085"
+  },
+  {
+    "sym": "GALLANTT",
+    "name": "Gallantt Ispat Ltd.",
+    "token": "13337"
+  },
+  {
+    "sym": "GRSE",
+    "name": "Garden Reach Shipbuilders & Engineers Ltd.",
+    "token": "5475"
+  },
+  {
+    "sym": "GRWRHITECH",
+    "name": "Garware Hi-Tech Films Ltd.",
+    "token": "7982"
+  },
+  {
+    "sym": "GICRE",
+    "name": "General Insurance Corporation of India",
+    "token": "277"
+  },
+  {
+    "sym": "GILLETTE",
+    "name": "Gillette India Ltd.",
+    "token": "1576"
+  },
+  {
+    "sym": "GLAND",
+    "name": "Gland Pharma Ltd.",
+    "token": "1186"
+  },
+  {
+    "sym": "GLAXO",
+    "name": "Glaxosmithkline Pharmaceuticals Ltd.",
+    "token": "1153"
+  },
+  {
+    "sym": "GLENMARK",
+    "name": "Glenmark Pharmaceuticals Ltd.",
+    "token": "7406"
+  },
+  {
+    "sym": "MEDANTA",
+    "name": "Global Health Ltd.",
+    "token": "11956"
+  },
+  {
+    "sym": "GODIGIT",
+    "name": "Go Digit General Insurance Ltd.",
+    "token": "23799"
+  },
+  {
+    "sym": "GPIL",
+    "name": "Godawari Power & Ispat Ltd.",
+    "token": "13409"
+  },
+  {
+    "sym": "GODFRYPHLP",
+    "name": "Godfrey Phillips India Ltd.",
+    "token": "1181"
+  },
+  {
+    "sym": "GODREJAGRO",
+    "name": "Godrej Agrovet Ltd.",
+    "token": "144"
+  },
+  {
+    "sym": "GODREJCP",
+    "name": "Godrej Consumer Products Ltd.",
+    "token": "10099"
+  },
+  {
+    "sym": "GODREJIND",
+    "name": "Godrej Industries Ltd.",
+    "token": "10925"
+  },
+  {
+    "sym": "GODREJPROP",
+    "name": "Godrej Properties Ltd.",
+    "token": "17875"
+  },
+  {
+    "sym": "GOKEX",
+    "name": "Gokaldas Exports Ltd.",
+    "token": "11778"
+  },
+  {
+    "sym": "GOKULAGRO",
+    "name": "Gokul Agro Resources Ltd.",
+    "token": "14480"
+  },
+  {
+    "sym": "GRANULES",
+    "name": "Granules India Ltd.",
+    "token": "11872"
+  },
+  {
+    "sym": "GRAPHITE",
+    "name": "Graphite India Ltd.",
+    "token": "592"
+  },
+  {
+    "sym": "GRASIM",
+    "name": "Grasim Industries Ltd.",
+    "token": "1232"
+  },
+  {
+    "sym": "GRAVITA",
+    "name": "Gravita India Ltd.",
+    "token": "20534"
+  },
+  {
+    "sym": "GESHIP",
+    "name": "Great Eastern Shipping Co. Ltd.",
+    "token": "13776"
+  },
+  {
+    "sym": "GREAVESCOT",
+    "name": "Greaves Cotton Ltd.",
+    "token": "1235"
+  },
+  {
+    "sym": "GRINDWELL",
+    "name": "Grindwell Norton Ltd.",
+    "token": "13560"
+  },
+  {
+    "sym": "GAEL",
+    "name": "Gujarat Ambuja Exports Ltd.",
+    "token": "8828"
+  },
+  {
+    "sym": "FLUOROCHEM",
+    "name": "Gujarat Fluorochemicals Ltd.",
+    "token": "13750"
+  },
+  {
+    "sym": "GMDCLTD",
+    "name": "Gujarat Mineral Development Corporation Ltd.",
+    "token": "5204"
+  },
+  {
+    "sym": "GNFC",
+    "name": "Gujarat Narmada Valley Fertilizers and Chemicals Ltd.",
+    "token": "1174"
+  },
+  {
+    "sym": "GPPL",
+    "name": "Gujarat Pipavav Port Ltd.",
+    "token": "19731"
+  },
+  {
+    "sym": "GSFC",
+    "name": "Gujarat State Fertilizers & Chemicals Ltd.",
+    "token": "1247"
+  },
+  {
+    "sym": "HEG",
+    "name": "H.E.G. Ltd.",
+    "token": "1336"
+  },
+  {
+    "sym": "HGINFRA",
+    "name": "H.G. Infra Engineering Ltd.",
+    "token": "1672"
+  },
+  {
+    "sym": "HBLENGINE",
+    "name": "HBL Engineering Ltd.",
+    "token": "13966"
+  },
+  {
+    "sym": "HCLTECH",
+    "name": "HCL Technologies Ltd.",
+    "token": "7229"
+  },
+  {
+    "sym": "HDBFS",
+    "name": "HDB Financial Services Ltd.",
+    "token": "757772"
+  },
+  {
+    "sym": "HDFCAMC",
+    "name": "HDFC Asset Management Company Ltd.",
+    "token": "4244"
+  },
+  {
+    "sym": "HDFCBANK",
+    "name": "HDFC Bank Ltd.",
+    "token": "1333"
+  },
+  {
+    "sym": "HDFCLIFE",
+    "name": "HDFC Life Insurance Company Ltd.",
+    "token": "467"
+  },
+  {
+    "sym": "HFCL",
+    "name": "HFCL Ltd.",
+    "token": "21951"
+  },
+  {
+    "sym": "HAPPSTMNDS",
+    "name": "Happiest Minds Technologies Ltd.",
+    "token": "48"
+  },
+  {
+    "sym": "HAVELLS",
+    "name": "Havells India Ltd.",
+    "token": "9819"
+  },
+  {
+    "sym": "HCG",
+    "name": "Healthcare Global Enterprises Ltd.",
+    "token": "15555"
+  },
+  {
+    "sym": "HEMIPROP",
+    "name": "Hemisphere Properties India Ltd.",
+    "token": "701"
+  },
+  {
+    "sym": "HERITGFOOD",
+    "name": "Heritage Foods Ltd.",
+    "token": "4598"
+  },
+  {
+    "sym": "HEROMOTOCO",
+    "name": "Hero MotoCorp Ltd.",
+    "token": "1348"
+  },
+  {
+    "sym": "HEXT",
+    "name": "Hexaware Technologies Ltd.",
+    "token": "29666"
+  },
+  {
+    "sym": "HSCL",
+    "name": "Himadri Speciality Chemical Ltd.",
+    "token": "14334"
+  },
+  {
+    "sym": "HINDALCO",
+    "name": "Hindalco Industries Ltd.",
+    "token": "1363"
+  },
+  {
+    "sym": "HAL",
+    "name": "Hindustan Aeronautics Ltd.",
+    "token": "2303"
+  },
+  {
+    "sym": "HCC",
+    "name": "Hindustan Construction Co. Ltd.",
+    "token": "1375"
+  },
+  {
+    "sym": "HINDCOPPER",
+    "name": "Hindustan Copper Ltd.",
+    "token": "17939"
+  },
+  {
+    "sym": "HINDPETRO",
+    "name": "Hindustan Petroleum Corporation Ltd.",
+    "token": "1406"
+  },
+  {
+    "sym": "HINDUNILVR",
+    "name": "Hindustan Unilever Ltd.",
+    "token": "1394"
+  },
+  {
+    "sym": "HINDZINC",
+    "name": "Hindustan Zinc Ltd.",
+    "token": "1424"
+  },
+  {
+    "sym": "POWERINDIA",
+    "name": "Hitachi Energy India Ltd.",
+    "token": "18457"
+  },
+  {
+    "sym": "HOMEFIRST",
+    "name": "Home First Finance Company India Ltd.",
+    "token": "2056"
+  },
+  {
+    "sym": "HONASA",
+    "name": "Honasa Consumer Ltd.",
+    "token": "19813"
+  },
+  {
+    "sym": "HONAUT",
+    "name": "Honeywell Automation India Ltd.",
+    "token": "3417"
+  },
+  {
+    "sym": "HUDCO",
+    "name": "Housing & Urban Development Corporation Ltd.",
+    "token": "20825"
+  },
+  {
+    "sym": "HYUNDAI",
+    "name": "Hyundai Motor India Ltd.",
+    "token": "25844"
+  },
+  {
+    "sym": "ICICIBANK",
+    "name": "ICICI Bank Ltd.",
+    "token": "4963"
+  },
+  {
+    "sym": "ICICIGI",
+    "name": "ICICI Lombard General Insurance Company Ltd.",
+    "token": "21770"
+  },
+  {
+    "sym": "ICICIAMC",
+    "name": "ICICI Prudential Asset Management Company Ltd.",
+    "token": "760407"
+  },
+  {
+    "sym": "ICICIPRULI",
+    "name": "ICICI Prudential Life Insurance Company Ltd.",
+    "token": "18652"
+  },
+  {
+    "sym": "IDBI",
+    "name": "IDBI Bank Ltd.",
+    "token": "1476"
+  },
+  {
+    "sym": "IDFCFIRSTB",
+    "name": "IDFC First Bank Ltd.",
+    "token": "11184"
+  },
+  {
+    "sym": "IFBIND",
+    "name": "IFB Industries Ltd.",
+    "token": "1485"
+  },
+  {
+    "sym": "IFCI",
+    "name": "IFCI Ltd.",
+    "token": "1491"
+  },
+  {
+    "sym": "IIFLCAPS",
+    "name": "IIFL Capital Services Ltd.",
+    "token": "13072"
+  },
+  {
+    "sym": "IIFL",
+    "name": "IIFL Finance Ltd.",
+    "token": "11809"
+  },
+  {
+    "sym": "INOXINDIA",
+    "name": "INOX India Ltd.",
+    "token": "20607"
+  },
+  {
+    "sym": "IRB",
+    "name": "IRB Infrastructure Developers Ltd.",
+    "token": "15313"
+  },
+  {
+    "sym": "IRCON",
+    "name": "IRCON International Ltd.",
+    "token": "4986"
+  },
+  {
+    "sym": "ITCHOTELS",
+    "name": "ITC Hotels Ltd.",
+    "token": "29251"
+  },
+  {
+    "sym": "ITC",
+    "name": "ITC Ltd.",
+    "token": "1660"
+  },
+  {
+    "sym": "ITI",
+    "name": "ITI Ltd.",
+    "token": "1675"
+  },
+  {
+    "sym": "INDGN",
+    "name": "Indegene Ltd.",
+    "token": "23693"
+  },
+  {
+    "sym": "INDIACEM",
+    "name": "India Cements Ltd.",
+    "token": "1515"
+  },
+  {
+    "sym": "INDIAGLYCO",
+    "name": "India Glycols Ltd.",
+    "token": "1521"
+  },
+  {
+    "sym": "INDIASHLTR",
+    "name": "India Shelter Finance Corporation Ltd.",
+    "token": "20556"
+  },
+  {
+    "sym": "INDIAMART",
+    "name": "Indiamart Intermesh Ltd.",
+    "token": "10726"
+  },
+  {
+    "sym": "INDIANB",
+    "name": "Indian Bank",
+    "token": "14309"
+  },
+  {
+    "sym": "IEX",
+    "name": "Indian Energy Exchange Ltd.",
+    "token": "220"
+  },
+  {
+    "sym": "INDHOTEL",
+    "name": "Indian Hotels Co. Ltd.",
+    "token": "1512"
+  },
+  {
+    "sym": "IMFA",
+    "name": "Indian Metals & Ferro Alloys Ltd.",
+    "token": "19235"
+  },
+  {
+    "sym": "IOC",
+    "name": "Indian Oil Corporation Ltd.",
+    "token": "1624"
+  },
+  {
+    "sym": "IOB",
+    "name": "Indian Overseas Bank",
+    "token": "9348"
+  },
+  {
+    "sym": "IRCTC",
+    "name": "Indian Railway Catering And Tourism Corporation Ltd.",
+    "token": "13611"
+  },
+  {
+    "sym": "IRFC",
+    "name": "Indian Railway Finance Corporation Ltd.",
+    "token": "2029"
+  },
+  {
+    "sym": "IREDA",
+    "name": "Indian Renewable Energy Development Agency Ltd.",
+    "token": "20261"
+  },
+  {
+    "sym": "INDIGOPNTS",
+    "name": "Indigo Paints Ltd.",
+    "token": "2048"
+  },
+  {
+    "sym": "ICIL",
+    "name": "Indo Count Industries Ltd.",
+    "token": "11987"
+  },
+  {
+    "sym": "IGL",
+    "name": "Indraprastha Gas Ltd.",
+    "token": "11262"
+  },
+  {
+    "sym": "INDUSTOWER",
+    "name": "Indus Towers Ltd.",
+    "token": "29135"
+  },
+  {
+    "sym": "INDUSINDBK",
+    "name": "IndusInd Bank Ltd.",
+    "token": "5258"
+  },
+  {
+    "sym": "NAUKRI",
+    "name": "Info Edge (India) Ltd.",
+    "token": "13751"
+  },
+  {
+    "sym": "INFY",
+    "name": "Infosys Ltd.",
+    "token": "1594"
+  },
+  {
+    "sym": "INOXGREEN",
+    "name": "Inox Green Energy Services Ltd.",
+    "token": "12188"
+  },
+  {
+    "sym": "INOXWIND",
+    "name": "Inox Wind Ltd.",
+    "token": "7852"
+  },
+  {
+    "sym": "INTELLECT",
+    "name": "Intellect Design Arena Ltd.",
+    "token": "5926"
+  },
+  {
+    "sym": "INDIGO",
+    "name": "InterGlobe Aviation Ltd.",
+    "token": "11195"
+  },
+  {
+    "sym": "IGIL",
+    "name": "International Gemological Institute Ltd.",
+    "token": "28378"
+  },
+  {
+    "sym": "IKS",
+    "name": "Inventurus Knowledge Solutions Ltd.",
+    "token": "28125"
+  },
+  {
+    "sym": "IONEXCHANG",
+    "name": "Ion Exchange (India) Ltd.",
+    "token": "1630"
+  },
+  {
+    "sym": "IPCALAB",
+    "name": "Ipca Laboratories Ltd.",
+    "token": "1633"
+  },
+  {
+    "sym": "JKCEMENT",
+    "name": "J.K. Cement Ltd.",
+    "token": "13270"
+  },
+  {
+    "sym": "JAIBALAJI",
+    "name": "JAI BALAJI INDUSTRIES Ltd.",
+    "token": "11256"
+  },
+  {
+    "sym": "JBMA",
+    "name": "JBM Auto Ltd.",
+    "token": "11655"
+  },
+  {
+    "sym": "JKLAKSHMI",
+    "name": "JK Lakshmi Cement Ltd.",
+    "token": "13491"
+  },
+  {
+    "sym": "JKPAPER",
+    "name": "JK Paper Ltd.",
+    "token": "11860"
+  },
+  {
+    "sym": "JKTYRE",
+    "name": "JK Tyre & Industries Ltd.",
+    "token": "14435"
+  },
+  {
+    "sym": "JMFINANCIL",
+    "name": "JM Financial Ltd.",
+    "token": "13637"
+  },
+  {
+    "sym": "JSWCEMENT",
+    "name": "JSW Cement Ltd.",
+    "token": "758460"
+  },
+  {
+    "sym": "JSWDULUX",
+    "name": "JSW Dulux Ltd.",
+    "token": "1467"
+  },
+  {
+    "sym": "JSWENERGY",
+    "name": "JSW Energy Ltd.",
+    "token": "17869"
+  },
+  {
+    "sym": "JSWINFRA",
+    "name": "JSW Infrastructure Ltd.",
+    "token": "19020"
+  },
+  {
+    "sym": "JSWSTEEL",
+    "name": "JSW Steel Ltd.",
+    "token": "11723"
+  },
+  {
+    "sym": "JAINREC",
+    "name": "Jain Resource Recycling Ltd.",
+    "token": "759244"
+  },
+  {
+    "sym": "JPPOWER",
+    "name": "Jaiprakash Power Ventures Ltd.",
+    "token": "11763"
+  },
+  {
+    "sym": "J&KBANK",
+    "name": "Jammu & Kashmir Bank Ltd.",
+    "token": "5633"
+  },
+  {
+    "sym": "JAMNAAUTO",
+    "name": "Jamna Auto Industries Ltd.",
+    "token": "20778"
+  },
+  {
+    "sym": "JSFB",
+    "name": "Jana Small Finance Bank Ltd.",
+    "token": "22663"
+  },
+  {
+    "sym": "JAYNECOIND",
+    "name": "Jayaswal Neco Industries Ltd.",
+    "token": "2331"
+  },
+  {
+    "sym": "JSLL",
+    "name": "Jeena Sikho Lifecare Ltd.",
+    "token": "758115"
+  },
+  {
+    "sym": "JINDALSAW",
+    "name": "Jindal Saw Ltd.",
+    "token": "3024"
+  },
+  {
+    "sym": "JSL",
+    "name": "Jindal Stainless Ltd.",
+    "token": "11236"
+  },
+  {
+    "sym": "JINDALSTEL",
+    "name": "Jindal Steel Ltd.",
+    "token": "6733"
+  },
+  {
+    "sym": "JIOFIN",
+    "name": "Jio Financial Services Ltd.",
+    "token": "18143"
+  },
+  {
+    "sym": "JUBLFOOD",
+    "name": "Jubilant Foodworks Ltd.",
+    "token": "18096"
+  },
+  {
+    "sym": "JUBLINGREA",
+    "name": "Jubilant Ingrevia Ltd.",
+    "token": "2783"
+  },
+  {
+    "sym": "JUBLPHARMA",
+    "name": "Jubilant Pharmova Ltd.",
+    "token": "3637"
+  },
+  {
+    "sym": "JLHL",
+    "name": "Jupiter Life Line Hospitals Ltd.",
+    "token": "18553"
+  },
+  {
+    "sym": "JWL",
+    "name": "Jupiter Wagons Ltd.",
+    "token": "20224"
+  },
+  {
+    "sym": "JUSTDIAL",
+    "name": "Justdial Ltd.",
+    "token": "29962"
+  },
+  {
+    "sym": "JYOTHYLAB",
+    "name": "Jyothy Labs Ltd.",
+    "token": "15146"
+  },
+  {
+    "sym": "JYOTICNC",
+    "name": "Jyoti CNC Automation Ltd.",
+    "token": "21334"
+  },
+  {
+    "sym": "KPRMILL",
+    "name": "K.P.R. Mill Ltd.",
+    "token": "14912"
+  },
+  {
+    "sym": "KEI",
+    "name": "KEI Industries Ltd.",
+    "token": "13310"
+  },
+  {
+    "sym": "KNRCON",
+    "name": "KNR Constructions Ltd.",
+    "token": "15283"
+  },
+  {
+    "sym": "KPIGREEN",
+    "name": "KPI Green Energy Ltd.",
+    "token": "5108"
+  },
+  {
+    "sym": "KPITTECH",
+    "name": "KPIT Technologies Ltd.",
+    "token": "9683"
+  },
+  {
+    "sym": "KRBL",
+    "name": "KRBL Ltd.",
+    "token": "10577"
+  },
+  {
+    "sym": "KRN",
+    "name": "KRN HEAT EXCHANGER AND REFRIGERATION Ltd.",
+    "token": "25643"
+  },
+  {
+    "sym": "KSB",
+    "name": "KSB Ltd.",
+    "token": "1949"
+  },
+  {
+    "sym": "KAJARIACER",
+    "name": "Kajaria Ceramics Ltd.",
+    "token": "1808"
+  },
+  {
+    "sym": "KPIL",
+    "name": "Kalpataru Projects International Ltd.",
+    "token": "1814"
+  },
+  {
+    "sym": "KALYANKJIL",
+    "name": "Kalyan Jewellers India Ltd.",
+    "token": "2955"
+  },
+  {
+    "sym": "KANSAINER",
+    "name": "Kansai Nerolac Paints Ltd.",
+    "token": "1196"
+  },
+  {
+    "sym": "KTKBANK",
+    "name": "Karnataka Bank Ltd.",
+    "token": "8054"
+  },
+  {
+    "sym": "KARURVYSYA",
+    "name": "Karur Vysya Bank Ltd.",
+    "token": "1838"
+  },
+  {
+    "sym": "KSCL",
+    "name": "Kaveri Seed Company Ltd.",
+    "token": "14972"
+  },
+  {
+    "sym": "KAYNES",
+    "name": "Kaynes Technology India Ltd.",
+    "token": "12092"
+  },
+  {
+    "sym": "KEC",
+    "name": "Kec International Ltd.",
+    "token": "13260"
+  },
+  {
+    "sym": "KFINTECH",
+    "name": "Kfin Technologies Ltd.",
+    "token": "13359"
+  },
+  {
+    "sym": "KIRLOSBROS",
+    "name": "Kirloskar Brothers Ltd.",
+    "token": "18581"
+  },
+  {
+    "sym": "KIRLOSENG",
+    "name": "Kirloskar Oil Eng Ltd.",
+    "token": "20936"
+  },
+  {
+    "sym": "KIRLPNU",
+    "name": "Kirloskar Pneumatic Company Ltd.",
+    "token": "15180"
+  },
+  {
+    "sym": "KITEX",
+    "name": "Kitex Garments Ltd.",
+    "token": "28899"
+  },
+  {
+    "sym": "KOTAKBANK",
+    "name": "Kotak Mahindra Bank Ltd.",
+    "token": "1922"
+  },
+  {
+    "sym": "KIMS",
+    "name": "Krishna Institute of Medical Sciences Ltd.",
+    "token": "4847"
+  },
+  {
+    "sym": "LTF",
+    "name": "L&T Finance Ltd.",
+    "token": "24948"
+  },
+  {
+    "sym": "LTTS",
+    "name": "L&T Technology Services Ltd.",
+    "token": "18564"
+  },
+  {
+    "sym": "LGEINDIA",
+    "name": "LG Electronics India Ltd.",
+    "token": "760213"
+  },
+  {
+    "sym": "LICHSGFIN",
+    "name": "LIC Housing Finance Ltd.",
+    "token": "1997"
+  },
+  {
+    "sym": "LTFOODS",
+    "name": "LT Foods Ltd.",
+    "token": "13816"
+  },
+  {
+    "sym": "LTM",
+    "name": "LTM Ltd.",
+    "token": "17818"
+  },
+  {
+    "sym": "LT",
+    "name": "Larsen & Toubro Ltd.",
+    "token": "11483"
+  },
+  {
+    "sym": "LATENTVIEW",
+    "name": "Latent View Analytics Ltd.",
+    "token": "6818"
+  },
+  {
+    "sym": "LAURUSLABS",
+    "name": "Laurus Labs Ltd.",
+    "token": "19234"
+  },
+  {
+    "sym": "LXCHEM",
+    "name": "Laxmi Organic Industries Ltd.",
+    "token": "2841"
+  },
+  {
+    "sym": "IXIGO",
+    "name": "Le Travenues Technology Ltd.",
+    "token": "24067"
+  },
+  {
+    "sym": "THELEELA",
+    "name": "Leela Palaces Hotels & Resorts Ltd.",
+    "token": "757014"
+  },
+  {
+    "sym": "LEMONTREE",
+    "name": "Lemon Tree Hotels Ltd.",
+    "token": "2606"
+  },
+  {
+    "sym": "LENSKART",
+    "name": "Lenskart Solutions Ltd.",
+    "token": "759605"
+  },
+  {
+    "sym": "LICI",
+    "name": "Life Insurance Corporation of India",
+    "token": "9480"
+  },
+  {
+    "sym": "LINDEINDIA",
+    "name": "Linde India Ltd.",
+    "token": "1627"
+  },
+  {
+    "sym": "LLOYDSENGG",
+    "name": "Lloyds Engineering Works Ltd.",
+    "token": "17801"
+  },
+  {
+    "sym": "LLOYDSENT",
+    "name": "Lloyds Enterprises Ltd.",
+    "token": "25807"
+  },
+  {
+    "sym": "LLOYDSME",
+    "name": "Lloyds Metals And Energy Ltd.",
+    "token": "17313"
+  },
+  {
+    "sym": "LODHA",
+    "name": "Lodha Developers Ltd.",
+    "token": "3220"
+  },
+  {
+    "sym": "LUMAXTECH",
+    "name": "Lumax Auto Technologies Ltd.",
+    "token": "14014"
+  },
+  {
+    "sym": "LUPIN",
+    "name": "Lupin Ltd.",
+    "token": "10440"
+  },
+  {
+    "sym": "MMTC",
+    "name": "MMTC Ltd.",
+    "token": "17957"
+  },
+  {
+    "sym": "MOIL",
+    "name": "MOIL Ltd.",
+    "token": "20830"
+  },
+  {
+    "sym": "MRF",
+    "name": "MRF Ltd.",
+    "token": "2277"
+  },
+  {
+    "sym": "MSTCLTD",
+    "name": "MSTC Ltd.",
+    "token": "9356"
+  },
+  {
+    "sym": "MTARTECH",
+    "name": "MTAR Technologies Ltd.",
+    "token": "2715"
+  },
+  {
+    "sym": "MGL",
+    "name": "Mahanagar Gas Ltd.",
+    "token": "17534"
+  },
+  {
+    "sym": "MAHSCOOTER",
+    "name": "Maharashtra Scooters Ltd.",
+    "token": "2085"
+  },
+  {
+    "sym": "MAHSEAMLES",
+    "name": "Maharashtra Seamless Ltd.",
+    "token": "2088"
+  },
+  {
+    "sym": "M&MFIN",
+    "name": "Mahindra & Mahindra Financial Services Ltd.",
+    "token": "13285"
+  },
+  {
+    "sym": "M&M",
+    "name": "Mahindra & Mahindra Ltd.",
+    "token": "2031"
+  },
+  {
+    "sym": "MANAPPURAM",
+    "name": "Manappuram Finance Ltd.",
+    "token": "19061"
+  },
+  {
+    "sym": "MRPL",
+    "name": "Mangalore Refinery & Petrochemicals Ltd.",
+    "token": "2283"
+  },
+  {
+    "sym": "MANKIND",
+    "name": "Mankind Pharma Ltd.",
+    "token": "15380"
+  },
+  {
+    "sym": "MANORAMA",
+    "name": "Manorama Industries Ltd.",
+    "token": "10227"
+  },
+  {
+    "sym": "MARICO",
+    "name": "Marico Ltd.",
+    "token": "4067"
+  },
+  {
+    "sym": "MARKSANS",
+    "name": "Marksans Pharma Ltd.",
+    "token": "10579"
+  },
+  {
+    "sym": "MARUTI",
+    "name": "Maruti Suzuki India Ltd.",
+    "token": "10999"
+  },
+  {
+    "sym": "MASTEK",
+    "name": "Mastek Ltd.",
+    "token": "2124"
+  },
+  {
+    "sym": "MFSL",
+    "name": "Max Financial Services Ltd.",
+    "token": "2142"
+  },
+  {
+    "sym": "MAXHEALTH",
+    "name": "Max Healthcare Institute Ltd.",
+    "token": "22377"
+  },
+  {
+    "sym": "MAZDOCK",
+    "name": "Mazagoan Dock Shipbuilders Ltd.",
+    "token": "509"
+  },
+  {
+    "sym": "MEDPLUS",
+    "name": "Medplus Health Services Ltd.",
+    "token": "7254"
+  },
+  {
+    "sym": "MEESHO",
+    "name": "Meesho Ltd.",
+    "token": "760229"
+  },
+  {
+    "sym": "METROPOLIS",
+    "name": "Metropolis Healthcare Ltd.",
+    "token": "9581"
+  },
+  {
+    "sym": "MINDACORP",
+    "name": "Minda Corporation Ltd.",
+    "token": "25897"
+  },
+  {
+    "sym": "MIDHANI",
+    "name": "Mishra Dhatu Nigam Ltd.",
+    "token": "2463"
+  },
+  {
+    "sym": "MSUMI",
+    "name": "Motherson Sumi Wiring India Ltd.",
+    "token": "8596"
+  },
+  {
+    "sym": "MOTILALOFS",
+    "name": "Motilal Oswal Financial Services Ltd.",
+    "token": "14947"
+  },
+  {
+    "sym": "MPHASIS",
+    "name": "MphasiS Ltd.",
+    "token": "4503"
+  },
+  {
+    "sym": "BECTORFOOD",
+    "name": "Mrs. Bectors Food Specialities Ltd.",
+    "token": "1628"
+  },
+  {
+    "sym": "MCX",
+    "name": "Multi Commodity Exchange of India Ltd.",
+    "token": "31181"
+  },
+  {
+    "sym": "MUTHOOTFIN",
+    "name": "Muthoot Finance Ltd.",
+    "token": "23650"
+  },
+  {
+    "sym": "NATCOPHARM",
+    "name": "NATCO Pharma Ltd.",
+    "token": "3918"
+  },
+  {
+    "sym": "NBCC",
+    "name": "NBCC (India) Ltd.",
+    "token": "31415"
+  },
+  {
+    "sym": "NCC",
+    "name": "NCC Ltd.",
+    "token": "2319"
+  },
+  {
+    "sym": "NEOGEN",
+    "name": "NEOGEN CHEMICALS LTD.",
+    "token": "9917"
+  },
+  {
+    "sym": "NESCO",
+    "name": "NESCO Ltd.",
+    "token": "15409"
+  },
+  {
+    "sym": "NHPC",
+    "name": "NHPC Ltd.",
+    "token": "17400"
+  },
+  {
+    "sym": "NLCINDIA",
+    "name": "NLC India Ltd.",
+    "token": "8585"
+  },
+  {
+    "sym": "NMDC",
+    "name": "NMDC Ltd.",
+    "token": "15332"
+  },
+  {
+    "sym": "NSLNISP",
+    "name": "NMDC Steel Ltd.",
+    "token": "14180"
+  },
+  {
+    "sym": "NTPCGREEN",
+    "name": "NTPC Green Energy Ltd.",
+    "token": "27176"
+  },
+  {
+    "sym": "NTPC",
+    "name": "NTPC Ltd.",
+    "token": "11630"
+  },
+  {
+    "sym": "NH",
+    "name": "Narayana Hrudayalaya Ltd.",
+    "token": "11840"
+  },
+  {
+    "sym": "NATIONALUM",
+    "name": "National Aluminium Co. Ltd.",
+    "token": "6364"
+  },
+  {
+    "sym": "NFL",
+    "name": "National Fertilizers Ltd.",
+    "token": "13925"
+  },
+  {
+    "sym": "NAVA",
+    "name": "Nava Ltd.",
+    "token": "4014"
+  },
+  {
+    "sym": "NAVINFLUOR",
+    "name": "Navin Fluorine International Ltd.",
+    "token": "14672"
+  },
+  {
+    "sym": "NAZARA",
+    "name": "Nazara Technologies Ltd.",
+    "token": "2987"
+  },
+  {
+    "sym": "NESTLEIND",
+    "name": "Nestle India Ltd.",
+    "token": "17963"
+  },
+  {
+    "sym": "NETWEB",
+    "name": "Netweb Technologies India Ltd.",
+    "token": "17433"
+  },
+  {
+    "sym": "NETWORK18",
+    "name": "Network18 Media & Investments Ltd.",
+    "token": "14111"
+  },
+  {
+    "sym": "NEULANDLAB",
+    "name": "Neuland Laboratories Ltd.",
+    "token": "2406"
+  },
+  {
+    "sym": "NEWGEN",
+    "name": "Newgen Software Technologies Ltd.",
+    "token": "1164"
+  },
+  {
+    "sym": "NAM-INDIA",
+    "name": "Nippon Life India Asset Management Ltd.",
+    "token": "357"
+  },
+  {
+    "sym": "NIVABUPA",
+    "name": "Niva Bupa Health Insurance Company Ltd.",
+    "token": "27097"
+  },
+  {
+    "sym": "NUVAMA",
+    "name": "Nuvama Wealth Management Ltd.",
+    "token": "18721"
+  },
+  {
+    "sym": "NUVOCO",
+    "name": "Nuvoco Vistas Corporation Ltd.",
+    "token": "5426"
+  },
+  {
+    "sym": "OBEROIRLTY",
+    "name": "Oberoi Realty Ltd.",
+    "token": "20242"
+  },
+  {
+    "sym": "ONGC",
+    "name": "Oil & Natural Gas Corporation Ltd.",
+    "token": "2475"
+  },
+  {
+    "sym": "OIL",
+    "name": "Oil India Ltd.",
+    "token": "17438"
+  },
+  {
+    "sym": "OLAELEC",
+    "name": "Ola Electric Mobility Ltd.",
+    "token": "24777"
+  },
+  {
+    "sym": "OLECTRA",
+    "name": "Olectra Greentech Ltd.",
+    "token": "10637"
+  },
+  {
+    "sym": "PAYTM",
+    "name": "One 97 Communications Ltd.",
+    "token": "6705"
+  },
+  {
+    "sym": "ONESOURCE",
+    "name": "Onesource Specialty Pharma Ltd.",
+    "token": "29224"
+  },
+  {
+    "sym": "OPTIEMUS",
+    "name": "Optiemus Infracom Ltd.",
+    "token": "21469"
+  },
+  {
+    "sym": "OFSS",
+    "name": "Oracle Financial Services Software Ltd.",
+    "token": "10738"
+  },
+  {
+    "sym": "ORIENTCEM",
+    "name": "Orient Cement Ltd.",
+    "token": "30089"
+  },
+  {
+    "sym": "ORKLAINDIA",
+    "name": "Orkla India Ltd.",
+    "token": "759569"
+  },
+  {
+    "sym": "OSWALPUMPS",
+    "name": "Oswal Pumps Ltd.",
+    "token": "756802"
+  },
+  {
+    "sym": "PNGJL",
+    "name": "P N Gadgil Jewellers Ltd.",
+    "token": "25312"
+  },
+  {
+    "sym": "POLICYBZR",
+    "name": "PB Fintech Ltd.",
+    "token": "6656"
+  },
+  {
+    "sym": "PCJEWELLER",
+    "name": "PC Jeweller Ltd.",
+    "token": "29124"
+  },
+  {
+    "sym": "PCBL",
+    "name": "PCBL Chemical Ltd.",
+    "token": "2649"
+  },
+  {
+    "sym": "PGEL",
+    "name": "PG Electroplast Ltd.",
+    "token": "25358"
+  },
+  {
+    "sym": "PIIND",
+    "name": "PI Industries Ltd.",
+    "token": "24184"
+  },
+  {
+    "sym": "PNBHOUSING",
+    "name": "PNB Housing Finance Ltd.",
+    "token": "18908"
+  },
+  {
+    "sym": "PNCINFRA",
+    "name": "PNC Infratech Ltd.",
+    "token": "9385"
+  },
+  {
+    "sym": "PTC",
+    "name": "PTC India Ltd.",
+    "token": "11355"
+  },
+  {
+    "sym": "PTCIL",
+    "name": "PTC Industries Ltd.",
+    "token": "16682"
+  },
+  {
+    "sym": "PVRINOX",
+    "name": "PVR INOX Ltd.",
+    "token": "13147"
+  },
+  {
+    "sym": "PAGEIND",
+    "name": "Page Industries Ltd.",
+    "token": "14413"
+  },
+  {
+    "sym": "PARADEEP",
+    "name": "Paradeep Phosphates Ltd.",
+    "token": "9741"
+  },
+  {
+    "sym": "PARAS",
+    "name": "Paras Defence and Space Technologies Ltd.",
+    "token": "5911"
+  },
+  {
+    "sym": "PARKHOSPS",
+    "name": "Park Medi World Ltd.",
+    "token": "760351"
+  },
+  {
+    "sym": "PATANJALI",
+    "name": "Patanjali Foods Ltd.",
+    "token": "17029"
+  },
+  {
+    "sym": "PGIL",
+    "name": "Pearl Global Industries Ltd.",
+    "token": "14260"
+  },
+  {
+    "sym": "PERSISTENT",
+    "name": "Persistent Systems Ltd.",
+    "token": "18365"
+  },
+  {
+    "sym": "PETRONET",
+    "name": "Petronet LNG Ltd.",
+    "token": "11351"
+  },
+  {
+    "sym": "PFIZER",
+    "name": "Pfizer Ltd.",
+    "token": "2643"
+  },
+  {
+    "sym": "PHOENIXLTD",
+    "name": "Phoenix Mills Ltd.",
+    "token": "14552"
+  },
+  {
+    "sym": "PWL",
+    "name": "Physicswallah Ltd.",
+    "token": "759723"
+  },
+  {
+    "sym": "PICCADIL",
+    "name": "Piccadily Agro Industries Ltd.",
+    "token": "757754"
+  },
+  {
+    "sym": "PIDILITIND",
+    "name": "Pidilite Industries Ltd.",
+    "token": "2664"
+  },
+  {
+    "sym": "PINELABS",
+    "name": "Pine Labs Ltd.",
+    "token": "759820"
+  },
+  {
+    "sym": "PIRAMALFIN",
+    "name": "Piramal Finance Ltd.",
+    "token": "759551"
+  },
+  {
+    "sym": "PPLPHARMA",
+    "name": "Piramal Pharma Ltd.",
+    "token": "11571"
+  },
+  {
+    "sym": "POLYMED",
+    "name": "Poly Medicure Ltd.",
+    "token": "25718"
+  },
+  {
+    "sym": "POLYCAB",
+    "name": "Polycab India Ltd.",
+    "token": "9590"
+  },
+  {
+    "sym": "POONAWALLA",
+    "name": "Poonawalla Fincorp Ltd.",
+    "token": "11403"
+  },
+  {
+    "sym": "PFC",
+    "name": "Power Finance Corporation Ltd.",
+    "token": "14299"
+  },
+  {
+    "sym": "POWERGRID",
+    "name": "Power Grid Corporation of India Ltd.",
+    "token": "14977"
+  },
+  {
+    "sym": "POWERMECH",
+    "name": "Power Mech Projects Ltd.",
+    "token": "10473"
+  },
+  {
+    "sym": "PRAJIND",
+    "name": "Praj Industries Ltd.",
+    "token": "2705"
+  },
+  {
+    "sym": "PREMIERENE",
+    "name": "Premier Energies Ltd.",
+    "token": "25049"
+  },
+  {
+    "sym": "PRESTIGE",
+    "name": "Prestige Estates Projects Ltd.",
+    "token": "20302"
+  },
+  {
+    "sym": "PRICOLLTD",
+    "name": "Pricol Ltd.",
+    "token": "19631"
+  },
+  {
+    "sym": "PFOCUS",
+    "name": "Prime Focus Ltd.",
+    "token": "13496"
+  },
+  {
+    "sym": "PRSMJOHNSN",
+    "name": "Prism Johnson Ltd.",
+    "token": "2739"
+  },
+  {
+    "sym": "PRIVISCL",
+    "name": "Privi Speciality Chemicals Ltd.",
+    "token": "8825"
+  },
+  {
+    "sym": "PRUDENT",
+    "name": "Prudent Corporate Advisory Services Ltd.",
+    "token": "9553"
+  },
+  {
+    "sym": "PNB",
+    "name": "Punjab National Bank",
+    "token": "10666"
+  },
+  {
+    "sym": "PURVA",
+    "name": "Puravankara Ltd.",
+    "token": "14922"
+  },
+  {
+    "sym": "QPOWER",
+    "name": "QUALITY POWER ELECTRICAL EQUIPMENTS Ltd.",
+    "token": "29711"
+  },
+  {
+    "sym": "QUESS",
+    "name": "Quess Corp Ltd.",
+    "token": "17704"
+  },
+  {
+    "sym": "RRKABEL",
+    "name": "R R Kabel Ltd.",
+    "token": "18566"
+  },
+  {
+    "sym": "RBLBANK",
+    "name": "RBL Bank Ltd.",
+    "token": "18391"
+  },
+  {
+    "sym": "RECLTD",
+    "name": "REC Ltd.",
+    "token": "15355"
+  },
+  {
+    "sym": "RHIM",
+    "name": "RHI MAGNESITA INDIA LTD.",
+    "token": "31163"
+  },
+  {
+    "sym": "RITES",
+    "name": "RITES Ltd.",
+    "token": "3761"
+  },
+  {
+    "sym": "RADICO",
+    "name": "Radico Khaitan Ltd",
+    "token": "10990"
+  },
+  {
+    "sym": "RVNL",
+    "name": "Rail Vikas Nigam Ltd.",
+    "token": "9552"
+  },
+  {
+    "sym": "RAILTEL",
+    "name": "Railtel Corporation Of India Ltd.",
+    "token": "2431"
+  },
+  {
+    "sym": "RAIN",
+    "name": "Rain Industries Ltd",
+    "token": "15337"
+  },
+  {
+    "sym": "RAINBOW",
+    "name": "Rainbow Childrens Medicare Ltd.",
+    "token": "9408"
+  },
+  {
+    "sym": "RALLIS",
+    "name": "Rallis India Ltd.",
+    "token": "2816"
+  },
+  {
+    "sym": "RKFORGE",
+    "name": "Ramkrishna Forgings Ltd.",
+    "token": "11411"
+  },
+  {
+    "sym": "RCF",
+    "name": "Rashtriya Chemicals & Fertilizers Ltd.",
+    "token": "2866"
+  },
+  {
+    "sym": "RATEGAIN",
+    "name": "Rategain Travel Technologies Ltd.",
+    "token": "7177"
+  },
+  {
+    "sym": "RATNAMANI",
+    "name": "Ratnamani Metals & Tubes Ltd.",
+    "token": "13451"
+  },
+  {
+    "sym": "RTNINDIA",
+    "name": "RattanIndia Enterprises Ltd.",
+    "token": "27297"
+  },
+  {
+    "sym": "RTNPOWER",
+    "name": "RattanIndia Power Ltd.",
+    "token": "17520"
+  },
+  {
+    "sym": "RAYMONDLSL",
+    "name": "Raymond Lifestyle Ltd.",
+    "token": "25073"
+  },
+  {
+    "sym": "REDINGTON",
+    "name": "Redington Ltd.",
+    "token": "14255"
+  },
+  {
+    "sym": "REDTAPE",
+    "name": "Redtape Ltd.",
+    "token": "17859"
+  },
+  {
+    "sym": "REFEX",
+    "name": "Refex Industries Ltd.",
+    "token": "17764"
+  },
+  {
+    "sym": "RELAXO",
+    "name": "Relaxo Footwears Ltd.",
+    "token": "24225"
+  },
+  {
+    "sym": "RELIANCE",
+    "name": "Reliance Industries Ltd.",
+    "token": "2885"
+  },
+  {
+    "sym": "RPOWER",
+    "name": "Reliance Power Ltd.",
+    "token": "15259"
+  },
+  {
+    "sym": "RELIGARE",
+    "name": "Religare Enterprises Ltd.",
+    "token": "15068"
+  },
+  {
+    "sym": "RBA",
+    "name": "Restaurant Brands Asia Ltd.",
+    "token": "1494"
+  },
+  {
+    "sym": "ROUTE",
+    "name": "Route Mobile Ltd.",
+    "token": "128"
+  },
+  {
+    "sym": "RUBICON",
+    "name": "Rubicon Research Ltd.",
+    "token": "759316"
+  },
+  {
+    "sym": "SBFC",
+    "name": "SBFC Finance Ltd.",
+    "token": "18026"
+  },
+  {
+    "sym": "SBICARD",
+    "name": "SBI Cards and Payment Services Ltd.",
+    "token": "17971"
+  },
+  {
+    "sym": "SBILIFE",
+    "name": "SBI Life Insurance Company Ltd.",
+    "token": "21808"
+  },
+  {
+    "sym": "SJVN",
+    "name": "SJVN Ltd.",
+    "token": "18883"
+  },
+  {
+    "sym": "SKFINDUS",
+    "name": "SKF India (Industrial) Ltd.",
+    "token": "760101"
+  },
+  {
+    "sym": "SKFINDIA",
+    "name": "SKF India Ltd.",
+    "token": "3186"
+  },
+  {
+    "sym": "SKYGOLD",
+    "name": "SKY GOLD AND DIAMONDS Ltd.",
+    "token": "13631"
+  },
+  {
+    "sym": "SMLMAH",
+    "name": "SML Mahindra Ltd.",
+    "token": "3387"
+  },
+  {
+    "sym": "SHRIPISTON",
+    "name": "SPR Auto Technologies Ltd.",
+    "token": "17186"
+  },
+  {
+    "sym": "SRF",
+    "name": "SRF Ltd.",
+    "token": "3273"
+  },
+  {
+    "sym": "LOTUSDEV",
+    "name": "SRI LOTUS DEVELOPERS AND REALTY Ltd.",
+    "token": "758147"
+  },
+  {
+    "sym": "SAATVIKGL",
+    "name": "Saatvik Green Energy Ltd.",
+    "token": "759057"
+  },
+  {
+    "sym": "SAFARI",
+    "name": "Safari Industries (India) Ltd.",
+    "token": "13035"
+  },
+  {
+    "sym": "SAGILITY",
+    "name": "Sagility Ltd.",
+    "token": "27052"
+  },
+  {
+    "sym": "SAILIFE",
+    "name": "Sai Life Sciences Ltd.",
+    "token": "27839"
+  },
+  {
+    "sym": "SAMHI",
+    "name": "Samhi Hotels Ltd.",
+    "token": "18614"
+  },
+  {
+    "sym": "SAMMAANCAP",
+    "name": "Sammaan Capital Ltd.",
+    "token": "30125"
+  },
+  {
+    "sym": "MOTHERSON",
+    "name": "Samvardhana Motherson International Ltd.",
+    "token": "4204"
+  },
+  {
+    "sym": "SANDUMA",
+    "name": "Sandur Manganese & Iron Ores Ltd.",
+    "token": "18359"
+  },
+  {
+    "sym": "SANOFICONR",
+    "name": "Sanofi Consumer Healthcare India Ltd.",
+    "token": "25222"
+  },
+  {
+    "sym": "SANSERA",
+    "name": "Sansera Engineering Ltd.",
+    "token": "5751"
+  },
+  {
+    "sym": "SAPPHIRE",
+    "name": "Sapphire Foods India Ltd.",
+    "token": "6718"
+  },
+  {
+    "sym": "SARDAEN",
+    "name": "Sarda Energy and Minerals Ltd.",
+    "token": "17758"
+  },
+  {
+    "sym": "SAREGAMA",
+    "name": "Saregama India Ltd",
+    "token": "4892"
+  },
+  {
+    "sym": "SCHAEFFLER",
+    "name": "Schaeffler India Ltd.",
+    "token": "1011"
+  },
+  {
+    "sym": "SCHNEIDER",
+    "name": "Schneider Electric Infrastructure Ltd.",
+    "token": "31234"
+  },
+  {
+    "sym": "SENCO",
+    "name": "Senco Gold Ltd.",
+    "token": "17271"
+  },
+  {
+    "sym": "STYL",
+    "name": "Seshaasai Technologies Ltd.",
+    "token": "759934"
+  },
+  {
+    "sym": "SHAILY",
+    "name": "Shaily Engineering Plastics Ltd.",
+    "token": "8727"
+  },
+  {
+    "sym": "SHAKTIPUMP",
+    "name": "Shakti Pumps (India) Ltd.",
+    "token": "25574"
+  },
+  {
+    "sym": "SHARDACROP",
+    "name": "Sharda Cropchem Ltd.",
+    "token": "4992"
+  },
+  {
+    "sym": "SHAREINDIA",
+    "name": "Share India Securities Ltd.",
+    "token": "104"
+  },
+  {
+    "sym": "SFL",
+    "name": "Sheela Foam Ltd.",
+    "token": "19184"
+  },
+  {
+    "sym": "SHILPAMED",
+    "name": "Shilpa Medicare Ltd.",
+    "token": "17752"
+  },
+  {
+    "sym": "SCI",
+    "name": "Shipping Corporation of India Ltd.",
+    "token": "3048"
+  },
+  {
+    "sym": "SHREECEM",
+    "name": "Shree Cement Ltd.",
+    "token": "3103"
+  },
+  {
+    "sym": "RENUKA",
+    "name": "Shree Renuka Sugars Ltd.",
+    "token": "12026"
+  },
+  {
+    "sym": "SHRIRAMFIN",
+    "name": "Shriram Finance Ltd.",
+    "token": "4306"
+  },
+  {
+    "sym": "SHYAMMETL",
+    "name": "Shyam Metalics and Energy Ltd.",
+    "token": "4693"
+  },
+  {
+    "sym": "ENRIN",
+    "name": "Siemens Energy India Ltd.",
+    "token": "756871"
+  },
+  {
+    "sym": "SIEMENS",
+    "name": "Siemens Ltd.",
+    "token": "3150"
+  },
+  {
+    "sym": "SIGNATURE",
+    "name": "Signatureglobal (India) Ltd.",
+    "token": "18743"
+  },
+  {
+    "sym": "SKIPPER",
+    "name": "Skipper Ltd.",
+    "token": "9428"
+  },
+  {
+    "sym": "SMARTWORKS",
+    "name": "Smartworks Coworking Spaces Ltd.",
+    "token": "757965"
+  },
+  {
+    "sym": "SOBHA",
+    "name": "Sobha Ltd.",
+    "token": "13826"
+  },
+  {
+    "sym": "SOLARINDS",
+    "name": "Solar Industries India Ltd.",
+    "token": "13332"
+  },
+  {
+    "sym": "SONACOMS",
+    "name": "Sona BLW Precision Forgings Ltd.",
+    "token": "4684"
+  },
+  {
+    "sym": "SONATSOFTW",
+    "name": "Sonata Software Ltd.",
+    "token": "6596"
+  },
+  {
+    "sym": "SOUTHBANK",
+    "name": "South Indian Bank Ltd.",
+    "token": "5948"
+  },
+  {
+    "sym": "STARCEMENT",
+    "name": "Star Cement Ltd.",
+    "token": "21091"
+  },
+  {
+    "sym": "STARHEALTH",
+    "name": "Star Health and Allied Insurance Company Ltd.",
+    "token": "7083"
+  },
+  {
+    "sym": "SBIN",
+    "name": "State Bank of India",
+    "token": "3045"
+  },
+  {
+    "sym": "SAIL",
+    "name": "Steel Authority of India Ltd.",
+    "token": "2963"
+  },
+  {
+    "sym": "SWSOLAR",
+    "name": "Sterling and Wilson Renewable Energy Ltd.",
+    "token": "12489"
+  },
+  {
+    "sym": "STLTECH",
+    "name": "Sterlite Technologies Ltd.",
+    "token": "9313"
+  },
+  {
+    "sym": "STAR",
+    "name": "Strides Pharma Science Ltd.",
+    "token": "7374"
+  },
+  {
+    "sym": "STYRENIX",
+    "name": "Styrenix Performance Materials Ltd.",
+    "token": "19"
+  },
+  {
+    "sym": "SUBROS",
+    "name": "Subros Ltd.",
+    "token": "3324"
+  },
+  {
+    "sym": "SUDARSCHEM",
+    "name": "Sudarshan Chemical Industries Ltd.",
+    "token": "3327"
+  },
+  {
+    "sym": "SUDEEPPHRM",
+    "name": "Sudeep Pharma Ltd.",
+    "token": "760039"
+  },
+  {
+    "sym": "SUMICHEM",
+    "name": "Sumitomo Chemical India Ltd.",
+    "token": "17105"
+  },
+  {
+    "sym": "SPARC",
+    "name": "Sun Pharma Advanced Research Company Ltd.",
+    "token": "14788"
+  },
+  {
+    "sym": "SUNPHARMA",
+    "name": "Sun Pharmaceutical Industries Ltd.",
+    "token": "3351"
+  },
+  {
+    "sym": "SUNTV",
+    "name": "Sun TV Network Ltd.",
+    "token": "13404"
+  },
+  {
+    "sym": "SUNDARMFIN",
+    "name": "Sundaram Finance Ltd.",
+    "token": "3339"
+  },
+  {
+    "sym": "SUNTECK",
+    "name": "Sunteck Realty Ltd.",
+    "token": "17641"
+  },
+  {
+    "sym": "SUPREMEIND",
+    "name": "Supreme Industries Ltd.",
+    "token": "3363"
+  },
+  {
+    "sym": "SPLPETRO",
+    "name": "Supreme Petrochem Ltd.",
+    "token": "9617"
+  },
+  {
+    "sym": "SUPRIYA",
+    "name": "Supriya Lifescience Ltd.",
+    "token": "7390"
+  },
+  {
+    "sym": "SURYAROSNI",
+    "name": "Surya Roshni Ltd.",
+    "token": "3375"
+  },
+  {
+    "sym": "SUZLON",
+    "name": "Suzlon Energy Ltd.",
+    "token": "12018"
+  },
+  {
+    "sym": "SWANCORP",
+    "name": "Swan Corp Ltd.",
+    "token": "27095"
+  },
+  {
+    "sym": "SWIGGY",
+    "name": "Swiggy Ltd.",
+    "token": "27066"
+  },
+  {
+    "sym": "SYNGENE",
+    "name": "Syngene International Ltd.",
+    "token": "10243"
+  },
+  {
+    "sym": "SYRMA",
+    "name": "Syrma SGS Technology Ltd.",
+    "token": "10793"
+  },
+  {
+    "sym": "TARC",
+    "name": "TARC Ltd.",
+    "token": "1581"
+  },
+  {
+    "sym": "TBOTEK",
+    "name": "TBO Tek Ltd.",
+    "token": "23740"
+  },
+  {
+    "sym": "TDPOWERSYS",
+    "name": "TD Power Systems Ltd.",
+    "token": "25178"
+  },
+  {
+    "sym": "TSFINV",
+    "name": "TSF Investments Ltd.",
+    "token": "2183"
+  },
+  {
+    "sym": "TVSMOTOR",
+    "name": "TVS Motor Company Ltd.",
+    "token": "8479"
+  },
+  {
+    "sym": "TVSSCS",
+    "name": "TVS Supply Chain Solutions Ltd.",
+    "token": "18151"
+  },
+  {
+    "sym": "TMB",
+    "name": "Tamilnad Mercantile Bank Ltd.",
+    "token": "10945"
+  },
+  {
+    "sym": "TANLA",
+    "name": "Tanla Platforms Ltd.",
+    "token": "13976"
+  },
+  {
+    "sym": "TATACAP",
+    "name": "Tata Capital Ltd.",
+    "token": "759265"
+  },
+  {
+    "sym": "TATACHEM",
+    "name": "Tata Chemicals Ltd.",
+    "token": "3405"
+  },
+  {
+    "sym": "TATACOMM",
+    "name": "Tata Communications Ltd.",
+    "token": "3721"
+  },
+  {
+    "sym": "TCS",
+    "name": "Tata Consultancy Services Ltd.",
+    "token": "11536"
+  },
+  {
+    "sym": "TATACONSUM",
+    "name": "Tata Consumer Products Ltd.",
+    "token": "3432"
+  },
+  {
+    "sym": "TATAELXSI",
+    "name": "Tata Elxsi Ltd.",
+    "token": "3411"
+  },
+  {
+    "sym": "TATAINVEST",
+    "name": "Tata Investment Corporation Ltd.",
+    "token": "1621"
+  },
+  {
+    "sym": "TMCV",
+    "name": "Tata Motors Ltd.",
+    "token": "759782"
+  },
+  {
+    "sym": "TMPV",
+    "name": "Tata Motors Passenger Vehicles Ltd.",
+    "token": "3456"
+  },
+  {
+    "sym": "TATAPOWER",
+    "name": "Tata Power Co. Ltd.",
+    "token": "3426"
+  },
+  {
+    "sym": "TATASTEEL",
+    "name": "Tata Steel Ltd.",
+    "token": "3499"
+  },
+  {
+    "sym": "TATATECH",
+    "name": "Tata Technologies Ltd.",
+    "token": "20293"
+  },
+  {
+    "sym": "TTML",
+    "name": "Tata Teleservices (Maharashtra) Ltd.",
+    "token": "8954"
+  },
+  {
+    "sym": "TECHM",
+    "name": "Tech Mahindra Ltd.",
+    "token": "13538"
+  },
+  {
+    "sym": "TECHNOE",
+    "name": "Techno Electric & Engineering Company Ltd.",
+    "token": "6445"
+  },
+  {
+    "sym": "TEGA",
+    "name": "Tega Industries Ltd.",
+    "token": "7105"
+  },
+  {
+    "sym": "TEJASNET",
+    "name": "Tejas Networks Ltd.",
+    "token": "21131"
+  },
+  {
+    "sym": "TENNIND",
+    "name": "Tenneco Clean Air India Ltd.",
+    "token": "759880"
+  },
+  {
+    "sym": "TEXRAIL",
+    "name": "Texmaco Rail & Eng. Ltd.",
+    "token": "21828"
+  },
+  {
+    "sym": "THANGAMAYL",
+    "name": "Thangamayil Jewellery Ltd.",
+    "token": "18118"
+  },
+  {
+    "sym": "ANUP",
+    "name": "The Anup Engineering Ltd.",
+    "token": "9014"
+  },
+  {
+    "sym": "NIACL",
+    "name": "The New India Assurance Company Ltd.",
+    "token": "399"
+  },
+  {
+    "sym": "RAMCOCEM",
+    "name": "The Ramco Cements Ltd.",
+    "token": "2043"
+  },
+  {
+    "sym": "THERMAX",
+    "name": "Thermax Ltd.",
+    "token": "3475"
+  },
+  {
+    "sym": "THOMASCOOK",
+    "name": "Thomas Cook (India) Ltd.",
+    "token": "3481"
+  },
+  {
+    "sym": "THYROCARE",
+    "name": "Thyrocare Technologies Ltd.",
+    "token": "17032"
+  },
+  {
+    "sym": "TI",
+    "name": "Tilaknagar Industries Ltd.",
+    "token": "19196"
+  },
+  {
+    "sym": "TIMETECHNO",
+    "name": "Time Technoplast Ltd.",
+    "token": "14707"
+  },
+  {
+    "sym": "TIMKEN",
+    "name": "Timken India Ltd.",
+    "token": "14198"
+  },
+  {
+    "sym": "TIPSMUSIC",
+    "name": "Tips Music Ltd.",
+    "token": "9117"
+  },
+  {
+    "sym": "TITAGARH",
+    "name": "Titagarh Rail Systems Ltd.",
+    "token": "15414"
+  },
+  {
+    "sym": "TITAN",
+    "name": "Titan Company Ltd.",
+    "token": "3506"
+  },
+  {
+    "sym": "TORNTPHARM",
+    "name": "Torrent Pharmaceuticals Ltd.",
+    "token": "3518"
+  },
+  {
+    "sym": "TORNTPOWER",
+    "name": "Torrent Power Ltd.",
+    "token": "13786"
+  },
+  {
+    "sym": "TARIL",
+    "name": "Transformers And Rectifiers (India) Ltd.",
+    "token": "15174"
+  },
+  {
+    "sym": "TRANSRAILL",
+    "name": "Transrail Lighting Ltd.",
+    "token": "28714"
+  },
+  {
+    "sym": "TRAVELFOOD",
+    "name": "Travel Food Services Ltd.",
+    "token": "757545"
+  },
+  {
+    "sym": "TRENT",
+    "name": "Trent Ltd.",
+    "token": "1964"
+  },
+  {
+    "sym": "TRIDENT",
+    "name": "Trident Ltd.",
+    "token": "9685"
+  },
+  {
+    "sym": "TRIVENI",
+    "name": "Triveni Engineering & Industries Ltd.",
+    "token": "13081"
+  },
+  {
+    "sym": "TRITURBINE",
+    "name": "Triveni Turbine Ltd.",
+    "token": "25584"
+  },
+  {
+    "sym": "TIINDIA",
+    "name": "Tube Investments of India Ltd.",
+    "token": "312"
+  },
+  {
+    "sym": "UCOBANK",
+    "name": "UCO Bank",
+    "token": "11223"
+  },
+  {
+    "sym": "UNOMINDA",
+    "name": "UNO Minda Ltd.",
+    "token": "14154"
+  },
+  {
+    "sym": "UPL",
+    "name": "UPL Ltd.",
+    "token": "11287"
+  },
+  {
+    "sym": "UTIAMC",
+    "name": "UTI Asset Management Company Ltd.",
+    "token": "527"
+  },
+  {
+    "sym": "UJJIVANSFB",
+    "name": "Ujjivan Small Finance Bank Ltd.",
+    "token": "15228"
+  },
+  {
+    "sym": "ULTRACEMCO",
+    "name": "UltraTech Cement Ltd.",
+    "token": "11532"
+  },
+  {
+    "sym": "UNIONBANK",
+    "name": "Union Bank of India",
+    "token": "10753"
+  },
+  {
+    "sym": "UBL",
+    "name": "United Breweries Ltd.",
+    "token": "16713"
+  },
+  {
+    "sym": "UNITDSPR",
+    "name": "United Spirits Ltd.",
+    "token": "10447"
+  },
+  {
+    "sym": "URBANCO",
+    "name": "Urban Company Ltd.",
+    "token": "759084"
+  },
+  {
+    "sym": "USHAMART",
+    "name": "Usha Martin Ltd.",
+    "token": "8840"
+  },
+  {
+    "sym": "VGUARD",
+    "name": "V-Guard Industries Ltd.",
+    "token": "15362"
+  },
+  {
+    "sym": "VMART",
+    "name": "V-Mart Retail Ltd.",
+    "token": "29284"
+  },
+  {
+    "sym": "VIPIND",
+    "name": "V.I.P. Industries Ltd.",
+    "token": "3703"
+  },
+  {
+    "sym": "V2RETAIL",
+    "name": "V2 Retail Ltd.",
+    "token": "14766"
+  },
+  {
+    "sym": "DBREALTY",
+    "name": "VALOR ESTATE Ltd.",
+    "token": "18124"
+  },
+  {
+    "sym": "WABAG",
+    "name": "Va Tech Wabag Ltd.",
+    "token": "20188"
+  },
+  {
+    "sym": "VAIBHAVGBL",
+    "name": "Vaibhav Global Ltd.",
+    "token": "11364"
+  },
+  {
+    "sym": "VTL",
+    "name": "Vardhman Textiles Ltd.",
+    "token": "2073"
+  },
+  {
+    "sym": "VARROC",
+    "name": "Varroc Engineering Ltd.",
+    "token": "3857"
+  },
+  {
+    "sym": "VBL",
+    "name": "Varun Beverages Ltd.",
+    "token": "18921"
+  },
+  {
+    "sym": "MANYAVAR",
+    "name": "Vedant Fashions Ltd.",
+    "token": "8167"
+  },
+  {
+    "sym": "VEDL",
+    "name": "Vedanta Ltd.",
+    "token": "3063"
+  },
+  {
+    "sym": "VIJAYA",
+    "name": "Vijaya Diagnostic Centre Ltd.",
+    "token": "5585"
+  },
+  {
+    "sym": "VIKRAMSOLR",
+    "name": "Vikram Solar Ltd.",
+    "token": "759453"
+  },
+  {
+    "sym": "VMM",
+    "name": "Vishal Mega Mart Ltd.",
+    "token": "27969"
+  },
+  {
+    "sym": "VIYASH",
+    "name": "Viyash Scientific Ltd.",
+    "token": "14296"
+  },
+  {
+    "sym": "IDEA",
+    "name": "Vodafone Idea Ltd.",
+    "token": "14366"
+  },
+  {
+    "sym": "VOLTAMP",
+    "name": "Voltamp Transformers Ltd",
+    "token": "13577"
+  },
+  {
+    "sym": "VOLTAS",
+    "name": "Voltas Ltd.",
+    "token": "3718"
+  },
+  {
+    "sym": "WAAREEENER",
+    "name": "Waaree Energies Ltd.",
+    "token": "25907"
+  },
+  {
+    "sym": "WAAREERTL",
+    "name": "Waaree Renewable Technologies Ltd.",
+    "token": "756038"
+  },
+  {
+    "sym": "WAKEFIT",
+    "name": "Wakefit Innovations Ltd.",
+    "token": "760259"
+  },
+  {
+    "sym": "WEWORK",
+    "name": "WeWork India Management Ltd.",
+    "token": "759434"
+  },
+  {
+    "sym": "WEBELSOLAR",
+    "name": "Websol Energy System Ltd.",
+    "token": "14602"
+  },
+  {
+    "sym": "WELCORP",
+    "name": "Welspun Corp Ltd.",
+    "token": "11821"
+  },
+  {
+    "sym": "WELENT",
+    "name": "Welspun Enterprises Ltd.",
+    "token": "11626"
+  },
+  {
+    "sym": "WELSPUNLIV",
+    "name": "Welspun Living Ltd.",
+    "token": "11253"
+  },
+  {
+    "sym": "WESTLIFE",
+    "name": "Westlife Foodworld Ltd.",
+    "token": "11580"
+  },
+  {
+    "sym": "WHIRLPOOL",
+    "name": "Whirlpool of India Ltd.",
+    "token": "18011"
+  },
+  {
+    "sym": "WIPRO",
+    "name": "Wipro Ltd.",
+    "token": "3787"
+  },
+  {
+    "sym": "WOCKPHARMA",
+    "name": "Wockhardt Ltd.",
+    "token": "7506"
+  },
+  {
+    "sym": "YATHARTH",
+    "name": "Yatharth Hospital & Trauma Care Services Ltd.",
+    "token": "17738"
+  },
+  {
+    "sym": "YESBANK",
+    "name": "Yes Bank Ltd.",
+    "token": "11915"
+  },
+  {
+    "sym": "ZFCVINDIA",
+    "name": "ZF Commercial Vehicle Control Systems India Ltd.",
+    "token": "16915"
+  },
+  {
+    "sym": "ZAGGLE",
+    "name": "Zaggle Prepaid Ocean Services Ltd.",
+    "token": "18608"
+  },
+  {
+    "sym": "ZEEL",
+    "name": "Zee Entertainment Enterprises Ltd.",
+    "token": "3812"
+  },
+  {
+    "sym": "ZENTEC",
+    "name": "Zen Technologies Ltd.",
+    "token": "7508"
+  },
+  {
+    "sym": "ZENSARTECH",
+    "name": "Zensar Technolgies Ltd.",
+    "token": "1076"
+  },
+  {
+    "sym": "ZYDUSLIFE",
+    "name": "Zydus Lifesciences Ltd.",
+    "token": "7929"
+  },
+  {
+    "sym": "ZYDUSWELL",
+    "name": "Zydus Wellness Ltd.",
+    "token": "17635"
+  },
+  {
+    "sym": "ECLERX",
+    "name": "eClerx Services Ltd.",
+    "token": "15179"
+  }
+]
