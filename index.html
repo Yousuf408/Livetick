@@ -73,14 +73,69 @@ tbody td.tick-cell{background:rgba(251,191,36,0.03);font-size:0.65rem;color:#fbb
 .test-item .result.pass{color:#4ade80}
 .test-item .result.fail{color:#f87171}
 .test-item .result.pending{color:#fbbf24}
-.ws-info{background:rgba(0,210,255,0.06);border:1px solid rgba(0,210,255,0.2);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:0.8rem;color:#7dd3fc}
-.ws-info code{background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px;color:#00d2ff;font-family:'Courier New',monospace}
+/* Strategy Styles & Badges */
+.strategy-kpi-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.kpi-card{background:#12121f;border:1px solid #2a2a4a;border-radius:10px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all 0.2s}
+.kpi-card:hover{border-color:#7b2ff7;transform:translateY(-1px)}
+.kpi-card.active{border-color:#00d2ff;background:#181830;box-shadow:0 0 12px rgba(0,210,255,0.15)}
+.kpi-label{font-size:0.75rem;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+.kpi-value{font-size:1.4rem;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+.kpi-card.triggered .kpi-value{color:#4ade80}
+.kpi-card.armed .kpi-value{color:#fbbf24}
+.kpi-card.inside .kpi-value{color:#60a5fa}
+.kpi-card.total .kpi-value{color:#a78bfa}
+.kpi-badge{font-size:0.68rem;padding:3px 8px;border-radius:12px;font-weight:600}
+.kpi-badge.green{background:rgba(74,222,128,0.15);color:#4ade80;border:1px solid rgba(74,222,128,0.3)}
+.kpi-badge.yellow{background:rgba(251,191,36,0.15);color:#fbbf24;border:1px solid rgba(251,191,36,0.3)}
+.kpi-badge.blue{background:rgba(96,165,250,0.15);color:#60a5fa;border:1px solid rgba(96,165,250,0.3)}
+
+.strategy-tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.tab-group{display:flex;gap:6px;flex-wrap:wrap}
+.strat-tab{padding:6px 14px;border-radius:8px;background:#12121f;border:1px solid #2a2a4a;color:#aaa;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.strat-tab:hover{color:#fff;border-color:#7b2ff7}
+.strat-tab.active{background:#2a1b4e;color:#00d2ff;border-color:#7b2ff7;box-shadow:0 0 8px rgba(123,47,247,0.3)}
+
+.view-toggle{display:flex;gap:4px;background:#12121f;padding:3px;border-radius:8px;border:1px solid #2a2a4a}
+.view-btn{padding:5px 12px;border-radius:6px;background:transparent;border:none;color:#888;font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.view-btn.active{background:#2a2a4a;color:#fff}
+
+.strat-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:0.68rem;font-weight:700;letter-spacing:0.3px;white-space:nowrap}
+.strat-badge.triggered{background:rgba(74,222,128,0.18);color:#4ade80;border:1px solid #4ade80;animation:glow-green 2s infinite}
+.strat-badge.armed{background:rgba(251,191,36,0.18);color:#fbbf24;border:1px solid #fbbf24}
+.strat-badge.inside{background:rgba(255,255,255,0.05);color:#888;border:1px solid #2a2a4a}
+.strat-badge.high-first{background:rgba(96,165,250,0.12);color:#93c5fd;border:1px solid rgba(96,165,250,0.3)}
+.strat-badge.waiting{background:transparent;color:#555;border:1px dashed #333}
+
+@keyframes glow-green{
+  0%,100%{box-shadow:0 0 4px rgba(74,222,128,0.3)}
+  50%{box-shadow:0 0 12px rgba(74,222,128,0.7)}
+}
+
+.toast-container{position:fixed;top:70px;right:20px;z-index:999;display:flex;flex-direction:column;gap:8px;max-width:380px}
+.toast{background:#12121f;border:1px solid #4ade80;border-left:4px solid #4ade80;padding:12px 16px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.5);display:flex;justify-content:space-between;align-items:center;animation:slide-in 0.3s ease-out}
+@keyframes slide-in{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+.strategy-table-wrapper{overflow:auto;border:1px solid #1e1e3a;border-radius:10px;background:#0f0f1a;margin-top:4px}
+.feed0915-table-wrapper{overflow:auto;border:1px solid #1e1e3a;border-radius:10px;background:#0f0f1a;margin-top:4px}
+.strat-table{width:100%;border-collapse:collapse;font-size:0.78rem}
+.strat-table thead th{background:#12121f;color:#a78bfa;padding:10px 12px;border:1px solid #1e1e3a;font-weight:600;text-align:left}
+.strat-table tbody td{padding:10px 12px;border:1px solid #1a1a2e;color:#e0e0e0}
+.strat-table tbody tr:hover{background:rgba(123,47,247,0.06)}
+.strat-table td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'Courier New',monospace}
+.sub-val{font-size:0.68rem;color:#777;margin-top:2px}
+
+.feed-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:0.68rem;font-weight:700;white-space:nowrap}
+.feed-badge.synced{background:rgba(56,189,248,0.18);color:#38bdf8;border:1px solid #0284c7}
+.feed-badge.overridden{background:rgba(74,222,128,0.18);color:#4ade80;border:1px solid #4ade80}
+.feed-badge.pending{background:rgba(255,255,255,0.05);color:#888;border:1px dashed #444}
+.override-btn{background:#0284c7;color:#fff;border:none;padding:4px 10px;border-radius:5px;font-size:0.7rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.override-btn:hover{background:#0369a1;transform:scale(1.03)}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="logo"> Angel One Nifty Total Market Screener (750 Stocks)</div>
+  <div class="logo"> Angel One Nifty 50 Screener</div>
   <div class="status">
     <div class="status-dot" id="statusDot"></div>
     <span id="statusText">Disconnected</span>
@@ -141,19 +196,148 @@ tbody td.tick-cell{background:rgba(251,191,36,0.03);font-size:0.65rem;color:#fbb
   <div id="testResults"></div>
 </div>
 
+<div class="toast-container" id="toastContainer"></div>
+
 <div class="screener hidden" id="screener">
-  <div class="screener-header">
-    <div>
-      <div class="screener-title">Nifty Total Market (750 Stocks) — 15-Minute OHLC Candles (Live from WebSocket)</div>
-      <div class="screener-meta" id="screenerMeta">Waiting for data...</div>
+  <!-- Strategy KPI Summary Bar -->
+  <div class="strategy-kpi-bar" id="strategyKpiBar">
+    <div class="kpi-card triggered" id="kpiTriggered" onclick="setStrategyFilter('TRIGGERED')">
+      <div>
+        <div class="kpi-label">🚀 Triggered Signals</div>
+        <div class="kpi-value" id="kpiTriggeredCount">0</div>
+        <div class="sub-val">Low Touched + High Broken</div>
+      </div>
+      <span class="kpi-badge green">BUY READY</span>
     </div>
-    <div style="display:flex;gap:8px;align-items:center">
-      <span style="font-size:0.8rem;color:#888">Candles:</span>
-      <span id="candleCount" style="font-size:0.85rem;color:#00d2ff;font-weight:700">0</span>
+    
+    <div class="kpi-card armed" id="kpiArmed" onclick="setStrategyFilter('ARMED')">
+      <div>
+        <div class="kpi-label">🎯 Armed Watchlist</div>
+        <div class="kpi-value" id="kpiArmedCount">0</div>
+        <div class="sub-val">Low Touched (Awaiting Break)</div>
+      </div>
+      <span class="kpi-badge yellow">ALERTING</span>
+    </div>
+
+    <div class="kpi-card inside" id="kpiInside" onclick="setStrategyFilter('INSIDE')">
+      <div>
+        <div class="kpi-label">⚪ Inside 09:15 Range</div>
+        <div class="kpi-value" id="kpiInsideCount">0</div>
+        <div class="sub-val">Consolidating in Range</div>
+      </div>
+      <span class="kpi-badge blue">MONITOR</span>
+    </div>
+
+    <div class="kpi-card total active" id="kpiAll" onclick="setStrategyFilter('ALL')">
+      <div>
+        <div class="kpi-label">📊 Tracked Stocks</div>
+        <div class="kpi-value" id="kpiTotalCount">50</div>
+        <div class="sub-val" id="orbEstablishedText">09:15 Range Active</div>
+      </div>
+      <span class="kpi-badge" style="background:rgba(167,139,250,0.15);color:#a78bfa;border:1px solid rgba(167,139,250,0.3)">NSE EQ</span>
     </div>
   </div>
-  <div class="table-wrapper">
+
+  <!-- Strategy Filter Tabs & View Controls -->
+  <div class="strategy-tabs">
+    <div class="tab-group">
+      <button class="strat-tab active" id="tab-ALL" onclick="setStrategyFilter('ALL')">All Stocks (<span id="count-tab-ALL">50</span>)</button>
+      <button class="strat-tab" id="tab-TRIGGERED" onclick="setStrategyFilter('TRIGGERED')">🚀 Triggered (<span id="count-tab-TRIGGERED">0</span>)</button>
+      <button class="strat-tab" id="tab-ARMED" onclick="setStrategyFilter('ARMED')">🎯 Armed / Low Swept (<span id="count-tab-ARMED">0</span>)</button>
+      <button class="strat-tab" id="tab-INSIDE" onclick="setStrategyFilter('INSIDE')">⚪ Inside Range (<span id="count-tab-INSIDE">0</span>)</button>
+    </div>
+
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <button class="btn" style="background:#1a1a2e;font-size:0.75rem;padding:6px 12px;color:#4ade80" id="soundBtn" onclick="toggleSoundAlerts()">🔔 Sound: ON</button>
+      <button class="btn" style="background:#0f2e3d;font-size:0.75rem;padding:6px 12px;color:#38bdf8;border:1px solid #0284c7;font-weight:600" onclick="fetch0915CandlesOnly()">🎯 Fetch 09:15 OHLC Feed</button>
+      <button class="btn" style="background:#1e293b;font-size:0.75rem;padding:6px 12px;color:#94a3b8;border:1px solid #334155" onclick="resyncCandlesAndClearCache()">🔄 Resync All 15M Data</button>
+      <button class="btn" style="background:#2a1b4e;font-size:0.75rem;padding:6px 12px;color:#fbbf24;border-color:#7b2ff7" onclick="simulateStrategySignal()">⚡ Test Signal</button>
+      
+      <div class="view-toggle">
+        <button class="view-btn active" id="viewBtnGrid" onclick="setStrategyView('GRID')">📊 15-Min OHLC Grid</button>
+        <button class="view-btn" id="viewBtnStrat" onclick="setStrategyView('STRATEGY')">⚡ Strategy Focus View</button>
+        <button class="view-btn" id="viewBtnFeed" onclick="setStrategyView('FEED0915')">🎯 09:15 Feed Inspector</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="screener-header">
+    <div>
+      <div class="screener-title" id="screenerMainTitle">Nifty 50 — 15-Minute OHLC & ORB Strategy Screener</div>
+      <div class="screener-meta" id="screenerMeta">Waiting for data...</div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div style="display:flex;gap:6px;align-items:center">
+        <span style="font-size:0.8rem;color:#888">Strategy Rule:</span>
+        <span style="font-size:0.75rem;background:#1e1e3a;color:#a78bfa;padding:3px 8px;border-radius:4px;font-weight:600">Exact 09:15 Low Touch (≤ L) ➔ High Break (≥ H)</span>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center">
+        <span style="font-size:0.8rem;color:#888">Candles:</span>
+        <span id="candleCount" style="font-size:0.85rem;color:#00d2ff;font-weight:700">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 1: 15-Minute Full OHLC Matrix with Strategy Column -->
+  <div class="table-wrapper" id="gridWrapper">
     <table id="ohlcTable"></table>
+  </div>
+
+  <!-- View 2: Strategy Focus Table -->
+  <div class="strategy-table-wrapper hidden" id="strategyWrapper">
+    <table class="strat-table" id="strategyTable">
+      <thead>
+        <tr>
+          <th>Stock Symbol</th>
+          <th style="text-align:right">LTP (₹)</th>
+          <th style="text-align:right">09:15 Range (H / L)</th>
+          <th style="text-align:right">Range Width %</th>
+          <th>Strategy Stage</th>
+          <th style="text-align:left">Stage 1: Low Touch Detail</th>
+          <th style="text-align:left">Stage 2: High Breakout Detail</th>
+          <th style="text-align:right">Breakout Extension / Distance</th>
+          <th style="text-align:center">Action</th>
+        </tr>
+      </thead>
+      <tbody id="strategyTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- View 3: 09:15 Data Feed Inspector & Force Override Panel -->
+  <div class="strategy-table-wrapper hidden" id="feed0915Wrapper">
+    <div style="padding:12px 16px;background:#141426;border-bottom:1px solid #1e1e3a;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <div>
+        <div style="font-weight:700;color:#38bdf8;font-size:0.95rem;display:flex;align-items:center;gap:8px">
+          🎯 09:15 Opening Range Data Feed Inspector
+          <span id="feedSyncedCountBadge" style="background:rgba(56,189,248,0.2);color:#38bdf8;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600">0 / 50 Synced</span>
+        </div>
+        <div style="font-size:0.75rem;color:#94a3b8;margin-top:3px">
+          Shows raw 09:15 OHLC fetched directly from exchange data feed. Click <b>"Force Override All to Grid"</b> to replace any partial tick data with genuine feed OHLC.
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn" style="background:#0284c7;color:#fff;font-size:0.75rem;padding:6px 12px;font-weight:600" onclick="fetch0915CandlesOnly()">🔄 Refetch 09:15 Feed</button>
+        <button class="btn" style="background:#059669;color:#fff;font-size:0.75rem;padding:6px 12px;font-weight:600" onclick="forceOverrideGridFrom0915Feed()">💾 Force Override All to Grid</button>
+      </div>
+    </div>
+    <table class="strat-table" id="feed0915Table">
+      <thead>
+        <tr>
+          <th>Stock Symbol</th>
+          <th style="text-align:right">Feed Open (₹)</th>
+          <th style="text-align:right">Feed High (₹) [ORB High]</th>
+          <th style="text-align:right">Feed Low (₹) [ORB Low]</th>
+          <th style="text-align:right">Feed Close (₹)</th>
+          <th style="text-align:right">Feed Volume</th>
+          <th style="text-align:right">Range (H - L)</th>
+          <th style="text-align:right">Current LTP (₹)</th>
+          <th style="text-align:center">ORB Strategy Status</th>
+          <th style="text-align:center">Feed Status</th>
+          <th style="text-align:center">Override Action</th>
+        </tr>
+      </thead>
+      <tbody id="feed0915TableBody"></tbody>
+    </table>
   </div>
 </div>
 
@@ -161,24 +345,58 @@ tbody td.tick-cell{background:rgba(251,191,36,0.03);font-size:0.65rem;color:#fbb
 
 <script>
 // ============ NIFTY 50 STOCKS WITH ANGEL ONE TOKENS (NSE ONLY) ============
-// Dynamic Stocks List (Loaded once from server)
-let NIFTY_TOTAL_STOCKS = [];
-let NIFTY50_STOCKS = [];
-
-async function loadStocksCatalog() {
-  try {
-    const res = await fetch('/api/stocks');
-    const data = await res.json();
-    if (data && Array.isArray(data.stocks) && data.stocks.length > 0) {
-      NIFTY_TOTAL_STOCKS = data.stocks;
-      NIFTY50_STOCKS = NIFTY_TOTAL_STOCKS;
-      return true;
-    }
-  } catch (err) {
-    console.warn('Could not load stocks from /api/stocks:', err);
-  }
-  return false;
-}
+const NIFTY50_STOCKS = [
+  { sym: "RELIANCE", name: "Reliance Industries", token: "2885" },
+  { sym: "TCS", name: "Tata Consultancy Services", token: "11536" },
+  { sym: "HDFCBANK", name: "HDFC Bank", token: "1333" },
+  { sym: "INFY", name: "Infosys", token: "1594" },
+  { sym: "ICICIBANK", name: "ICICI Bank", token: "4963" },
+  { sym: "HINDUNILVR", name: "Hindustan Unilever", token: "1394" },
+  { sym: "ITC", name: "ITC Limited", token: "1660" },
+  { sym: "SBIN", name: "State Bank of India", token: "3045" },
+  { sym: "BHARTIARTL", name: "Bharti Airtel", token: "10604" },
+  { sym: "KOTAKBANK", name: "Kotak Mahindra Bank", token: "1922" },
+  { sym: "LT", name: "Larsen & Toubro", token: "11483" },
+  { sym: "AXISBANK", name: "Axis Bank", token: "5900" },
+  { sym: "ASIANPAINT", name: "Asian Paints", token: "236" },
+  { sym: "MARUTI", name: "Maruti Suzuki", token: "10999" },
+  { sym: "SUNPHARMA", name: "Sun Pharmaceutical", token: "3351" },
+  { sym: "TITAN", name: "Titan Company", token: "3506" },
+  { sym: "BAJFINANCE", name: "Bajaj Finance", token: "317" },
+  { sym: "M&M", name: "Mahindra & Mahindra", token: "2031" },
+  { sym: "WIPRO", name: "Wipro", token: "3787" },
+  { sym: "NESTLEIND", name: "Nestle India", token: "17963" },
+  { sym: "POWERGRID", name: "Power Grid Corp", token: "14977" },
+  { sym: "NTPC", name: "NTPC Limited", token: "11630" },
+  { sym: "TATAMOTORS", name: "Tata Motors", token: "3456" },
+  { sym: "ONGC", name: "Oil & Natural Gas Corp", token: "2475" },
+  { sym: "TATASTEEL", name: "Tata Steel", token: "3499" },
+  { sym: "ULTRACEMCO", name: "UltraTech Cement", token: "11532" },
+  { sym: "JSWSTEEL", name: "JSW Steel", token: "11723" },
+  { sym: "COALINDIA", name: "Coal India", token: "20374" },
+  { sym: "HCLTECH", name: "HCL Technologies", token: "7229" },
+  { sym: "TECHM", name: "Tech Mahindra", token: "13538" },
+  { sym: "ADANIENT", name: "Adani Enterprises", token: "25" },
+  { sym: "ADANIPORTS", name: "Adani Ports", token: "15083" },
+  { sym: "BAJAJFINSV", name: "Bajaj Finserv", token: "16675" },
+  { sym: "DRREDDY", name: "Dr Reddy's Labs", token: "881" },
+  { sym: "CIPLA", name: "Cipla", token: "694" },
+  { sym: "GRASIM", name: "Grasim Industries", token: "1232" },
+  { sym: "DIVISLAB", name: "Divi's Laboratories", token: "10940" },
+  { sym: "HEROMOTOCO", name: "Hero MotoCorp", token: "1348" },
+  { sym: "BPCL", name: "BPCL", token: "526" },
+  { sym: "EICHERMOT", name: "Eicher Motors", token: "910" },
+  { sym: "BRITANNIA", name: "Britannia Industries", token: "547" },
+  { sym: "INDUSINDBK", name: "IndusInd Bank", token: "5258" },
+  { sym: "APOLLOHOSP", name: "Apollo Hospitals", token: "157" },
+  { sym: "TATACONSUM", name: "Tata Consumer Products", token: "3432" },
+  { sym: "SBILIFE", name: "SBI Life Insurance", token: "21808" },
+  { sym: "HDFCLIFE", name: "HDFC Life Insurance", token: "467" },
+  { sym: "DABUR", name: "Dabur India", token: "772" },
+  { sym: "PIDILITIND", name: "Pidilite Industries", token: "2664" },
+  { sym: "HAVELLS", name: "Havells India", token: "9819" },
+  { sym: "GODREJCP", name: "Godrej Consumer", token: "10099" }
+];
 
 // ============ STATE ============
 let state = {
@@ -192,9 +410,87 @@ let state = {
   currentCandle: {},
   lastLTP: {},
   lastTickTime: {},
+  feed0915: {}, // Dedicated store for authentic 09:15 OHLC fetched from data feed
+  strategy: {},
+  currentFilter: 'ALL', // 'ALL' | 'TRIGGERED' | 'ARMED' | 'INSIDE'
+  currentView: 'GRID',   // 'GRID' | 'STRATEGY' | 'FEED0915'
+  soundAlertsEnabled: true,
   connected: false,
+  demoMode: false,
   heartbeatInterval: null
 };
+
+// ============ WEB AUDIO API SYNTH ALERT ============
+let audioCtx = null;
+function playAlertSound(type = 'success') {
+  if (!state.soundAlertsEnabled) return;
+  try {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    
+    if (type === 'success') {
+      // Ascending two-tone chime (High Breakout)
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+      osc.frequency.setValueAtTime(880.00, audioCtx.currentTime + 0.12); // A5
+      gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.45);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.45);
+    } else if (type === 'armed') {
+      // Soft ping (Low Swept)
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(440.00, audioCtx.currentTime); // A4
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.25);
+    }
+  } catch (e) {}
+}
+
+function showToastNotification(token, ltp, orbHigh) {
+  const stock = NIFTY50_STOCKS.find(s => s.token === token);
+  const sym = stock ? stock.sym : token;
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const diff = ltp - orbHigh;
+  const pct = (diff / orbHigh * 100).toFixed(2);
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `
+    <div>
+      <div style="font-weight:700;color:#4ade80;font-size:0.85rem">🚀 STRATEGY TRIGGERED: ${sym}</div>
+      <div style="font-size:0.75rem;color:#ccc;margin-top:2px">
+        Swept 09:15 Low and broke High @ ₹${ltp.toFixed(2)} (+${pct}% above High)
+      </div>
+    </div>
+    <button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#888;cursor:pointer;font-size:1rem;margin-left:12px">×</button>
+  `;
+  container.appendChild(toast);
+  setTimeout(() => {
+    if (toast.parentElement) toast.remove();
+  }, 7000);
+}
+
+function toggleSoundAlerts() {
+  state.soundAlertsEnabled = !state.soundAlertsEnabled;
+  const btn = document.getElementById('soundBtn');
+  if (btn) {
+    btn.textContent = state.soundAlertsEnabled ? '🔔 Sound: ON' : '🔕 Sound: OFF';
+    btn.style.color = state.soundAlertsEnabled ? '#4ade80' : '#888';
+  }
+}
 
 // CORRECT WebSocket URL from official Angel One docs
 const WS_URL = 'wss://smartapisocket.angelbroking.com/smart-stream';
@@ -345,6 +641,8 @@ async function doLogin() {
       state.jwtToken = data.data.jwtToken;
       state.feedToken = data.data.feedToken;
       state.refreshToken = data.data.refreshToken;
+      state.apiKey = apiKey;
+      state.clientId = clientId;
 
       log('✅ Login successful!', 'success');
       log('JWT Token: ' + state.jwtToken.substring(0, 30) + '...', 'info');
@@ -357,9 +655,9 @@ async function doLogin() {
       document.getElementById('statusDot').className = 'status-dot';
       document.getElementById('statusText').textContent = 'Logged in (Connecting...)';
 
-      await loadStocksCatalog();
       initializeCandles();
       renderTable();
+      await fetchHistoricalCandles();
       await fetchAndApplyDynamicQuotes();
       connectWS();
     } else {
@@ -376,6 +674,7 @@ async function doLogin() {
 // ============ DEMO / SIMULATION MODE ============
 async function startDemoMode() {
   log('⚡ Starting Live Demo Feed (Dynamic live market stream)...', 'info');
+  state.demoMode = true;
   document.getElementById('loginPanel').classList.add('hidden');
   document.getElementById('screener').classList.remove('hidden');
   document.getElementById('loginBtn').classList.add('hidden');
@@ -386,6 +685,7 @@ async function startDemoMode() {
 
   initializeCandles();
   renderTable();
+  await fetchHistoricalCandles();
   await fetchAndApplyDynamicQuotes();
 
   // Connect to SSE stream in dynamic mode
@@ -417,11 +717,116 @@ async function startDemoMode() {
   };
 }
 
+// ============ DATE & TIME HELPERS (INDIAN STANDARD TIME - IST) ============
+// Market trading hours: strictly 09:15 AM to 03:30 PM (Indian Standard Time - Asia/Kolkata)
+const MARKET_OPEN_MINUTES = 9 * 60 + 15;  // 09:15 (555 mins)
+const MARKET_CLOSE_MINUTES = 15 * 60 + 30; // 15:30 (930 mins)
+const IST_OFFSET_MS = 19800000; // 5.5 hours in ms (UTC + 05:30)
+
+// Returns true epoch ms corresponding to 00:00:00.000 IST of the day
+function getISTDayStartMs(ts = Date.now()) {
+  const istEpoch = ts + IST_OFFSET_MS;
+  const dayMs = istEpoch % 86400000;
+  return ts - dayMs;
+}
+
+// Returns true epoch ms corresponding to 09:15:00.000 IST of the day
+function get0915Timestamp(ts = Date.now()) {
+  return getISTDayStartMs(ts) + (MARKET_OPEN_MINUTES * 60 * 1000);
+}
+
+// True comparison of whether two timestamps fall on the same IST calendar day
+function isSameISTDay(ts1, ts2 = Date.now()) {
+  if (!ts1) return false;
+  return getISTDayStartMs(ts1) === getISTDayStartMs(ts2);
+}
+
+// Minutes elapsed from 00:00 IST for a timestamp
+function getISTMinutes(ts = Date.now()) {
+  const istEpoch = ts + IST_OFFSET_MS;
+  const dayMs = istEpoch % 86400000;
+  return Math.floor(dayMs / 60000);
+}
+
+// Snaps any timestamp to its canonical 15-minute slot boundary (09:15, 09:30, ...)
+function snapTo15MSlot(ts) {
+  const dayStart = getISTDayStartMs(ts);
+  const istEpoch = ts + IST_OFFSET_MS;
+  const dayMs = istEpoch % 86400000;
+  const totalMins = Math.floor(dayMs / 60000);
+  const snappedMins = Math.floor(totalMins / 15) * 15;
+  return dayStart + (snappedMins * 60000);
+}
+
+function isMarketOpen(ts = Date.now()) {
+  const minutes = getISTMinutes(ts);
+  return minutes >= MARKET_OPEN_MINUTES && minutes < MARKET_CLOSE_MINUTES;
+}
+
+function isPreMarket(ts = Date.now()) {
+  const minutes = getISTMinutes(ts);
+  return minutes < MARKET_OPEN_MINUTES;
+}
+
+function isPostMarket(ts = Date.now()) {
+  const minutes = getISTMinutes(ts);
+  return minutes >= MARKET_CLOSE_MINUTES;
+}
+
+// Returns startTs in true epoch ms for the 15-minute slot (e.g. 09:15, 09:30, ...)
+function getCandleBoundary(ts) {
+  const minutes = getISTMinutes(ts);
+  
+  // If in demo mode outside market hours, simulate the 09:15 active slot
+  if (state.demoMode) {
+    return get0915Timestamp(ts);
+  }
+
+  // Before 09:15 AM IST: Market has not opened yet
+  if (minutes < MARKET_OPEN_MINUTES) {
+    return null;
+  }
+  // After 03:30 PM IST: Market is closed
+  if (minutes >= MARKET_CLOSE_MINUTES) {
+    return null;
+  }
+
+  const candlesFromOpen = Math.floor((minutes - MARKET_OPEN_MINUTES) / 15);
+  const boundaryMinutes = MARKET_OPEN_MINUTES + (candlesFromOpen * 15);
+  return getISTDayStartMs(ts) + (boundaryMinutes * 60 * 1000);
+}
+
+function formatTime(ts) {
+  if (!ts) return '—';
+  const istEpoch = ts + IST_OFFSET_MS;
+  const dayMs = istEpoch % 86400000;
+  const totalMins = Math.floor(dayMs / 60000);
+  const h = Math.floor(totalMins / 60);
+  const m = totalMins % 60;
+  return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
+}
+
+function formatTickTime(ts) {
+  if (!ts) return '—';
+  const istEpoch = ts + IST_OFFSET_MS;
+  const dayMs = istEpoch % 86400000;
+  const totalSecs = Math.floor(dayMs / 1000);
+  const h = Math.floor(totalSecs / 3600);
+  const m = Math.floor((totalSecs % 3600) / 60);
+  const s = totalSecs % 60;
+  return String(h).padStart(2, '0') + ':' + 
+         String(m).padStart(2, '0') + ':' + 
+         String(s).padStart(2, '0');
+}
+
 // ============ DYNAMIC SERVER QUOTES & CANDLE STATE PERSISTENCE ============
 function getStorageKey() {
-  const d = new Date();
-  const dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-  return 'nifty50_screener_state_' + dateStr;
+  const istEpoch = Date.now() + IST_OFFSET_MS;
+  const d = new Date(istEpoch);
+  const yyyy = d.getUTCFullYear();
+  const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(d.getUTCDate()).padStart(2, '0');
+  return `nifty50_screener_state_${yyyy}-${mm}-${dd}`;
 }
 
 function saveCandleState() {
@@ -431,52 +836,13 @@ function saveCandleState() {
       currentCandle: state.currentCandle,
       lastLTP: state.lastLTP,
       lastTickTime: state.lastTickTime,
+      feed0915: state.feed0915,
       savedAt: Date.now()
     };
     localStorage.setItem(getStorageKey(), JSON.stringify(payload));
   } catch (e) {
     // LocalStorage quota or access error
   }
-}
-
-function ensureCurrentCandles(currentBoundary) {
-  NIFTY50_STOCKS.forEach(stock => {
-    if (!Array.isArray(state.candles[stock.token])) {
-      state.candles[stock.token] = [];
-    }
-    const cur = state.currentCandle[stock.token];
-    if (cur && cur.startTs < currentBoundary) {
-      // Archive the completed past candle
-      const alreadyExists = state.candles[stock.token].some(c => c.startTs === cur.startTs);
-      if (!alreadyExists) {
-        state.candles[stock.token].push({ ...cur });
-      }
-      // Initialize new current candle for the active slot
-      const lastPrice = state.lastLTP[stock.token] || cur.c;
-      state.currentCandle[stock.token] = {
-        o: lastPrice,
-        h: lastPrice,
-        l: lastPrice,
-        c: lastPrice,
-        v: 0,
-        typVol: 0,
-        startTs: currentBoundary,
-        endTs: currentBoundary + CANDLE_INTERVAL
-      };
-    } else if (!cur && state.lastLTP[stock.token]) {
-      const lastPrice = state.lastLTP[stock.token];
-      state.currentCandle[stock.token] = {
-        o: lastPrice,
-        h: lastPrice,
-        l: lastPrice,
-        c: lastPrice,
-        v: 0,
-        typVol: 0,
-        startTs: currentBoundary,
-        endTs: currentBoundary + CANDLE_INTERVAL
-      };
-    }
-  });
 }
 
 function restoreCandleState() {
@@ -488,19 +854,317 @@ function restoreCandleState() {
 
     const now = Date.now();
     const currentBoundary = getCandleBoundary(now);
+    const preMarket = isPreMarket(now);
 
-    state.candles = parsed.candles || {};
     state.lastLTP = parsed.lastLTP || {};
     state.lastTickTime = parsed.lastTickTime || {};
-    state.currentCandle = parsed.currentCandle || {};
+    state.candles = {};
+    state.currentCandle = {};
+    state.feed0915 = parsed.feed0915 || {};
 
-    ensureCurrentCandles(currentBoundary);
+    // Ensure strictly only TODAY's IST candles are loaded
+    NIFTY50_STOCKS.forEach(stock => {
+      const rawCandles = parsed.candles?.[stock.token];
+      if (Array.isArray(rawCandles)) {
+        state.candles[stock.token] = rawCandles.filter(c => isSameISTDay(c.startTs, now));
+      } else {
+        state.candles[stock.token] = [];
+      }
 
+      if (!preMarket && parsed.currentCandle) {
+        const cur = parsed.currentCandle[stock.token];
+        if (cur && isSameISTDay(cur.startTs, now)) {
+          state.currentCandle[stock.token] = cur;
+        }
+      }
+
+      const cachedCur = state.currentCandle[stock.token];
+      if (cachedCur && currentBoundary) {
+        if (cachedCur.startTs < currentBoundary) {
+          const alreadyExists = state.candles[stock.token].some(c => c.startTs === cachedCur.startTs);
+          if (!alreadyExists) {
+            state.candles[stock.token].push(cachedCur);
+          }
+          const lastPrice = state.lastLTP[stock.token] || cachedCur.c;
+          state.currentCandle[stock.token] = {
+            o: lastPrice,
+            h: lastPrice,
+            l: lastPrice,
+            c: lastPrice,
+            v: 0,
+            typVol: 0,
+            startTs: currentBoundary,
+            endTs: currentBoundary + CANDLE_INTERVAL
+          };
+        }
+      }
+
+      evaluateStrategy(stock.token, state.lastLTP[stock.token] || 0, now);
+    });
+
+    updateStrategyCounters();
     log(`Restored previous session candle history for ${Object.keys(state.candles).length} stocks`, 'success');
     return true;
   } catch (e) {
     console.warn('Error restoring candle state:', e.message);
     return false;
+  }
+}
+
+function clearCorruptedCandleCache() {
+  try {
+    localStorage.removeItem(getStorageKey());
+    NIFTY50_STOCKS.forEach(stock => {
+      state.candles[stock.token] = [];
+      state.currentCandle[stock.token] = null;
+      state.strategy[stock.token] = null;
+    });
+    log('🧹 Candle history cache reset.', 'info');
+  } catch (e) {}
+}
+
+async function resyncCandlesAndClearCache() {
+  log('🔄 Overriding local data with fresh 15-minute server candles...', 'info');
+  try {
+    localStorage.removeItem(getStorageKey());
+  } catch (e) {}
+  
+  NIFTY50_STOCKS.forEach(stock => {
+    state.candles[stock.token] = [];
+    state.currentCandle[stock.token] = null;
+    state.strategy[stock.token] = null;
+  });
+
+  await fetchHistoricalCandles();
+  await fetchAndApplyDynamicQuotes();
+  updateStrategyCounters();
+  renderTable();
+  if (state.currentView === 'STRATEGY') renderStrategyTable();
+  log('✅ All candles overridden with authentic server 15-min OHLC data!', 'success');
+}
+
+async function fetch0915CandlesOnly() {
+  const apiKey = state.apiKey || document.getElementById('apiKey')?.value?.trim() || '';
+  log('🎯 Fetching authentic 09:15 Opening Range OHLC directly from data feed...', 'info');
+  try {
+    const res = await fetch('/api/historical-candles', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ apiKey, jwtToken: state.jwtToken || '', only0915: true })
+    });
+    const data = await res.json();
+    if (data.status && data.candles) {
+      const now = Date.now();
+      const start0915 = get0915Timestamp(now);
+      const currentBoundary = getCandleBoundary(now);
+      let count = 0;
+
+      NIFTY50_STOCKS.forEach(stock => {
+        const bars = data.candles[stock.token];
+        if (Array.isArray(bars) && bars.length > 0) {
+          const bar0915 = bars[0];
+          if (bar0915 && !isNaN(bar0915.o)) {
+            count++;
+            const standard0915Bar = {
+              o: bar0915.o,
+              h: bar0915.h,
+              l: bar0915.l,
+              c: bar0915.c,
+              v: bar0915.v || 0,
+              typVol: bar0915.typVol || Math.round(((bar0915.o + bar0915.h + bar0915.l + bar0915.c) / 4) * (bar0915.v || 0)),
+              startTs: start0915,
+              endTs: start0915 + CANDLE_INTERVAL,
+              isFeedSynced: true,
+              feedFetchedAt: now
+            };
+
+            // Store directly in dedicated feed0915 record
+            state.feed0915[stock.token] = { ...standard0915Bar };
+
+            // Force override 09:15 candle in closed candles array
+            if (!state.candles[stock.token]) state.candles[stock.token] = [];
+            
+            // Remove any old/partial 09:15 candle
+            state.candles[stock.token] = state.candles[stock.token].filter(c => Math.abs(c.startTs - start0915) >= 120000);
+            
+            if (currentBoundary === start0915) {
+              state.currentCandle[stock.token] = { ...standard0915Bar };
+            } else {
+              state.candles[stock.token].unshift({ ...standard0915Bar });
+            }
+
+            if (!state.lastLTP[stock.token]) {
+              state.lastLTP[stock.token] = standard0915Bar.c;
+            }
+          }
+        }
+
+        evaluateStrategy(stock.token, state.lastLTP[stock.token] || 0, now);
+      });
+
+      saveCandleState();
+      updateStrategyCounters();
+      renderTable();
+      if (state.currentView === 'STRATEGY') renderStrategyTable();
+      if (state.currentView === 'FEED0915') render0915FeedTable();
+
+      const badgeEl = document.getElementById('feedSyncedCountBadge');
+      if (badgeEl) badgeEl.textContent = `${count} / ${NIFTY50_STOCKS.length} Synced`;
+
+      if (count > 0) {
+        log(`✅ Successfully loaded & overridden 09:15 OHLC for ${count} stocks from data feed!`, 'success');
+      } else {
+        log(`ℹ️ 09:15 data feed not yet available for today's session.`, 'warning');
+      }
+    }
+  } catch (e) {
+    log(`❌ Failed to fetch 09:15 candles: ${e.message}`, 'error');
+  }
+}
+
+// Force override entire grid with all stored 09:15 feed data
+function forceOverrideGridFrom0915Feed() {
+  const now = Date.now();
+  const start0915 = get0915Timestamp(now);
+  const currentBoundary = getCandleBoundary(now);
+  let count = 0;
+
+  NIFTY50_STOCKS.forEach(stock => {
+    const feedBar = state.feed0915[stock.token];
+    if (feedBar) {
+      count++;
+      if (!state.candles[stock.token]) state.candles[stock.token] = [];
+      state.candles[stock.token] = state.candles[stock.token].filter(c => Math.abs(c.startTs - start0915) >= 120000);
+
+      if (currentBoundary === start0915) {
+        state.currentCandle[stock.token] = { ...feedBar };
+      } else {
+        state.candles[stock.token].unshift({ ...feedBar });
+      }
+
+      evaluateStrategy(stock.token, state.lastLTP[stock.token] || feedBar.c, now);
+    }
+  });
+
+  saveCandleState();
+  updateStrategyCounters();
+  renderTable();
+  if (state.currentView === 'STRATEGY') renderStrategyTable();
+  if (state.currentView === 'FEED0915') render0915FeedTable();
+
+  log(`💾 Force overridden 09:15 grid data for ${count} stocks with pure data feed values!`, 'success');
+}
+
+// Force override single stock with 09:15 feed data
+function forceOverrideStock0915(token) {
+  const feedBar = state.feed0915[token];
+  const stock = NIFTY50_STOCKS.find(s => s.token === token);
+  if (!feedBar || !stock) {
+    log(`⚠️ No 09:15 feed record found for token ${token}. Click "Refetch 09:15 Feed" first.`, 'warning');
+    return;
+  }
+
+  const now = Date.now();
+  const start0915 = get0915Timestamp(now);
+  const currentBoundary = getCandleBoundary(now);
+
+  if (!state.candles[token]) state.candles[token] = [];
+  state.candles[token] = state.candles[token].filter(c => Math.abs(c.startTs - start0915) >= 120000);
+
+  if (currentBoundary === start0915) {
+    state.currentCandle[token] = { ...feedBar };
+  } else {
+    state.candles[token].unshift({ ...feedBar });
+  }
+
+  evaluateStrategy(token, state.lastLTP[token] || feedBar.c, now);
+  saveCandleState();
+  updateStrategyCounters();
+  renderTable();
+  if (state.currentView === 'STRATEGY') renderStrategyTable();
+  if (state.currentView === 'FEED0915') render0915FeedTable();
+
+  log(`✅ 09:15 OHLC for ${stock.sym} force-overridden from data feed! (O:${feedBar.o} H:${feedBar.h} L:${feedBar.l} C:${feedBar.c})`, 'success');
+}
+
+async function fetchHistoricalCandles() {
+  const apiKey = state.apiKey || document.getElementById('apiKey')?.value?.trim() || '';
+  try {
+    log('📈 Fetching authentic 15-minute historical candles from market session...', 'info');
+    const res = await fetch('/api/historical-candles', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ apiKey, jwtToken: state.jwtToken || '' })
+    });
+    const data = await res.json();
+    if (data.status && data.candles) {
+      const now = Date.now();
+      const currentBoundary = getCandleBoundary(now);
+      let count = 0;
+
+      NIFTY50_STOCKS.forEach(stock => {
+        const histBars = data.candles[stock.token];
+        if (Array.isArray(histBars) && histBars.length > 0) {
+          // Strictly keep only bars from TODAY's IST date
+          const todayBars = histBars.filter(bar => isSameISTDay(bar.startTs, now));
+          if (todayBars.length > 0) {
+            count++;
+            const closedBars = [];
+            
+            todayBars.forEach(rawBar => {
+              const bar = {
+                ...rawBar,
+                startTs: snapTo15MSlot(rawBar.startTs),
+                endTs: snapTo15MSlot(rawBar.startTs) + CANDLE_INTERVAL
+              };
+
+              if (currentBoundary && Math.abs(bar.startTs - currentBoundary) < 120000) {
+                state.currentCandle[stock.token] = { ...bar };
+                state.lastLTP[stock.token] = bar.c;
+              } else if (!currentBoundary || bar.startTs < currentBoundary) {
+                const existingIdx = closedBars.findIndex(b => Math.abs(b.startTs - bar.startTs) < 120000);
+                if (existingIdx >= 0) {
+                  closedBars[existingIdx] = { ...bar };
+                } else {
+                  closedBars.push({ ...bar });
+                }
+              }
+            });
+
+            // Sort closed bars chronologically
+            closedBars.sort((a, b) => a.startTs - b.startTs);
+
+            if (closedBars.length > 0) {
+              state.candles[stock.token] = closedBars;
+              if (!state.lastLTP[stock.token]) {
+                state.lastLTP[stock.token] = closedBars[closedBars.length - 1].c;
+              }
+            }
+          } else {
+            // New day before intraday bars form: clean array
+            state.candles[stock.token] = [];
+            state.currentCandle[stock.token] = null;
+          }
+        } else {
+          state.candles[stock.token] = [];
+          state.currentCandle[stock.token] = null;
+        }
+
+        evaluateStrategy(stock.token, state.lastLTP[stock.token] || 0, now);
+      });
+
+      if (count > 0) {
+        log(`✅ Loaded authentic 15-minute candle history for ${count} Nifty 50 stocks directly from server`, 'success');
+      } else {
+        log(`ℹ️ No historical candles for today yet (Pre-Market / Opening range forming)`, 'info');
+      }
+      saveCandleState();
+      updateStrategyCounters();
+      renderTable();
+      if (state.currentView === 'STRATEGY') renderStrategyTable();
+    }
+  } catch (e) {
+    console.warn('Historical candle fetch warning:', e.message);
   }
 }
 
@@ -524,28 +1188,36 @@ async function fetchAndApplyDynamicQuotes() {
           state.lastLTP[stock.token] = q.ltp;
           state.lastTickTime[stock.token] = q.updatedAt || now;
           
-          if (!state.currentCandle[stock.token] || state.currentCandle[stock.token].startTs !== currentBoundary) {
-            state.currentCandle[stock.token] = {
-              o: q.ltp,
-              h: q.ltp,
-              l: q.ltp,
-              c: q.ltp,
-              v: 1,
-              typVol: q.ltp,
-              startTs: currentBoundary,
-              endTs: currentBoundary + CANDLE_INTERVAL
-            };
-          } else {
-            // Already tracking current 15-min slot, update with incoming market price
-            const candle = state.currentCandle[stock.token];
-            candle.h = Math.max(candle.h, q.ltp);
-            candle.l = Math.min(candle.l, q.ltp);
-            candle.c = q.ltp;
+          // Only create/update current candle if market is currently open (09:15 to 15:30)
+          // CRITICAL: NEVER inject full-day high (q.high) or day low (q.low) into single 15-min candles!
+          if (currentBoundary) {
+            if (!state.currentCandle[stock.token] || state.currentCandle[stock.token].startTs !== currentBoundary) {
+              state.currentCandle[stock.token] = {
+                o: q.ltp,
+                h: q.ltp,
+                l: q.ltp,
+                c: q.ltp,
+                v: q.volume || 100,
+                typVol: q.ltp * (q.volume || 100),
+                startTs: currentBoundary,
+                endTs: currentBoundary + CANDLE_INTERVAL
+              };
+            } else {
+              // Expand current 15-min candle ONLY with live traded price
+              const candle = state.currentCandle[stock.token];
+              candle.h = Math.max(candle.h, q.ltp);
+              candle.l = Math.min(candle.l, q.ltp);
+              candle.c = q.ltp;
+            }
           }
+
+          evaluateStrategy(stock.token, q.ltp, now);
         }
       });
       saveCandleState();
+      updateStrategyCounters();
       renderTable();
+      if (state.currentView === 'STRATEGY') renderStrategyTable();
     }
   } catch (e) {
     console.warn('Dynamic quotes initial fetch warning:', e.message);
@@ -555,49 +1227,18 @@ async function fetchAndApplyDynamicQuotes() {
 function initializeCandles() {
   const restored = restoreCandleState();
   if (!restored) {
+    const now = Date.now();
     NIFTY50_STOCKS.forEach(stock => {
       state.candles[stock.token] = [];
       state.currentCandle[stock.token] = null;
       state.lastLTP[stock.token] = null;
       state.lastTickTime[stock.token] = null;
+      state.strategy[stock.token] = null;
+      evaluateStrategy(stock.token, 0, now);
     });
-    log('Initialized candle buffers for ' + NIFTY50_STOCKS.length + ' stocks', 'success');
+    updateStrategyCounters();
+    log('Initialized clean daily candle buffers for ' + NIFTY50_STOCKS.length + ' stocks', 'success');
   }
-}
-
-function getCandleBoundary(ts) {
-  const d = new Date(ts);
-  const minutes = d.getHours() * 60 + d.getMinutes();
-  
-  // Market starts at 09:15 (555 minutes) and ends at 15:30 (930 minutes)
-  const marketOpenMinutes = 9 * 60 + 15; // 555
-  const marketCloseMinutes = 15 * 60 + 30; // 930
-
-  let validMinutes = minutes;
-  if (validMinutes < marketOpenMinutes) {
-    validMinutes = marketOpenMinutes;
-  } else if (validMinutes >= marketCloseMinutes) {
-    validMinutes = marketCloseMinutes - 15; // 15:15
-  }
-
-  const candlesFromOpen = Math.floor((validMinutes - marketOpenMinutes) / 15);
-  const boundaryMinutes = marketOpenMinutes + (candlesFromOpen * 15);
-  const boundary = new Date(d);
-  boundary.setHours(Math.floor(boundaryMinutes / 60), boundaryMinutes % 60, 0, 0);
-  return boundary.getTime();
-}
-
-function formatTime(ts) {
-  const d = new Date(ts);
-  return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
-}
-
-function formatTickTime(ts) {
-  if (!ts) return '—';
-  const d = new Date(ts);
-  return d.getHours().toString().padStart(2, '0') + ':' + 
-         d.getMinutes().toString().padStart(2, '0') + ':' + 
-         d.getSeconds().toString().padStart(2, '0');
 }
 
 // ============ LIVE STREAM / WEBSOCKET CONNECTOR ============
@@ -771,79 +1412,476 @@ function processBinaryData(buffer) {
   }
 }
 
-function updateCandle(token, ltp, volume, timestamp) {
-  const prevLTP = state.lastLTP[token] || ltp;
-  state.lastLTP[token] = ltp;
-  state.lastTickTime[token] = timestamp;
-
+// ============ ORB REVERSAL STRATEGY ENGINE ============
+function get0915Candle(token) {
   const now = Date.now();
-  const currentBoundary = getCandleBoundary(now);
-  const cur = state.currentCandle[token];
+  const start0915 = get0915Timestamp(now);
+  
+  // 1. Look for finalized 09:15 candle strictly from TODAY's IST date
+  const past = state.candles[token]?.find(c => {
+    return isSameISTDay(c.startTs, now) && (Math.abs(c.startTs - start0915) < 120000 || getISTMinutes(c.startTs) === 555);
+  });
+  if (past) return { candle: past, isClosed: true };
 
-  if (!cur || cur.startTs < currentBoundary) {
-    // If boundary changed, archive old candle
-    if (cur) {
-      if (!Array.isArray(state.candles[token])) state.candles[token] = [];
-      const exists = state.candles[token].some(c => c.startTs === cur.startTs);
-      if (!exists) {
-        state.candles[token].push({ ...cur });
-      }
-    }
-    // Start new candle for active boundary
-    state.currentCandle[token] = {
-      o: ltp,
-      h: ltp,
-      l: ltp,
-      c: ltp,
-      v: volume || 1,
-      typVol: ltp * (volume || 1),
-      startTs: currentBoundary,
-      endTs: currentBoundary + CANDLE_INTERVAL
-    };
-    ensureCurrentCandles(currentBoundary);
-    saveCandleState();
-    renderTable(); // Re-render table when new candle boundary opens
-  } else {
-    // Update current active candle
-    cur.h = Math.max(cur.h, ltp);
-    cur.l = Math.min(cur.l, ltp);
-    cur.c = ltp;
-    const vol = volume || 1;
-    cur.v += vol;
-    cur.typVol += ltp * vol;
+  // 2. If currently in the 09:15 slot today, it's still forming (unclosed)
+  const cur = state.currentCandle[token];
+  if (cur && isSameISTDay(cur.startTs, now) && (Math.abs(cur.startTs - start0915) < 120000 || getISTMinutes(cur.startTs) === 555)) {
+    return { candle: cur, isClosed: false };
   }
 
-  // Direct fast-path DOM update for instant live tick feel strictly in the active current boundary
-  updateLiveRowDOM(token, ltp, prevLTP, timestamp, currentBoundary);
+  // Never fall back to candles from previous days or other time slots
+  return null;
 }
 
-function updateLiveRowDOM(token, ltp, prevLTP, timestamp, currentBoundary) {
-  const row = document.getElementById(`stock-row-${token}`);
-  if (!row) {
+function evaluateStrategy(token, ltp, tickTs = Date.now()) {
+  if (!state.strategy[token]) {
+    state.strategy[token] = {
+      orbHigh: null,
+      orbLow: null,
+      orbOpen: null,
+      orbClose: null,
+      lowTouched: false,
+      lowTouchTime: null,
+      lowTouchPrice: null,
+      highBroken: false,
+      triggerTime: null,
+      triggerPrice: null,
+      status: 'WAITING'
+    };
+  }
+
+  const strat = state.strategy[token];
+  const orbRes = get0915Candle(token);
+  if (!orbRes || !orbRes.candle) {
+    strat.orbHigh = null;
+    strat.orbLow = null;
+    strat.orbOpen = null;
+    strat.orbClose = null;
+    strat.lowTouched = false;
+    strat.lowTouchTime = null;
+    strat.lowTouchPrice = null;
+    strat.highBroken = false;
+    strat.triggerTime = null;
+    strat.triggerPrice = null;
+    strat.status = 'WAITING';
+    return strat;
+  }
+
+  const orbCandle = orbRes.candle;
+  strat.orbHigh = orbCandle.h;
+  strat.orbLow = orbCandle.l;
+  strat.orbOpen = orbCandle.o;
+  strat.orbClose = orbCandle.c;
+
+  const start0915 = orbCandle.startTs;
+
+  // RULE 1: If 09:15 candle is still active/forming (09:15 to 09:30 AM),
+  // strategy cannot trigger or arm yet because the opening range benchmark is not finalized!
+  const currentBoundary = getCandleBoundary(tickTs);
+  const isIn0915Slot = (currentBoundary === start0915 || getISTMinutes(tickTs) < 570) && !orbRes.isClosed;
+
+  if (isIn0915Slot) {
+    strat.status = 'WAITING';
+    strat.lowTouched = false;
+    strat.lowTouchTime = null;
+    strat.lowTouchPrice = null;
+    strat.highBroken = false;
+    strat.triggerTime = null;
+    strat.triggerPrice = null;
+    return strat;
+  }
+
+  // RULE 2: Get all subsequent completed candles AND current live candle strictly AFTER 09:15 slot
+  const allCandles = state.candles[token] || [];
+  const subsequentCandles = allCandles.filter(c => c.startTs > start0915 && isSameISTDay(c.startTs, tickTs));
+  const curCandle = state.currentCandle[token];
+  if (curCandle && curCandle.startTs > start0915 && isSameISTDay(curCandle.startTs, tickTs)) {
+    subsequentCandles.push(curCandle);
+  }
+
+  // Sort subsequent candles chronologically
+  subsequentCandles.sort((a, b) => a.startTs - b.startTs);
+
+  // RULE 3: Check for Stage 1 (Low Sweep: <= 09:15 Low) in chronological order
+  let foundLowTouch = false;
+  let touchTime = null;
+  let touchPrice = null;
+
+  for (const c of subsequentCandles) {
+    if (c.l <= strat.orbLow) {
+      foundLowTouch = true;
+      touchTime = c.startTs;
+      touchPrice = c.l;
+      break; // Earliest sweep candle
+    }
+  }
+
+  // Also check live tick if no past candle has swept yet
+  if (!foundLowTouch && ltp > 0 && ltp <= strat.orbLow) {
+    foundLowTouch = true;
+    touchTime = tickTs;
+    touchPrice = ltp;
+  }
+
+  if (!foundLowTouch) {
+    // Low has NOT been touched at all after 09:15
+    strat.lowTouched = false;
+    strat.lowTouchTime = null;
+    strat.lowTouchPrice = null;
+    strat.highBroken = false;
+    strat.triggerTime = null;
+    strat.triggerPrice = null;
+
+    if (ltp >= strat.orbHigh) {
+      strat.status = 'HIGH_FIRST';
+    } else {
+      strat.status = 'INSIDE';
+    }
+    return strat;
+  }
+
+  // Stage 1 (Low Touch) is confirmed!
+  if (!strat.lowTouched) {
+    strat.lowTouched = true;
+    strat.lowTouchTime = touchTime;
+    strat.lowTouchPrice = touchPrice;
+    playAlertSound('armed');
+  } else {
+    strat.lowTouched = true;
+    if (!strat.lowTouchTime) strat.lowTouchTime = touchTime;
+    if (!strat.lowTouchPrice) strat.lowTouchPrice = touchPrice;
+  }
+
+  // RULE 4: Check for Stage 2 (High Breakout: >= 09:15 High) AFTER the low touch occurred
+  let foundHighBreak = false;
+  let trigTime = null;
+  let trigPrice = null;
+
+  for (const c of subsequentCandles) {
+    // Only look at candles occurring AT or AFTER the low touch timestamp
+    if (c.startTs >= strat.lowTouchTime) {
+      if (c.h >= strat.orbHigh) {
+        foundHighBreak = true;
+        trigTime = c.startTs;
+        trigPrice = c.h;
+        break;
+      }
+    }
+  }
+
+  // Also check if current live tick breaks the high (and low was touched earlier or at this time)
+  if (ltp >= strat.orbHigh && strat.lowTouched) {
+    foundHighBreak = true;
+    if (!trigTime) {
+      trigTime = tickTs;
+      trigPrice = ltp;
+    }
+  }
+
+  if (foundHighBreak) {
+    if (!strat.highBroken) {
+      strat.highBroken = true;
+      strat.triggerTime = trigTime || tickTs;
+      strat.triggerPrice = trigPrice || ltp;
+      playAlertSound('success');
+      showToastNotification(token, ltp, strat.orbHigh);
+    }
+    strat.status = 'TRIGGERED';
+  } else {
+    strat.highBroken = false;
+    strat.triggerTime = null;
+    strat.triggerPrice = null;
+    // Low touched, but High NEVER broken -> ARMED state
+    strat.status = 'ARMED';
+  }
+
+  return strat;
+}
+
+function updateStrategyCounters() {
+  let triggered = 0;
+  let armed = 0;
+  let inside = 0;
+
+  NIFTY50_STOCKS.forEach(stock => {
+    const ltp = state.lastLTP[stock.token] || 0;
+    const strat = evaluateStrategy(stock.token, ltp);
+    if (strat.status === 'TRIGGERED') triggered++;
+    else if (strat.status === 'ARMED') armed++;
+    else if (strat.status === 'INSIDE') inside++;
+  });
+
+  const trigEl = document.getElementById('kpiTriggeredCount');
+  const armEl = document.getElementById('kpiArmedCount');
+  const inEl = document.getElementById('kpiInsideCount');
+  const totalEl = document.getElementById('kpiTotalCount');
+
+  if (trigEl) trigEl.textContent = triggered;
+  if (armEl) armEl.textContent = armed;
+  if (inEl) inEl.textContent = inside;
+  if (totalEl) totalEl.textContent = NIFTY50_STOCKS.length;
+
+  const tabAll = document.getElementById('count-tab-ALL');
+  const tabTrig = document.getElementById('count-tab-TRIGGERED');
+  const tabArm = document.getElementById('count-tab-ARMED');
+  const tabIn = document.getElementById('count-tab-INSIDE');
+
+  if (tabAll) tabAll.textContent = NIFTY50_STOCKS.length;
+  if (tabTrig) tabTrig.textContent = triggered;
+  if (tabArm) tabArm.textContent = armed;
+  if (tabIn) tabIn.textContent = inside;
+}
+
+function setStrategyFilter(filter) {
+  state.currentFilter = filter;
+
+  // Update tabs active state
+  ['ALL', 'TRIGGERED', 'ARMED', 'INSIDE'].forEach(f => {
+    const tab = document.getElementById(`tab-${f}`);
+    if (tab) {
+      if (f === filter) tab.classList.add('active');
+      else tab.classList.remove('active');
+    }
+  });
+
+  // Update KPI card active state
+  const kpiMap = { 'ALL': 'kpiAll', 'TRIGGERED': 'kpiTriggered', 'ARMED': 'kpiArmed', 'INSIDE': 'kpiInside' };
+  Object.keys(kpiMap).forEach(k => {
+    const card = document.getElementById(kpiMap[k]);
+    if (card) {
+      if (k === filter) card.classList.add('active');
+      else card.classList.remove('active');
+    }
+  });
+
+  if (state.currentView === 'STRATEGY') {
+    renderStrategyTable();
+  } else {
     renderTable();
+  }
+}
+
+function setStrategyView(view) {
+  state.currentView = view;
+  const gridWrap = document.getElementById('gridWrapper');
+  const stratWrap = document.getElementById('strategyWrapper');
+  const feedWrap = document.getElementById('feed0915Wrapper');
+  const btnGrid = document.getElementById('viewBtnGrid');
+  const btnStrat = document.getElementById('viewBtnStrat');
+  const btnFeed = document.getElementById('viewBtnFeed');
+
+  if (view === 'STRATEGY') {
+    gridWrap.classList.add('hidden');
+    stratWrap.classList.remove('hidden');
+    if (feedWrap) feedWrap.classList.add('hidden');
+    btnGrid.classList.remove('active');
+    btnStrat.classList.add('active');
+    if (btnFeed) btnFeed.classList.remove('active');
+    renderStrategyTable();
+  } else if (view === 'FEED0915') {
+    gridWrap.classList.add('hidden');
+    stratWrap.classList.add('hidden');
+    if (feedWrap) feedWrap.classList.remove('hidden');
+    btnGrid.classList.remove('active');
+    btnStrat.classList.remove('active');
+    if (btnFeed) btnFeed.classList.add('active');
+    render0915FeedTable();
+  } else {
+    gridWrap.classList.remove('hidden');
+    stratWrap.classList.add('hidden');
+    if (feedWrap) feedWrap.classList.add('hidden');
+    btnGrid.classList.add('active');
+    btnStrat.classList.remove('active');
+    if (btnFeed) btnFeed.classList.remove('active');
+    renderTable();
+  }
+}
+
+// Quick interactive test for user to verify the exact strategy signal behavior anytime
+function simulateStrategySignal(targetToken = "2885") {
+  const stock = NIFTY50_STOCKS.find(s => s.token === targetToken) || NIFTY50_STOCKS[0];
+  log(`🧪 Running Strategy Simulation for ${stock.sym}...`, 'info');
+  
+  const now = Date.now();
+  const start0915 = get0915Timestamp(now);
+  const start0930 = start0915 + CANDLE_INTERVAL;
+  
+  // Set finalized benchmark 09:15 candle: High: 2980.00, Low: 2920.00, Open: 2950.00, Close: 2960.00
+  state.candles[stock.token] = [
+    { o: 2950.00, h: 2980.00, l: 2920.00, c: 2960.00, v: 50000, typVol: 2960*50000, startTs: start0915, endTs: start0930 }
+  ];
+
+  // Stage 1 (09:30 candle): Price touches / dips below 09:15 Low (2918.00 <= 2920.00)
+  state.lastLTP[stock.token] = 2918.00;
+  state.currentCandle[stock.token] = {
+    o: 2960.00, h: 2965.00, l: 2918.00, c: 2925.00, v: 10000, typVol: 2925*10000, startTs: start0930, endTs: start0930 + CANDLE_INTERVAL
+  };
+  evaluateStrategy(stock.token, 2918.00, start0930 + 60000);
+  updateStrategyCounters();
+  renderTable();
+  if (state.currentView === 'STRATEGY') renderStrategyTable();
+
+  log(`🎯 Stage 1 Simulated: ${stock.sym} swept 09:15 Low @ ₹2918.00 (ARMED - Waiting for High Break)`, 'warn');
+
+  // Stage 2 (after 1.5s): Price reverses upward and breaks above 09:15 High (2992.00 >= 2980.00)
+  setTimeout(() => {
+    state.lastLTP[stock.token] = 2992.00;
+    const cur = state.currentCandle[stock.token];
+    if (cur) {
+      cur.h = 2992.00;
+      cur.c = 2992.00;
+    }
+    evaluateStrategy(stock.token, 2992.00, start0930 + 120000);
+    updateStrategyCounters();
+    renderTable();
+    if (state.currentView === 'STRATEGY') renderStrategyTable();
+    log(`🚀 Stage 2 Simulated: ${stock.sym} reversed & broke 09:15 High @ ₹2992.00 (TRIGGERED BUY)`, 'success');
+  }, 1500);
+}
+
+// ============ HIGH PERFORMANCE BATCHED UPDATE PIPELINE ============
+const dirtyTokens = new Set();
+let rafId = null;
+let lastCountersUpdate = 0;
+let lastTickCounterUpdate = 0;
+let tableRenderPending = false;
+
+function scheduleTickUpdate(token) {
+  dirtyTokens.add(token);
+  if (!rafId) {
+    rafId = requestAnimationFrame(flushTickUpdates);
+  }
+}
+
+function flushTickUpdates() {
+  rafId = null;
+  const now = Date.now();
+
+  if (tableRenderPending) {
+    tableRenderPending = false;
+    renderTable();
+    if (state.currentView === 'STRATEGY') renderStrategyTable();
+    if (state.currentView === 'FEED0915') render0915FeedTable();
+    dirtyTokens.clear();
+    updateStrategyCounters();
     return;
   }
+
+  dirtyTokens.forEach(token => {
+    const ltp = state.lastLTP[token] || 0;
+    const prevLTP = state.prevLTP?.[token] || ltp;
+    const tickTs = state.lastTickTime[token] || now;
+    evaluateStrategy(token, ltp, tickTs);
+    updateLiveRowDOM(token, ltp, prevLTP, tickTs);
+    updateLiveStratRowDOM(token, ltp, prevLTP, tickTs);
+
+    // Live update for 09:15 feed table row if visible
+    const feedRow = document.getElementById(`feed-row-${token}`);
+    if (feedRow) {
+      const feedLtp = feedRow.querySelector('.strat-ltp-cell');
+      if (feedLtp) {
+        feedLtp.textContent = ltp > 0 ? `₹${ltp.toFixed(2)}` : '—';
+        if (ltp > prevLTP) {
+          feedLtp.className = 'num strat-ltp-cell flash-green';
+        } else if (ltp < prevLTP) {
+          feedLtp.className = 'num strat-ltp-cell flash-red';
+        }
+      }
+    }
+  });
+  dirtyTokens.clear();
+
+  // Throttle counter updates to at most 4 times a second
+  if (now - lastCountersUpdate > 250) {
+    lastCountersUpdate = now;
+    updateStrategyCounters();
+  }
+
+  // Throttle tick counter DOM text update
+  if (now - lastTickCounterUpdate > 200) {
+    lastTickCounterUpdate = now;
+    const tc = document.getElementById('tickCounter');
+    if (tc) tc.textContent = 'Ticks: ' + state.tickCount;
+  }
+}
+
+function updateCandle(token, ltp, volume, timestamp) {
+  if (!state.prevLTP) state.prevLTP = {};
+  state.prevLTP[token] = state.lastLTP[token] || ltp;
+  state.lastLTP[token] = ltp;
+  const tickTs = timestamp || Date.now();
+  state.lastTickTime[token] = tickTs;
+
+  const currentBoundary = getCandleBoundary(tickTs);
+
+  // Track and build 15-min interval candles if in active market hours
+  if (currentBoundary) {
+    if (!state.currentCandle[token] || state.currentCandle[token].startTs < currentBoundary) {
+      // Close previous candle
+      if (state.currentCandle[token]) {
+        const prev = state.currentCandle[token];
+        if (!Array.isArray(state.candles[token])) state.candles[token] = [];
+        const exists = state.candles[token].some(c => c.startTs === prev.startTs);
+        if (!exists) {
+          state.candles[token].push({ ...prev });
+        }
+      }
+      // Start new candle
+      state.currentCandle[token] = {
+        o: ltp,
+        h: ltp,
+        l: ltp,
+        c: ltp,
+        v: volume || 1,
+        typVol: ltp * (volume || 1),
+        startTs: currentBoundary,
+        endTs: currentBoundary + CANDLE_INTERVAL
+      };
+      tableRenderPending = true;
+    } else {
+      // Update current candle
+      const candle = state.currentCandle[token];
+      if (ltp > candle.h) candle.h = ltp;
+      if (ltp < candle.l) candle.l = ltp;
+      candle.c = ltp;
+      candle.v += (volume || 1);
+      candle.typVol += ltp * (volume || 1);
+    }
+  }
+
+  scheduleTickUpdate(token);
+}
+
+function updateLiveRowDOM(token, ltp, prevLTP, timestamp) {
+  const row = document.getElementById(`stock-row-${token}`);
+  if (!row) return;
 
   const candle = state.currentCandle[token];
   if (!candle) return;
 
-  const boundary = currentBoundary || getCandleBoundary(Date.now());
   const vwap = candle.v > 0 ? (candle.typVol / candle.v) : candle.c;
   const isUp = candle.c >= candle.o;
   const cls = isUp ? 'up' : 'down';
   const tickTime = formatTickTime(timestamp);
 
-  // Strictly target only the active current-candle cells for the active slot
-  const oEl = row.querySelector(`.current-candle.cell-o[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-o');
-  const hEl = row.querySelector(`.current-candle.cell-h[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-h');
-  const lEl = row.querySelector(`.current-candle.cell-l[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-l');
-  const cEl = row.querySelector(`.current-candle.cell-c[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-c');
-  const vwapEl = row.querySelector(`.current-candle.cell-vwap[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-vwap');
-  const tickEl = row.querySelector(`.current-candle.cell-tick[data-ts="${boundary}"]`) || row.querySelector('.current-candle.cell-tick');
+  // Update strategy badge cell in grid row
+  const stratCell = row.querySelector('.strat-badge-cell');
+  if (stratCell) {
+    const strat = state.strategy[token];
+    if (strat) {
+      stratCell.innerHTML = renderStrategyBadgeHTML(strat, ltp);
+    }
+  }
 
-  if (!oEl || !cEl) {
-    // If the active cells are not in DOM yet (e.g. boundary shifted), re-render table
-    renderTable();
+  // Strictly target only the active current-candle cells to prevent updating any empty or past columns
+  const oEl = row.querySelector('.current-candle.cell-o');
+  const hEl = row.querySelector('.current-candle.cell-h');
+  const lEl = row.querySelector('.current-candle.cell-l');
+  const cEl = row.querySelector('.current-candle.cell-c');
+  const vwapEl = row.querySelector('.current-candle.cell-vwap');
+  const tickEl = row.querySelector('.current-candle.cell-tick');
+
+  if (!oEl || !hEl || !lEl || !cEl || !vwapEl || !tickEl) {
     return;
   }
 
@@ -860,52 +1898,188 @@ function updateLiveRowDOM(token, ltp, prevLTP, timestamp, currentBoundary) {
   cEl.className = `current-candle cell-c ${cls}`;
   if (ltp > prevLTP) {
     cEl.classList.add('flash-green');
-    setTimeout(() => cEl.classList.remove('flash-green'), 350);
   } else if (ltp < prevLTP) {
     cEl.classList.add('flash-red');
-    setTimeout(() => cEl.classList.remove('flash-red'), 350);
   }
 
-  if (vwapEl) {
-    vwapEl.textContent = vwap.toFixed(2);
-    vwapEl.className = `current-candle cell-vwap ${cls}`;
-  }
+  vwapEl.textContent = vwap.toFixed(2);
+  vwapEl.className = `current-candle cell-vwap ${cls}`;
 
-  if (tickEl) {
-    tickEl.textContent = tickTime;
-  }
+  tickEl.textContent = tickTime;
 }
 
-// ============ TABLE RENDERING ============
+// Helper to compute all strategy display values cleanly
+function getStrategyRowDetails(token, ltp) {
+  const strat = state.strategy[token] || evaluateStrategy(token, ltp);
+  const orbHigh = strat.orbHigh ? strat.orbHigh.toFixed(2) : '—';
+  const orbLow = strat.orbLow ? strat.orbLow.toFixed(2) : '—';
+  const rangeSpread = strat.orbHigh && strat.orbLow && strat.orbLow > 0 
+    ? (((strat.orbHigh - strat.orbLow) / strat.orbLow) * 100).toFixed(2) + '%' 
+    : '—';
+  
+  // Low Touch detail
+  let lowTouchInfo = '—';
+  if (strat.lowTouched) {
+    const touchTimeStr = strat.lowTouchTime ? formatTickTime(strat.lowTouchTime) : 'Session';
+    const touchP = strat.lowTouchPrice ? `₹${strat.lowTouchPrice.toFixed(2)}` : '≤ 09:15 Low';
+    lowTouchInfo = `<span style="color:#fbbf24;font-weight:600">✅ Touched @ ${touchP}</span><div class="sub-val">Time: ${touchTimeStr}</div>`;
+  } else {
+    lowTouchInfo = '<span style="color:#666">Not touched yet</span>';
+  }
+
+  // High Break detail
+  let highBreakInfo = '—';
+  if (strat.highBroken) {
+    const trigTimeStr = strat.triggerTime ? formatTickTime(strat.triggerTime) : 'Session';
+    const trigP = strat.triggerPrice ? `₹${strat.triggerPrice.toFixed(2)}` : '≥ 09:15 High';
+    highBreakInfo = `<span style="color:#4ade80;font-weight:600">🚀 Broke High @ ${trigP}</span><div class="sub-val">Time: ${trigTimeStr}</div>`;
+  } else if (strat.lowTouched) {
+    highBreakInfo = `<span style="color:#fbbf24">⏳ Awaiting Break above ₹${orbHigh}</span>`;
+  } else {
+    highBreakInfo = '<span style="color:#666">—</span>';
+  }
+
+  // Distance / Extension
+  let extStr = '—';
+  if (strat.status === 'TRIGGERED' && strat.orbHigh) {
+    const extVal = (((ltp - strat.orbHigh) / strat.orbHigh) * 100);
+    const extSign = extVal >= 0 ? `+${extVal.toFixed(2)}%` : `${extVal.toFixed(2)}%`;
+    extStr = `<span style="color:#4ade80;font-weight:700">${extSign} (₹${(ltp - strat.orbHigh).toFixed(2)})</span>`;
+  } else if (strat.status === 'ARMED' && strat.orbHigh) {
+    const dist = (((strat.orbHigh - ltp) / strat.orbHigh) * 100).toFixed(2);
+    extStr = `<span style="color:#fbbf24;font-weight:600">₹${(strat.orbHigh - ltp).toFixed(2)} (${dist}%) to High</span>`;
+  }
+
+  // Action button
+  let actionHTML = '—';
+  if (strat.status === 'TRIGGERED') {
+    actionHTML = `<span style="background:rgba(74,222,128,0.2);color:#4ade80;border:1px solid #4ade80;padding:4px 10px;border-radius:6px;font-weight:700;font-size:0.7rem">🔥 BUY SIGNAL</span>`;
+  } else if (strat.status === 'ARMED') {
+    actionHTML = `<span style="background:rgba(251,191,36,0.2);color:#fbbf24;border:1px solid #fbbf24;padding:4px 10px;border-radius:6px;font-weight:700;font-size:0.7rem">🎯 READY</span>`;
+  } else {
+    actionHTML = `<span style="color:#555;font-size:0.7rem">WAIT</span>`;
+  }
+
+  const badgeHTML = renderStrategyBadgeHTML(strat, ltp);
+
+  return { strat, orbHigh, orbLow, rangeSpread, lowTouchInfo, highBreakInfo, extStr, actionHTML, badgeHTML };
+}
+
+// Direct fast-path DOM update for Strategy Focus View in real-time
+function updateLiveStratRowDOM(token, ltp, prevLTP, timestamp) {
+  const row = document.getElementById(`strat-row-${token}`);
+  const details = getStrategyRowDetails(token, ltp);
+
+  if (state.currentFilter !== 'ALL' && details.strat.status !== state.currentFilter) {
+    if (row) row.style.display = 'none';
+    return;
+  }
+
+  if (!row) {
+    if (state.currentView === 'STRATEGY' && (state.currentFilter === 'ALL' || details.strat.status === state.currentFilter)) {
+      renderStrategyTable();
+    }
+    return;
+  }
+
+  row.style.display = '';
+
+  // Update Live Traded Price
+  const ltpCell = row.querySelector('.strat-ltp-cell');
+  if (ltpCell) {
+    ltpCell.textContent = ltp > 0 ? `₹${ltp.toFixed(2)}` : '—';
+    if (ltp > prevLTP) {
+      ltpCell.className = 'num strat-ltp-cell flash-green';
+    } else if (ltp < prevLTP) {
+      ltpCell.className = 'num strat-ltp-cell flash-red';
+    }
+  }
+
+  const badgeCell = row.querySelector('.strat-badge-cell');
+  if (badgeCell) badgeCell.innerHTML = details.badgeHTML;
+
+  const lowCell = row.querySelector('.strat-lowtouch-cell');
+  if (lowCell) lowCell.innerHTML = details.lowTouchInfo;
+
+  const highCell = row.querySelector('.strat-highbreak-cell');
+  if (highCell) highCell.innerHTML = details.highBreakInfo;
+
+  const extCell = row.querySelector('.strat-ext-cell');
+  if (extCell) extCell.innerHTML = details.extStr;
+
+  const actionCell = row.querySelector('.strat-action-cell');
+  if (actionCell) actionCell.innerHTML = details.actionHTML;
+}
+
+function renderStrategyBadgeHTML(strat, ltp) {
+  if (!strat || strat.status === 'WAITING' || !strat.orbHigh) {
+    return '<span class="strat-badge waiting">09:15 Forming</span>';
+  }
+  if (strat.status === 'TRIGGERED') {
+    const diffPct = strat.orbHigh > 0 ? (((ltp - strat.orbHigh) / strat.orbHigh) * 100) : 0;
+    const diffStr = diffPct >= 0 ? `+${diffPct.toFixed(2)}%` : `${diffPct.toFixed(2)}%`;
+    return `<span class="strat-badge triggered">🚀 TRIGGERED (${diffStr})</span>`;
+  }
+  if (strat.status === 'ARMED') {
+    const dist = strat.orbHigh > 0 ? (((strat.orbHigh - ltp) / strat.orbHigh) * 100).toFixed(2) : '0.00';
+    return `<span class="strat-badge armed">🎯 ARMED (${dist}% to High)</span>`;
+  }
+  if (strat.status === 'HIGH_FIRST') {
+    return '<span class="strat-badge high-first">High Broke First</span>';
+  }
+  return `<span class="strat-badge inside">Inside Range</span>`;
+}
+
+// ============ TABLE RENDERING (GRID VIEW) ============
 function renderTable() {
   const table = document.getElementById('ohlcTable');
-  if (!table) return;
-
   const now = Date.now();
-  const todayStart = new Date(now);
-  todayStart.setHours(9, 15, 0, 0);
+  const today0915 = get0915Timestamp(now);
+  const marketEnd = getISTDayStartMs(now) + (15 * 60 + 15) * 60 * 1000;
 
   const timeSlots = [];
-  let t = todayStart.getTime();
-  const marketEnd = new Date(now);
-  marketEnd.setHours(15, 15, 0, 0);
-  while (t <= marketEnd.getTime()) {
+  let t = today0915;
+  while (t <= marketEnd) {
     timeSlots.push(t);
     t += CANDLE_INTERVAL;
   }
 
   const currentBoundary = getCandleBoundary(now);
-  ensureCurrentCandles(currentBoundary);
+  const isPre = isPreMarket(now);
+  const isPost = isPostMarket(now);
 
   document.getElementById('candleCount').textContent = timeSlots.length;
-  document.getElementById('screenerMeta').textContent = 
-    `15-min candles | ${NIFTY50_STOCKS.length} stocks | Active Slot: ${formatTime(currentBoundary)} | Last update: ${new Date().toLocaleTimeString('en-IN')}`;
 
-  let headerHTML = '<thead><tr><th class="stock-header" rowspan="2">Stock (Token)</th>';
+  let slotStatus = '';
+  if (isPre) {
+    slotStatus = 'Market Pre-Open (Trading begins at 09:15 AM)';
+  } else if (isPost) {
+    slotStatus = 'Market Closed (03:30 PM)';
+  } else if (currentBoundary) {
+    slotStatus = `Active Slot: ${formatTime(currentBoundary)} (Live)`;
+  }
+
+  document.getElementById('screenerMeta').textContent = 
+    `15-min candles | ${NIFTY50_STOCKS.length} stocks | ${slotStatus} | Last update: ${new Date().toLocaleTimeString('en-IN')}`;
+
+  // Filter stocks based on current selected strategy tab
+  const filteredStocks = NIFTY50_STOCKS.filter(stock => {
+    if (state.currentFilter === 'ALL') return true;
+    const ltp = state.lastLTP[stock.token] || 0;
+    const strat = evaluateStrategy(stock.token, ltp);
+    return strat.status === state.currentFilter;
+  });
+
+  let headerHTML = '<thead><tr><th class="stock-header" rowspan="2">Stock (Token)</th><th rowspan="2" style="background:#181830;color:#00d2ff;padding:8px;border:1px solid #1e1e3a;font-size:0.7rem">Strategy Status (Low Sweep + High Break)</th>';
   timeSlots.forEach(ts => {
-    const isCurrentHeader = ts === currentBoundary;
-    const headerStyle = isCurrentHeader ? 'style="background:#2a1b4e;color:#fbbf24;font-weight:700;border:1px solid #7b2ff7"' : '';
-    headerHTML += `<th class="time-header" ${headerStyle} colspan="6">${formatTime(ts)}${isCurrentHeader ? ' (Live)' : ''}</th>`;
+    const isCurrentHeader = currentBoundary !== null && ts === currentBoundary && !isPost;
+    const is0915 = ts === today0915;
+    const has0915Feed = is0915 && Object.keys(state.feed0915 || {}).length > 0;
+    const headerStyle = isCurrentHeader 
+      ? 'style="background:#2a1b4e;color:#fbbf24;font-weight:700;border:1px solid #7b2ff7"' 
+      : (is0915 ? 'style="background:#0f2e3d;color:#38bdf8;font-weight:700;border:1px solid #0284c7"' : '');
+    const feedTag = has0915Feed ? ' <span style="font-size:0.7rem;color:#4ade80">(Feed Synced 📡)</span>' : '';
+    headerHTML += `<th class="time-header" ${headerStyle} colspan="6">${formatTime(ts)}${isCurrentHeader ? ' (Live)' : ''}${feedTag}</th>`;
   });
   headerHTML += '</tr><tr>';
   timeSlots.forEach(ts => {
@@ -914,74 +2088,216 @@ function renderTable() {
   headerHTML += '</tr></thead>';
 
   let bodyHTML = '<tbody>';
-  NIFTY50_STOCKS.forEach(stock => {
-    bodyHTML += `<tr id="stock-row-${stock.token}"><td class="stock-cell"><div class="sym">${stock.sym}</div><div class="token">Token: ${stock.token}</div></td>`;
+  if (filteredStocks.length === 0) {
+    bodyHTML += `<tr><td colspan="${2 + timeSlots.length * 6}" style="text-align:center;padding:30px;color:#888;font-size:0.85rem">No stocks currently matching filter "${state.currentFilter}".</td></tr>`;
+  } else {
+    filteredStocks.forEach(stock => {
+      const ltp = state.lastLTP[stock.token] || 0;
+      const strat = evaluateStrategy(stock.token, ltp);
+      const badgeHTML = renderStrategyBadgeHTML(strat, ltp);
 
-    timeSlots.forEach(ts => {
-      if (ts < currentBoundary) {
-        // Past 15-min candle: strictly retrieve from archived candles buffer
-        const candle = state.candles[stock.token]?.find(c => c.startTs === ts);
+      bodyHTML += `<tr id="stock-row-${stock.token}">
+        <td class="stock-cell"><div class="sym">${stock.sym}</div><div class="token">Token: ${stock.token}</div></td>
+        <td class="strat-badge-cell" style="background:#0e0e1a;text-align:center;padding:6px;border-right:2px solid #2a2a4a">${badgeHTML}</td>`;
+
+      timeSlots.forEach(ts => {
+        const candle = state.candles[stock.token]?.find(c => Math.abs(c.startTs - ts) < 120000);
+        const isCurrent = currentBoundary !== null && (Math.abs((state.currentCandle[stock.token]?.startTs || 0) - ts) < 120000 || (Math.abs(ts - currentBoundary) < 120000 && state.currentCandle[stock.token]));
+
         if (candle) {
           const vwap = candle.v > 0 ? (candle.typVol / candle.v) : candle.c;
           const isUp = candle.c >= candle.o;
           const cls = isUp ? 'up' : 'down';
           const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
-          bodyHTML += `<td class="past-candle cell-o ${cls}" data-ts="${ts}">${candle.o.toFixed(2)}</td>`;
-          bodyHTML += `<td class="past-candle cell-h ${cls}" data-ts="${ts}">${candle.h.toFixed(2)}</td>`;
-          bodyHTML += `<td class="past-candle cell-l ${cls}" data-ts="${ts}">${candle.l.toFixed(2)}</td>`;
-          bodyHTML += `<td class="past-candle cell-c ${cls}" data-ts="${ts}">${candle.c.toFixed(2)}</td>`;
-          bodyHTML += `<td class="past-candle cell-vwap ${cls}" data-ts="${ts}">${vwap.toFixed(2)}</td>`;
-          bodyHTML += `<td class="tick-cell past-candle" data-ts="${ts}">${tickTime}</td>`;
-        } else {
-          bodyHTML += '<td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="tick-cell empty-cell">—</td>';
-        }
-      } else if (ts === currentBoundary) {
-        // Active 15-min candle: live streaming slot
-        const c = state.currentCandle[stock.token];
-        if (c) {
+          bodyHTML += `<td class="past-candle ${cls}">${candle.o.toFixed(2)}</td>`;
+          bodyHTML += `<td class="past-candle ${cls}">${candle.h.toFixed(2)}</td>`;
+          bodyHTML += `<td class="past-candle ${cls}">${candle.l.toFixed(2)}</td>`;
+          bodyHTML += `<td class="past-candle ${cls}">${candle.c.toFixed(2)}</td>`;
+          bodyHTML += `<td class="past-candle ${cls}">${vwap.toFixed(2)}</td>`;
+          bodyHTML += `<td class="tick-cell past-candle">${tickTime}</td>`;
+        } else if (isCurrent && state.currentCandle[stock.token]) {
+          const c = state.currentCandle[stock.token];
           const vwap = c.v > 0 ? (c.typVol / c.v) : c.c;
           const isUp = c.c >= c.o;
           const cls = isUp ? 'up' : 'down';
           const tickTime = state.lastTickTime[stock.token] ? formatTickTime(state.lastTickTime[stock.token]) : '—';
-          bodyHTML += `<td class="current-candle cell-o ${cls}" data-ts="${ts}">${c.o.toFixed(2)}</td>`;
-          bodyHTML += `<td class="current-candle cell-h ${cls}" data-ts="${ts}">${c.h.toFixed(2)}</td>`;
-          bodyHTML += `<td class="current-candle cell-l ${cls}" data-ts="${ts}">${c.l.toFixed(2)}</td>`;
-          bodyHTML += `<td class="current-candle cell-c ${cls}" data-ts="${ts}">${c.c.toFixed(2)}</td>`;
-          bodyHTML += `<td class="current-candle cell-vwap ${cls}" data-ts="${ts}">${vwap.toFixed(2)}</td>`;
-          bodyHTML += `<td class="tick-cell current-candle cell-tick" data-ts="${ts}">${tickTime}</td>`;
+          bodyHTML += `<td class="current-candle cell-o ${cls}">${c.o.toFixed(2)}</td>`;
+          bodyHTML += `<td class="current-candle cell-h ${cls}">${c.h.toFixed(2)}</td>`;
+          bodyHTML += `<td class="current-candle cell-l ${cls}">${c.l.toFixed(2)}</td>`;
+          bodyHTML += `<td class="current-candle cell-c ${cls}">${c.c.toFixed(2)}</td>`;
+          bodyHTML += `<td class="current-candle cell-vwap ${cls}">${vwap.toFixed(2)}</td>`;
+          bodyHTML += `<td class="tick-cell current-candle cell-tick">${tickTime}</td>`;
         } else {
-          bodyHTML += '<td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="tick-cell empty-cell">—</td>';
+          bodyHTML += '<td class="empty-cell">—</td>';
+          bodyHTML += '<td class="empty-cell">—</td>';
+          bodyHTML += '<td class="empty-cell">—</td>';
+          bodyHTML += '<td class="empty-cell">—</td>';
+          bodyHTML += '<td class="empty-cell">—</td>';
+          bodyHTML += '<td class="tick-cell empty-cell">—</td>';
         }
-      } else {
-        // Future unreached slots
-        bodyHTML += '<td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="empty-cell">—</td><td class="tick-cell empty-cell">—</td>';
-      }
-    });
+      });
 
-    bodyHTML += '</tr>';
-  });
+      bodyHTML += '</tr>';
+    });
+  }
   bodyHTML += '</tbody>';
 
   table.innerHTML = headerHTML + bodyHTML;
+  updateStrategyCounters();
 }
 
-// Check boundary rollover and auto-save state to localStorage periodically
-setInterval(() => {
-  const now = Date.now();
-  const currentBoundary = getCandleBoundary(now);
-  let boundaryShifted = false;
-  NIFTY50_STOCKS.forEach(stock => {
-    const cur = state.currentCandle[stock.token];
-    if (cur && cur.startTs < currentBoundary) {
-      boundaryShifted = true;
-    }
+// ============ DEDICATED STRATEGY FOCUS TABLE ============
+function renderStrategyTable() {
+  const tbody = document.getElementById('strategyTableBody');
+  if (!tbody) return;
+
+  const filteredStocks = NIFTY50_STOCKS.filter(stock => {
+    if (state.currentFilter === 'ALL') return true;
+    const ltp = state.lastLTP[stock.token] || 0;
+    const strat = evaluateStrategy(stock.token, ltp);
+    return strat.status === state.currentFilter;
   });
 
-  if (boundaryShifted) {
-    ensureCurrentCandles(currentBoundary);
-    renderTable();
+  if (filteredStocks.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:40px;color:#888">No stocks matching filter "${state.currentFilter}".</td></tr>`;
+    return;
   }
 
+  let html = '';
+  filteredStocks.forEach(stock => {
+    const ltp = state.lastLTP[stock.token] || 0;
+    const details = getStrategyRowDetails(stock.token, ltp);
+
+    html += `
+      <tr id="strat-row-${stock.token}">
+        <td>
+          <div style="font-weight:700;color:#fff">${stock.sym}</div>
+          <div class="sub-val">${stock.name} (${stock.token})</div>
+        </td>
+        <td class="num strat-ltp-cell" style="font-weight:700;font-size:0.85rem;color:#00d2ff">₹${ltp > 0 ? ltp.toFixed(2) : '—'}</td>
+        <td class="num">
+          <div style="color:#4ade80">H: ₹${details.orbHigh}</div>
+          <div style="color:#f87171">L: ₹${details.orbLow}</div>
+        </td>
+        <td class="num" style="color:#a78bfa">${details.rangeSpread}</td>
+        <td class="strat-badge-cell">${details.badgeHTML}</td>
+        <td class="strat-lowtouch-cell">${details.lowTouchInfo}</td>
+        <td class="strat-highbreak-cell">${details.highBreakInfo}</td>
+        <td class="num strat-ext-cell">${details.extStr}</td>
+        <td style="text-align:center" class="strat-action-cell">${details.actionHTML}</td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
+// ============ DEDICATED 09:15 FEED INSPECTOR TABLE ============
+function render0915FeedTable() {
+  const tbody = document.getElementById('feed0915TableBody');
+  if (!tbody) return;
+
+  const now = Date.now();
+  const start0915 = get0915Timestamp(now);
+  let syncedCount = 0;
+
+  let html = '';
+  NIFTY50_STOCKS.forEach(stock => {
+    const ltp = state.lastLTP[stock.token] || 0;
+    const strat = evaluateStrategy(stock.token, ltp);
+    const feedBar = state.feed0915[stock.token];
+    const isSynced = Boolean(feedBar && !isNaN(feedBar.o));
+    if (isSynced) syncedCount++;
+
+    const openVal = isSynced ? `₹${feedBar.o.toFixed(2)}` : '—';
+    const highVal = isSynced ? `₹${feedBar.h.toFixed(2)}` : '—';
+    const lowVal = isSynced ? `₹${feedBar.l.toFixed(2)}` : '—';
+    const closeVal = isSynced ? `₹${feedBar.c.toFixed(2)}` : '—';
+    const volVal = isSynced ? Number(feedBar.v || 0).toLocaleString('en-IN') : '—';
+    
+    let rangeSpread = '—';
+    if (isSynced && feedBar.h && feedBar.l) {
+      const diff = feedBar.h - feedBar.l;
+      const pct = feedBar.l > 0 ? ((diff / feedBar.l) * 100).toFixed(2) : '0.00';
+      rangeSpread = `<span style="color:#a78bfa;font-weight:600">₹${diff.toFixed(2)}</span> <span style="font-size:0.7rem;color:#888">(${pct}%)</span>`;
+    }
+
+    // Check if active grid already has this exact feed candle
+    const grid0915 = state.candles[stock.token]?.find(c => Math.abs(c.startTs - start0915) < 120000) 
+      || (Math.abs((state.currentCandle[stock.token]?.startTs || 0) - start0915) < 120000 ? state.currentCandle[stock.token] : null);
+
+    const isGridSynced = isSynced && grid0915 && Math.abs(grid0915.h - feedBar.h) < 0.01 && Math.abs(grid0915.l - feedBar.l) < 0.01;
+
+    let feedStatusBadge = '';
+    if (isGridSynced) {
+      feedStatusBadge = '<span style="background:rgba(74,222,128,0.15);color:#4ade80;border:1px solid #4ade80;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600">✅ Applied on Grid</span>';
+    } else if (isSynced) {
+      feedStatusBadge = '<span style="background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid #38bdf8;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600">📡 Feed Ready</span>';
+    } else {
+      feedStatusBadge = '<span style="color:#666;font-size:0.7rem">⏳ Not Fetched</span>';
+    }
+
+    const badgeHTML = renderStrategyBadgeHTML(strat, ltp);
+
+    let actionBtn = '';
+    if (isSynced) {
+      actionBtn = `<button class="btn" style="background:#0284c7;color:#fff;font-size:0.7rem;padding:4px 10px;font-weight:600" onclick="forceOverrideStock0915('${stock.token}')">Apply 09:15</button>`;
+    } else {
+      actionBtn = `<button class="btn" style="background:#1e293b;color:#94a3b8;font-size:0.7rem;padding:4px 10px" onclick="fetch0915CandlesOnly()">Fetch</button>`;
+    }
+
+    html += `
+      <tr id="feed-row-${stock.token}">
+        <td>
+          <div style="font-weight:700;color:#fff">${stock.sym}</div>
+          <div class="sub-val">${stock.name} (${stock.token})</div>
+        </td>
+        <td class="num" style="color:#e0e0e0">${openVal}</td>
+        <td class="num" style="color:#4ade80;font-weight:600">${highVal}</td>
+        <td class="num" style="color:#f87171;font-weight:600">${lowVal}</td>
+        <td class="num" style="color:#e0e0e0">${closeVal}</td>
+        <td class="num" style="color:#94a3b8">${volVal}</td>
+        <td class="num">${rangeSpread}</td>
+        <td class="num strat-ltp-cell" style="font-weight:700;font-size:0.85rem;color:#00d2ff">₹${ltp > 0 ? ltp.toFixed(2) : '—'}</td>
+        <td style="text-align:center">${badgeHTML}</td>
+        <td style="text-align:center">${feedStatusBadge}</td>
+        <td style="text-align:center">${actionBtn}</td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+
+  const badgeEl = document.getElementById('feedSyncedCountBadge');
+  if (badgeEl) badgeEl.textContent = `${syncedCount} / ${NIFTY50_STOCKS.length} Synced`;
+}
+
+// Alias for compatibility
+const renderFeed0915Table = render0915FeedTable;
+window.renderFeed0915Table = render0915FeedTable;
+
+// Keep market status and metadata clock updated every second
+setInterval(() => {
+  const metaEl = document.getElementById('screenerMeta');
+  if (metaEl && !document.getElementById('screener').classList.contains('hidden')) {
+    const now = Date.now();
+    const currentBoundary = getCandleBoundary(now);
+    const isPre = isPreMarket(now);
+    const isPost = isPostMarket(now);
+    let slotStatus = '';
+    if (isPre) {
+      slotStatus = 'Market Pre-Open (Trading begins at 09:15 AM)';
+    } else if (isPost) {
+      slotStatus = 'Market Closed (03:30 PM)';
+    } else if (currentBoundary) {
+      slotStatus = `Active Slot: ${formatTime(currentBoundary)} (Live)`;
+    }
+    metaEl.textContent = `15-min candles | ${NIFTY50_STOCKS.length} stocks | ${slotStatus} | Last update: ${new Date().toLocaleTimeString('en-IN')}`;
+  }
+}, 1000);
+
+// Auto-save state to localStorage periodically
+setInterval(() => {
   if (state.candles && Object.keys(state.candles).length > 0) {
     saveCandleState();
   }
@@ -994,14 +2310,12 @@ window.addEventListener('beforeunload', () => {
 // ============ EXPORT CSV ============
 function exportCSV() {
   const now = Date.now();
-  const todayStart = new Date(now);
-  todayStart.setHours(9, 15, 0, 0);
+  const today0915 = get0915Timestamp(now);
+  const marketEnd = getISTDayStartMs(now) + (15 * 60 + 15) * 60 * 1000;
 
   const timeSlots = [];
-  let t = todayStart.getTime();
-  const marketEnd = new Date(now);
-  marketEnd.setHours(15, 15, 0, 0);
-  while (t <= marketEnd.getTime()) {
+  let t = today0915;
+  while (t <= marketEnd) {
     timeSlots.push(t);
     t += CANDLE_INTERVAL;
   }
@@ -1015,8 +2329,8 @@ function exportCSV() {
   NIFTY50_STOCKS.forEach(stock => {
     csv += `${stock.sym},${stock.token}`;
     timeSlots.forEach(ts => {
-      const candle = state.candles[stock.token]?.find(c => c.startTs === ts);
-      const isCurrent = state.currentCandle[stock.token]?.startTs === ts;
+      const candle = state.candles[stock.token]?.find(c => Math.abs(c.startTs - ts) < 120000);
+      const isCurrent = Math.abs((state.currentCandle[stock.token]?.startTs || 0) - ts) < 120000;
       const c = candle || (isCurrent ? state.currentCandle[stock.token] : null);
       if (c) {
         const vwap = c.v > 0 ? (c.typVol / c.v) : c.c;
@@ -1045,17 +2359,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Auto load stocks catalog and initialize on startup
-window.addEventListener('DOMContentLoaded', async () => {
-  await loadStocksCatalog();
-  initializeCandles();
-  log('System ready with ' + NIFTY_TOTAL_STOCKS.length + ' stocks. Click "Test Connection" to verify, then Login → Connect WS.', 'info');
-});
-
-// Also trigger immediately in case DOM is already ready
-loadStocksCatalog().then(() => {
-  initializeCandles();
-});
+log('System ready. Click "Test Connection" to verify, then Login → Connect WS.', 'info');
 </script>
 </body>
 </html>
