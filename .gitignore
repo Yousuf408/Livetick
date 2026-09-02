@@ -1,0 +1,55 @@
+# Attached assets (user-uploaded files, images, screenshots)
+attached_assets/
+
+# Agent memory & skills (not project code)
+.agents/
+.canvas/
+.local/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node (if using any npm packages)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build & Dist
+dist/
+build/
+*.log
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Python cache files
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Runtime-generated tick/candle caches (rebuilt by WebSocket at runtime)
+stocks/latest_ticks.json
+stocks/candles.json
+stocks/orb_candles_5min.json
+stocks/orb_candles_15min.json
