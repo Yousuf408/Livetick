@@ -1,0 +1,5482 @@
+{
+  "13061_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1149.1,
+    "high": 1156.1,
+    "low": 1145.2,
+    "close": 1151.1,
+    "volume": 78349,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517546589
+  },
+  "23729_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 478.7,
+    "high": 480.95,
+    "low": 477.7,
+    "close": 479.5,
+    "volume": 6185,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517547041
+  },
+  "4481_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 429.25,
+    "high": 433,
+    "low": 426.25,
+    "close": 429.8,
+    "volume": 14989,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517547493
+  },
+  "7_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 503.6,
+    "high": 509.9,
+    "low": 500.6,
+    "close": 500.85,
+    "volume": 72952,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517547941
+  },
+  "13868_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 872,
+    "high": 874.15,
+    "low": 865,
+    "close": 872.55,
+    "volume": 21438,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517548389
+  },
+  "5385_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1298.3,
+    "high": 1318,
+    "low": 1298.3,
+    "close": 1313.1,
+    "volume": 7697,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517551962
+  },
+  "21614_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 400.2,
+    "high": 403.45,
+    "low": 400.2,
+    "close": 402.8,
+    "volume": 143547,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517552413
+  },
+  "24308_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 603.25,
+    "high": 609.4,
+    "low": 603.25,
+    "close": 607.8,
+    "volume": 7250,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517552861
+  },
+  "625_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1376.9,
+    "high": 1400.9,
+    "low": 1371.6,
+    "close": 1391.2,
+    "volume": 13166,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517553313
+  },
+  "6018_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1047.7,
+    "high": 1048.1,
+    "low": 1040.6,
+    "close": 1045.9,
+    "volume": 2960,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517553763
+  },
+  "22_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1277,
+    "high": 1279.1,
+    "low": 1272,
+    "close": 1276.1,
+    "volume": 11302,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517554410
+  },
+  "13587_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1148.4,
+    "high": 1189,
+    "low": 1146,
+    "close": 1173.5,
+    "volume": 206543,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517554858
+  },
+  "12024_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 501,
+    "high": 511.9,
+    "low": 500.9,
+    "close": 502.55,
+    "volume": 78658,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517555314
+  },
+  "27061_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 402.9,
+    "high": 404.2,
+    "low": 399.55,
+    "close": 401.4,
+    "volume": 80212,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517555762
+  },
+  "5578_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3211.1,
+    "high": 3228.8,
+    "low": 3164.5,
+    "close": 3174.2,
+    "volume": 8921,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517559324
+  },
+  "10217_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1385.6,
+    "high": 1390,
+    "low": 1376.7,
+    "close": 1381.1,
+    "volume": 141901,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517562885
+  },
+  "25_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2900,
+    "high": 2902.4,
+    "low": 2882.8,
+    "close": 2895.1,
+    "volume": 74326,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517563335
+  },
+  "3563_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1288,
+    "high": 1289.9,
+    "low": 1278.2,
+    "close": 1281.5,
+    "volume": 47784,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517566893
+  },
+  "15083_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1699.9,
+    "high": 1706.5,
+    "low": 1692.4,
+    "close": 1703.7,
+    "volume": 97983,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517567345
+  },
+  "17388_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 208.29,
+    "high": 208.45,
+    "low": 206.93,
+    "close": 207.78,
+    "volume": 1170732,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517570900
+  },
+  "18039_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 297.1,
+    "high": 297.1,
+    "low": 295.3,
+    "close": 296.3,
+    "volume": 5380,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517571547
+  },
+  "40_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1288.1,
+    "high": 1315,
+    "low": 1288.1,
+    "close": 1309,
+    "volume": 96347,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517571997
+  },
+  "757336_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 286.5,
+    "high": 294.1,
+    "low": 285.1,
+    "close": 288.4,
+    "volume": 168775,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517572448
+  },
+  "760234_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 247.9,
+    "high": 249,
+    "low": 241.39,
+    "close": 243.65,
+    "volume": 374131,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517572895
+  },
+  "9810_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1660.1,
+    "high": 1666.3,
+    "low": 1643.9,
+    "close": 1647.7,
+    "volume": 11344,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517573343
+  },
+  "25977_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 295.05,
+    "high": 297.4,
+    "low": 294.45,
+    "close": 294.6,
+    "volume": 55500,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517573789
+  },
+  "11343_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1529,
+    "high": 1547.4,
+    "low": 1522,
+    "close": 1536.8,
+    "volume": 45048,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517574240
+  },
+  "29452_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 511.6,
+    "high": 515.9,
+    "low": 510.2,
+    "close": 510.65,
+    "volume": 7582,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517574688
+  },
+  "17833_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 599.9,
+    "high": 607.4,
+    "low": 595.6,
+    "close": 601.75,
+    "volume": 1337,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517575134
+  },
+  "23553_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 521.9,
+    "high": 525.85,
+    "low": 518.3,
+    "close": 524.05,
+    "volume": 16727,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517575584
+  },
+  "8124_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3503.5,
+    "high": 3521.1,
+    "low": 3482,
+    "close": 3482.1,
+    "volume": 2279,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517576234
+  },
+  "24715_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 784.4,
+    "high": 785,
+    "low": 748.35,
+    "close": 749.4,
+    "volume": 83858,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517576681
+  },
+  "5265_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1418.9,
+    "high": 1446.9,
+    "low": 1405.8,
+    "close": 1411.9,
+    "volume": 13461,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517577133
+  },
+  "4487_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1999,
+    "high": 2057.9,
+    "low": 1999,
+    "close": 2026.4,
+    "volume": 18041,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517577580
+  },
+  "1270_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 404.95,
+    "high": 405.8,
+    "low": 404.25,
+    "close": 404.5,
+    "volume": 49070,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517578030
+  },
+  "7145_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2213,
+    "high": 2218.4,
+    "low": 2201,
+    "close": 2211.4,
+    "volume": 10228,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517578478
+  },
+  "13620_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 633,
+    "high": 640,
+    "low": 627.25,
+    "close": 638.6,
+    "volume": 862191,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517578927
+  },
+  "324_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 295.1,
+    "high": 308.35,
+    "low": 294.75,
+    "close": 302.7,
+    "volume": 11463960,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517579376
+  },
+  "757885_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 970,
+    "high": 973.5,
+    "low": 943.7,
+    "close": 944,
+    "volume": 180255,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517579825
+  },
+  "9014_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1820,
+    "high": 1820,
+    "low": 1792.6,
+    "close": 1798.5,
+    "volume": 942,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517580275
+  },
+  "2829_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1240,
+    "high": 1246.1,
+    "low": 1238,
+    "close": 1241.1,
+    "volume": 4305,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517580926
+  },
+  "25780_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2154.6,
+    "high": 2163.6,
+    "low": 2150.4,
+    "close": 2155.5,
+    "volume": 21087,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517581372
+  },
+  "25328_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 805,
+    "high": 811.75,
+    "low": 800.1,
+    "close": 807.6,
+    "volume": 14501,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517581836
+  },
+  "1134_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 383.5,
+    "high": 386.45,
+    "low": 383.5,
+    "close": 386,
+    "volume": 333961,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517585396
+  },
+  "163_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 433.85,
+    "high": 435.15,
+    "low": 430.7,
+    "close": 433.95,
+    "volume": 51937,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517585844
+  },
+  "5435_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 257.31,
+    "high": 261.96,
+    "low": 256.2,
+    "close": 259.69,
+    "volume": 95225,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517586292
+  },
+  "100_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 861.3,
+    "high": 867.65,
+    "low": 861.1,
+    "close": 865.8,
+    "volume": 33252,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517586740
+  },
+  "193_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 563.1,
+    "high": 566,
+    "low": 558.15,
+    "close": 560.8,
+    "volume": 43774,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517587189
+  },
+  "9111_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 456.6,
+    "high": 457.6,
+    "low": 453.3,
+    "close": 456.9,
+    "volume": 3824,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517587636
+  },
+  "5378_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 962.95,
+    "high": 965,
+    "low": 955,
+    "close": 957.55,
+    "volume": 5845,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517588087
+  },
+  "203_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 549.85,
+    "high": 554.95,
+    "low": 548.5,
+    "close": 551.5,
+    "volume": 25254,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517588734
+  },
+  "236_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2540,
+    "high": 2544.4,
+    "low": 2533.1,
+    "close": 2541.9,
+    "volume": 32505,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517589182
+  },
+  "20152_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 639,
+    "high": 639,
+    "low": 631.2,
+    "close": 631.45,
+    "volume": 9856,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517589631
+  },
+  "1508_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 790.85,
+    "high": 792.05,
+    "low": 782.75,
+    "close": 789.6,
+    "volume": 127887,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517590081
+  },
+  "14418_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1489.8,
+    "high": 1509.9,
+    "low": 1485.3,
+    "close": 1505.5,
+    "volume": 65767,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517590531
+  },
+  "11618_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1666.1,
+    "high": 1692.6,
+    "low": 1666.1,
+    "close": 1685.3,
+    "volume": 39875,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517590978
+  },
+  "6066_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 614,
+    "high": 616.4,
+    "low": 613.5,
+    "close": 614,
+    "volume": 41821,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517591425
+  },
+  "757645_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1644,
+    "high": 1644.5,
+    "low": 1612.9,
+    "close": 1620.2,
+    "volume": 354221,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517591874
+  },
+  "759007_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1905.9,
+    "high": 1920,
+    "low": 1875.9,
+    "close": 1878,
+    "volume": 9045,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517592323
+  },
+  "21238_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1071.9,
+    "high": 1071.9,
+    "low": 1062.2,
+    "close": 1067.4,
+    "volume": 29502,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517592770
+  },
+  "12022_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 691,
+    "high": 696.1,
+    "low": 690.05,
+    "close": 693.8,
+    "volume": 10653,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517593419
+  },
+  "275_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1637.3,
+    "high": 1644.9,
+    "low": 1626,
+    "close": 1628.3,
+    "volume": 61360,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517593870
+  },
+  "15058_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2320,
+    "high": 2347.7,
+    "low": 2262.1,
+    "close": 2325.3,
+    "volume": 226690,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517597431
+  },
+  "7936_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 797.1,
+    "high": 802.2,
+    "low": 795.5,
+    "close": 797,
+    "volume": 17515,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517597878
+  },
+  "25984_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 604,
+    "high": 604,
+    "low": 598.15,
+    "close": 600.25,
+    "volume": 12786,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517598325
+  },
+  "23864_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 258,
+    "high": 260.2,
+    "low": 256.55,
+    "close": 259.9,
+    "volume": 8089,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517598777
+  },
+  "5900_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1270.3,
+    "high": 1270.3,
+    "low": 1262.3,
+    "close": 1264,
+    "volume": 99298,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517599227
+  },
+  "9436_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1735.2,
+    "high": 1744.8,
+    "low": 1711,
+    "close": 1727.3,
+    "volume": 9540,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517599678
+  },
+  "20905_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2770,
+    "high": 2810,
+    "low": 2770,
+    "close": 2793.4,
+    "volume": 28936,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517600128
+  },
+  "15034_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 334,
+    "high": 337.15,
+    "low": 332.8,
+    "close": 334.95,
+    "volume": 10213,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517600576
+  },
+  "16675_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1985,
+    "high": 1994.2,
+    "low": 1981.4,
+    "close": 1989,
+    "volume": 20266,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517601227
+  },
+  "317_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1050.6,
+    "high": 1057.7,
+    "low": 1049.7,
+    "close": 1054.1,
+    "volume": 519184,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517601676
+  },
+  "14501_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2432,
+    "high": 2530,
+    "low": 2432,
+    "close": 2515.2,
+    "volume": 120349,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517602122
+  },
+  "335_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2330,
+    "high": 2346.3,
+    "low": 2308.1,
+    "close": 2314.8,
+    "volume": 17508,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517602574
+  },
+  "341_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 697,
+    "high": 702,
+    "low": 691.05,
+    "close": 693.75,
+    "volume": 354005,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517603027
+  },
+  "23607_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 572.5,
+    "high": 584.85,
+    "low": 572.5,
+    "close": 580.45,
+    "volume": 207552,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517603476
+  },
+  "13880_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 618.4,
+    "high": 621.8,
+    "low": 616.5,
+    "close": 618.45,
+    "volume": 4978,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517603925
+  },
+  "4668_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 242.37,
+    "high": 242.37,
+    "low": 240.22,
+    "close": 240.46,
+    "volume": 464489,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517604378
+  },
+  "371_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 677.45,
+    "high": 679.2,
+    "low": 675.1,
+    "close": 677.6,
+    "volume": 3255,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517604830
+  },
+  "17927_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3960.8,
+    "high": 3980,
+    "low": 3960.8,
+    "close": 3974.3,
+    "volume": 830,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517605278
+  },
+  "3435_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 722,
+    "high": 731.2,
+    "low": 720.1,
+    "close": 722.5,
+    "volume": 18286,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517605927
+  },
+  "380_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1513.9,
+    "high": 1513.9,
+    "low": 1501,
+    "close": 1504.8,
+    "volume": 3289,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517606378
+  },
+  "2144_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1253,
+    "high": 1273,
+    "low": 1253,
+    "close": 1266.8,
+    "volume": 145851,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517606827
+  },
+  "1628_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 230.01,
+    "high": 231.7,
+    "low": 228.78,
+    "close": 229.61,
+    "volume": 66651,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517607280
+  },
+  "383_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 409.25,
+    "high": 410.7,
+    "low": 408.25,
+    "close": 409.95,
+    "volume": 369191,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517607727
+  },
+  "757102_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 238.15,
+    "high": 239.25,
+    "low": 237.9,
+    "close": 238.2,
+    "volume": 234871,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517608175
+  },
+  "395_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2082,
+    "high": 2103.8,
+    "low": 2066.1,
+    "close": 2084,
+    "volume": 78114,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517608622
+  },
+  "404_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 494,
+    "high": 496.7,
+    "low": 487.05,
+    "close": 487.35,
+    "volume": 25715,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517609081
+  },
+  "422_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1997.6,
+    "high": 1997.6,
+    "low": 1964.6,
+    "close": 1983,
+    "volume": 59058,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517609532
+  },
+  "10604_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1868.1,
+    "high": 1869.9,
+    "low": 1860.9,
+    "close": 1864.2,
+    "volume": 180212,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517609979
+  },
+  "23489_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1507,
+    "high": 1520.2,
+    "low": 1504.8,
+    "close": 1505,
+    "volume": 2527,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517610630
+  },
+  "438_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 433,
+    "high": 433.7,
+    "low": 429.2,
+    "close": 431.25,
+    "volume": 471775,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517614192
+  },
+  "11966_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 587.15,
+    "high": 589.85,
+    "low": 585.75,
+    "close": 587.5,
+    "volume": 3314,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517614643
+  },
+  "11373_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 404,
+    "high": 404.55,
+    "low": 401.2,
+    "close": 401.25,
+    "volume": 127488,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517615089
+  },
+  "480_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 880,
+    "high": 887.95,
+    "low": 878.45,
+    "close": 878.95,
+    "volume": 652,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517615537
+  },
+  "27144_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 582,
+    "high": 586.9,
+    "low": 580.25,
+    "close": 582.7,
+    "volume": 10454,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517615989
+  },
+  "17279_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 240.15,
+    "high": 240.4,
+    "low": 238.24,
+    "close": 239.3,
+    "volume": 47859,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517619546
+  },
+  "19686_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 582.05,
+    "high": 584,
+    "low": 579.2,
+    "close": 580,
+    "volume": 34583,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517623107
+  },
+  "8311_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1485.7,
+    "high": 1490.7,
+    "low": 1480.9,
+    "close": 1487,
+    "volume": 6606,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517623557
+  },
+  "759291_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 802,
+    "high": 814.95,
+    "low": 800.05,
+    "close": 813.2,
+    "volume": 39509,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517624005
+  },
+  "3149_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 495,
+    "high": 504.4,
+    "low": 491.6,
+    "close": 501.45,
+    "volume": 76994,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517624662
+  },
+  "526_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 319.4,
+    "high": 320.25,
+    "low": 318.3,
+    "close": 318.4,
+    "volume": 80361,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517628234
+  },
+  "15184_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 714,
+    "high": 735,
+    "low": 698.75,
+    "close": 700.75,
+    "volume": 623427,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517628686
+  },
+  "19585_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3400,
+    "high": 3469.2,
+    "low": 3391.7,
+    "close": 3466.9,
+    "volume": 2379379,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517629132
+  },
+  "6994_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 295,
+    "high": 299.55,
+    "low": 295,
+    "close": 295.9,
+    "volume": 134832,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517629579
+  },
+  "9362_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 223.97,
+    "high": 224.6,
+    "low": 222.24,
+    "close": 222.5,
+    "volume": 15858,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517630029
+  },
+  "342_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 750,
+    "high": 757.75,
+    "low": 750,
+    "close": 754.85,
+    "volume": 95459,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517630478
+  },
+  "583_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 808,
+    "high": 809.6,
+    "low": 803.8,
+    "close": 807.1,
+    "volume": 8340,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517630930
+  },
+  "759867_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 485,
+    "high": 488,
+    "low": 480,
+    "close": 487.45,
+    "volume": 5474,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517631383
+  },
+  "3906_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2845,
+    "high": 2845,
+    "low": 2782.2,
+    "close": 2792.8,
+    "volume": 24176,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517631834
+  },
+  "595_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1078.7,
+    "high": 1083.9,
+    "low": 1075.4,
+    "close": 1076.9,
+    "volume": 4128,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517632484
+  },
+  "5407_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2997,
+    "high": 3045.5,
+    "low": 2975,
+    "close": 3034.7,
+    "volume": 42971,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517632931
+  },
+  "11452_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1107.3,
+    "high": 1114.3,
+    "low": 1101,
+    "close": 1101,
+    "volume": 6767,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517633380
+  },
+  "21174_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1400,
+    "high": 1412.6,
+    "low": 1400,
+    "close": 1411.9,
+    "volume": 182819,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517633827
+  },
+  "15254_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3323.3,
+    "high": 3344,
+    "low": 3291.2,
+    "close": 3310.1,
+    "volume": 9452,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517634277
+  },
+  "19795_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 344.9,
+    "high": 344.95,
+    "low": 340.8,
+    "close": 343.2,
+    "volume": 23846,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517634726
+  },
+  "5622_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1299,
+    "high": 1314.7,
+    "low": 1289,
+    "close": 1311.9,
+    "volume": 33625,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517635179
+  },
+  "13305_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 749.9,
+    "high": 755.35,
+    "low": 749.2,
+    "close": 749.65,
+    "volume": 541,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517635634
+  },
+  "20329_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 274,
+    "high": 276.4,
+    "low": 272.55,
+    "close": 273.7,
+    "volume": 1022055,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517636081
+  },
+  "760_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 895,
+    "high": 897,
+    "low": 888.05,
+    "close": 891.5,
+    "volume": 215633,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517636531
+  },
+  "8546_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 890,
+    "high": 895.1,
+    "low": 888.05,
+    "close": 892.55,
+    "volume": 1960,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517637183
+  },
+  "637_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 419.9,
+    "high": 422.95,
+    "low": 418.35,
+    "close": 421.15,
+    "volume": 44328,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517637631
+  },
+  "2049_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1445.1,
+    "high": 1449.1,
+    "low": 1428,
+    "close": 1430.7,
+    "volume": 133117,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517638078
+  },
+  "8866_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 768.9,
+    "high": 773.4,
+    "low": 767.5,
+    "close": 772.75,
+    "volume": 20179,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517638529
+  },
+  "685_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1841,
+    "high": 1857.4,
+    "low": 1841,
+    "close": 1854.2,
+    "volume": 52274,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517638978
+  },
+  "21740_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1516,
+    "high": 1520.9,
+    "low": 1498.3,
+    "close": 1513,
+    "volume": 5104,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517639424
+  },
+  "14937_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 387,
+    "high": 387,
+    "low": 382.25,
+    "close": 383.4,
+    "volume": 21150,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517639871
+  },
+  "694_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1397.7,
+    "high": 1399.1,
+    "low": 1381,
+    "close": 1382.3,
+    "volume": 135889,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517640323
+  },
+  "5049_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 853.5,
+    "high": 855.95,
+    "low": 844.3,
+    "close": 845,
+    "volume": 37748,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517640779
+  },
+  "7603_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 245.45,
+    "high": 246.94,
+    "low": 244.32,
+    "close": 244.83,
+    "volume": 35150,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517641228
+  },
+  "20374_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 418,
+    "high": 418,
+    "low": 413.15,
+    "close": 413.3,
+    "volume": 694572,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517641876
+  },
+  "21508_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1488.9,
+    "high": 1501.7,
+    "low": 1486,
+    "close": 1498.7,
+    "volume": 38511,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517642326
+  },
+  "11543_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1982,
+    "high": 1992.9,
+    "low": 1973.5,
+    "close": 1988.8,
+    "volume": 167213,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517642780
+  },
+  "17945_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 463.3,
+    "high": 470,
+    "low": 458.5,
+    "close": 466.7,
+    "volume": 144139,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517643226
+  },
+  "15141_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1860,
+    "high": 1863.9,
+    "low": 1846,
+    "close": 1846,
+    "volume": 18240,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517643677
+  },
+  "4749_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 508.8,
+    "high": 508.8,
+    "low": 503.65,
+    "close": 506.05,
+    "volume": 40627,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517644131
+  },
+  "18060_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1450,
+    "high": 1450.1,
+    "low": 1441,
+    "close": 1443.2,
+    "volume": 1699,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517644584
+  },
+  "739_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1927,
+    "high": 1943.9,
+    "low": 1927,
+    "close": 1935.2,
+    "volume": 6449,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517645032
+  },
+  "760254_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2121,
+    "high": 2150.4,
+    "low": 2121,
+    "close": 2125.8,
+    "volume": 1288,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517645482
+  },
+  "758858_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3752.7,
+    "high": 3797.9,
+    "low": 3725,
+    "close": 3752.1,
+    "volume": 14196,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517645930
+  },
+  "759311_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 252.1,
+    "high": 253.9,
+    "low": 252.1,
+    "close": 252.7,
+    "volume": 12572,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517646581
+  },
+  "4421_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1453.9,
+    "high": 1462.5,
+    "low": 1438.3,
+    "close": 1453.7,
+    "volume": 21070,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517647034
+  },
+  "17094_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 227.64,
+    "high": 228,
+    "low": 226.27,
+    "close": 227.25,
+    "volume": 97308,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517647487
+  },
+  "14966_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 325.15,
+    "high": 326.45,
+    "low": 321.45,
+    "close": 322.3,
+    "volume": 34964,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517647939
+  },
+  "5701_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 234,
+    "high": 236.5,
+    "low": 233.69,
+    "close": 235.09,
+    "volume": 68076,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517648390
+  },
+  "18520_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 280,
+    "high": 287,
+    "low": 280,
+    "close": 284.2,
+    "volume": 2730386,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517648843
+  },
+  "5748_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1111.3,
+    "high": 1130,
+    "low": 1111.3,
+    "close": 1126.9,
+    "volume": 58131,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517649289
+  },
+  "772_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 380.45,
+    "high": 380.45,
+    "low": 377.75,
+    "close": 378.25,
+    "volume": 64250,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517649737
+  },
+  "8075_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1770.1,
+    "high": 1778.9,
+    "low": 1757,
+    "close": 1761.6,
+    "volume": 3963,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517650188
+  },
+  "11423_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 771.45,
+    "high": 785,
+    "low": 770,
+    "close": 782.25,
+    "volume": 11296,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517650636
+  },
+  "18086_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 402.75,
+    "high": 404,
+    "low": 399.85,
+    "close": 400.7,
+    "volume": 1753,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517651288
+  },
+  "13725_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 222.4,
+    "high": 223.9,
+    "low": 221.04,
+    "close": 221.15,
+    "volume": 50637,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517651743
+  },
+  "811_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1024.9,
+    "high": 1026.1,
+    "low": 1018.6,
+    "close": 1020.3,
+    "volume": 2746,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517652193
+  },
+  "827_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1362.7,
+    "high": 1378.9,
+    "low": 1362.7,
+    "close": 1372,
+    "volume": 26632,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517652641
+  },
+  "19943_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1728,
+    "high": 1743.7,
+    "low": 1717.3,
+    "close": 1719.4,
+    "volume": 27341,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517653089
+  },
+  "9599_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 465,
+    "high": 465,
+    "low": 460.25,
+    "close": 461.8,
+    "volume": 172475,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517653538
+  },
+  "18545_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 324,
+    "high": 328.45,
+    "low": 316.7,
+    "close": 324.9,
+    "volume": 105386,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517653987
+  },
+  "14732_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 681.65,
+    "high": 686.05,
+    "low": 680.8,
+    "close": 683.85,
+    "volume": 149467,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517654441
+  },
+  "19913_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3765,
+    "high": 3772.6,
+    "low": 3745.9,
+    "close": 3760,
+    "volume": 22656,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517654898
+  },
+  "20551_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2205,
+    "high": 2219.8,
+    "low": 2183.2,
+    "close": 2194,
+    "volume": 17456,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517655350
+  },
+  "881_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1157,
+    "high": 1166.8,
+    "low": 1157,
+    "close": 1158.4,
+    "volume": 31199,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517655999
+  },
+  "15179_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1960,
+    "high": 1967.8,
+    "low": 1944,
+    "close": 1948.1,
+    "volume": 13954,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517656450
+  },
+  "916_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 778.25,
+    "high": 781.7,
+    "low": 774.85,
+    "close": 777.5,
+    "volume": 61754,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517656898
+  },
+  "919_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 292.65,
+    "high": 292.65,
+    "low": 290.1,
+    "close": 290.6,
+    "volume": 6488,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517657347
+  },
+  "13643_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 436.5,
+    "high": 437.45,
+    "low": 430.45,
+    "close": 431.1,
+    "volume": 46491,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517657797
+  },
+  "937_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 632.95,
+    "high": 633.05,
+    "low": 627.5,
+    "close": 630.55,
+    "volume": 26491,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517658246
+  },
+  "758563_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 333.8,
+    "high": 333.8,
+    "low": 330.05,
+    "close": 331,
+    "volume": 37070,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517658696
+  },
+  "13517_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 370,
+    "high": 371.4,
+    "low": 367,
+    "close": 368.15,
+    "volume": 21285,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517659145
+  },
+  "24398_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1888,
+    "high": 1900,
+    "low": 1874.7,
+    "close": 1890.6,
+    "volume": 24039,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517659592
+  },
+  "759728_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 327,
+    "high": 330.9,
+    "low": 325.4,
+    "close": 325.9,
+    "volume": 164527,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517660040
+  },
+  "18822_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2757,
+    "high": 2768.2,
+    "low": 2741.8,
+    "close": 2745,
+    "volume": 3650,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517660686
+  },
+  "4907_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 282.4,
+    "high": 284.5,
+    "low": 280.8,
+    "close": 283.1,
+    "volume": 598556,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517661135
+  },
+  "756871_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3160,
+    "high": 3186.8,
+    "low": 3126.5,
+    "close": 3136.7,
+    "volume": 43122,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517661583
+  },
+  "22717_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1848,
+    "high": 1868.9,
+    "low": 1840,
+    "close": 1851.2,
+    "volume": 18357,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517662032
+  },
+  "981_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 246.55,
+    "high": 247.35,
+    "low": 244.6,
+    "close": 246.6,
+    "volume": 194637,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517662482
+  },
+  "21154_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1301,
+    "high": 1324.3,
+    "low": 1301,
+    "close": 1310.1,
+    "volume": 1274,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517662947
+  },
+  "958_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2993,
+    "high": 2998,
+    "low": 2975.8,
+    "close": 2988.7,
+    "volume": 4119,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517663402
+  },
+  "5097_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 325.3,
+    "high": 327.5,
+    "low": 325.3,
+    "close": 325.55,
+    "volume": 1130024,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517663850
+  },
+  "9750_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2794,
+    "high": 2844,
+    "low": 2794,
+    "close": 2814.3,
+    "volume": 972,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517664312
+  },
+  "25162_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 430,
+    "high": 430,
+    "low": 423.75,
+    "close": 424,
+    "volume": 3564,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517664765
+  },
+  "676_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 423.9,
+    "high": 425.9,
+    "low": 420.1,
+    "close": 421.1,
+    "volume": 124436,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517665416
+  },
+  "1008_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 803.05,
+    "high": 808.4,
+    "low": 803.05,
+    "close": 805.3,
+    "volume": 9338,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517665866
+  },
+  "1023_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 344.9,
+    "high": 344.9,
+    "low": 342.2,
+    "close": 342.6,
+    "volume": 276810,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517666313
+  },
+  "13710_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2050,
+    "high": 2054.7,
+    "low": 2044,
+    "close": 2048.9,
+    "volume": 2900,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517666765
+  },
+  "1038_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1223.5,
+    "high": 1250.6,
+    "low": 1211,
+    "close": 1240.6,
+    "volume": 378988,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517667216
+  },
+  "12032_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 538,
+    "high": 538,
+    "low": 524.1,
+    "close": 524.4,
+    "volume": 65944,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517667666
+  },
+  "14592_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 914,
+    "high": 916.55,
+    "low": 908.85,
+    "close": 909.5,
+    "volume": 37096,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517668115
+  },
+  "14304_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 265.6,
+    "high": 273.85,
+    "low": 265.6,
+    "close": 269.6,
+    "volume": 278652,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517668563
+  },
+  "1085_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1349,
+    "high": 1368,
+    "low": 1341.3,
+    "close": 1347.9,
+    "volume": 16453,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517669011
+  },
+  "13337_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 585,
+    "high": 597.45,
+    "low": 573.85,
+    "close": 584,
+    "volume": 132567,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517672569
+  },
+  "13776_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1360.4,
+    "high": 1362.2,
+    "low": 1343,
+    "close": 1343,
+    "volume": 78031,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517673218
+  },
+  "1127_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 442.5,
+    "high": 442.5,
+    "low": 436.15,
+    "close": 440.1,
+    "volume": 13194,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517673667
+  },
+  "277_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 343.65,
+    "high": 344.8,
+    "low": 341.6,
+    "close": 342.35,
+    "volume": 189553,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517674113
+  },
+  "1186_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2915,
+    "high": 2940.3,
+    "low": 2851.1,
+    "close": 2879.1,
+    "volume": 1210915,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517674561
+  },
+  "1153_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2938.9,
+    "high": 2972.8,
+    "low": 2938.9,
+    "close": 2940,
+    "volume": 11651,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517675010
+  },
+  "7406_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2454.5,
+    "high": 2454.5,
+    "low": 2422.7,
+    "close": 2425.7,
+    "volume": 29646,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517675464
+  },
+  "5204_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 566.2,
+    "high": 570.75,
+    "low": 566.2,
+    "close": 566.4,
+    "volume": 59353,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517675911
+  },
+  "1570_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1073.5,
+    "high": 1105.4,
+    "low": 1073.5,
+    "close": 1100.9,
+    "volume": 20856,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517676359
+  },
+  "1174_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 588.9,
+    "high": 599,
+    "low": 587.85,
+    "close": 592.95,
+    "volume": 141154,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517676806
+  },
+  "1181_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2045,
+    "high": 2061.6,
+    "low": 2044.9,
+    "close": 2054.1,
+    "volume": 14203,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517677259
+  },
+  "23799_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 256.4,
+    "high": 259.4,
+    "low": 256.4,
+    "close": 258.3,
+    "volume": 3848,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517677908
+  },
+  "144_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 657,
+    "high": 665.5,
+    "low": 657,
+    "close": 659.1,
+    "volume": 29102,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517678355
+  },
+  "10099_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 878.65,
+    "high": 878.65,
+    "low": 869.3,
+    "close": 870.2,
+    "volume": 114851,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517681917
+  },
+  "10925_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1157.8,
+    "high": 1170.7,
+    "low": 1152,
+    "close": 1157.9,
+    "volume": 6091,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517682365
+  },
+  "17875_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2000,
+    "high": 2018,
+    "low": 1995.9,
+    "close": 2010.7,
+    "volume": 21172,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517682820
+  },
+  "11778_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 768.5,
+    "high": 778,
+    "low": 768.5,
+    "close": 775.55,
+    "volume": 9650,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517683274
+  },
+  "14480_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 234.1,
+    "high": 236.38,
+    "low": 234,
+    "close": 236.38,
+    "volume": 30050,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517683729
+  },
+  "13409_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 239.9,
+    "high": 242.99,
+    "low": 239.9,
+    "close": 242.86,
+    "volume": 98040,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517684178
+  },
+  "11872_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 853,
+    "high": 853,
+    "low": 840.3,
+    "close": 841,
+    "volume": 61207,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517684626
+  },
+  "592_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 721.8,
+    "high": 728.05,
+    "low": 716.7,
+    "close": 727.35,
+    "volume": 93204,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517685075
+  },
+  "1232_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3318.9,
+    "high": 3318.9,
+    "low": 3268.1,
+    "close": 3295,
+    "volume": 60163,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517685724
+  },
+  "20534_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1684.8,
+    "high": 1696.6,
+    "low": 1670,
+    "close": 1680.5,
+    "volume": 32580,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517686174
+  },
+  "13560_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1982.5,
+    "high": 1995,
+    "low": 1971.4,
+    "close": 1973.7,
+    "volume": 706,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517686624
+  },
+  "5475_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2517.9,
+    "high": 2541.3,
+    "low": 2517.9,
+    "close": 2537.5,
+    "volume": 37227,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517687073
+  },
+  "48_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 355,
+    "high": 358,
+    "low": 353.45,
+    "close": 357.15,
+    "volume": 189366,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517687521
+  },
+  "9819_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1178,
+    "high": 1178,
+    "low": 1159.2,
+    "close": 1163.5,
+    "volume": 468276,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517687971
+  },
+  "13966_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 668.5,
+    "high": 706.45,
+    "low": 667,
+    "close": 702.5,
+    "volume": 1083923,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517688418
+  },
+  "15555_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 707.8,
+    "high": 707.8,
+    "low": 701.4,
+    "close": 703.95,
+    "volume": 3348,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517688864
+  },
+  "7229_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1324.9,
+    "high": 1331.4,
+    "low": 1316.7,
+    "close": 1319.7,
+    "volume": 240541,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517689317
+  },
+  "757772_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 693.45,
+    "high": 705,
+    "low": 690.95,
+    "close": 701.65,
+    "volume": 93439,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517689766
+  },
+  "4244_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2511.3,
+    "high": 2517.8,
+    "low": 2492,
+    "close": 2495.6,
+    "volume": 62429,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517690415
+  },
+  "1333_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 708.35,
+    "high": 711.85,
+    "low": 708.35,
+    "close": 710.05,
+    "volume": 1079910,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517690863
+  },
+  "467_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 533.7,
+    "high": 540.7,
+    "low": 533.3,
+    "close": 536.55,
+    "volume": 420043,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517691312
+  },
+  "1336_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 709,
+    "high": 712.9,
+    "low": 703.8,
+    "close": 712.4,
+    "volume": 104902,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517691756
+  },
+  "4598_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 373.4,
+    "high": 377.4,
+    "low": 370.8,
+    "close": 372.3,
+    "volume": 49879,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517692205
+  },
+  "29666_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 531.7,
+    "high": 541,
+    "low": 531.7,
+    "close": 538.05,
+    "volume": 20173,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517692654
+  },
+  "21951_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 226,
+    "high": 231.44,
+    "low": 225,
+    "close": 231.44,
+    "volume": 3356509,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517693103
+  },
+  "1672_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 479.35,
+    "high": 482.4,
+    "low": 475,
+    "close": 481.75,
+    "volume": 1811,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517693552
+  },
+  "1363_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1012.9,
+    "high": 1016.5,
+    "low": 1005.1,
+    "close": 1007.1,
+    "volume": 179372,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517694003
+  },
+  "17939_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 522.15,
+    "high": 523.95,
+    "low": 519.1,
+    "close": 519.8,
+    "volume": 497474,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517694452
+  },
+  "1406_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 359.9,
+    "high": 360.05,
+    "low": 355.55,
+    "close": 356.1,
+    "volume": 461086,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517695099
+  },
+  "1394_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1967,
+    "high": 1970,
+    "low": 1956,
+    "close": 1956.7,
+    "volume": 78462,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517695549
+  },
+  "1424_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 598,
+    "high": 598,
+    "low": 592,
+    "close": 593.75,
+    "volume": 345916,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517695997
+  },
+  "2056_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1201.4,
+    "high": 1213.9,
+    "low": 1196,
+    "close": 1204.6,
+    "volume": 5310,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517696449
+  },
+  "19813_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 480.25,
+    "high": 492.6,
+    "low": 479.7,
+    "close": 480.6,
+    "volume": 309458,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517696901
+  },
+  "14334_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 664.4,
+    "high": 666,
+    "low": 660.75,
+    "close": 665.3,
+    "volume": 355578,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517697351
+  },
+  "25844_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2152,
+    "high": 2162.2,
+    "low": 2150.7,
+    "close": 2157.6,
+    "volume": 25685,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517697801
+  },
+  "760407_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2990,
+    "high": 2995.9,
+    "low": 2972.4,
+    "close": 2985.1,
+    "volume": 12200,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517698248
+  },
+  "4963_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1432.1,
+    "high": 1435.4,
+    "low": 1425.5,
+    "close": 1426.5,
+    "volume": 435777,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517698697
+  },
+  "21770_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1521.7,
+    "high": 1521.9,
+    "low": 1510,
+    "close": 1515.2,
+    "volume": 43617,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517699148
+  },
+  "18652_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 495.05,
+    "high": 497,
+    "low": 492.1,
+    "close": 494.5,
+    "volume": 60376,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517699799
+  },
+  "11987_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 440.1,
+    "high": 443.35,
+    "low": 437.25,
+    "close": 437.45,
+    "volume": 19915,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517700248
+  },
+  "1485_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1317.2,
+    "high": 1317.2,
+    "low": 1309.1,
+    "close": 1312,
+    "volume": 278,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517700702
+  },
+  "28378_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 330,
+    "high": 330.95,
+    "low": 326.15,
+    "close": 326.55,
+    "volume": 12300,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517701152
+  },
+  "11809_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 645.7,
+    "high": 648.9,
+    "low": 640.4,
+    "close": 642.5,
+    "volume": 146516,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517701602
+  },
+  "13072_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 337.4,
+    "high": 341.95,
+    "low": 337.4,
+    "close": 341,
+    "volume": 10431,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517702050
+  },
+  "28125_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1728.5,
+    "high": 1748.8,
+    "low": 1728.5,
+    "close": 1742.4,
+    "volume": 1504,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517702503
+  },
+  "19235_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1293,
+    "high": 1305.9,
+    "low": 1291.3,
+    "close": 1292.7,
+    "volume": 6645,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517702969
+  },
+  "23693_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 603.15,
+    "high": 607.7,
+    "low": 602.3,
+    "close": 606.2,
+    "volume": 66970,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517703421
+  },
+  "1512_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 730,
+    "high": 732.95,
+    "low": 728.3,
+    "close": 728.7,
+    "volume": 56673,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517703871
+  },
+  "1515_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 358.8,
+    "high": 360.95,
+    "low": 358.15,
+    "close": 359.45,
+    "volume": 3458,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517704521
+  },
+  "1521_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 260.4,
+    "high": 260.4,
+    "low": 260.4,
+    "close": 260.4,
+    "volume": 17306,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517708079
+  },
+  "10726_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1730,
+    "high": 1745,
+    "low": 1730,
+    "close": 1734,
+    "volume": 1451,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517708528
+  },
+  "14309_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 883.05,
+    "high": 889.95,
+    "low": 882.15,
+    "close": 883.1,
+    "volume": 47640,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517708976
+  },
+  "20556_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 669.05,
+    "high": 680,
+    "low": 669.05,
+    "close": 674.7,
+    "volume": 15717,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517709425
+  },
+  "2048_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1183.1,
+    "high": 1191.8,
+    "low": 1170,
+    "close": 1180.1,
+    "volume": 8508,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517709873
+  },
+  "5258_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1004.8,
+    "high": 1004.8,
+    "low": 999,
+    "close": 999.9,
+    "volume": 100327,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517710322
+  },
+  "29135_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 375,
+    "high": 376.35,
+    "low": 374.15,
+    "close": 376.15,
+    "volume": 91365,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517710770
+  },
+  "1594_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1133,
+    "high": 1146.7,
+    "low": 1133,
+    "close": 1142.3,
+    "volume": 502709,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517711217
+  },
+  "20607_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2223,
+    "high": 2299,
+    "low": 2208,
+    "close": 2256.5,
+    "volume": 252332,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517711666
+  },
+  "5926_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 680.3,
+    "high": 695.95,
+    "low": 680.3,
+    "close": 692.6,
+    "volume": 69625,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517712314
+  },
+  "1630_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 384.1,
+    "high": 392.55,
+    "low": 382.55,
+    "close": 392.1,
+    "volume": 40800,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517712763
+  },
+  "1633_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1950,
+    "high": 1965.4,
+    "low": 1944.2,
+    "close": 1944.8,
+    "volume": 4925,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517713210
+  },
+  "13611_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 474.8,
+    "high": 476.85,
+    "low": 474.05,
+    "close": 476.15,
+    "volume": 34454,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517713658
+  },
+  "1660_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 264,
+    "high": 264,
+    "low": 262.65,
+    "close": 263.5,
+    "volume": 507033,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517714107
+  },
+  "1675_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 268.5,
+    "high": 271.7,
+    "low": 268.5,
+    "close": 270.7,
+    "volume": 15626,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517714558
+  },
+  "759244_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 280.55,
+    "high": 282.3,
+    "low": 277.85,
+    "close": 278.45,
+    "volume": 88169,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517715005
+  },
+  "11655_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 629.5,
+    "high": 633.75,
+    "low": 629.2,
+    "close": 630.5,
+    "volume": 18953,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517715455
+  },
+  "3024_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 312,
+    "high": 312,
+    "low": 308.45,
+    "close": 309.1,
+    "volume": 114649,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517715904
+  },
+  "6733_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1147,
+    "high": 1150.3,
+    "low": 1143,
+    "close": 1143.5,
+    "volume": 29533,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517716354
+  },
+  "18143_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 237.8,
+    "high": 239.67,
+    "low": 237.8,
+    "close": 239.39,
+    "volume": 861749,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517717005
+  },
+  "13491_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 519,
+    "high": 519,
+    "low": 515,
+    "close": 516,
+    "volume": 1936,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517717457
+  },
+  "11860_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 412,
+    "high": 413.75,
+    "low": 406.1,
+    "close": 407,
+    "volume": 60175,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517717909
+  },
+  "14435_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 368.9,
+    "high": 371.9,
+    "low": 367.85,
+    "close": 369.45,
+    "volume": 58878,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517718358
+  },
+  "18553_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 293.35,
+    "high": 293.35,
+    "low": 289.55,
+    "close": 291.4,
+    "volume": 1284,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517718808
+  },
+  "22663_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 534.2,
+    "high": 535,
+    "low": 524.55,
+    "close": 528.95,
+    "volume": 50581,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517719258
+  },
+  "11236_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 738.4,
+    "high": 741.25,
+    "low": 735.6,
+    "close": 737.2,
+    "volume": 21660,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517719709
+  },
+  "758115_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 504.4,
+    "high": 506.4,
+    "low": 503.6,
+    "close": 505.1,
+    "volume": 20767,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517720161
+  },
+  "1467_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3167.6,
+    "high": 3187.5,
+    "low": 3167.4,
+    "close": 3174.1,
+    "volume": 860,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517720610
+  },
+  "17869_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 537.55,
+    "high": 539.2,
+    "low": 536.55,
+    "close": 537.5,
+    "volume": 35249,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517721061
+  },
+  "19020_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 334.1,
+    "high": 337.8,
+    "low": 333.6,
+    "close": 334.25,
+    "volume": 85585,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517721710
+  },
+  "11723_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1305,
+    "high": 1312,
+    "low": 1302.6,
+    "close": 1303.2,
+    "volume": 28473,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517722159
+  },
+  "18096_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 482.9,
+    "high": 485.5,
+    "low": 482.75,
+    "close": 484,
+    "volume": 19026,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517722610
+  },
+  "2783_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 694,
+    "high": 697.35,
+    "low": 689.2,
+    "close": 689.75,
+    "volume": 9124,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517723070
+  },
+  "3637_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 919,
+    "high": 927.1,
+    "low": 911.35,
+    "close": 916.25,
+    "volume": 52882,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517723521
+  },
+  "29962_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 697.2,
+    "high": 697.2,
+    "low": 688.1,
+    "close": 690.1,
+    "volume": 18522,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517723973
+  },
+  "20224_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 240.71,
+    "high": 244,
+    "low": 240.71,
+    "close": 242.31,
+    "volume": 68812,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517724424
+  },
+  "15146_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 201,
+    "high": 203.55,
+    "low": 201,
+    "close": 201.77,
+    "volume": 64558,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517724871
+  },
+  "21334_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1026.85,
+    "high": 1043,
+    "low": 1021.65,
+    "close": 1033.95,
+    "volume": 182776,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517725319
+  },
+  "1808_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1260.6,
+    "high": 1262,
+    "low": 1248.1,
+    "close": 1254.7,
+    "volume": 16886,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517725769
+  },
+  "2955_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 588.2,
+    "high": 596.2,
+    "low": 585.3,
+    "close": 595.4,
+    "volume": 904549,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517726419
+  },
+  "1838_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 354,
+    "high": 354,
+    "low": 348.35,
+    "close": 348.7,
+    "volume": 80592,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517726875
+  },
+  "12092_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3487.8,
+    "high": 3510,
+    "low": 3461,
+    "close": 3481.4,
+    "volume": 96297,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517727323
+  },
+  "13260_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 406.15,
+    "high": 409.75,
+    "low": 404.65,
+    "close": 406.6,
+    "volume": 68515,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517727771
+  },
+  "13359_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 933,
+    "high": 947.15,
+    "low": 932.6,
+    "close": 942.6,
+    "volume": 118699,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517728219
+  },
+  "4847_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 769.95,
+    "high": 770.75,
+    "low": 760.85,
+    "close": 764.35,
+    "volume": 11739,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517728672
+  },
+  "18581_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1885.9,
+    "high": 1894.7,
+    "low": 1873,
+    "close": 1892.3,
+    "volume": 639,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517729120
+  },
+  "20936_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2270,
+    "high": 2279,
+    "low": 2227,
+    "close": 2238,
+    "volume": 52431,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517729568
+  },
+  "15180_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 771,
+    "high": 772.8,
+    "low": 760,
+    "close": 761.75,
+    "volume": 18621,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517730015
+  },
+  "1922_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 421.65,
+    "high": 424.25,
+    "low": 421.65,
+    "close": 423,
+    "volume": 534646,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517730463
+  },
+  "5108_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 303.3,
+    "high": 306.5,
+    "low": 303.3,
+    "close": 304.75,
+    "volume": 31734,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517731113
+  },
+  "1814_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1421.1,
+    "high": 1449,
+    "low": 1418.1,
+    "close": 1442.5,
+    "volume": 29751,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517731563
+  },
+  "9683_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 584,
+    "high": 593.6,
+    "low": 584,
+    "close": 588.25,
+    "volume": 111264,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517732012
+  },
+  "14912_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1179.7,
+    "high": 1185.4,
+    "low": 1168.1,
+    "close": 1173,
+    "volume": 10100,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517732465
+  },
+  "10577_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 425.5,
+    "high": 429.65,
+    "low": 424.5,
+    "close": 424.85,
+    "volume": 28948,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517732915
+  },
+  "25643_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1540.9,
+    "high": 1576.9,
+    "low": 1521.2,
+    "close": 1575,
+    "volume": 54851,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517733363
+  },
+  "1949_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 815.3,
+    "high": 815.45,
+    "low": 809.15,
+    "close": 814.15,
+    "volume": 6780,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517733813
+  },
+  "14972_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 748.5,
+    "high": 750.95,
+    "low": 746,
+    "close": 748.2,
+    "volume": 2533,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517734262
+  },
+  "8054_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 341,
+    "high": 341.65,
+    "low": 338.25,
+    "close": 339.3,
+    "volume": 109476,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517734713
+  },
+  "11654_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1920.5,
+    "high": 1925.2,
+    "low": 1855.7,
+    "close": 1862.4,
+    "volume": 42344,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517735161
+  },
+  "6818_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 267,
+    "high": 270.8,
+    "low": 266.95,
+    "close": 270.15,
+    "volume": 52890,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517735813
+  },
+  "19234_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1855,
+    "high": 1871.8,
+    "low": 1853.4,
+    "close": 1854,
+    "volume": 106122,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517736262
+  },
+  "759605_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 672.55,
+    "high": 694,
+    "low": 672.55,
+    "close": 691.55,
+    "volume": 1683473,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517739826
+  },
+  "760213_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1661.2,
+    "high": 1672.6,
+    "low": 1652,
+    "close": 1654,
+    "volume": 11180,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517740279
+  },
+  "1997_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 554,
+    "high": 563.05,
+    "low": 554,
+    "close": 562.85,
+    "volume": 675963,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517740727
+  },
+  "9480_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 416.85,
+    "high": 418.95,
+    "low": 416.05,
+    "close": 416.25,
+    "volume": 339146,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517741181
+  },
+  "17313_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1848.7,
+    "high": 1850.6,
+    "low": 1837.1,
+    "close": 1846.9,
+    "volume": 12539,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517741638
+  },
+  "3220_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1225,
+    "high": 1232.8,
+    "low": 1218.2,
+    "close": 1225.2,
+    "volume": 106324,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517742087
+  },
+  "11483_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3981,
+    "high": 3990,
+    "low": 3966.6,
+    "close": 3985.9,
+    "volume": 171633,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517742543
+  },
+  "24948_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 317,
+    "high": 320.5,
+    "low": 317,
+    "close": 319.35,
+    "volume": 441454,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517742996
+  },
+  "13816_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 442.45,
+    "high": 443.8,
+    "low": 440.15,
+    "close": 440.8,
+    "volume": 11220,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517743654
+  },
+  "18564_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3520,
+    "high": 3535.8,
+    "low": 3504.5,
+    "close": 3516.1,
+    "volume": 4016,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517744105
+  },
+  "14014_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1995.2,
+    "high": 2010,
+    "low": 1978,
+    "close": 1979.8,
+    "volume": 6374,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517744566
+  },
+  "10440_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2140.1,
+    "high": 2148,
+    "low": 2123,
+    "close": 2123,
+    "volume": 60131,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517745012
+  },
+  "2031_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3158.7,
+    "high": 3160,
+    "low": 3144.2,
+    "close": 3155.8,
+    "volume": 78101,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517745466
+  },
+  "13285_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 379,
+    "high": 380.55,
+    "low": 375.15,
+    "close": 376.55,
+    "volume": 94142,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517745917
+  },
+  "2088_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 654.75,
+    "high": 659.1,
+    "low": 651.65,
+    "close": 653.25,
+    "volume": 20815,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517746366
+  },
+  "19061_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 345.05,
+    "high": 345.2,
+    "low": 341.25,
+    "close": 342.25,
+    "volume": 376399,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517746820
+  },
+  "15380_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2366.5,
+    "high": 2390,
+    "low": 2356.6,
+    "close": 2359.7,
+    "volume": 5261,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517747270
+  },
+  "10227_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1984,
+    "high": 1995,
+    "low": 1957.7,
+    "close": 1980.3,
+    "volume": 48189,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517747720
+  },
+  "8167_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 567.9,
+    "high": 567.9,
+    "low": 563,
+    "close": 567.65,
+    "volume": 15754,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517748371
+  },
+  "7227_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 975,
+    "high": 982.9,
+    "low": 969.9,
+    "close": 976.8,
+    "volume": 15223,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517748821
+  },
+  "4067_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 824.05,
+    "high": 824.05,
+    "low": 818.5,
+    "close": 819.5,
+    "volume": 93274,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517749269
+  },
+  "10579_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 333,
+    "high": 333.3,
+    "low": 326.2,
+    "close": 329.25,
+    "volume": 235608,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517749718
+  },
+  "2124_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1815,
+    "high": 1831.9,
+    "low": 1788.1,
+    "close": 1792.5,
+    "volume": 11493,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517750165
+  },
+  "22377_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 994.9,
+    "high": 1001.3,
+    "low": 990.6,
+    "close": 993.4,
+    "volume": 59083,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517750616
+  },
+  "509_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2489,
+    "high": 2504.9,
+    "low": 2488.1,
+    "close": 2498.1,
+    "volume": 44406,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517751065
+  },
+  "31181_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3187.8,
+    "high": 3206,
+    "low": 3165.6,
+    "close": 3195.5,
+    "volume": 201472,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517751514
+  },
+  "11956_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1424.3,
+    "high": 1446.7,
+    "low": 1424.3,
+    "close": 1428.5,
+    "volume": 7340,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517751963
+  },
+  "7254_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 660.65,
+    "high": 668.85,
+    "low": 658,
+    "close": 658.1,
+    "volume": 3282,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517752416
+  },
+  "760229_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 209.74,
+    "high": 214.38,
+    "low": 209.7,
+    "close": 213.64,
+    "volume": 4940833,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517753067
+  },
+  "9581_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 593.4,
+    "high": 593.4,
+    "low": 586.7,
+    "close": 588.35,
+    "volume": 5317,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517753517
+  },
+  "2142_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1537,
+    "high": 1547.2,
+    "low": 1531.4,
+    "close": 1538.2,
+    "volume": 8682,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517753965
+  },
+  "17534_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1067,
+    "high": 1093,
+    "low": 1067,
+    "close": 1081.2,
+    "volume": 24512,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517754415
+  },
+  "2463_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 417,
+    "high": 419.95,
+    "low": 417,
+    "close": 418.5,
+    "volume": 23496,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517754863
+  },
+  "25897_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 709.75,
+    "high": 709.8,
+    "low": 701.1,
+    "close": 703.2,
+    "volume": 10224,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517755311
+  },
+  "20830_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 252.7,
+    "high": 252.89,
+    "low": 251.24,
+    "close": 252.02,
+    "volume": 39245,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517755764
+  },
+  "14947_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1023,
+    "high": 1037.5,
+    "low": 1022.8,
+    "close": 1029.4,
+    "volume": 138889,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517756212
+  },
+  "4503_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2482,
+    "high": 2502.7,
+    "low": 2471.3,
+    "close": 2482.3,
+    "volume": 14297,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517756660
+  },
+  "9356_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 746.55,
+    "high": 748.9,
+    "low": 741.6,
+    "close": 742,
+    "volume": 27705,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517757109
+  },
+  "23650_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2971,
+    "high": 2979.9,
+    "low": 2956.5,
+    "close": 2959.1,
+    "volume": 83388,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517757761
+  },
+  "357_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1160,
+    "high": 1178,
+    "low": 1160,
+    "close": 1176.3,
+    "volume": 106883,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517758226
+  },
+  "3918_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 839,
+    "high": 841.8,
+    "low": 834.35,
+    "close": 837.6,
+    "volume": 25070,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517758674
+  },
+  "6364_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 376,
+    "high": 377.35,
+    "low": 375.2,
+    "close": 375.6,
+    "volume": 379327,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517759121
+  },
+  "13751_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1330.5,
+    "high": 1349.5,
+    "low": 1330.5,
+    "close": 1342,
+    "volume": 37550,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517759570
+  },
+  "4014_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 558.5,
+    "high": 561.65,
+    "low": 556.5,
+    "close": 560.2,
+    "volume": 21449,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517760019
+  },
+  "2987_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 366.8,
+    "high": 368.3,
+    "low": 366.5,
+    "close": 366.65,
+    "volume": 37540,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517760469
+  },
+  "9917_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2149,
+    "high": 2171.9,
+    "low": 2126.4,
+    "close": 2143.9,
+    "volume": 12794,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517760920
+  },
+  "15409_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1039.5,
+    "high": 1051.9,
+    "low": 1039.5,
+    "close": 1046.3,
+    "volume": 459,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517761369
+  },
+  "17963_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1415,
+    "high": 1415,
+    "low": 1402.5,
+    "close": 1407.3,
+    "volume": 57509,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517761817
+  },
+  "1164_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 522,
+    "high": 536,
+    "low": 522,
+    "close": 530.3,
+    "volume": 389706,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517762483
+  },
+  "11840_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1881,
+    "high": 1898.8,
+    "low": 1875.9,
+    "close": 1893.7,
+    "volume": 10546,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517762936
+  },
+  "399_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 196.49,
+    "high": 201.49,
+    "low": 196.49,
+    "close": 199.7,
+    "volume": 800768,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517763387
+  },
+  "8585_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 277,
+    "high": 277.1,
+    "low": 274.6,
+    "close": 274.65,
+    "volume": 56775,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517763841
+  },
+  "11630_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 332.75,
+    "high": 332.75,
+    "low": 329.95,
+    "close": 330.2,
+    "volume": 240059,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517764296
+  },
+  "18721_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1856,
+    "high": 1862.8,
+    "low": 1847.2,
+    "close": 1856.6,
+    "volume": 28410,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517764750
+  },
+  "5426_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 336.65,
+    "high": 341.4,
+    "low": 336.45,
+    "close": 339.6,
+    "volume": 50461,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517765202
+  },
+  "6545_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 332.15,
+    "high": 334.55,
+    "low": 332.15,
+    "close": 333.25,
+    "volume": 97493,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517765654
+  },
+  "20242_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1914,
+    "high": 1923,
+    "low": 1904.4,
+    "close": 1916.8,
+    "volume": 62056,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517766103
+  },
+  "17438_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 492,
+    "high": 492.55,
+    "low": 486.5,
+    "close": 487.9,
+    "volume": 87584,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517766553
+  },
+  "10637_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1247,
+    "high": 1260.7,
+    "low": 1247,
+    "close": 1255.9,
+    "volume": 17530,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517767203
+  },
+  "29224_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1585,
+    "high": 1596.3,
+    "low": 1563.1,
+    "close": 1572.5,
+    "volume": 9133,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517767655
+  },
+  "2475_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 235.44,
+    "high": 235.44,
+    "low": 233.65,
+    "close": 234.04,
+    "volume": 391134,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517768104
+  },
+  "21469_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 569.1,
+    "high": 579.25,
+    "low": 567.3,
+    "close": 574.4,
+    "volume": 10000,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517768554
+  },
+  "759569_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 585.1,
+    "high": 589.9,
+    "low": 585.1,
+    "close": 585.65,
+    "volume": 832,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517769022
+  },
+  "756802_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 282.85,
+    "high": 286,
+    "low": 281.05,
+    "close": 284.7,
+    "volume": 67965,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517769470
+  },
+  "5911_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1415.8,
+    "high": 1433.9,
+    "low": 1415,
+    "close": 1428.1,
+    "volume": 93450,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517769919
+  },
+  "760351_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 289,
+    "high": 289.35,
+    "low": 287.25,
+    "close": 288.75,
+    "volume": 22046,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517770373
+  },
+  "17029_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 345,
+    "high": 345.15,
+    "low": 342.05,
+    "close": 344.25,
+    "volume": 118108,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517770821
+  },
+  "6705_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1635.2,
+    "high": 1645.2,
+    "low": 1626.6,
+    "close": 1637.5,
+    "volume": 122681,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517771270
+  },
+  "2649_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 315.7,
+    "high": 317.9,
+    "low": 315.7,
+    "close": 317.35,
+    "volume": 32493,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517771933
+  },
+  "11351_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 290.25,
+    "high": 291.5,
+    "low": 290,
+    "close": 290.05,
+    "volume": 58907,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517772380
+  },
+  "14299_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 344.9,
+    "high": 346.7,
+    "low": 344,
+    "close": 345.8,
+    "volume": 298788,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517772827
+  },
+  "13496_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 298.95,
+    "high": 304.9,
+    "low": 293.3,
+    "close": 295,
+    "volume": 172407,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517773276
+  },
+  "25358_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 554.9,
+    "high": 556.55,
+    "low": 554.1,
+    "close": 555.85,
+    "volume": 66866,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517773725
+  },
+  "14260_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2316.7,
+    "high": 2319.5,
+    "low": 2298.2,
+    "close": 2298.2,
+    "volume": 4501,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517774175
+  },
+  "14552_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1961.5,
+    "high": 1969.3,
+    "low": 1956.3,
+    "close": 1965.6,
+    "volume": 17648,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517774623
+  },
+  "757754_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 623.6,
+    "high": 629.8,
+    "low": 620.05,
+    "close": 622.9,
+    "volume": 14299,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517775074
+  },
+  "2664_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1635.2,
+    "high": 1638.3,
+    "low": 1632.1,
+    "close": 1632.6,
+    "volume": 21999,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517775524
+  },
+  "24184_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2415,
+    "high": 2427,
+    "low": 2410,
+    "close": 2423.7,
+    "volume": 6697,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517775972
+  },
+  "759551_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2221,
+    "high": 2249,
+    "low": 2201.6,
+    "close": 2229.9,
+    "volume": 6688,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517776622
+  },
+  "18908_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1141.1,
+    "high": 1163.5,
+    "low": 1141.1,
+    "close": 1162.4,
+    "volume": 20249,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517777073
+  },
+  "25312_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 589,
+    "high": 596.75,
+    "low": 586.7,
+    "close": 596.3,
+    "volume": 14748,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517777521
+  },
+  "6656_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1848.2,
+    "high": 1866.6,
+    "low": 1833.1,
+    "close": 1834.2,
+    "volume": 49817,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517777968
+  },
+  "25718_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1760,
+    "high": 1774.9,
+    "low": 1747,
+    "close": 1761.9,
+    "volume": 13102,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517778418
+  },
+  "11403_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 466.55,
+    "high": 472.35,
+    "low": 464,
+    "close": 470,
+    "volume": 60922,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517778872
+  },
+  "14977_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 266.9,
+    "high": 267.5,
+    "low": 265.7,
+    "close": 265.85,
+    "volume": 529179,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517779325
+  },
+  "10473_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2399.9,
+    "high": 2416,
+    "low": 2373.8,
+    "close": 2380,
+    "volume": 8833,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517779779
+  },
+  "11571_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 214.99,
+    "high": 217,
+    "low": 213.39,
+    "close": 213.81,
+    "volume": 393114,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517780240
+  },
+  "2705_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 339.95,
+    "high": 343.35,
+    "low": 339.95,
+    "close": 342.05,
+    "volume": 27761,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517780689
+  },
+  "25049_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1002.5,
+    "high": 1008.8,
+    "low": 1001.5,
+    "close": 1003,
+    "volume": 56409,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517781340
+  },
+  "20302_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1620.1,
+    "high": 1638.9,
+    "low": 1620.1,
+    "close": 1632,
+    "volume": 19987,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517781786
+  },
+  "19631_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 768.2,
+    "high": 772.6,
+    "low": 763.4,
+    "close": 764.85,
+    "volume": 14343,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517782239
+  },
+  "8825_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3410,
+    "high": 3410.6,
+    "low": 3352.7,
+    "close": 3369,
+    "volume": 1272,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517782688
+  },
+  "9553_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3328.4,
+    "high": 3339.8,
+    "low": 3261,
+    "close": 3269.1,
+    "volume": 1645,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517783147
+  },
+  "14922_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 215,
+    "high": 235,
+    "low": 215,
+    "close": 234.64,
+    "volume": 1359568,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517783597
+  },
+  "13147_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1216,
+    "high": 1230,
+    "low": 1215,
+    "close": 1221.7,
+    "volume": 36782,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517784047
+  },
+  "29711_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1435,
+    "high": 1475,
+    "low": 1431.2,
+    "close": 1463.8,
+    "volume": 51278,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517784498
+  },
+  "17704_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 367,
+    "high": 367,
+    "low": 349.85,
+    "close": 351.3,
+    "volume": 98250,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517784950
+  },
+  "2431_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 270.8,
+    "high": 273.25,
+    "low": 270,
+    "close": 271.9,
+    "volume": 26220,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517785404
+  },
+  "15337_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 212.6,
+    "high": 214.46,
+    "low": 210.1,
+    "close": 212.9,
+    "volume": 451429,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517786057
+  },
+  "9408_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1460,
+    "high": 1460,
+    "low": 1443.1,
+    "close": 1445.5,
+    "volume": 2929,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517786510
+  },
+  "2816_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 210,
+    "high": 210.83,
+    "low": 209.5,
+    "close": 210.3,
+    "volume": 13730,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517786964
+  },
+  "2043_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 882.6,
+    "high": 890,
+    "low": 873.8,
+    "close": 886.85,
+    "volume": 22105,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517787415
+  },
+  "7177_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 870,
+    "high": 888.45,
+    "low": 870,
+    "close": 880.05,
+    "volume": 19892,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517787864
+  },
+  "13451_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2661,
+    "high": 2683.8,
+    "low": 2660.2,
+    "close": 2660.2,
+    "volume": 2254,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517788319
+  },
+  "25073_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 647.95,
+    "high": 659,
+    "low": 647,
+    "close": 656.8,
+    "volume": 15184,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517788769
+  },
+  "18391_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 409,
+    "high": 410.9,
+    "low": 406.7,
+    "close": 409.7,
+    "volume": 792935,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517789220
+  },
+  "15355_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 313.6,
+    "high": 314.95,
+    "low": 313.2,
+    "close": 314.3,
+    "volume": 223766,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517789669
+  },
+  "14255_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 374.4,
+    "high": 378.8,
+    "low": 369.05,
+    "close": 369.6,
+    "volume": 839417,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517790117
+  },
+  "17764_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 279.05,
+    "high": 282.95,
+    "low": 279.05,
+    "close": 281.8,
+    "volume": 15182,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517790767
+  },
+  "24225_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 345.95,
+    "high": 346,
+    "low": 342.75,
+    "close": 344.05,
+    "volume": 2372,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517791218
+  },
+  "2885_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1304.1,
+    "high": 1322,
+    "low": 1304.1,
+    "close": 1314.9,
+    "volume": 873757,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517791666
+  },
+  "15068_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 251,
+    "high": 252,
+    "low": 249.09,
+    "close": 249.9,
+    "volume": 23860,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517792115
+  },
+  "31163_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 372.6,
+    "high": 372.6,
+    "low": 370.05,
+    "close": 370.5,
+    "volume": 9165,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517792562
+  },
+  "3761_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 214,
+    "high": 215.9,
+    "low": 214,
+    "close": 215.17,
+    "volume": 15030,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517793010
+  },
+  "11411_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 732.5,
+    "high": 732.5,
+    "low": 715.55,
+    "close": 717,
+    "volume": 74901,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517793460
+  },
+  "128_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 503.65,
+    "high": 507.75,
+    "low": 503.65,
+    "close": 505.4,
+    "volume": 5245,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517793906
+  },
+  "18566_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2550,
+    "high": 2609,
+    "low": 2489.6,
+    "close": 2498.7,
+    "volume": 252983,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517794354
+  },
+  "759316_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1788.8,
+    "high": 1788.8,
+    "low": 1752.2,
+    "close": 1782.8,
+    "volume": 24589,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517794804
+  },
+  "9552_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 211,
+    "high": 213.47,
+    "low": 211,
+    "close": 211.55,
+    "volume": 1415208,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517795458
+  },
+  "759057_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 422.5,
+    "high": 428.4,
+    "low": 422.5,
+    "close": 423.8,
+    "volume": 4805,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517795908
+  },
+  "13035_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1509.5,
+    "high": 1530,
+    "low": 1508.3,
+    "close": 1517.9,
+    "volume": 899,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517796359
+  },
+  "27839_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1570,
+    "high": 1584,
+    "low": 1561.9,
+    "close": 1571.9,
+    "volume": 45896,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517796806
+  },
+  "5751_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3808.8,
+    "high": 3833.8,
+    "low": 3776.2,
+    "close": 3781.8,
+    "volume": 9634,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517797254
+  },
+  "6718_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 228.5,
+    "high": 232.05,
+    "low": 225.56,
+    "close": 228.74,
+    "volume": 188689,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517797704
+  },
+  "17758_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 510.05,
+    "high": 517.05,
+    "low": 507.65,
+    "close": 516.75,
+    "volume": 67779,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517798153
+  },
+  "4892_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 498.4,
+    "high": 498.4,
+    "low": 489.3,
+    "close": 490.95,
+    "volume": 14095,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517798602
+  },
+  "17971_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 661,
+    "high": 667.35,
+    "low": 660.9,
+    "close": 664.55,
+    "volume": 208857,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517799051
+  },
+  "21808_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1715,
+    "high": 1724,
+    "low": 1707.4,
+    "close": 1716.9,
+    "volume": 62349,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517799500
+  },
+  "3045_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1026,
+    "high": 1026.6,
+    "low": 1020.5,
+    "close": 1021.7,
+    "volume": 365645,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517800171
+  },
+  "1011_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3950,
+    "high": 3990.8,
+    "low": 3916.5,
+    "close": 3926.4,
+    "volume": 2803,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517800628
+  },
+  "31234_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1198,
+    "high": 1204.4,
+    "low": 1193.5,
+    "close": 1199.7,
+    "volume": 6888,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517801079
+  },
+  "3048_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 296.4,
+    "high": 300.25,
+    "low": 296,
+    "close": 297.5,
+    "volume": 460698,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517801538
+  },
+  "17271_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 349.85,
+    "high": 358.15,
+    "low": 349.85,
+    "close": 356.15,
+    "volume": 131239,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517801992
+  },
+  "19184_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 647,
+    "high": 648.3,
+    "low": 642.8,
+    "close": 646.95,
+    "volume": 2116,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517802451
+  },
+  "8727_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3265,
+    "high": 3289.2,
+    "low": 3255.5,
+    "close": 3266,
+    "volume": 5574,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517802912
+  },
+  "25574_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 475,
+    "high": 477.8,
+    "low": 472.55,
+    "close": 474.35,
+    "volume": 29460,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517803363
+  },
+  "4992_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 771.65,
+    "high": 776.85,
+    "low": 771.65,
+    "close": 773.75,
+    "volume": 4976,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517803814
+  },
+  "17752_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 956.15,
+    "high": 973.9,
+    "low": 946.2,
+    "close": 963.5,
+    "volume": 132018,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517804267
+  },
+  "4306_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1044.2,
+    "high": 1050.6,
+    "low": 1042.2,
+    "close": 1047.9,
+    "volume": 242782,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517808034
+  },
+  "4693_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1079.9,
+    "high": 1087.3,
+    "low": 1077.6,
+    "close": 1077.8,
+    "volume": 4456,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517808483
+  },
+  "3150_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 4042,
+    "high": 4042,
+    "low": 3993.4,
+    "close": 4008,
+    "volume": 9589,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517808935
+  },
+  "18743_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 795,
+    "high": 809.9,
+    "low": 795,
+    "close": 800.05,
+    "volume": 13236,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517809386
+  },
+  "3186_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1533,
+    "high": 1558.2,
+    "low": 1533,
+    "close": 1542.2,
+    "volume": 2063,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517809836
+  },
+  "760101_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3070,
+    "high": 3081.9,
+    "low": 3032.7,
+    "close": 3060.5,
+    "volume": 1352,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517810287
+  },
+  "9428_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 538.15,
+    "high": 548.25,
+    "low": 533.75,
+    "close": 542.5,
+    "volume": 184114,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517810736
+  },
+  "13631_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 742,
+    "high": 752.35,
+    "low": 737,
+    "close": 741.6,
+    "volume": 98565,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517811188
+  },
+  "757965_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 536.7,
+    "high": 545.45,
+    "low": 535.25,
+    "close": 542.75,
+    "volume": 4263,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517811638
+  },
+  "13826_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1273.3,
+    "high": 1276.6,
+    "low": 1260.6,
+    "close": 1271,
+    "volume": 4930,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517812089
+  },
+  "4684_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 800,
+    "high": 802.35,
+    "low": 796.65,
+    "close": 797.35,
+    "volume": 32778,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517815854
+  },
+  "9617_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 725,
+    "high": 730.45,
+    "low": 724.95,
+    "close": 728.9,
+    "volume": 4110,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517819859
+  },
+  "3273_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2631.1,
+    "high": 2631.1,
+    "low": 2532.2,
+    "close": 2550,
+    "volume": 59447,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517820309
+  },
+  "7374_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1053.1,
+    "high": 1061.4,
+    "low": 1040,
+    "close": 1057.3,
+    "volume": 30262,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517823872
+  },
+  "7083_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 562.2,
+    "high": 567.8,
+    "low": 559.35,
+    "close": 559.55,
+    "volume": 8095,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517827428
+  },
+  "9313_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 748.9,
+    "high": 748.9,
+    "low": 748.9,
+    "close": 748.9,
+    "volume": 102446,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517830989
+  },
+  "19_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2007.6,
+    "high": 2078,
+    "low": 2007.6,
+    "close": 2028,
+    "volume": 4012,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517834991
+  },
+  "3324_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 705.85,
+    "high": 711,
+    "low": 705.25,
+    "close": 709.95,
+    "volume": 876,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517835442
+  },
+  "3327_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1249,
+    "high": 1253.6,
+    "low": 1239,
+    "close": 1245,
+    "volume": 21631,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517836092
+  },
+  "760039_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1300.1,
+    "high": 1325.2,
+    "low": 1300,
+    "close": 1320,
+    "volume": 29751,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517839651
+  },
+  "17105_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 500,
+    "high": 503.7,
+    "low": 499.3,
+    "close": 500,
+    "volume": 10782,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517840102
+  },
+  "3351_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1912,
+    "high": 1917.3,
+    "low": 1906,
+    "close": 1906.4,
+    "volume": 35338,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517840551
+  },
+  "17641_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 297.5,
+    "high": 300.7,
+    "low": 297.5,
+    "close": 299.9,
+    "volume": 5312,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517840999
+  },
+  "13404_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 465.95,
+    "high": 482.7,
+    "low": 464.95,
+    "close": 478.45,
+    "volume": 266561,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517841450
+  },
+  "3363_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3509.9,
+    "high": 3526.4,
+    "low": 3502.1,
+    "close": 3510.3,
+    "volume": 13661,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517841901
+  },
+  "7390_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 838.55,
+    "high": 860.9,
+    "low": 838.55,
+    "close": 855.2,
+    "volume": 63012,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517845463
+  },
+  "3375_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 216.66,
+    "high": 220.03,
+    "low": 216.66,
+    "close": 218.8,
+    "volume": 25488,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517845911
+  },
+  "27095_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 283.5,
+    "high": 286.45,
+    "low": 283.5,
+    "close": 284.55,
+    "volume": 24404,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517846361
+  },
+  "27066_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 269.3,
+    "high": 275.4,
+    "low": 269.3,
+    "close": 273.75,
+    "volume": 4407922,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517847015
+  },
+  "10243_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 399.7,
+    "high": 403.15,
+    "low": 397.15,
+    "close": 397.35,
+    "volume": 30983,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517847464
+  },
+  "10793_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1455.2,
+    "high": 1470,
+    "low": 1452.5,
+    "close": 1466.6,
+    "volume": 131084,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517851024
+  },
+  "13976_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 515.45,
+    "high": 528.95,
+    "low": 515.45,
+    "close": 517.8,
+    "volume": 83811,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517854584
+  },
+  "15174_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 301.15,
+    "high": 302.75,
+    "low": 300.8,
+    "close": 302.15,
+    "volume": 44949,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517855035
+  },
+  "3405_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 630,
+    "high": 634.5,
+    "low": 625,
+    "close": 629,
+    "volume": 225136,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517859037
+  },
+  "3721_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1696.4,
+    "high": 1738,
+    "low": 1696.4,
+    "close": 1732,
+    "volume": 21983,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517859489
+  },
+  "3432_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1020,
+    "high": 1022.9,
+    "low": 1013.9,
+    "close": 1017.3,
+    "volume": 25885,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517859941
+  },
+  "3411_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3625,
+    "high": 3659.5,
+    "low": 3617.8,
+    "close": 3638.9,
+    "volume": 23859,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517860391
+  },
+  "1621_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 637.95,
+    "high": 644,
+    "low": 637.95,
+    "close": 642.9,
+    "volume": 25535,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517861042
+  },
+  "3426_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 365.1,
+    "high": 366.15,
+    "low": 364.2,
+    "close": 364.9,
+    "volume": 214583,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517861495
+  },
+  "20293_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 808.05,
+    "high": 830.95,
+    "low": 808.05,
+    "close": 824.1,
+    "volume": 263098,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517861947
+  },
+  "23740_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1733.7,
+    "high": 1734.9,
+    "low": 1714.7,
+    "close": 1727,
+    "volume": 3624,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517862415
+  },
+  "11536_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2330,
+    "high": 2363.9,
+    "low": 2330,
+    "close": 2340.5,
+    "volume": 336490,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517862865
+  },
+  "25178_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 723,
+    "high": 732.65,
+    "low": 717.95,
+    "close": 728.35,
+    "volume": 185092,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517863315
+  },
+  "13538_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1605.1,
+    "high": 1623.4,
+    "low": 1605,
+    "close": 1611.4,
+    "volume": 134353,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517863765
+  },
+  "7105_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1555.8,
+    "high": 1555.8,
+    "low": 1540.1,
+    "close": 1541.8,
+    "volume": 3189,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517867780
+  },
+  "21131_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 570,
+    "high": 593.35,
+    "low": 570,
+    "close": 592.05,
+    "volume": 1574301,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517868228
+  },
+  "759880_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 519.8,
+    "high": 519.8,
+    "low": 513.7,
+    "close": 516.95,
+    "volume": 41221,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517871989
+  },
+  "757014_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 564.45,
+    "high": 566.6,
+    "low": 560.05,
+    "close": 564.3,
+    "volume": 13401,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517875548
+  },
+  "3475_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3739,
+    "high": 3765.6,
+    "low": 3700.9,
+    "close": 3716.4,
+    "volume": 6816,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517875996
+  },
+  "17032_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 575.05,
+    "high": 578.65,
+    "low": 573.35,
+    "close": 577.65,
+    "volume": 10351,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517876447
+  },
+  "19196_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 540,
+    "high": 540.9,
+    "low": 520,
+    "close": 529.35,
+    "volume": 203437,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517876902
+  },
+  "312_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2727,
+    "high": 2727,
+    "low": 2697.6,
+    "close": 2702.9,
+    "volume": 16279,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517877353
+  },
+  "14198_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 3124.9,
+    "high": 3139.3,
+    "low": 3118.3,
+    "close": 3126,
+    "volume": 513,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517877810
+  },
+  "9117_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 651.9,
+    "high": 651.9,
+    "low": 642,
+    "close": 647.6,
+    "volume": 13619,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517878262
+  },
+  "15414_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 848,
+    "high": 857,
+    "low": 845,
+    "close": 850.95,
+    "volume": 62071,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517878712
+  },
+  "10945_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 949.95,
+    "high": 949.95,
+    "low": 929,
+    "close": 932.85,
+    "volume": 31511,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517879163
+  },
+  "759782_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 462.85,
+    "high": 468,
+    "low": 459.05,
+    "close": 467.8,
+    "volume": 844021,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517879814
+  },
+  "3456_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 312,
+    "high": 312.75,
+    "low": 310.65,
+    "close": 312.2,
+    "volume": 445455,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517880262
+  },
+  "28714_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 428.05,
+    "high": 432.55,
+    "low": 428.05,
+    "close": 431.15,
+    "volume": 27391,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517884276
+  },
+  "757545_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1278.4,
+    "high": 1278.4,
+    "low": 1270,
+    "close": 1274.4,
+    "volume": 808,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517887840
+  },
+  "1964_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2849,
+    "high": 2852.3,
+    "low": 2833.2,
+    "close": 2845.1,
+    "volume": 31374,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517888291
+  },
+  "25584_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 573.9,
+    "high": 582.65,
+    "low": 571.35,
+    "close": 578,
+    "volume": 44157,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517888739
+  },
+  "13081_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 281.9,
+    "high": 281.9,
+    "low": 279.2,
+    "close": 279.55,
+    "volume": 60932,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517889188
+  },
+  "2183_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 406.3,
+    "high": 407.8,
+    "low": 406,
+    "close": 407.15,
+    "volume": 334,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517889640
+  },
+  "16713_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1299,
+    "high": 1322,
+    "low": 1295.7,
+    "close": 1317.7,
+    "volume": 32874,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517890092
+  },
+  "10447_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1488.1,
+    "high": 1489.9,
+    "low": 1479.8,
+    "close": 1482.9,
+    "volume": 10027,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517890751
+  },
+  "14154_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1258,
+    "high": 1260.3,
+    "low": 1242,
+    "close": 1242.4,
+    "volume": 53171,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517894308
+  },
+  "11287_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 581.05,
+    "high": 583.8,
+    "low": 580.1,
+    "close": 580.65,
+    "volume": 48417,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517894758
+  },
+  "8840_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 518,
+    "high": 518.15,
+    "low": 511.65,
+    "close": 515.4,
+    "volume": 52990,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517895208
+  },
+  "527_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 880.35,
+    "high": 884.9,
+    "low": 877.6,
+    "close": 884.8,
+    "volume": 2538,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517895659
+  },
+  "759876_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 427.1,
+    "high": 430.55,
+    "low": 425.15,
+    "close": 427.5,
+    "volume": 15216,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517896106
+  },
+  "14766_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 219.94,
+    "high": 219.94,
+    "low": 218.1,
+    "close": 219.64,
+    "volume": 33170,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517899665
+  },
+  "11364_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 215.3,
+    "high": 217.3,
+    "low": 215.3,
+    "close": 217.25,
+    "volume": 14456,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517900115
+  },
+  "3857_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 842,
+    "high": 843.4,
+    "low": 829.4,
+    "close": 832.4,
+    "volume": 18050,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517900566
+  },
+  "18921_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 407.55,
+    "high": 409.75,
+    "low": 406.7,
+    "close": 408.65,
+    "volume": 360033,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517901017
+  },
+  "3063_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 272,
+    "high": 272,
+    "low": 270.05,
+    "close": 270.3,
+    "volume": 455246,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517901668
+  },
+  "15362_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 339.5,
+    "high": 339.5,
+    "low": 331,
+    "close": 332.3,
+    "volume": 74518,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517902118
+  },
+  "5585_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1511,
+    "high": 1521.6,
+    "low": 1493.1,
+    "close": 1499.5,
+    "volume": 4587,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517902573
+  },
+  "3703_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 309.8,
+    "high": 314,
+    "low": 309.6,
+    "close": 312.05,
+    "volume": 12130,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517903028
+  },
+  "14296_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 260.8,
+    "high": 262.5,
+    "low": 260.75,
+    "close": 262.4,
+    "volume": 138869,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517906589
+  },
+  "29284_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 841,
+    "high": 847,
+    "low": 836,
+    "close": 837.55,
+    "volume": 4218,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517910152
+  },
+  "3718_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1172,
+    "high": 1175.3,
+    "low": 1168.9,
+    "close": 1174.2,
+    "volume": 23350,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517913711
+  },
+  "2073_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 592,
+    "high": 595.5,
+    "low": 589.3,
+    "close": 591,
+    "volume": 26179,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517917272
+  },
+  "25907_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2580,
+    "high": 2589.7,
+    "low": 2576.6,
+    "close": 2581.2,
+    "volume": 25787,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517920835
+  },
+  "756038_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 847.9,
+    "high": 856.45,
+    "low": 847.9,
+    "close": 854.1,
+    "volume": 6773,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517921287
+  },
+  "20188_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2017,
+    "high": 2031.2,
+    "low": 2006,
+    "close": 2010,
+    "volume": 23199,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517921944
+  },
+  "11821_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2649.2,
+    "high": 2662,
+    "low": 2622.5,
+    "close": 2637,
+    "volume": 204392,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517922393
+  },
+  "11626_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 761.8,
+    "high": 779.7,
+    "low": 757.4,
+    "close": 778.45,
+    "volume": 146348,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517922843
+  },
+  "11253_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 201,
+    "high": 205,
+    "low": 200.61,
+    "close": 200.77,
+    "volume": 525416,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517923291
+  },
+  "11580_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 540.55,
+    "high": 541.8,
+    "low": 539.15,
+    "close": 539.4,
+    "volume": 2079,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517923749
+  },
+  "759434_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 662,
+    "high": 677.4,
+    "low": 659.25,
+    "close": 676,
+    "volume": 18835,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517924198
+  },
+  "18011_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 805.95,
+    "high": 807.95,
+    "low": 803.55,
+    "close": 804.5,
+    "volume": 5391,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517924648
+  },
+  "7506_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1980,
+    "high": 2017.7,
+    "low": 1976.1,
+    "close": 1991.9,
+    "volume": 232303,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517925098
+  },
+  "17738_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 971.5,
+    "high": 978,
+    "low": 963.1,
+    "close": 976.6,
+    "volume": 37775,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517925549
+  },
+  "7508_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1810.8,
+    "high": 1827.3,
+    "low": 1810.3,
+    "close": 1824.1,
+    "volume": 25646,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517929757
+  },
+  "16915_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 2532,
+    "high": 2533.9,
+    "low": 2516,
+    "close": 2521,
+    "volume": 886,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517930209
+  },
+  "7929_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 1146,
+    "high": 1146,
+    "low": 1128,
+    "close": 1128.5,
+    "volume": 40271,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517930657
+  },
+  "17635_FIFTEEN_MINUTE_2026-09-04": {
+    "timestamp": "2026-09-04T09:15:00+05:30",
+    "open": 536.95,
+    "high": 545.5,
+    "low": 530,
+    "close": 544.7,
+    "volume": 23739,
+    "source": "angel_rest_api",
+    "fetchedAt": 1788517931108
+  }
+}

@@ -147,9 +147,40 @@ const serverCandles: Record<string, CandleData[]> = {};
 const serverCurrentCandle: Record<string, CandleData> = {};
 let lastServerBoundary: number = 0;
 
+// 15-MINUTE ORB CONFIGURATION & POLICY SETTINGS
+export const ORB_CONFIG = {
+  // Timing Settings
+  ORB_CANDLE_START: '09:15:00',
+  ORB_CANDLE_END: '09:30:00',
+  ORB_FETCH_DELAY_MS: 5000, // 5 seconds after 09:30:00
+  AUTO_PURGE_TIME: '09:15:00',
+  AUTO_FETCH_TIME: '09:30:05',
+
+  // Storage Settings
+  USE_DATE_SPECIFIC_KEYS: true,
+  ALLOW_GENERIC_FALLBACK: false,
+  AUTO_PURGE_OLD_DATA: true,
+
+  // Fetch Settings
+  BATCH_SIZE: 50,
+  DELAY_BETWEEN_BATCHES_MS: 100, // ms
+  MAX_RETRIES: 3,
+  RETRY_DELAY_MS: 30000 // 30 seconds
+};
+
 export function serverUpdateCandle(token: string, ltp: number, volume: number = 0, timestamp?: number) {
   const now = timestamp || Date.now();
   const currentBoundary = getCandleBoundary(now);
+  const timeSlots = getTimeSlots(now);
+  const start915 = timeSlots[0];
+
+  // STRICT 15-MIN ORB RULE: Skip building 9:15-9:30 candle via WebSocket entirely!
+  // Return early if candle boundary === 09:15 (start915).
+  // Single source of truth is Angel One REST API historical endpoint fetched after finalization (09:30:05 IST).
+  // All other subsequent candles (09:30-09:45, 09:45-10:00, etc.) use WebSocket normally.
+  if (currentBoundary === start915) {
+    return;
+  }
 
   if (!serverCandles[token]) {
     serverCandles[token] = [];
@@ -215,6 +246,47 @@ export const TOP_10_STOCKS_DEFAULT = [
   { sym: 'TATAMOTORS', name: 'Tata Motors Ltd.', token: '3456' }
 ];
 
+// Helper to get exact current IST Date object
+export function getISTDate(): Date {
+  const now = new Date();
+  const utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
+  return new Date(utcMs + (5.5 * 3600000));
+}
+
+// Helper to determine the latest completed or active trading day in YYYY-MM-DD
+export function getLatestTradingDate(): string {
+  const ist = getISTDate();
+  const day = ist.getDay(); // 0 = Sunday, 6 = Saturday, 1..5 = Mon..Fri
+  const hours = ist.getHours();
+  const minutes = ist.getMinutes();
+
+  // If Saturday (6), last trading session was Friday (1 day ago)
+  // If Sunday (0), last trading session was Friday (2 days ago)
+  // If Monday before 09:30:05, last trading session was Friday (3 days ago)
+  // If Tuesday-Friday before 09:30:05, last trading session was yesterday (1 day ago)
+  // If weekday >= 09:30:05, today's 09:15-09:30 candle is finalized and active!
+  let daysToSubtract = 0;
+  const isBeforeCandleReady = (hours < 9) || (hours === 9 && minutes < 30);
+
+  if (day === 6) {
+    daysToSubtract = 1;
+  } else if (day === 0) {
+    daysToSubtract = 2;
+  } else if (isBeforeCandleReady) {
+    if (day === 1) {
+      daysToSubtract = 3;
+    } else {
+      daysToSubtract = 1;
+    }
+  }
+
+  const d = new Date(ist.getTime() - (daysToSubtract * 86400000));
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const dateStr = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${dateStr}`;
+}
+
 // Verified 9:15 Candle Registry - Persistent on disk and in memory
 const VERIFIED_ANGEL_915_FILE = path.join(process.cwd(), 'verified_angel_915_candles.json');
 let verifiedAngel915Registry: Record<string, {
@@ -228,12 +300,63 @@ let verifiedAngel915Registry: Record<string, {
   fetchedAt: number;
 }> = {};
 
-// Initialize registry from disk or defaults
+// Synchronous and guaranteed flush to disk so verified_angel_915_candles.json is always up-to-date
+export function flushVerifiedRegistryToDisk(): boolean {
+  try {
+    fs.writeFileSync(VERIFIED_ANGEL_915_FILE, JSON.stringify(verifiedAngel915Registry, null, 2), 'utf-8');
+    return true;
+  } catch (err) {
+    console.warn('[Verified 9:15] Error writing registry to disk:', err);
+    return false;
+  }
+}
+
+// Purge previous day's candles only when explicitly invoked by user/endpoint
+export function purgeOldWorkingDayCandles(activeDateStr?: string): number {
+  const targetDate = activeDateStr || getLatestTradingDate();
+  let deletedCount = 0;
+  const keys = Object.keys(verifiedAngel915Registry);
+  for (const key of keys) {
+    const record = verifiedAngel915Registry[key];
+    const recordDate = record?.timestamp ? record.timestamp.split('T')[0] : '';
+    
+    // Purge legacy generic keys without a date format
+    const isGenericKey = !key.match(/\d{4}-\d{2}-\d{2}/);
+    if (isGenericKey) {
+      delete verifiedAngel915Registry[key];
+      deletedCount++;
+      continue;
+    }
+
+    // Purge any candle not matching the target working day date
+    if (recordDate && recordDate !== targetDate) {
+      delete verifiedAngel915Registry[key];
+      deletedCount++;
+    } else if (!key.includes(targetDate)) {
+      delete verifiedAngel915Registry[key];
+      deletedCount++;
+    } else if (!record?.timestamp || !record.timestamp.includes(targetDate)) {
+      delete verifiedAngel915Registry[key];
+      deletedCount++;
+    }
+  }
+
+  if (deletedCount > 0) {
+    console.log(`[Manual 9:15 Cleanup] Purged ${deletedCount} old candles. Retaining records for active date ${targetDate}.`);
+    flushVerifiedRegistryToDisk();
+  }
+  return deletedCount;
+}
+
+// Initialize registry from disk on server startup (PRESERVING existing saved candles)
 function initVerifiedAngel915Registry() {
   try {
     if (fs.existsSync(VERIFIED_ANGEL_915_FILE)) {
       const raw = fs.readFileSync(VERIFIED_ANGEL_915_FILE, 'utf-8');
-      verifiedAngel915Registry = JSON.parse(raw);
+      if (raw && raw.trim().length > 2) {
+        verifiedAngel915Registry = JSON.parse(raw);
+        console.log(`[Verified 9:15] Loaded ${Object.keys(verifiedAngel915Registry).length} candles from disk.`);
+      }
     }
   } catch (err) {
     console.warn('[Verified 9:15] Could not load verified registry from disk:', err);
@@ -241,86 +364,61 @@ function initVerifiedAngel915Registry() {
 }
 initVerifiedAngel915Registry();
 
-let diskSaveTimeout: NodeJS.Timeout | null = null;
-function persistVerifiedRegistryToDisk() {
-  if (diskSaveTimeout) clearTimeout(diskSaveTimeout);
-  diskSaveTimeout = setTimeout(() => {
-    try {
-      fs.writeFileSync(VERIFIED_ANGEL_915_FILE, JSON.stringify(verifiedAngel915Registry, null, 2), 'utf-8');
-    } catch (err) {
-      console.warn('[Verified 9:15] Error saving verified registry to disk:', err);
-    }
-  }, 500);
-}
+function saveVerifiedAngelCandle(token: string, interval: string, date: string, candle: any, flushImmediately: boolean = true) {
+  // Pure Standalone REST API Rule: Only genuine Angel One REST API responses can be saved as verified
+  if (!candle || (candle.source !== 'angel_rest_api' && candle.source !== 'real_market_feed')) {
+    return;
+  }
+  // Ensure token matches token from stocks.json
+  const stockObj = NIFTY_TOTAL_CATALOG.find((s: any) => s.token.toString() === token.toString() || (candle.sym && s.sym.toUpperCase() === candle.sym.toUpperCase()));
+  const exactToken = stockObj ? stockObj.token.toString() : token.toString();
 
-function saveVerifiedAngelCandle(token: string, interval: string, date: string, candle: any, flushImmediately: boolean = false) {
-  const specificKey = `${token}_${interval}_${date}`;
-  const genericKey = `${token}_${interval}`;
+  // Date-specific key ({token}_{interval}_{date})
+  const specificKey = `${exactToken}_${interval}_${date}`;
+  const genericKey = `${exactToken}_${interval}`;
   
   const record = {
-    timestamp: candle.timestamp,
+    timestamp: candle.timestamp || `${date}T09:15:00+05:30`,
     open: Number(candle.open),
     high: Number(candle.high),
     low: Number(candle.low),
     close: Number(candle.close),
     volume: Number(candle.volume || 0),
-    source: candle.source || 'angel_rest_api',
+    source: candle.source,
     fetchedAt: Date.now()
   };
 
   verifiedAngel915Registry[specificKey] = record;
-  verifiedAngel915Registry[genericKey] = record;
+  // Strictly remove any generic key to prevent stale fallback
+  if (verifiedAngel915Registry[genericKey]) {
+    delete verifiedAngel915Registry[genericKey];
+  }
 
   // Immediately apply to in-memory dynamic live quotes for Big Players and Matrix
-  if (dynamicLiveQuotes[token]) {
-    dynamicLiveQuotes[token].high915 = record.high;
-    dynamicLiveQuotes[token].low915 = record.low;
-    dynamicLiveQuotes[token].open = record.open;
+  if (dynamicLiveQuotes[exactToken]) {
+    dynamicLiveQuotes[exactToken].high915 = record.high;
+    dynamicLiveQuotes[exactToken].low915 = record.low;
+    dynamicLiveQuotes[exactToken].open = record.open;
   }
 
-  if (flushImmediately) {
-    try {
-      fs.writeFileSync(VERIFIED_ANGEL_915_FILE, JSON.stringify(verifiedAngel915Registry, null, 2), 'utf-8');
-    } catch (err) {
-      console.warn('[Verified 9:15] Error saving verified registry to disk:', err);
-    }
-  } else {
-    persistVerifiedRegistryToDisk();
-  }
+  // Flush to disk immediately so verified_angel_915_candles.json is ALWAYS up-to-date
+  flushVerifiedRegistryToDisk();
 }
 
 function getVerifiedAngelCandle(token: string, interval: string = 'FIFTEEN_MINUTE', date?: string) {
-  const targetDate = date || getISTDate().toISOString().split('T')[0];
+  const targetDate = date || getLatestTradingDate();
   const specificKey = `${token}_${interval}_${targetDate}`;
-  const genericKey = `${token}_${interval}`;
   
-  if (verifiedAngel915Registry[specificKey]) {
-    return verifiedAngel915Registry[specificKey];
-  }
-  if (verifiedAngel915Registry[genericKey]) {
-    return verifiedAngel915Registry[genericKey];
+  const entry = verifiedAngel915Registry[specificKey];
+  if (entry && entry.timestamp && entry.timestamp.startsWith(targetDate)) {
+    return entry;
   }
 
-  // Fallback to stock's authentic baseline quote
-  const q = dynamicLiveQuotes[token];
-  if (q) {
-    const c0 = q.candles && q.candles.length > 0 ? q.candles[0] : null;
-    const openVal = c0 ? c0.o : (q.open || q.ltp || 500);
-    const highVal = c0 ? c0.h : (q.high915 || Number((openVal * 1.004).toFixed(2)));
-    const lowVal = c0 ? c0.l : (q.low915 || Number((openVal * 0.996).toFixed(2)));
-    const closeVal = c0 ? c0.c : Number(((highVal + lowVal) / 2).toFixed(2));
-    const volVal = c0 ? c0.v : Math.max(1500, Math.floor((q.volume || 45000) / 15));
-
-    return {
-      timestamp: `${targetDate}T09:15:00+05:30`,
-      open: Number(openVal.toFixed(2)),
-      high: Number(highVal.toFixed(2)),
-      low: Number(lowVal.toFixed(2)),
-      close: Number(closeVal.toFixed(2)),
-      volume: volVal,
-      source: 'angel_rest_api',
-      fetchedAt: Date.now()
-    };
+  // Check if any verified entry exists for this token matching target date
+  for (const k of Object.keys(verifiedAngel915Registry)) {
+    if (k.startsWith(`${token}_`) && (k.includes(targetDate) || verifiedAngel915Registry[k]?.timestamp?.startsWith(targetDate))) {
+      return verifiedAngel915Registry[k];
+    }
   }
 
   return null;
@@ -328,7 +426,7 @@ function getVerifiedAngelCandle(token: string, interval: string = 'FIFTEEN_MINUT
 
 // Sync all verified candles to dynamic quotes on startup and request
 function syncVerifiedCandlesToDynamicQuotes() {
-  const targetDate = getISTDate().toISOString().split('T')[0];
+  const targetDate = getLatestTradingDate();
   for (const stock of NIFTY_TOTAL_CATALOG) {
     const token = stock.token?.toString();
     const verified = getVerifiedAngelCandle(token, 'FIFTEEN_MINUTE', targetDate);
@@ -353,32 +451,9 @@ function ensureValidQuote(token: string, ltp?: number): DynamicStockQuote {
   if (!quote) {
     const basePrice = ltp && ltp > 0 ? ltp : (verified ? verified.open : (stockObj?.price || 500));
     const prevClose = basePrice;
-    const high915 = verified ? verified.high : Number((basePrice * 1.004).toFixed(2));
-    const low915 = verified ? verified.low : Number((basePrice * 0.996).toFixed(2));
+    const high915 = verified ? verified.high : undefined;
+    const low915 = verified ? verified.low : undefined;
     const openPrice = verified ? verified.open : basePrice;
-    
-    // Deterministically assign realistic initial pullback & breakout times based on token
-    const tokenHash = Array.from(token).reduce((acc, char) => acc + char.charCodeAt(0), 0);
-    const hasPullback = (tokenHash % 3) !== 0;
-    const hasBreakout = (tokenHash % 2) === 0;
-
-    const pbSlotIdx = tokenHash % (CANDLE_TIME_SLOTS.length - 4);
-    const pbSlot = CANDLE_TIME_SLOTS[pbSlotIdx] || '09:45';
-    const pbSec = (tokenHash * 7) % 60;
-    const pbMin = parseInt(pbSlot.split(':')[1]) + ((tokenHash * 3) % 14);
-    const pbHour = pbSlot.split(':')[0];
-    const initialPullbackTime = hasPullback
-      ? `${pbHour}:${pbMin.toString().padStart(2, '0')}:${pbSec.toString().padStart(2, '0')}`
-      : undefined;
-
-    const boSlotIdx = Math.min(CANDLE_TIME_SLOTS.length - 1, pbSlotIdx + 1 + (tokenHash % 4));
-    const boSlot = CANDLE_TIME_SLOTS[boSlotIdx] || '10:30';
-    const boSec = (tokenHash * 11) % 60;
-    const boMin = parseInt(boSlot.split(':')[1]) + ((tokenHash * 5) % 14);
-    const boHour = boSlot.split(':')[0];
-    const initialBreakoutTime = hasBreakout
-      ? `${boHour}:${boMin.toString().padStart(2, '0')}:${boSec.toString().padStart(2, '0')}`
-      : undefined;
 
     const tokenNum = parseInt(token) || 1234;
     const baseVol = 35000 + ((tokenNum * 313) % 450000);
@@ -389,20 +464,20 @@ function ensureValidQuote(token: string, ltp?: number): DynamicStockQuote {
       token,
       prevClose,
       open: openPrice,
-      high: Math.max(high915, basePrice),
-      low: Math.min(low915, basePrice),
+      high: basePrice,
+      low: basePrice,
       ltp: basePrice,
       close: basePrice,
       volume: baseVol,
       chg: 0,
       high915,
       low915,
-      todayHigh: Math.max(high915, basePrice),
-      todayLow: hasPullback ? Number((low915 * 0.996).toFixed(2)) : Math.min(low915, basePrice),
-      pullbackTime: initialPullbackTime,
-      breakoutTime: initialBreakoutTime,
-      pullbackSlot: hasPullback ? pbSlot : undefined,
-      breakoutSlot: hasBreakout ? boSlot : undefined,
+      todayHigh: basePrice,
+      todayLow: basePrice,
+      pullbackTime: undefined,
+      breakoutTime: undefined,
+      pullbackSlot: undefined,
+      breakoutSlot: undefined,
       updatedAt: Date.now()
     };
     dynamicLiveQuotes[token] = quote;
@@ -410,6 +485,14 @@ function ensureValidQuote(token: string, ltp?: number): DynamicStockQuote {
     quote.high915 = verified.high;
     quote.low915 = verified.low;
     quote.open = verified.open;
+  } else {
+    // If not verified for today (e.g. storage cleared or pre-market), do not keep old 9:15 candle values!
+    quote.high915 = undefined;
+    quote.low915 = undefined;
+    quote.pullbackTime = undefined;
+    quote.breakoutTime = undefined;
+    quote.pullbackSlot = undefined;
+    quote.breakoutSlot = undefined;
   }
   return quote;
 }
@@ -422,16 +505,20 @@ function initQuotesCatalog() {
       const realData = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
       for (const [tok, val] of Object.entries(realData)) {
         const stockObj = val as DynamicStockQuote;
-        const verified = getVerifiedAngelCandle(tok, 'FIFTEEN_MINUTE');
+        const targetDate = getISTDate().toISOString().split('T')[0];
+        const verified = getVerifiedAngelCandle(tok, 'FIFTEEN_MINUTE', targetDate);
         if (verified) {
           stockObj.open = verified.open;
           stockObj.high915 = verified.high;
           stockObj.low915 = verified.low;
-        } else if (stockObj.candles && stockObj.candles.length > 0) {
-          const c0 = stockObj.candles[0];
-          stockObj.open = c0.o;
-          stockObj.high915 = c0.h;
-          stockObj.low915 = c0.l;
+        } else {
+          // If no verified Angel candle for today, 9:15 High & Low MUST NOT be loaded from historical candles
+          stockObj.high915 = undefined;
+          stockObj.low915 = undefined;
+          stockObj.pullbackTime = undefined;
+          stockObj.breakoutTime = undefined;
+          stockObj.pullbackSlot = undefined;
+          stockObj.breakoutSlot = undefined;
         }
         dynamicLiveQuotes[tok] = stockObj;
       }
@@ -456,13 +543,14 @@ initQuotesCatalog();
 // Refresh real quotes every 15 minutes in the background
 setInterval(() => {
   fetchRealStockQuotes(NIFTY_TOTAL_CATALOG).then((freshData) => {
+    const targetDate = getISTDate().toISOString().split('T')[0];
     for (const [tok, val] of Object.entries(freshData)) {
-      const verified = getVerifiedAngelCandle(tok, 'FIFTEEN_MINUTE');
+      const verified = getVerifiedAngelCandle(tok, 'FIFTEEN_MINUTE', targetDate);
       if (dynamicLiveQuotes[tok]) {
         dynamicLiveQuotes[tok].prevClose = val.prevClose;
         dynamicLiveQuotes[tok].open = verified ? verified.open : val.open;
-        dynamicLiveQuotes[tok].high915 = verified ? verified.high : val.high915;
-        dynamicLiveQuotes[tok].low915 = verified ? verified.low : val.low915;
+        dynamicLiveQuotes[tok].high915 = verified ? verified.high : undefined;
+        dynamicLiveQuotes[tok].low915 = verified ? verified.low : undefined;
         dynamicLiveQuotes[tok].todayLow = val.todayLow;
         dynamicLiveQuotes[tok].todayHigh = val.todayHigh;
         dynamicLiveQuotes[tok].high = val.high;
@@ -472,6 +560,9 @@ setInterval(() => {
           val.high915 = verified.high;
           val.low915 = verified.low;
           val.open = verified.open;
+        } else {
+          val.high915 = undefined;
+          val.low915 = undefined;
         }
         dynamicLiveQuotes[tok] = val;
       }
@@ -499,16 +590,41 @@ app.get('/api/angel/rest/top10-stocks', (req, res) => {
 
 // Helper to format date string for Angel One REST Historical API
 function getFormattedISTDates(dateStr?: string, interval: string = 'FIFTEEN_MINUTE') {
-  const istNow = getISTDate();
   const targetDate = dateStr && dateStr.match(/^\d{4}-\d{2}-\d{2}$/)
     ? dateStr
-    : istNow.toISOString().split('T')[0];
+    : getLatestTradingDate();
 
   // In Angel One Historical getCandleData, setting todate to 15:30 guarantees the full session candle list is returned
   const fromDate = `${targetDate} 09:15`;
   const toDate = `${targetDate} 15:30`;
 
   return { fromDate, toDate, targetDate };
+}
+
+// Strict timing check: Returns true if market is active on a weekday and the 09:15-09:30 candle is still forming
+export function isOrbCandleForming(targetDate?: string): boolean {
+  const ist = getISTDate();
+  const todayStr = ist.toISOString().split('T')[0];
+  const reqDate = targetDate || todayStr;
+
+  // Past dates or future dates are not the currently forming candle
+  if (reqDate !== todayStr) return false;
+
+  const day = ist.getDay(); // 0 = Sunday, 6 = Saturday
+  if (day === 0 || day === 6) return false; // Weekend
+
+  const hours = ist.getHours();
+  const minutes = ist.getMinutes();
+  const seconds = ist.getSeconds();
+
+  // The 15-minute ORB candle starts at 09:15:00 and finishes at 09:30:00.
+  // With Angel One's 5-second settlement buffer, the candle is officially finalized at 09:30:05 IST.
+  // Between 09:15:00 and 09:30:04, the candle is forming.
+  if (hours === 9 && (minutes >= 15 && (minutes < 30 || (minutes === 30 && seconds < 5)))) {
+    return true;
+  }
+
+  return false;
 }
 
 // Global server-side Angel session cache
@@ -572,10 +688,40 @@ async function getEffectiveAngelAuth(reqBody: any) {
   return { apiKey, jwtToken };
 }
 
+// Endpoint to restore active broker session from client browser localStorage
+app.post('/api/angel/restore-session', (req, res) => {
+  const { apiKey, jwtToken, feedToken, refreshToken, clientId } = req.body || {};
+  if (apiKey || jwtToken) {
+    activeAngelSession = {
+      apiKey: apiKey || activeAngelSession.apiKey,
+      jwtToken: jwtToken || activeAngelSession.jwtToken,
+      feedToken: feedToken || activeAngelSession.feedToken,
+      refreshToken: refreshToken || activeAngelSession.refreshToken,
+      clientId: clientId || activeAngelSession.clientId,
+      authTime: Date.now()
+    };
+    return res.json({ status: true, message: 'Session restored on server', activeSession: { clientId: activeAngelSession.clientId, hasToken: Boolean(activeAngelSession.jwtToken) } });
+  }
+  res.json({ status: false, message: 'No valid session provided' });
+});
+
 // 2. Pure REST API endpoint to fetch 9:15 High & Low for stocks from Angel One REST API
 app.post('/api/angel/rest/fetch-915-batch', async (req, res) => {
   const startTime = Date.now();
-  const { date, interval = 'FIFTEEN_MINUTE', customTokens, all750 = false, forceRefresh = false } = req.body || {};
+  const { date, interval = 'FIFTEEN_MINUTE', customTokens, all750 = false, forceRefresh = false, bypassTimingLock = false } = req.body || {};
+
+  const { fromDate, toDate, targetDate } = getFormattedISTDates(date, interval);
+
+  // Phase 3 Timing Constraint: Prevent fetching between 09:15 and 09:30:05 while candle is forming
+  if (!bypassTimingLock && isOrbCandleForming(targetDate)) {
+    return res.json({
+      status: false,
+      candleForming: true,
+      message: 'The 15-minute ORB candle (09:15-09:30) is currently forming. Angel One REST API will finalize at 09:30:00 with a 5s settlement buffer. REST fetch will unlock automatically at 09:30:05 IST.',
+      targetDate,
+      unlockTime: '09:30:05 IST'
+    });
+  }
 
   const { apiKey, jwtToken } = await getEffectiveAngelAuth(req.body || {});
 
@@ -588,7 +734,6 @@ app.post('/api/angel/rest/fetch-915-batch', async (req, res) => {
     stockList = NIFTY_TOTAL_CATALOG;
   }
 
-  const { fromDate, toDate, targetDate } = getFormattedISTDates(date, interval);
   const authHeader = jwtToken ? (jwtToken.startsWith('Bearer ') ? jwtToken : `Bearer ${jwtToken}`) : null;
 
   const results: any[] = [];
@@ -807,14 +952,26 @@ app.post('/api/angel/rest/fetch-915-batch', async (req, res) => {
 // 3. Single Stock REST 9:15 Candlestick Fetcher
 app.post('/api/angel/rest/fetch-915-single', async (req, res) => {
   const startTime = Date.now();
-  const { token, sym, date, interval = 'FIFTEEN_MINUTE' } = req.body || {};
+  const { token, sym, date, interval = 'FIFTEEN_MINUTE', bypassTimingLock = false } = req.body || {};
 
   if (!token) {
     return res.status(400).json({ status: false, message: 'Missing stock token parameter' });
   }
 
-  const { apiKey, jwtToken } = await getEffectiveAngelAuth(req.body || {});
   const { fromDate, toDate, targetDate } = getFormattedISTDates(date, interval);
+
+  // Phase 3 Timing Constraint: Prevent fetching between 09:15 and 09:30:05 while candle is forming
+  if (!bypassTimingLock && isOrbCandleForming(targetDate)) {
+    return res.json({
+      status: false,
+      candleForming: true,
+      message: 'The 15-minute ORB candle (09:15-09:30) is currently forming. Angel One REST API will finalize at 09:30:00 with a 5s settlement buffer. REST fetch will unlock automatically at 09:30:05 IST.',
+      targetDate,
+      unlockTime: '09:30:05 IST'
+    });
+  }
+
+  const { apiKey, jwtToken } = await getEffectiveAngelAuth(req.body || {});
   const authHeader = jwtToken ? (jwtToken.startsWith('Bearer ') ? jwtToken : `Bearer ${jwtToken}`) : null;
 
   let candleData: any = null;
@@ -1032,8 +1189,8 @@ async function runBatch915SyncWorker(options: {
     all750 = true,
     priceMin = 0,
     priceMax = 999999,
-    batchSize = 5,
-    delayMs = 1000,
+    batchSize = 10,
+    delayMs = 200,
     forceRefresh = false,
     date,
     interval = 'FIFTEEN_MINUTE'
@@ -1089,16 +1246,16 @@ async function runBatch915SyncWorker(options: {
 
   for (let batchIdx = 0; batchIdx < totalBatches; batchIdx++) {
     if (activeBatchSyncStatus.isCancelled || !activeBatchSyncStatus.isRunning) {
-      console.log(`[Batch 9:15 Sync] Job ${jobId} cancelled by user.`);
+      console.log(`[Batch 9:15 Sync] Job ${jobId} cancelled.`);
       activeBatchSyncStatus.isRunning = false;
       activeBatchSyncStatus.finishedTime = Date.now();
+      flushVerifiedRegistryToDisk();
       break;
     }
 
     activeBatchSyncStatus.currentBatch = batchIdx + 1;
     const batchStocks = targetStocks.slice(batchIdx * batchSize, (batchIdx + 1) * batchSize);
 
-    // Process batch items (5 stocks) with small 100ms pacing within the batch
     for (let i = 0; i < batchStocks.length; i++) {
       if (activeBatchSyncStatus.isCancelled) break;
 
@@ -1116,68 +1273,91 @@ async function runBatch915SyncWorker(options: {
 
       const verifiedExisting = getVerifiedAngelCandle(token, interval, targetDate);
 
-      // Check if real Angel One REST call should be made
-      if (apiKey && authHeader && (forceRefresh || !verifiedExisting)) {
-        try {
-          if (i > 0) await delay(100); // 100ms intra-batch spacing
+      // Fast-path: If already verified in registry and not forcing refresh, use instantly without API latency
+      if (!forceRefresh && verifiedExisting) {
+        candleData = { ...verifiedExisting };
+        source = 'angel_rest_api';
+        activeBatchSyncStatus.fromVerifiedCache++;
+        activeBatchSyncStatus.completed++;
+        activeBatchSyncStatus.successful++;
+        activeBatchSyncStatus.percent = Math.floor((activeBatchSyncStatus.completed / total) * 100);
+        if (dynamicLiveQuotes[token]) {
+          dynamicLiveQuotes[token].high915 = candleData.high;
+          dynamicLiveQuotes[token].low915 = candleData.low;
+          dynamicLiveQuotes[token].open = candleData.open;
+        }
+        continue;
+      }
 
-          const angelRes = await axios.post(
-            apiEndpoint,
-            {
-              exchange: 'NSE',
-              symboltoken: token,
-              interval: interval,
-              fromdate: fromDate,
-              todate: toDate
-            },
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'X-UserType': 'USER',
-                'X-SourceID': 'WEB',
-                'X-ClientLocalIP': '127.0.0.1',
-                'X-ClientPublicIP': '127.0.0.1',
-                'X-MACAddress': 'fe80::1',
-                'X-PrivateKey': apiKey,
-                'Authorization': authHeader
+      // Live Angel One REST call
+      if (apiKey && authHeader) {
+        let attempts = 0;
+        const maxAttempts = 2;
+        while (attempts < maxAttempts && !candleData && !activeBatchSyncStatus.isCancelled) {
+          attempts++;
+          try {
+            // Respect Angel One 3 requests/sec limit
+            await delay(attempts > 1 ? 1500 : 334);
+
+            const angelRes = await axios.post(
+              apiEndpoint,
+              {
+                exchange: 'NSE',
+                symboltoken: token,
+                interval: interval,
+                fromdate: fromDate,
+                todate: toDate
               },
-              timeout: 10000
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json',
+                  'X-UserType': 'USER',
+                  'X-SourceID': 'WEB',
+                  'X-ClientLocalIP': '127.0.0.1',
+                  'X-ClientPublicIP': '127.0.0.1',
+                  'X-MACAddress': 'fe80::1',
+                  'X-PrivateKey': apiKey,
+                  'Authorization': authHeader
+                },
+                timeout: 8000
+              }
+            );
+
+            if (angelRes.data?.status && Array.isArray(angelRes.data?.data) && angelRes.data.data.length > 0) {
+              const candle915Row = angelRes.data.data.find((row: any) => {
+                const ts = String(row[0]);
+                return ts.includes('09:15') || ts.includes('09:15:00');
+              }) || angelRes.data.data[0];
+
+              candleData = {
+                timestamp: candle915Row[0],
+                open: Number(candle915Row[1]),
+                high: Number(candle915Row[2]),
+                low: Number(candle915Row[3]),
+                close: Number(candle915Row[4]),
+                volume: Number(candle915Row[5]),
+                source: 'angel_rest_api'
+              };
+              source = 'angel_rest_api';
+              activeBatchSyncStatus.fromAngelApi++;
+              saveVerifiedAngelCandle(token, interval, targetDate, candleData, true);
+              break;
             }
-          );
-
-          if (angelRes.data?.status && Array.isArray(angelRes.data?.data) && angelRes.data.data.length > 0) {
-            const candle915Row = angelRes.data.data.find((row: any) => {
-              const ts = String(row[0]);
-              return ts.includes('09:15') || ts.includes('09:15:00');
-            }) || angelRes.data.data[0];
-
-            candleData = {
-              timestamp: candle915Row[0],
-              open: Number(candle915Row[1]),
-              high: Number(candle915Row[2]),
-              low: Number(candle915Row[3]),
-              close: Number(candle915Row[4]),
-              volume: Number(candle915Row[5]),
-              source: 'angel_rest_api'
-            };
-            source = 'angel_rest_api';
-            activeBatchSyncStatus.fromAngelApi++;
-            saveVerifiedAngelCandle(token, interval, targetDate, candleData, false);
-          }
-        } catch (err: any) {
-          const status = err.response?.status;
-          if (status === 429) {
-            // Rate limit hit - pause with backoff
-            console.warn(`[Batch 9:15 Sync] Rate limit (429) on ${sym} (${token}). Waiting 2500ms...`);
-            await delay(2500);
-          } else {
-            activeBatchSyncStatus.errors.push({
-              token,
-              sym,
-              error: err.response?.data?.message || err.message,
-              time: Date.now()
-            });
+          } catch (err: any) {
+            const status = err.response?.status;
+            if ((status === 429 || status === 403) && attempts < maxAttempts) {
+              console.warn(`[Batch 9:15 Sync] Rate throttle (${status}) on ${sym}. Backing off 1.5s...`);
+              await delay(1500);
+            } else {
+              activeBatchSyncStatus.errors.push({
+                token,
+                sym,
+                error: err.response?.data?.message || err.message,
+                time: Date.now()
+              });
+              break;
+            }
           }
         }
       }
@@ -1217,7 +1397,6 @@ async function runBatch915SyncWorker(options: {
         }
         source = 'market_baseline';
         activeBatchSyncStatus.fromBaseline++;
-        saveVerifiedAngelCandle(token, interval, targetDate, candleData, false);
       }
 
       // Apply to dynamic quote
@@ -1246,6 +1425,9 @@ async function runBatch915SyncWorker(options: {
       }
     }
 
+    // Flush to disk after every batch so the JSON file is guaranteed to have latest data
+    flushVerifiedRegistryToDisk();
+
     // Rate calculation and ETA
     const elapsedSec = (Date.now() - activeBatchSyncStatus.startTime) / 1000;
     activeBatchSyncStatus.rateReqPerSec = elapsedSec > 0 ? Number((activeBatchSyncStatus.completed / elapsedSec).toFixed(2)) : 0;
@@ -1253,7 +1435,7 @@ async function runBatch915SyncWorker(options: {
     activeBatchSyncStatus.etaSeconds = Math.max(0, Math.ceil((remainingBatches * delayMs) / 1000));
     activeBatchSyncStatus.lastUpdateTime = Date.now();
 
-    // Batch pause to respect rate limits (1.0s delay between batches of 5 stocks)
+    // Batch pause between batches
     if (batchIdx < totalBatches - 1 && !activeBatchSyncStatus.isCancelled) {
       await delay(delayMs);
     }
@@ -1263,12 +1445,26 @@ async function runBatch915SyncWorker(options: {
   activeBatchSyncStatus.finishedTime = Date.now();
   activeBatchSyncStatus.currentStock = null;
   activeBatchSyncStatus.percent = 100;
-  persistVerifiedRegistryToDisk();
+  flushVerifiedRegistryToDisk();
   console.log(`[Batch 9:15 Sync] Completed job ${jobId}. Verified ${activeBatchSyncStatus.completed}/${total} stocks.`);
 }
 
 // 4. Batch 9:15 Sync Control Endpoints
 app.post('/api/angel/rest/sync-all-915', (req, res) => {
+  const options = req.body || {};
+  const targetDate = options.date || getISTDate().toISOString().split('T')[0];
+
+  // Phase 3 Timing Constraint: Prevent fetching between 09:15 and 09:30:05 while candle is forming
+  if (!options.bypassTimingLock && isOrbCandleForming(targetDate)) {
+    return res.json({
+      status: false,
+      candleForming: true,
+      message: 'The 15-minute ORB candle (09:15-09:30) is currently forming. Angel One REST API will finalize at 09:30:00 with a 5s settlement buffer. REST fetch will unlock automatically at 09:30:05 IST.',
+      targetDate,
+      unlockTime: '09:30:05 IST'
+    });
+  }
+
   if (activeBatchSyncStatus.isRunning) {
     return res.json({
       status: true,
@@ -1278,7 +1474,6 @@ app.post('/api/angel/rest/sync-all-915', (req, res) => {
     });
   }
 
-  const options = req.body || {};
   // Kick off worker in background non-blocking
   runBatch915SyncWorker(options).catch(err => {
     console.error('[Batch 9:15 Sync Worker Error]', err);
@@ -1315,26 +1510,30 @@ app.all('/api/angel/rest/all-stocks-915', (req, res) => {
 
     // Get verified 9:15 OHLC candle
     const verified = getVerifiedAngelCandle(token, interval, targetDate);
+    const isVerified = Boolean(verified);
 
-    const open915 = verified ? verified.open : (quote.open || quote.ltp || 500);
-    const high915 = verified ? verified.high : (quote.high915 || Number((open915 * 1.004).toFixed(2)));
-    const low915 = verified ? verified.low : (quote.low915 || Number((open915 * 0.996).toFixed(2)));
-    const close915 = verified ? verified.close : Number(((high915 + low915) / 2).toFixed(2));
-    const volume915 = verified ? verified.volume : Math.max(1500, Math.floor((quote.volume || 45000) / 15));
-    const source = verified?.source || 'angel_rest_api';
+    const open915 = verified ? verified.open : null;
+    const high915 = verified ? verified.high : null;
+    const low915 = verified ? verified.low : null;
+    const close915 = verified ? verified.close : null;
+    const volume915 = verified ? verified.volume : null;
+    const source = verified ? verified.source : 'unverified';
     const timestamp = verified?.timestamp || `${targetDate}T09:15:00+05:30`;
 
-    const range = Number((high915 - low915).toFixed(2));
-    const rangePct = low915 > 0 ? Number(((range / low915) * 100).toFixed(2)) : 0;
-    const ltp = Number((quote.ltp || close915).toFixed(2));
-    const prevClose = Number((quote.prevClose || open915).toFixed(2));
+    const range = (high915 !== null && low915 !== null) ? Number((high915 - low915).toFixed(2)) : null;
+    const rangePct = (low915 !== null && low915 > 0 && range !== null) ? Number(((range / low915) * 100).toFixed(2)) : null;
+    const ltp = Number((quote.ltp || quote.open || 500).toFixed(2));
+    const prevClose = Number((quote.prevClose || ltp).toFixed(2));
     const chg = prevClose > 0 ? Number((((ltp - prevClose) / prevClose) * 100).toFixed(2)) : 0;
-    const dayHigh = Number((quote.todayHigh || quote.high || Math.max(high915, ltp)).toFixed(2));
-    const dayLow = Number((quote.todayLow || quote.low || Math.min(low915, ltp)).toFixed(2));
+    const dayHigh = Number((quote.todayHigh || quote.high || ltp).toFixed(2));
+    const dayLow = Number((quote.todayLow || quote.low || ltp).toFixed(2));
 
-    let position = 'INSIDE_RANGE';
-    if (ltp >= high915) position = 'BULLISH_BREAKOUT';
-    else if (ltp <= low915) position = 'BEARISH_BREAKDOWN';
+    let position = 'AWAITING_REST_SYNC';
+    if (isVerified && high915 !== null && low915 !== null) {
+      if (ltp >= high915) position = 'BULLISH_BREAKOUT';
+      else if (ltp <= low915) position = 'BEARISH_BREAKDOWN';
+      else position = 'INSIDE_RANGE';
+    }
 
     return {
       rank: idx + 1,
@@ -1358,6 +1557,7 @@ app.all('/api/angel/rest/all-stocks-915', (req, res) => {
       date: targetDate,
       interval,
       source,
+      isVerified,
       rawCandle: [timestamp, open915, high915, low915, close915, volume915]
     };
   });
@@ -1386,22 +1586,60 @@ app.all('/api/angel/rest/all-stocks-915', (req, res) => {
   });
 });
 
-app.get('/api/angel/rest/sync-status', (req, res) => {
+app.all('/api/angel/rest/sync-status', (req, res) => {
   res.json({
     status: true,
     sync: activeBatchSyncStatus,
-    verifiedCount: Object.keys(verifiedAngel915Registry).length / 2 // Accounts for specific & generic keys
+    verifiedCount: Object.keys(verifiedAngel915Registry).length // Total active verified keys
   });
 });
 
-app.post('/api/angel/rest/cancel-sync', (req, res) => {
+app.all('/api/angel/rest/cancel-sync', (req, res) => {
   activeBatchSyncStatus.isCancelled = true;
   activeBatchSyncStatus.isRunning = false;
   activeBatchSyncStatus.finishedTime = Date.now();
   res.json({ status: true, message: 'Batch sync job cancelled.' });
 });
 
-app.get('/api/angel/rest/verified-summary', (req, res) => {
+app.all('/api/angel/rest/clear-old-days', (req, res) => {
+  const targetDate = req.query.date?.toString() || req.body?.date || getISTDate().toISOString().split('T')[0];
+  const purged = purgeOldWorkingDayCandles(targetDate);
+  res.json({
+    status: true,
+    message: `Purged ${purged} old records from verified 9:15 file. Preserved fresh data for active date ${targetDate}.`,
+    purgedCount: purged,
+    remainingCount: Object.keys(verifiedAngel915Registry).length,
+    activeDate: targetDate
+  });
+});
+
+app.all('/api/angel/rest/clear-all', (req, res) => {
+  const count = Object.keys(verifiedAngel915Registry).length;
+  verifiedAngel915Registry = {};
+  try {
+    fs.writeFileSync(VERIFIED_ANGEL_915_FILE, JSON.stringify({}, null, 2), 'utf-8');
+  } catch (err) {}
+
+  // Also wipe all in-memory dynamic quote 9:15 data and breakout/pullback triggers
+  Object.keys(dynamicLiveQuotes).forEach(tok => {
+    const q = dynamicLiveQuotes[tok];
+    if (q) {
+      q.high915 = undefined;
+      q.low915 = undefined;
+      q.pullbackTime = undefined;
+      q.pullbackSlot = undefined;
+      q.breakoutTime = undefined;
+      q.breakoutSlot = undefined;
+    }
+  });
+
+  res.json({
+    status: true,
+    message: `Cleared all ${count} records from verified 9:15 JSON file and reset in-memory quote registry.`
+  });
+});
+
+app.all('/api/angel/rest/verified-summary', (req, res) => {
   const targetDate = getISTDate().toISOString().split('T')[0];
   const keys = Object.keys(verifiedAngel915Registry);
   const distinctTokens = new Set<string>();
@@ -1411,7 +1649,9 @@ app.get('/api/angel/rest/verified-summary', (req, res) => {
     const parts = k.split('_');
     const tok = parts[0];
     distinctTokens.add(tok);
-    if (k.includes(targetDate)) countToday++;
+    if (k.includes(targetDate) || verifiedAngel915Registry[k]?.timestamp?.includes(targetDate)) {
+      countToday++;
+    }
   }
 
   res.json({
@@ -1421,6 +1661,235 @@ app.get('/api/angel/rest/verified-summary', (req, res) => {
     distinctStocksVerified: distinctTokens.size,
     verifiedToday: countToday,
     storagePath: VERIFIED_ANGEL_915_FILE
+  });
+});
+
+// Directly view or download the full verified 9:15 JSON database file
+app.get('/api/angel/rest/verified-json', (req, res) => {
+  try {
+    if (fs.existsSync(VERIFIED_ANGEL_915_FILE)) {
+      const raw = fs.readFileSync(VERIFIED_ANGEL_915_FILE, 'utf-8');
+      const data = JSON.parse(raw || '{}');
+      return res.json({
+        status: true,
+        count: Object.keys(data).length,
+        candles: data
+      });
+    }
+    return res.json({ status: true, count: 0, candles: {} });
+  } catch (err: any) {
+    return res.status(500).json({ status: false, message: err.message });
+  }
+});
+
+// Real-Time Broker Market Quotes Snapshots via official Angel One REST API
+app.post('/api/angel/rest/market-quotes', async (req, res) => {
+  const { tokens } = req.body || {};
+  const { apiKey, jwtToken } = await getEffectiveAngelAuth(req.body || {});
+  if (!apiKey || !jwtToken) {
+    return res.status(401).json({ status: false, message: 'Angel One credentials required for market quote API' });
+  }
+
+  const tokenList: string[] = Array.isArray(tokens) && tokens.length > 0 
+    ? tokens.map((t: any) => t.toString()) 
+    : NIFTY_TOTAL_CATALOG.slice(0, 50).map((s: any) => s.token.toString());
+
+  try {
+    const authHeader = jwtToken.startsWith('Bearer ') ? jwtToken : `Bearer ${jwtToken}`;
+    // Angel One Market Quote allows up to 50 tokens per request
+    const chunkSize = 50;
+    const updatedQuotes: any[] = [];
+
+    for (let i = 0; i < tokenList.length; i += chunkSize) {
+      const chunk = tokenList.slice(i, i + chunkSize);
+      try {
+        const quoteRes = await axios.post(
+          `${ANGEL_API_BASE}/rest/secure/angelbroking/market/v1/quote`,
+          {
+            mode: 'FULL',
+            exchangeTokens: {
+              NSE: chunk
+            }
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'X-UserType': 'USER',
+              'X-SourceID': 'WEB',
+              'X-ClientLocalIP': '127.0.0.1',
+              'X-ClientPublicIP': '127.0.0.1',
+              'X-MACAddress': 'fe80::1',
+              'X-PrivateKey': apiKey,
+              'Authorization': authHeader
+            },
+            timeout: 6000
+          }
+        );
+
+        if (quoteRes.data?.status && Array.isArray(quoteRes.data?.data?.fetched)) {
+          const fetched = quoteRes.data.data.fetched;
+          for (const item of fetched) {
+            const token = item.symbolToken?.toString();
+            const ltp = Number(item.ltp);
+            if (token && !isNaN(ltp) && ltp > 0) {
+              const quote = ensureValidQuote(token, ltp);
+              quote.ltp = ltp;
+              if (item.open && Number(item.open) > 0) quote.open = Number(item.open);
+              if (item.high && Number(item.high) > 0) quote.todayHigh = Math.max(quote.todayHigh, Number(item.high), ltp);
+              if (item.low && Number(item.low) > 0) quote.todayLow = Math.min(quote.todayLow, Number(item.low), ltp);
+              if (item.close && Number(item.close) > 0) quote.prevClose = Number(item.close);
+              if (item.tradeVolume && Number(item.tradeVolume) > 0) quote.volume = Number(item.tradeVolume);
+              quote.chg = quote.prevClose > 0 ? Number((((ltp - quote.prevClose) / quote.prevClose) * 100).toFixed(2)) : 0;
+              quote.updatedAt = Date.now();
+              updatedQuotes.push({
+                token,
+                sym: quote.sym,
+                ltp: quote.ltp,
+                open: quote.open,
+                todayHigh: quote.todayHigh,
+                todayLow: quote.todayLow,
+                prevClose: quote.prevClose,
+                chg: quote.chg,
+                volume: quote.volume
+              });
+            }
+          }
+        }
+      } catch (chunkErr: any) {
+        console.warn('[Market Quote] Chunk fetch error:', chunkErr.message);
+      }
+    }
+
+    res.json({
+      status: true,
+      count: updatedQuotes.length,
+      quotes: updatedQuotes
+    });
+  } catch (err: any) {
+    res.status(500).json({ status: false, message: err.message });
+  }
+});
+
+// ==================== AUTOMATED 09:15 PURGE & 09:30:05 REST SCHEDULER ====================
+let lastDailyPurgeDate = '';
+let lastAutoSyncDate = '';
+let autoSyncRetriesCount = 0;
+let nextRetryScheduledTime = 0;
+
+let autoSchedulerStatus = {
+  enabled: true,
+  lastRunDate: '',
+  lastRunTime: '',
+  lastPurgeDate: '',
+  lastPurgeTime: '',
+  retriesAttempted: 0,
+  nextCheck: 'Every 5s during market hours (09:15:00 Purge, 09:30:05 REST Sync IST)',
+  config: ORB_CONFIG
+};
+
+function checkAndRunMorningAutoSync() {
+  const ist = getISTDate();
+  const day = ist.getDay(); // 0 = Sunday, 6 = Saturday
+  if (day === 0 || day === 6) return; // Skip weekends: Mon-Fri trading days only
+
+  const hours = ist.getHours();
+  const minutes = ist.getMinutes();
+  const seconds = ist.getSeconds();
+  const todayDateStr = ist.toISOString().split('T')[0];
+
+  // 1. PHASE 3 CHANGE 4: AUTO-PURGE AT 09:15 AM DAILY (Market Open)
+  // Clear previous days at market open (09:15:00 AM) so today starts fresh
+  const isPost915 = (hours === 9 && minutes >= 15) || hours > 9;
+  if (isPost915 && lastDailyPurgeDate !== todayDateStr) {
+    console.log(`[ORB Auto-Purge 09:15 AM] Market Open 09:15:00 IST reached on trading day (${todayDateStr}). Purging old day candles...`);
+    const purged = purgeOldWorkingDayCandles(todayDateStr);
+    lastDailyPurgeDate = todayDateStr;
+    autoSchedulerStatus.lastPurgeDate = todayDateStr;
+    autoSchedulerStatus.lastPurgeTime = ist.toTimeString().split(' ')[0];
+    console.log(`[ORB Auto-Purge 09:15 AM] Purged ${purged} old records. Ready for 09:30:05 REST sync.`);
+  }
+
+  // 2. PHASE 3 CHANGE 5: SCHEDULE REST API FETCH AT 09:30:05 AM IST
+  // 15-minute candle locks at 09:30:00. Wait 5-second buffer (09:30:05) for Angel One to finalize.
+  const isPost93005 = (hours > 9 || (hours === 9 && (minutes > 30 || (minutes === 30 && seconds >= 5)))) && hours < 16;
+  if (!isPost93005) {
+    return; // Candle is still forming or market closed
+  }
+
+  // Avoid re-running if currently running
+  if (activeBatchSyncStatus.isRunning) return;
+
+  // Verify how many stocks already have verified candles for today
+  const keys = Object.keys(verifiedAngel915Registry);
+  const verifiedCountToday = keys.filter(k => k.includes(todayDateStr)).length;
+
+  // If already have 500+ stocks synced for today and sync completed, no need to re-run
+  if (verifiedCountToday >= 500 && lastAutoSyncDate === todayDateStr) {
+    return;
+  }
+
+  // Check retry spacing if a retry was scheduled
+  if (nextRetryScheduledTime > 0 && Date.now() < nextRetryScheduledTime) {
+    return;
+  }
+
+  console.log(`[ORB 09:30:05 REST Scheduler] 09:30:05 IST reached on trading day (${todayDateStr}). Triggering automatic REST batch fetch for finalized 9:15 candles...`);
+  lastAutoSyncDate = todayDateStr;
+  autoSchedulerStatus.lastRunDate = todayDateStr;
+  autoSchedulerStatus.lastRunTime = ist.toTimeString().split(' ')[0];
+
+  runBatch915SyncWorker({
+    all750: true,
+    batchSize: ORB_CONFIG.BATCH_SIZE,
+    delayMs: ORB_CONFIG.DELAY_BETWEEN_BATCHES_MS,
+    forceRefresh: false,
+    date: todayDateStr,
+    interval: 'FIFTEEN_MINUTE'
+  }).then(() => {
+    const updatedKeys = Object.keys(verifiedAngel915Registry);
+    const updatedCount = updatedKeys.filter(k => k.includes(todayDateStr)).length;
+    if (updatedCount < 100 && autoSyncRetriesCount < ORB_CONFIG.MAX_RETRIES) {
+      autoSyncRetriesCount++;
+      autoSchedulerStatus.retriesAttempted = autoSyncRetriesCount;
+      nextRetryScheduledTime = Date.now() + ORB_CONFIG.RETRY_DELAY_MS;
+      console.warn(`[ORB 09:30:05 REST Scheduler] Sync resulted in low verified count (${updatedCount}). Scheduling retry #${autoSyncRetriesCount} in 30 seconds...`);
+    } else {
+      autoSyncRetriesCount = 0;
+      autoSchedulerStatus.retriesAttempted = 0;
+      nextRetryScheduledTime = 0;
+    }
+  }).catch(err => {
+    console.error(`[ORB 09:30:05 REST Scheduler] Auto-sync error:`, err?.message);
+    if (autoSyncRetriesCount < ORB_CONFIG.MAX_RETRIES) {
+      autoSyncRetriesCount++;
+      autoSchedulerStatus.retriesAttempted = autoSyncRetriesCount;
+      nextRetryScheduledTime = Date.now() + ORB_CONFIG.RETRY_DELAY_MS;
+      console.warn(`[ORB 09:30:05 REST Scheduler] Scheduled retry #${autoSyncRetriesCount} in 30 seconds...`);
+    }
+  });
+}
+
+// Check every 5 seconds so 09:30:05 IST trigger is hit with high precision
+setInterval(checkAndRunMorningAutoSync, 5000);
+
+app.get('/api/angel/rest/auto-scheduler-status', (req, res) => {
+  const ist = getISTDate();
+  const hours = ist.getHours();
+  const minutes = ist.getMinutes();
+  const seconds = ist.getSeconds();
+  const isPost93005 = (hours > 9 || (hours === 9 && (minutes > 30 || (minutes === 30 && seconds >= 5)))) && hours < 16;
+  const candleForming = isOrbCandleForming();
+
+  res.json({
+    status: true,
+    scheduler: autoSchedulerStatus,
+    config: ORB_CONFIG,
+    isPost93005,
+    candleForming,
+    istCurrentTime: ist.toTimeString().split(' ')[0],
+    isMarketOpen: (hours === 9 && minutes >= 15) || (hours > 9 && (hours < 15 || (hours === 15 && minutes <= 30))),
+    activeJobRunning: activeBatchSyncStatus.isRunning
   });
 });
 
@@ -1701,6 +2170,18 @@ app.post('/api/login', async (req, res) => {
       }
     );
 
+    if (response.data?.status && response.data?.data?.jwtToken) {
+      activeAngelSession = {
+        apiKey,
+        jwtToken: response.data.data.jwtToken,
+        feedToken: response.data.data.feedToken,
+        refreshToken: response.data.data.refreshToken,
+        clientId,
+        authTime: Date.now()
+      };
+      console.log(`[SmartAPI Login] Active session stored on server for client ${clientId}`);
+    }
+
     res.json(response.data);
   } catch (error: any) {
     console.error('Angel One Login Error:', error.response?.data || error.message);
@@ -1809,11 +2290,6 @@ app.get('/api/scrip-master', async (req, res) => {
 
 // ==================== INDIAN STOCK MARKET TIMING & STATUS (IST) ====================
 // Regular Trading Hours: Mon - Fri, 09:15 to 15:30 IST (Indian Standard Time, UTC + 5:30)
-export function getISTDate(): Date {
-  const now = new Date();
-  const utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
-  return new Date(utcMs + (5.5 * 3600000));
-}
 
 export function getMarketStatus() {
   const ist = getISTDate();
@@ -1888,6 +2364,8 @@ app.get(['/api/strategies/bigplayers', '/api/strategies/bigplayers/refresh'], (r
   const slPct = req.query.sl_pct !== undefined ? parseFloat(req.query.sl_pct as string) : 1;
   const minPrice = req.query.min_price !== undefined ? parseFloat(req.query.min_price as string) : 200;
   const maxPrice = req.query.max_price !== undefined ? parseFloat(req.query.max_price as string) : 4000;
+  const minSize = req.query.min_size !== undefined && req.query.min_size !== '' ? parseFloat(req.query.min_size as string) : null;
+  const maxSize = req.query.max_size !== undefined && req.query.max_size !== '' ? parseFloat(req.query.max_size as string) : null;
   const newLowToggle = req.query.new_low === 'true' || req.query.newlow === 'true';
   const pullbackToggle = req.query.pullback === 'true';
   const breakoutToggle = req.query.breakout === 'true';
@@ -1904,36 +2382,48 @@ app.get(['/api/strategies/bigplayers', '/api/strategies/bigplayers/refresh'], (r
     const quote = ensureValidQuote(token);
     const targetDate = getISTDate().toISOString().split('T')[0];
     const verified = getVerifiedAngelCandle(token, 'FIFTEEN_MINUTE', targetDate);
+    const isVerified = Boolean(verified);
 
     const livePrice = Number(quote.ltp.toFixed(2));
     const liveChg = Number(quote.chg.toFixed(2));
-    const high915 = verified ? Number(verified.high.toFixed(2)) : Number(quote.high915.toFixed(2));
-    const low915 = verified ? Number(verified.low.toFixed(2)) : Number(quote.low915.toFixed(2));
+    const high915 = verified ? Number(verified.high.toFixed(2)) : null;
+    const low915 = verified ? Number(verified.low.toFixed(2)) : null;
+    const open915 = verified ? Number(verified.open.toFixed(2)) : null;
+    const close915 = verified ? Number(verified.close.toFixed(2)) : null;
+    const candleSizePct = (verified && open915 !== null && close915 !== null && open915 > 0)
+      ? Number((((close915 - open915) / open915) * 100).toFixed(2))
+      : null;
+    const candleRangePct = (verified && high915 !== null && low915 !== null && low915 > 0)
+      ? Number((((high915 - low915) / low915) * 100).toFixed(2))
+      : null;
     const todayLow = Number(quote.todayLow.toFixed(2));
     const todayHigh = Number(quote.todayHigh.toFixed(2));
-    const broke915Low = todayLow < low915;
-    const pullbackInside915 = broke915Low && livePrice >= low915 && livePrice <= high915;
+
+    const broke915Low = (isVerified && low915 !== null) ? todayLow < low915 : false;
+    const pullbackInside915 = (isVerified && low915 !== null && high915 !== null)
+      ? (broke915Low && livePrice >= low915 && livePrice <= high915)
+      : false;
     const maxQty = computeMaxQty(budget, parts, livePrice);
     const sl = Number((livePrice * (1 - (slPct / 100))).toFixed(2));
 
-    const isBullishBreakout = livePrice >= high915;
-    const isBearishBreakdown = livePrice <= low915;
+    const isBullishBreakout = (isVerified && high915 !== null) ? livePrice >= high915 : false;
+    const isBearishBreakdown = (isVerified && low915 !== null) ? livePrice <= low915 : false;
 
-    const breakout = isBullishBreakout
-      ? 'Confirmed Bullish Breakout'
-      : (isBearishBreakdown ? 'Bearish Breakdown' : (pullbackInside915 ? 'Pullback Inside 9:15' : 'Consolidating'));
+    const breakout = isVerified
+      ? (isBullishBreakout ? 'Confirmed Bullish Breakout' : (isBearishBreakdown ? 'Bearish Breakdown' : (pullbackInside915 ? 'Pullback Inside 9:15' : 'Consolidating')))
+      : 'Awaiting 9:15 Sync';
 
     // Dynamic runtime update of times if triggered
-    if (pullbackInside915 && !quote.pullbackTime) {
+    if (isVerified && pullbackInside915 && !quote.pullbackTime) {
       quote.pullbackTime = formatTimestampWithMs(quote.updatedAt);
       quote.pullbackSlot = getCandleSlotFromTimestamp(quote.updatedAt);
     }
-    if (isBullishBreakout && !quote.breakoutTime) {
+    if (isVerified && isBullishBreakout && !quote.breakoutTime) {
       quote.breakoutTime = formatTimestampWithMs(quote.updatedAt);
       quote.breakoutSlot = getCandleSlotFromTimestamp(quote.updatedAt);
     }
 
-    const source = verified?.source || 'angel_rest_api';
+    const source = verified ? verified.source : 'unverified';
 
     return {
       Symbol: sym,
@@ -1944,6 +2434,12 @@ app.get(['/api/strategies/bigplayers', '/api/strategies/bigplayers/refresh'], (r
       'CHG%': liveChg,
       '9:15 High': high915,
       '9:15 Low': low915,
+      '9:15 Open': open915,
+      '9:15 Close': close915,
+      '9:15 Size%': candleSizePct,
+      '9:15 Range%': candleRangePct,
+      candle_size_pct: candleSizePct,
+      candle_range_pct: candleRangePct,
       'New Low': broke915Low ? 'Yes' : 'No',
       'Pullback (9:15)': pullbackInside915 ? 'Inside 9:15' : '—',
       'Pullback Time': quote.pullbackTime || '—',
@@ -1954,6 +2450,7 @@ app.get(['/api/strategies/bigplayers', '/api/strategies/bigplayers/refresh'], (r
       SL: sl,
       MaxQty: maxQty,
       Source: source,
+      is_verified: isVerified,
       source_type: 'rest',
       new_low_formed: broke915Low,
       broke_915_low: broke915Low,
@@ -1995,6 +2492,15 @@ app.get(['/api/strategies/bigplayers', '/api/strategies/bigplayers/refresh'], (r
   if (search) {
     filtered = filtered.filter(i => i.Symbol.toUpperCase().includes(search) || i.Name.toUpperCase().includes(search));
   }
+
+  // Filter by 9:15 candle size percentage (upper and lower bounds)
+  if (minSize !== null && !isNaN(minSize)) {
+    filtered = filtered.filter(i => i.candle_size_pct !== null && i.candle_size_pct >= minSize);
+  }
+  if (maxSize !== null && !isNaN(maxSize)) {
+    filtered = filtered.filter(i => i.candle_size_pct !== null && i.candle_size_pct <= maxSize);
+  }
+
   filtered.sort((a, b) => b['CHG%'] - a['CHG%']);
 
   res.json({
@@ -2151,16 +2657,28 @@ app.get('/api/stream-ticks', (req, res) => {
     } catch (e) {}
   }, 100);
 
+  // Effective credentials with automatic fallback to server-cached session
+  const effectiveJwtToken = jwtToken || activeAngelSession.jwtToken || '';
+  const effectiveFeedToken = feedToken || activeAngelSession.feedToken || '';
+  const effectiveApiKey = apiKey || activeAngelSession.apiKey || '';
+  const effectiveClientId = clientId || activeAngelSession.clientId || '';
+
+  const hasLiveAuth = Boolean(effectiveFeedToken && effectiveJwtToken);
+
   let angelWs: WebSocket | null = null;
   let simInterval: NodeJS.Timeout | null = null;
   let heartbeatInterval: NodeJS.Timeout | null = null;
   let marketWatcherInterval: NodeJS.Timeout | null = null;
+  let isClientDisconnected = false;
+  let reconnectTimeout: NodeJS.Timeout | null = null;
+  let isReconnecting = false;
 
-  // Dynamic simulation tick engine spanning all 750 stocks
+  // Dynamic simulation tick engine (active ONLY when NO live broker session is provided)
   let stockRotationIdx = 0;
   const sendDynamicTick = () => {
-    const market = getMarketStatus();
-    // In live mode without credentials or off-hours, stream ticks to keep OHLC alive
+    // If live broker is connected, do NOT override with simulated prices!
+    if (hasLiveAuth && angelWs?.readyState === WebSocket.OPEN) return;
+
     const count = 12;
     for (let c = 0; c < count; c++) {
       stockRotationIdx = (stockRotationIdx + 1) % NIFTY_TOTAL_CATALOG.length;
@@ -2173,7 +2691,6 @@ app.get('/api/stream-ticks', (req, res) => {
       let quote = ensureValidQuote(token);
       const basePrice = quote.ltp;
       
-      // Realistic tick micro-delta between -0.06% and +0.06%
       const delta = (Math.random() - 0.495) * 0.0012 * basePrice;
       const ltp = Math.max(1, Math.round((basePrice + delta) * 100) / 100);
       const volume = Math.floor(Math.random() * 80) + 10;
@@ -2199,7 +2716,6 @@ app.get('/api/stream-ticks', (req, res) => {
         quote.breakoutSlot = getCandleSlotFromTimestamp(now);
       }
 
-      // Update authoritative server-side 15-minute candle
       serverUpdateCandle(token, ltp, volume, now);
 
       const tick = {
@@ -2212,8 +2728,6 @@ app.get('/api/stream-ticks', (req, res) => {
         volume: volume,
         todayHigh: quote.todayHigh,
         todayLow: quote.todayLow,
-        high915: quote.high915,
-        low915: quote.low915,
         pullbackTime: quote.pullbackTime || '—',
         breakoutTime: quote.breakoutTime || '—',
         timestamp: now
@@ -2223,35 +2737,51 @@ app.get('/api/stream-ticks', (req, res) => {
     }
   };
 
-  // If live credentials provided, connect server-side to Angel One SmartStream WebSocket 2.0
-  if (feedToken && mode !== 'sim' && mode !== 'sim_replay') {
+  function scheduleReconnect() {
+    if (isReconnecting || isClientDisconnected || !hasLiveAuth) return;
+    isReconnecting = true;
+    if (reconnectTimeout) clearTimeout(reconnectTimeout);
+    reconnectTimeout = setTimeout(() => {
+      isReconnecting = false;
+      if (!isClientDisconnected && hasLiveAuth) {
+        console.log('[Stream] Attempting reconnection to Angel One SmartStream...');
+        connectAngelWs();
+      }
+    }, 3000);
+  }
+
+  function connectAngelWs() {
+    if (isClientDisconnected || !hasLiveAuth) return;
     try {
-      console.log(`[Stream] Connecting to SmartStream WebSocket 2.0 (${WS_URL_V2}) for client: ${clientId || 'user'}`);
+      const authHeader = effectiveJwtToken.startsWith('Bearer ') ? effectiveJwtToken : `Bearer ${effectiveJwtToken}`;
+      const wsUrl = `${WS_URL_V2}?clientCode=${encodeURIComponent(effectiveClientId)}&feedToken=${encodeURIComponent(effectiveFeedToken)}&apiKey=${encodeURIComponent(effectiveApiKey)}`;
       
-      const authHeader = jwtToken?.startsWith('Bearer ') ? jwtToken : `Bearer ${jwtToken}`;
-      angelWs = new WebSocket(WS_URL_V2, {
+      console.log(`[Stream] Connecting to SmartStream WebSocket 2.0 for client: ${effectiveClientId}`);
+      
+      angelWs = new WebSocket(wsUrl, {
         headers: {
           'Authorization': authHeader,
-          'x-api-key': apiKey || '',
-          'x-client-code': clientId || '',
-          'x-feed-token': feedToken || ''
-        }
+          'x-api-key': effectiveApiKey,
+          'x-client-code': effectiveClientId,
+          'x-feed-token': effectiveFeedToken
+        },
+        handshakeTimeout: 10000
       });
 
       angelWs.on('open', () => {
-        console.log('[Stream] Connected to Angel One SmartStream 2.0');
-        res.write(`data: ${JSON.stringify({ type: 'ws_status', status: 'connected', wsUrl: WS_URL_V2 })}\n\n`);
+        console.log('[Stream] Successfully connected to Angel One SmartStream 2.0');
+        res.write(`data: ${JSON.stringify({ type: 'ws_status', status: 'connected', wsUrl: WS_URL_V2, isLiveBroker: true })}\n\n`);
 
-        // SmartStream 2.0 JSON Subscription Request for ALL 750 stocks in chunks (Mode 2 = Quote Mode with Real-Time Volume)
+        // Subscribe to all 750 tokens in chunks of 150 (Mode 2: Quote Mode with volume & OHLC)
         const allTokens = NIFTY_TOTAL_CATALOG.map((s: any) => s.token);
-        const chunkSize = 200;
+        const chunkSize = 150;
         for (let i = 0; i < allTokens.length; i += chunkSize) {
           const tokenChunk = allTokens.slice(i, i + chunkSize);
           const subPayload = {
             correlationID: `nifty_chunk_${i}`,
             action: 1, // 1 = Subscribe
             params: {
-              mode: 2, // 2 = Quote Mode (contains LTP, Last Traded Volume, Total Traded Volume & OHLC)
+              mode: 2, // 2 = Quote Mode (contains exact LTP, Last Traded Volume, Total Traded Volume & OHLC)
               tokenList: [
                 {
                   exchangeType: 1, // 1 = NSE_CM (NSE Cash/EQ)
@@ -2260,75 +2790,78 @@ app.get('/api/stream-ticks', (req, res) => {
               ]
             }
           };
-          angelWs?.send(JSON.stringify(subPayload));
+          try {
+            angelWs?.send(JSON.stringify(subPayload));
+          } catch (e) {}
         }
-        console.log(`[Stream] Subscribed to all ${allTokens.length} NSE EQ tokens on SmartStream in Quote Mode (Mode 2)`);
+        console.log(`[Stream] Subscribed to ${allTokens.length} NSE tokens on SmartStream in Mode 2`);
 
-        // SmartStream Heartbeat (every 30s)
+        // SmartStream Heartbeat ping every 25 seconds
+        if (heartbeatInterval) clearInterval(heartbeatInterval);
         heartbeatInterval = setInterval(() => {
           if (angelWs?.readyState === WebSocket.OPEN) {
-            angelWs.send(JSON.stringify({ action: 1, params: { mode: 2 } }));
+            try {
+              angelWs.send('ping');
+            } catch (e) {}
           }
-        }, 30000);
+        }, 25000);
       });
 
       angelWs.on('message', (data: Buffer | string) => {
         try {
           if (typeof data === 'string') {
-            const parsed = JSON.parse(data);
-            res.write(`data: ${JSON.stringify({ type: 'angel_msg', data: parsed })}\n\n`);
-          } else if (Buffer.isBuffer(data)) {
+            const trimmed = data.trim();
+            if (trimmed.toLowerCase() === 'pong' || trimmed.toLowerCase() === 'ping') return;
+            try {
+              const parsed = JSON.parse(trimmed);
+              res.write(`data: ${JSON.stringify({ type: 'angel_msg', data: parsed })}\n\n`);
+            } catch (e) {}
+            return;
+          }
+
+          if (Buffer.isBuffer(data)) {
+            // Heartbeat pong check
+            if (data.length <= 8) {
+              const str = data.toString('utf-8').trim();
+              if (str.toLowerCase() === 'pong' || str.toLowerCase() === 'ping') return;
+            }
+
             // Unpack SmartStream 2.0 Binary Format (Little-Endian)
             let offset = 0;
-            while (offset + 51 <= data.length) {
+            while (offset < data.length) {
+              if (offset + 2 > data.length) break;
               const subMode = data.readInt8(offset);
               const exchangeType = data.readInt8(offset + 1);
-              
-              // Token is 25 bytes ASCII string (bytes 2..26)
+
+              let packetLength = 51;
+              if (subMode === 1) packetLength = 51;
+              else if (subMode === 2) packetLength = 123;
+              else if (subMode === 3) packetLength = 227;
+              else if (subMode === 4) packetLength = 379;
+              else {
+                offset++;
+                continue;
+              }
+
+              if (offset + packetLength > data.length) {
+                break;
+              }
+
+              // Token is 25 bytes ASCII (bytes 2..26)
               const token = data.subarray(offset + 2, offset + 27).toString('ascii').replace(/\0/g, '').trim();
-              
-              // Sequence Number (bytes 27..34) & Timestamp (bytes 35..42)
               const seqNum = Number(data.readBigInt64LE(offset + 27));
               const exchTs = Number(data.readBigInt64LE(offset + 35));
-              
-              // LTP is 8-byte int64 in paise (bytes 43..50)
               const ltpPaise = Number(data.readBigInt64LE(offset + 43));
               const ltp = ltpPaise / 100.0;
-              
-              let volume = Math.floor(Math.random() * 80) + 15;
-              let packetLength = 51; // Default LTP mode packet size
+
+              let volume = 15;
               let openPrice: number | undefined = undefined;
               let highPrice: number | undefined = undefined;
               let lowPrice: number | undefined = undefined;
               let closePrice: number | undefined = undefined;
               let totalVolToday: number | undefined = undefined;
 
-              if (subMode === 2 && offset + 123 <= data.length) {
-                // Quote mode (Mode 2 - 123 bytes):
-                // offset 51..58: lastTradedQty (int64)
-                const lastTradedQty = Number(data.readBigInt64LE(offset + 51));
-                // offset 59..66: avgTradedPrice (int64 in paise)
-                const avgTradedPrice = Number(data.readBigInt64LE(offset + 59)) / 100.0;
-                // offset 67..74: volTradedToday (int64)
-                const volTradedToday = Number(data.readBigInt64LE(offset + 67));
-                // offset 91..98: open_price_of_the_day (int64 in paise)
-                const op = Number(data.readBigInt64LE(offset + 91)) / 100.0;
-                // offset 99..106: high_price_of_the_day (int64 in paise)
-                const hp = Number(data.readBigInt64LE(offset + 99)) / 100.0;
-                // offset 107..114: low_price_of_the_day (int64 in paise)
-                const lp = Number(data.readBigInt64LE(offset + 107)) / 100.0;
-                // offset 115..122: closed_price (prev close) (int64 in paise)
-                const cp = Number(data.readBigInt64LE(offset + 115)) / 100.0;
-
-                volume = lastTradedQty > 0 ? lastTradedQty : (Math.floor(Math.random() * 80) + 15);
-                if (op > 0) openPrice = op;
-                if (hp > 0) highPrice = hp;
-                if (lp > 0) lowPrice = lp;
-                if (cp > 0) closePrice = cp;
-                if (volTradedToday > 0) totalVolToday = volTradedToday;
-                packetLength = 123;
-              } else if (subMode === 3 && offset + 227 <= data.length) {
-                // Snap Quote mode (Mode 3 - 227 bytes)
+              if ((subMode === 2 || subMode === 3) && offset + 123 <= data.length) {
                 const lastTradedQty = Number(data.readBigInt64LE(offset + 51));
                 const volTradedToday = Number(data.readBigInt64LE(offset + 67));
                 const op = Number(data.readBigInt64LE(offset + 91)) / 100.0;
@@ -2336,18 +2869,16 @@ app.get('/api/stream-ticks', (req, res) => {
                 const lp = Number(data.readBigInt64LE(offset + 107)) / 100.0;
                 const cp = Number(data.readBigInt64LE(offset + 115)) / 100.0;
 
-                volume = lastTradedQty > 0 ? lastTradedQty : (Math.floor(Math.random() * 80) + 15);
+                if (lastTradedQty > 0) volume = lastTradedQty;
                 if (op > 0) openPrice = op;
                 if (hp > 0) highPrice = hp;
                 if (lp > 0) lowPrice = lp;
                 if (cp > 0) closePrice = cp;
                 if (volTradedToday > 0) totalVolToday = volTradedToday;
-                packetLength = 227;
               }
 
               if (token && !isNaN(ltp) && ltp > 0) {
                 const now = (exchTs > 0 && exchTs > 1000000000000) ? exchTs : Date.now();
-                // Update dynamic quote cache with accurate baseline calibration
                 const quote = ensureValidQuote(token, ltp);
                 quote.ltp = ltp;
                 if (openPrice && openPrice > 0) quote.open = openPrice;
@@ -2385,7 +2916,6 @@ app.get('/api/stream-ticks', (req, res) => {
                   quote.breakoutSlot = getCandleSlotFromTimestamp(now);
                 }
 
-                // Update authoritative server-side 15-minute candle
                 serverUpdateCandle(token, ltp, volume, now);
 
                 res.write(`data: ${JSON.stringify({
@@ -2401,8 +2931,6 @@ app.get('/api/stream-ticks', (req, res) => {
                   chg: quote.chg,
                   volume: volume,
                   totalVolume: quote.volume,
-                  high915: quote.high915,
-                  low915: quote.low915,
                   pullbackTime: quote.pullbackTime || '—',
                   breakoutTime: quote.breakoutTime || '—',
                   timestamp: now
@@ -2413,30 +2941,30 @@ app.get('/api/stream-ticks', (req, res) => {
             }
           }
         } catch (e: any) {
-          console.error('[Stream] Message parse error:', e.message);
+          console.error('[Stream] Packet decode error:', e.message);
         }
       });
 
       angelWs.on('error', (err) => {
         console.warn('[Stream] SmartStream WS warning:', err.message);
-        res.write(`data: ${JSON.stringify({ type: 'ws_warn', message: 'WebSocket connecting/streaming dynamic ticks' })}\n\n`);
-        if (!simInterval) {
-          simInterval = setInterval(sendDynamicTick, 250);
-        }
+        res.write(`data: ${JSON.stringify({ type: 'ws_warn', message: 'SmartStream reconnecting...' })}\n\n`);
+        scheduleReconnect();
       });
 
       angelWs.on('close', (code) => {
-        console.log(`[Stream] SmartStream WS closed (${code}), streaming dynamic ticks`);
-        if (!simInterval) {
-          simInterval = setInterval(sendDynamicTick, 250);
-        }
+        console.log(`[Stream] SmartStream WS closed (${code}). Scheduling reconnect...`);
+        scheduleReconnect();
       });
     } catch (e: any) {
-      console.error('[Stream] Socket initialization error:', e.message);
-      simInterval = setInterval(sendDynamicTick, 250);
+      console.error('[Stream] Socket error:', e.message);
+      scheduleReconnect();
     }
+  }
+
+  // Connect live WebSocket if credentials exist, else fallback to simulated ticks
+  if (hasLiveAuth && mode !== 'sim' && mode !== 'sim_replay') {
+    connectAngelWs();
   } else {
-    // Only run tick updates if market is open or forced sim_replay
     simInterval = setInterval(sendDynamicTick, 250);
   }
 
@@ -2464,11 +2992,20 @@ app.get('/api/stream-ticks', (req, res) => {
   });
 });
 
+// Wildcard 404 for all /api/* requests so they NEVER return HTML error pages or index.html
+app.all('/api/*all', (req, res) => {
+  res.status(404).json({
+    status: false,
+    error: `API endpoint not found: ${req.method} ${req.originalUrl}`,
+    hint: 'Verify endpoint URL or parameters'
+  });
+});
+
 // ==================== VITE SPA SERVING ====================
 async function start() {
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: { middlewareMode: true, hmr: false },
       appType: 'spa',
     });
     app.use(vite.middlewares);
